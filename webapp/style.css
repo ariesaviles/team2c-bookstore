@@ -1,0 +1,227 @@
+﻿/* Define Colors */
+.color--theme {
+  color: #e59285; }
+.color--light {
+  color: #999999; }
+.color--dark {
+  color: #333444; }
+.color--black {
+  color: #000000; }
+.color--white {
+  color: #ffffff; }
+
+/* ------------------- Overall definitions -------- */
+h2 {
+    font-family: Poppins;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+header {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+}
+
+
+/* -------------------- Fonts ------------------ */
+.indexText {
+  font-family: "Roboto", sans-serif;
+}
+
+.row {
+  display:flex;
+  margin-right:-15px;
+  margin-left:-15px;
+}
+
+
+/*----------------------------- nav bar --------------------------*/
+.sticky_header {
+  height: 80px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding-left: 30px;
+  padding-top: 10px;
+  background-color: white;
+}
+.menuItems ul {
+  position: fixed;
+  top: 0;
+  width: 80%;
+  list-style-type: none;
+  margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  overflow: hidden;
+}
+.menuItems li {
+  float: left;
+}
+.menuItems li a {
+  display: block;
+  color: black;
+  text-align: center;
+  font-size: 12pt;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.menuItems li a:hover:not(.active) {
+  background-color: #d5805d;
+  color: white;
+}
+.menuItems li a:hover:not(.drop) {
+  background-color: #d5805d;
+  color: black;
+}
+.menuItems .active {
+  background-color: #d5805d;
+  color: white;
+}
+.menuItems ul ul li {
+    float: none;
+    font-size: 94%;
+    width: 100%
+}
+.menuItems ul ul {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 100%
+}
+.menuItems ul li:hover>ul {
+    display: block;
+}
+
+/*--------------------- index page --------------------------*/
+.indexImage .bigBoy {
+  max-width: 100%;
+  padding-top: 70px;
+}
+.indexText {
+  font-size: 15px;
+  margin: auto;
+  text-align: center;
+}
+.bookImg {
+  width: 30vw;
+}
+.indexBook {
+    padding: 30px;
+}
+
+/* ----------------- login page ------------------ */
+#login fieldset {
+    border-color: RoyalBlue;
+    border-style: solid;
+    width: 400px;
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 135px;
+}
+#login fieldset legend {
+    font-size: 120%;
+    padding-bottom: 10px;
+    color: RoyalBlue;
+}
+#login label {
+    margin-left: 0;
+    float: left;
+    text-align: right;
+    width: 5.7em;
+    font-size: 94%;
+}
+#login input {
+    margin-left: .5em;
+    width: 17em;
+    margin-bottom: 10px;
+}
+#login_submit {
+    margin-left: 95px !important;
+}
+.login_fail {
+    color: red;
+    text-align: center;
+    margin-top: 4px;
+    margin-bottom: 7px;
+    font-size: 90%;
+}
+
+/* ----------------- ---- footer  ---  ------------------ */
+.footerBody {
+  margin: 0px auto;
+  padding-left: 50px;
+  padding-right: 100px;
+  width: 80vw;
+  background-color: #f6f6f6;
+}
+.footerLogoText {
+  padding: 30px 0;
+  text-align: center;
+}
+.footer__content {
+    float: right;
+  padding: 30px 0;
+
+text-align: center;
+}
+
+
+/* ----------------- ---- cart  ---  ------------------ */
+.cartMainBody {
+  padding-top: 100px;
+}
+#cartTable tr {
+    padding: 20px;
+}
+p #cartName {
+    text-align: center;
+}
+.addToCart td, th, tr {
+    margin-left: 40px;
+    margin-right: 40px;
+    padding: 10px;
+    border-bottom: #F0F0F0 1px solid;
+}
+p, #qty {
+    text-align: center;
+    padding-top: -10px;
+}
+.addToCart {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    width: 100%;
+    font-size: 0;
+    text-align: center;
+}
+#cart_square {
+    /* border: red solid 1pt; */
+    width: 70px;
+    height: 70px;
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+}
+#cartImage {
+    margin: auto;
+    max-width: 70px;
+    height: auto;
+    max-height: 70px;
+}
+table {
+    margin: 0 auto;
+}
+table td {
+    border-bottom: #F0F0F0 1px solid;
+}
+strong #total {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+#checkoutButton {
+    margin: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
