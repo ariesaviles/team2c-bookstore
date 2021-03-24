@@ -4,21 +4,21 @@ package com.SpringBootApp.CSCI4050.BookStore.entities;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity(name = "address")
 public class AddressEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String street;
     private String city;
     private String state;
     private int zipCode;
 
-    public AddressEntity(String street, String city, String state, int zipCode) {
-      this.street = street;
-      this.city = city;
-      this.state = state;
-      this.zipCode = zipCode;
-    }
     
     public String getStreet() {
         return street;
@@ -53,7 +53,7 @@ public class AddressEntity {
     }
   
     public String getFullAddress() {
-      String address = street + ", " + city + ", " + State + " " + String.valueOf(zipCode);
+      String address = street + ", " + city + ", " + state + " " + String.valueOf(zipCode);
       return address ;
     }
  

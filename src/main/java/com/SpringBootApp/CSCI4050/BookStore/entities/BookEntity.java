@@ -4,9 +4,17 @@ package com.SpringBootApp.CSCI4050.BookStore.entities;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.util.List;
 
 @Entity(name = "book")
 public class BookEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     private String title;
     private String authors;
@@ -20,19 +28,7 @@ public class BookEntity {
     private String imgLink;
     private int quantity;
 
-    public BookEntity(String title, String authors, int ISBN, List<String> genre, int edition, String publisher, int publishYear, double price, String description, String imgLink) { 
-      this.title = title;
-      this.authors = authors;
-      this.ISBN = ISBN;
-      this.genre = genre;
-      this.edition = edition;
-      this.publisher = publisher;
-      this.publishYear = publishYear;
-      this.price = price;
-      this.description = description;
-      this.imgLink = imgLink;
-      this.quantity = quantity;
-    }
+
     
     public String getTitle() {
         return title;
@@ -50,7 +46,7 @@ public class BookEntity {
         return genre;
     }
 
-    public String getEdition() {
+    public int getEdition() {
         return edition;
     }
 
@@ -70,11 +66,11 @@ public class BookEntity {
       this.price = price;
     }
   
-    public String getDescrip() {
+    public String getDescription() {
         return description;
     }
     
-    public void setDescrip(String description) {
+    public void setDescription(String description) {
       this.description = description; 
     }
   
@@ -83,7 +79,7 @@ public class BookEntity {
     }
     
     public void setImgLink(String imgLink) {
-      this.imgLink = ingLink; 
+      this.imgLink = imgLink;
     }
     
     public int getQuantity() {
