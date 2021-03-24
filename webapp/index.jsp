@@ -17,7 +17,7 @@
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 		<!-- Header -->
-		<jsp:include page="comps/header.jsp"
+		<jsp:include page="comps/header.jsp"/>
 
 		<form:form method="POST" modelAttribute="accountForm">
 			<div class="MyForm form-group">
