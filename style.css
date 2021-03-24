@@ -78,6 +78,20 @@ header {
   background-color: #d5805d;
   color: white;
 }
+.menuItems ul ul li {
+    float: none;
+    font-size: 94%;
+    width: 100%
+}
+.menuItems ul ul {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 100%
+}
+.menuItems ul li:hover>ul {
+    display: block;
+}
 
 /*--------------------- index page --------------------------*/
 .indexImage .bigBoy {
@@ -157,7 +171,7 @@ text-align: center;
 .cartMainBody {
   padding-top: 100px;
 }
-#cartTable tr {  
+#cartTable tr {
     padding: 20px;
 }
 p #cartName {
