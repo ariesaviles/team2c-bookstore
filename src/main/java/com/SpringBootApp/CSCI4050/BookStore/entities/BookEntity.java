@@ -19,7 +19,7 @@ public class BookEntity {
     private String title;
     private String authors;
     private int ISBN;
-    private List<String> genre;
+    private String genre;
     private int edition;
     private String publisher;
     private int publishYear;
@@ -42,7 +42,7 @@ public class BookEntity {
         return ISBN;
     }
 
-    public List<String> getGenre() {
+    public String getGenre() {
         return genre;
     }
 

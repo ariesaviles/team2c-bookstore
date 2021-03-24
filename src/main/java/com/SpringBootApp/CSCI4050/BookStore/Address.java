@@ -1,4 +1,4 @@
-package com.SpringBootApp.CSCI4050.BookStore.entities;
+package com.SpringBootApp.CSCI4050.BookStore;
 
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
