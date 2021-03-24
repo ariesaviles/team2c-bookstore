@@ -1,38 +1,27 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<?php
+	include('database.php');
+	$query = 'SELECT * FROM books';
+	$books = $db->query($query);
+?>
 
-<html>
-<style> <%@ include file="css/style.css"%> </style>
-<meta charset="utf-8">
-
+<!doctype html>
 <head>
-
-	<title>Registration</title>
+	<meta charset="utf-8">
+	<title>Team 2C Books</title>
 
 	<!-- Google font (font-family: 'Roboto', sans-serif; Poppins ; Satisfy) -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,600i,700,700i,800" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
-	<!-- Stylesheets --><!-- main css -->
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="style.css"> <!-- main css -->
 </head>
 <body>
-<%--@elvariable id="accountForm" type=""--%>
+	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 		<!-- Header -->
-		<jsp:include page="comps/header.jsp"/>
-
-		<form:form method="POST" modelAttribute="accountForm">
-			<div class="MyForm form-group">
-			<form:input type="text" class="springInput" id="firstName" placeholder="i.e. Calvin" path="firstName"/>
-			<form:input type="text" class="springInput" id="lastName" placeholder="i.e. Butson" path="lastName"/>
-			<form:input type="text" class="springInput" id="userName" path="userName"/>
-			<form:input type="email" class="springInput" id="email" path="email"/>
-			<form:password class="springInput" id="password" path="password"/>
-
-			<form:button type="submit" class="from-control">Submit</form:button>
-			</div>
-		</form:form>
-
+		<?php include('php_comps/header.php'); ?>
 
     	<!-- Start image -->
         <div class="indexImage">
