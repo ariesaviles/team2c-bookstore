@@ -21,7 +21,7 @@
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 		<!-- Header -->
-		<?php include('header.php'); ?>
+		<?php include('php_comps/header.php'); ?>
 
     	<!-- Start image -->
         <div class="indexImage">
