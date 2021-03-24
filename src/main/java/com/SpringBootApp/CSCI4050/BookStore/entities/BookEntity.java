@@ -20,7 +20,7 @@ public class BookEntity {
     private String imgLink;
     private int quantity;
 
-    public Book(String title, String authors, int ISBN, List<String> genre, int edition, String publisher, int publishYear, double price, String description, String imgLink) { 
+    public BookEntity(String title, String authors, int ISBN, List<String> genre, int edition, String publisher, int publishYear, double price, String description, String imgLink) { 
       this.title = title;
       this.authors = authors;
       this.ISBN = ISBN;
