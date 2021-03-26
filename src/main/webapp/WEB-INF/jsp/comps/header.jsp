@@ -4,7 +4,7 @@
   <div class="nav_bar">
     <div class="row">
       <div class="logo">
-          <a href="index.html">
+          <a href="index">
             <img src="images/logo.png" alt="logo images">
           </a>
         </div>
