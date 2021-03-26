@@ -36,7 +36,7 @@
 
     	<!-- Start image -->
         <div class="indexImage">
-           <a class= "bB" href="home.php"><img class= "bigBoy" src="images/1.jpg" id="logo" alt="SAJ Logo"></a>
+           <a class= "bB" href="home.php"><img class= "bigBoy" src="../../images/1.jpg" id="logo" alt="SAJ Logo"></a>
         </div>
 
 
@@ -56,7 +56,7 @@
 					<div class="indexBook">
 							<div class="bookImg">
 								<a href="single-product.html">
-									<img src="images/8.jpg" alt="product image">
+									<img src="../../images/8.jpg" alt="product image">
 								</a>
 							</div>
 
@@ -81,7 +81,7 @@
 					<div class="indexBook">
 							<div class="bookImg">
 								<a href="single-product.html">
-									<img src="images/8.jpg" alt="product image">
+									<img src="../../images/8.jpg" alt="product image">
 								</a>
 							</div>
 
@@ -106,7 +106,7 @@
 					<div class="indexBook">
 							<div class="bookImg">
 								<a href="single-product.html">
-									<img src="images/8.jpg" alt="product image">
+									<img src="../../images/8.jpg" alt="product image">
 								</a>
 							</div>
 
@@ -157,7 +157,7 @@
 					<div class="indexBook">
 							<div class="bookImg">
 								<a href="single-product.html">
-									<img src="images/8.jpg" alt="product image">
+									<img src="../../images/8.jpg" alt="product image">
 								</a>
 							</div>
 
@@ -182,7 +182,7 @@
 					<div class="indexBook">
 							<div class="bookImg">
 								<a href="single-product.html">
-									<img src="images/8.jpg" alt="product image">
+									<img src="../../images/8.jpg" alt="product image">
 								</a>
 							</div>
 
@@ -207,7 +207,7 @@
 					<div class="indexBook">
 							<div class="bookImg">
 								<a href="single-product.html">
-									<img src="images/8.jpg" alt="product image">
+									<img src="../../images/8.jpg" alt="product image">
 								</a>
 							</div>
 
@@ -233,19 +233,9 @@
 		</section>
 
 
-	    	<!-- Footer --->
-		<div class="footerBody">
-			<div class="footerLogoText">
-				<a href="index.html">
-					<img src="images/footer.png" alt="logo">
-				</a>
-				<p id="footerP">There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages</p>
-			</div>
-		</div>
-		<!-- //Footer Area -->
+		<!-- Footer --->
+		<jsp:include page="comps/footer.jsp"/>
 
-
-		<!-- END QUICKVIEW PRODUCT -->
 	</div>
 
 </body>
