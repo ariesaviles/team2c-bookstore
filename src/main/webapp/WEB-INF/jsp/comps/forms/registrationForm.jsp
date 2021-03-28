@@ -6,7 +6,7 @@
 
 <%--@elvariable id="accountForm" type=""--%>
 <form:form method="POST" modelAttribute="accountForm">
-    <div class="MyForm form-group" style="padding-top: 20px;">
+    <div class="MyForm form-group" style="padding-top: 30px;">
         <form:label path="firstName">First Name:</form:label>
         <form:input type="text" class="springInput" id="firstName" placeholder="i.e. Calvin" path="firstName"/>
         <form:label path="lastName">Last Name:</form:label>
