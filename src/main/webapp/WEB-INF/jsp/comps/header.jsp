@@ -4,7 +4,7 @@
   <div class="nav_bar">
     <div class="row">
       <div class="logo">
-          <a href='/..'>
+          <a href='index'>
             <img src="images/logo.png" alt="logo images">
           </a>
         </div>
@@ -13,7 +13,7 @@
       <div class="menuItems">
 
           <ul class="navUl">
-            <li ><a class="drop" href='/..'>Home</a></li>
+            <li ><a class="drop" href='index'>Home</a></li>
               <li ><a class="drop" href="shop-grid.html"><b>Shop</b></a></li>
             <li ><a class="drop" href="about.html">About</a></li>
             <li><a class="drop" href="contact.html">Contact</a></li>
