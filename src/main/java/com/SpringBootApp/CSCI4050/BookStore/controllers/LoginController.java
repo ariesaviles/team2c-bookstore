@@ -30,9 +30,9 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public Object submitLoginIn(@ModelAttribute("login") UserAccountEntity accountForm, Model model) {
-
-        UserAccountEntity accountInstance = accountRepo.findByEmail(accountForm.getEmail().toLowerCase());
+    public Object submitLoginIn(@ModelAttribute("loginForm") UserAccountEntity accountForm, Model model) {
+        UserAccountEntity accountInstance = accountRepo.findByEmail("andino.rochon@gmail.com");
+        //UserAccountEntity accountInstance = accountRepo.findByEmail(accountForm.getEmail().toLowerCase());
         //password un-encrypt
         if (accountInstance == null || !(accountInstance.getPassword().matches(accountForm.getPassword()))) {
             System.out.println("Email / Password does not exist");
@@ -42,6 +42,7 @@ public class LoginController {
         if (!(accountInstance == null || !(accountInstance.getPassword().matches(accountForm.getPassword())))) {
             System.out.println("The email exists");
             return "login";
+
         }
         return null;
     }

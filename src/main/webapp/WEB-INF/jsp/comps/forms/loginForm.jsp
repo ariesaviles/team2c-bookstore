@@ -8,7 +8,7 @@
 <form:form method="POST" modelAttribute="loginForm">
     <div class="MyForm form-group" style="padding-top: 90px;">
         <form:label path="email">E-mail:</form:label>
-        <form:input type="text" class="springInput" id="userName" path="userName"/>
+        <form:input type="text" class="springInput" id="email" path="email"/>
         <form:label path="password">Password:</form:label>
         <form:password class="springInput" id="password" path="password"/>
 
