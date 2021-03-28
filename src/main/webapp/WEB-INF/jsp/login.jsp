@@ -21,7 +21,7 @@
         <jsp:include page="comps/forms/loginForm.jsp"/>
     </div>
 
-    <p>Are you a new user? <a href="registration.php" id="contact_link">Click here to register.</a> </p>
+    <p>Are you a new user? <a href='registration' id="contact_link">Click here to register.</a> </p>
 
     <!-- Footer --->
     <jsp:include page="comps/footer.jsp"/>

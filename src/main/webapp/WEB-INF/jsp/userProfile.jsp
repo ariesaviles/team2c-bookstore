@@ -27,7 +27,7 @@
               <div class="cardLight">
                 <div class="cardDark">
                     <h>First </h>
-                    <h class="color--theme" style="margin-top: -50px;"> Name</h>
+                    <h class="color--theme" style="margin-top: -50px;"> Last</h>
                 </div>
                 <p>Username: username420</p>
                 <p>E-mail: username420@lmao.com</p>
