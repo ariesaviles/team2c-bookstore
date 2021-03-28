@@ -33,7 +33,7 @@ public class LoginController {
     public Object submitLoginIn(@ModelAttribute("login") UserAccountEntity accountForm, Model model) {
 
         UserAccountEntity accountInstance = accountRepo.findByEmail(accountForm.getEmail().toLowerCase());
-
+        //password un-encrypt
         if (accountInstance == null || !(accountInstance.getPassword().matches(accountForm.getPassword()))) {
             System.out.println("Email / Password does not exist");
             System.out.println(accountInstance);
