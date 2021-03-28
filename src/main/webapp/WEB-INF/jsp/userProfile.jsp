@@ -1,4 +1,12 @@
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html"%>
+
+<security:authorize access="isAuthenticated()">
+    <sec:authentication property="principal.username" var="username" />
+</security:authorize>
+<security:authorize access="!isAuthenticated()">
+    <sec:authentication property="principal" var="username" />
+</security:authorize>
 
 <!doctype html>
 <head>
@@ -29,7 +37,7 @@
                     <h>First </h>
                     <h class="color--theme" style="margin-top: -50px;"> Last</h>
                 </div>
-                <p>Username: username420</p>
+                <p>Username: ${username}</p>
                 <p>E-mail: username420@lmao.com</p>
                 <p>Birthdate: 04/20/2021</p>
                 <button class="editButton">Edit Info</button>
