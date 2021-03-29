@@ -42,6 +42,7 @@ public class RegistrationController {
         }
         accountForm.setFirstName(accountForm.getFirstName());
         accountForm.setEmail(accountForm.getEmail().toLowerCase());
+        //encrypt password here before calling set password
         accountForm.setPassword(accountForm.getPassword());
         accountForm.setUserName(accountForm.getUserName());
         accountForm.setLastName(accountForm.getLastName());

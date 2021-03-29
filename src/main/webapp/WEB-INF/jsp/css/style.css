@@ -53,7 +53,7 @@ header {
   margin: 0;
     padding-top: 20px;
     padding-bottom: 20px;
-  overflow: hidden;
+
 }
 .menuItems li {
   float: left;
@@ -74,24 +74,38 @@ header {
   background-color: #d5805d;
   color: black;
 }
-.menuItems .active {
+.menuItems .active, .dd-btn {
   background-color: #d5805d;
   color: white;
 }
-.menuItems ul ul li {
-    float: none;
-    font-size: 94%;
-    width: 100%
+.dd-btn {
+    cursor: pointer;
+    background-color: #d5805d;
+    color: white;
+    border: none;
 }
-.menuItems ul ul {
+#dd {
+    position: relative;
+    display: inline-block;
+}
+.dd-content {
     display: none;
     position: absolute;
-    background-color: white;
-    width: 100%
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 5;
 }
-.menuItems ul li:hover>ul {
+.dd-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
     display: block;
 }
+.dd-content a:hover {background-color: #f1f1f1;}
+#dd:hover .dd-content { display: block; }
+
 
 /*--------------------- index page --------------------------*/
 .indexImage .bigBoy {
@@ -108,6 +122,9 @@ header {
 }
 .indexBook {
     padding: 30px;
+}
+.bigBoy {
+    z-index: 1;
 }
 
 /* ----------------- login page ------------------ */

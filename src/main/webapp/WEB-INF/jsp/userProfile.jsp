@@ -19,7 +19,7 @@
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 		<!-- Header -->
-        <jsp:include page="comps/header.jsp"/>
+        <jsp:include page="components/header.jsp"/>
 
         <div class="mainBody">
           <div class="row">
@@ -42,32 +42,21 @@
               <p>Previously Ordered Books</p>
               <hr class="solid">
               <div class="orderHistory">
-              <table class="cartTable">
-                  <tbody>
-                    <tr>
-                      <td></td>
+                    <table class="cartTable">
+                        <tbody>
+                          <div class="addToCart">
+                                <tr>
+                                  <td>
+                                    <div id="cart_square">
+                                      <img src="images/8.jpg" id="cartImage"/>
+                                    </div>
+                                  </td>
+                                  <td class="prodName">Test Name</td>
+                                </tr>
+                          </div>
+                        </tbody>
+                    </table>
 
-                      <td></td>
-                    </tr>
-
-                      <div class="addToCart">
-
-                            <tr>
-                              <td>
-                                <div id="cart_square">
-                                  <img src="images/8.jpg" id="cartImage"/>
-                                </div>
-                              </td>
-                              <td class="prodName">Test Name</td>
-
-                              <td>
-                                <p></p>
-                              </td>
-                            </tr>
-                      </div>
-
-                  </tbody>
-                </table>
               </div>
 
 
@@ -85,7 +74,7 @@
         </div>
 
         <!-- Footer --->
-        <jsp:include page="comps/footer.jsp"/>
+        <jsp:include page="components/footer.jsp"/>
 
 
 		<!-- END QUICKVIEW PRODUCT -->

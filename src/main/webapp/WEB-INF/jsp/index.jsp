@@ -20,11 +20,11 @@
 <%--@elvariable id="accountForm" type=""--%>
 	<div class="wrapper" id="wrapper">
 		<!-- Header -->
-		<jsp:include page="comps/header.jsp"/>
+		<jsp:include page="components/header.jsp"/>
 
     	<!-- Start image -->
         <div class="indexImage">
-           <a class= "bB" href="home.php"><img class= "bigBoy" src="../../images/1.jpg" id="logo" alt="SAJ Logo"></a>
+           <img class= "bigBoy" src="../../images/1.jpg" id="logo" alt="SAJ Logo">
         </div>
 
 
@@ -222,7 +222,7 @@
 
 
 		<!-- Footer --->
-		<jsp:include page="comps/footer.jsp"/>
+		<jsp:include page="components/footer.jsp"/>
 
 	</div>
 

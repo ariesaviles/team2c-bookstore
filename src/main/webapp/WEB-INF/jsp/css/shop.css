@@ -1,0 +1,71 @@
+.row {
+    display: flex;
+}
+
+.columnL {
+    flex: 0.25;
+}
+.columnR {
+    flex: 0.75;
+}
+
+.mainBody {
+    padding-top: 100px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 50px;
+}
+
+/* -------------------------- left column -------- */
+.cardDark {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+.cardLight {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    background-color: #fff;
+    text-align: center;
+}
+
+
+.cardDark h {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 30pt;
+    text-transform: uppercase;
+}
+
+.cardLight p {
+    font-family: "Roboto";
+    margin: 2px;
+    padding: 9px;
+}
+.cardLight .category {
+    text-align: left;
+}
+.editButton {
+    background-color: #ddd;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+hr.solid {
+    border-top: 3px solid #bbb;
+}
+hr.dashed {
+    border-top: 1px dashed #bbb;
+}
+
+/* ---------------------------- order history --------------------- */
+.orderHistory {
+}
