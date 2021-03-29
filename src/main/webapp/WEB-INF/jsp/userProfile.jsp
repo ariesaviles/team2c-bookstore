@@ -19,7 +19,7 @@
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 		<!-- Header -->
-        <jsp:include page="comps/header.jsp"/>
+        <jsp:include page="components/header.jsp"/>
 
         <div class="mainBody">
           <div class="row">
@@ -74,7 +74,7 @@
         </div>
 
         <!-- Footer --->
-        <jsp:include page="comps/footer.jsp"/>
+        <jsp:include page="components/footer.jsp"/>
 
 
 		<!-- END QUICKVIEW PRODUCT -->
