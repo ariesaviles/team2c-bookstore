@@ -49,7 +49,7 @@
                 <a class='dd-btn active' href='login'>Login</a>
                 <div class='dd-content'>
                     <a href='userProfile'>Profile</a>
-                    <a href='${pageContext.request.contextPath}/jsp/figma/admin_page.html'>Admin Panel</a>
+                    <a href='admin_page.html'>Admin Panel</a>
                     <a href='logout.php'>Logout</a>
                 </div>
 
