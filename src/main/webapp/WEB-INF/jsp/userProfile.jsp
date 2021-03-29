@@ -42,32 +42,21 @@
               <p>Previously Ordered Books</p>
               <hr class="solid">
               <div class="orderHistory">
-              <table class="cartTable">
-                  <tbody>
-                    <tr>
-                      <td></td>
+                    <table class="cartTable">
+                        <tbody>
+                          <div class="addToCart">
+                                <tr>
+                                  <td>
+                                    <div id="cart_square">
+                                      <img src="images/8.jpg" id="cartImage"/>
+                                    </div>
+                                  </td>
+                                  <td class="prodName">Test Name</td>
+                                </tr>
+                          </div>
+                        </tbody>
+                    </table>
 
-                      <td></td>
-                    </tr>
-
-                      <div class="addToCart">
-
-                            <tr>
-                              <td>
-                                <div id="cart_square">
-                                  <img src="images/8.jpg" id="cartImage"/>
-                                </div>
-                              </td>
-                              <td class="prodName">Test Name</td>
-
-                              <td>
-                                <p></p>
-                              </td>
-                            </tr>
-                      </div>
-
-                  </tbody>
-                </table>
               </div>
 
 
