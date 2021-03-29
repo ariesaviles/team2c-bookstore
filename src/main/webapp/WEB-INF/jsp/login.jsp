@@ -15,16 +15,16 @@
 <!-- Main wrapper -->
 <div class="wrapper" id="wrapper">
     <!-- Header -->
-    <jsp:include page="comps/header.jsp"/>
+    <jsp:include page="components/header.jsp"/>
 
     <div id="register" style="padding-top: 100px;">
-        <jsp:include page="comps/forms/loginForm.jsp"/>
+        <jsp:include page="components/forms/loginForm.jsp"/>
     </div>
 
     <p>Are you a new user? <a href='registration' id="contact_link">Click here to register.</a> </p>
 
     <!-- Footer --->
-    <jsp:include page="comps/footer.jsp"/>
+    <jsp:include page="components/footer.jsp"/>
 </div>
 <!-- //Main wrapper -->
 </body>

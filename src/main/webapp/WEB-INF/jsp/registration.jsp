@@ -15,14 +15,14 @@
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 		<!-- Header -->
-		<jsp:include page="comps/header.jsp"/>
+		<jsp:include page="components/header.jsp"/>
 
     	<div id="register" style="padding-top: 100px;">
-			<jsp:include page="comps/forms/registrationForm.jsp"/>
+			<jsp:include page="components/forms/registrationForm.jsp"/>
     	</div>
 
 		<!-- Footer --->
-		<jsp:include page="comps/footer.jsp"/>
+		<jsp:include page="components/footer.jsp"/>
 	</div>
 	<!-- //Main wrapper -->
 </body>
