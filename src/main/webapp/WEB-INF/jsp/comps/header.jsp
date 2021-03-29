@@ -1,33 +1,5 @@
 <%@ page language="java" contentType="text/html"%>
-<style>
-    .dd-btn {
-        cursor: pointer;
-        background-color: #d5805d;
-        color: white;
-        border: none;
-    }
-    .dd {
-        position: relative;
-        display: inline-block;
-    }
-    .dd-content {
-        display: none;
-        position: absolute;
-        right: 0;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 2;
-    }
-    .dd-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-    .dd-content a:hover {background-color: #f1f1f1;}
-    .dd:hover .dd-content { display: block; }
-</style>
+
 <header id="wn__header" class="sticky_header header_bar">
   <div class="nav_bar">
     <div class="row">
