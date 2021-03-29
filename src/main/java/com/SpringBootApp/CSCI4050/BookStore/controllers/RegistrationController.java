@@ -49,7 +49,7 @@ public class RegistrationController {
 
         accountRepository.save(accountForm);
 
-        return "registration";
+        return "redirect:/login";
     }
 
 }
