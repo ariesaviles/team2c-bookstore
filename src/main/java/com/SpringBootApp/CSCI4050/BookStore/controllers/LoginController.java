@@ -41,7 +41,7 @@ public class LoginController {
         }
         if (!(accountInstance == null || !(accountInstance.getPassword().matches(accountForm.getPassword())))) {
             System.out.println("The email exists");
-            return "login";
+            return "redirect:/index";
 
         }
         return null;
