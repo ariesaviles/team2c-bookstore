@@ -3,22 +3,29 @@ package com.SpringBootApp.CSCI4050.BookStore.entities;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "user")
 public class UserAccountEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long IDuser;
 
+    @Column(name = "username")
     private String userName;
+
     private String password;
+
+    @Column(name = "firstname")
     private String firstName;
+
+    @Column(name = "lastname")
     private String lastName;
+
+    @Column(name="isadmin")
+    private boolean isAdmin;
+
     private String email;
 
     public String getUserName() {
@@ -52,6 +59,10 @@ public class UserAccountEntity {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    public boolean isAdmin() {return isAdmin;}
+
+    public void setAdmin(boolean isAdmin) {this.isAdmin = isAdmin;}
 
     public String getEmail() {
         return email;
