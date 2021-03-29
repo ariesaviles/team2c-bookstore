@@ -24,7 +24,7 @@
 
     	<!-- Start image -->
         <div class="indexImage">
-           <a class= "bB" href="home.php"><img class= "bigBoy" src="../../images/1.jpg" id="logo" alt="SAJ Logo"></a>
+           <img class= "bigBoy" src="../../images/1.jpg" id="logo" alt="SAJ Logo">
         </div>
 
 
