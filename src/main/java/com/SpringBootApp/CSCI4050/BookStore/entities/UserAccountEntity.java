@@ -15,6 +15,7 @@ public class UserAccountEntity {
     @Column(name = "username")
     private String userName;
 
+    @Column(name = "password")
     private String password;
 
     @Column(name = "firstname")
@@ -26,6 +27,7 @@ public class UserAccountEntity {
     @Column(name="isadmin")
     private boolean isAdmin;
 
+    @Column(name = "email")
     private String email;
 
     public String getUserName() {
