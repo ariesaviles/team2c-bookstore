@@ -19,7 +19,6 @@ import javax.sql.DataSource;
 
 
 @Configuration
-@PreAuthorize("user")
 @EnableWebSecurity
 public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
 
