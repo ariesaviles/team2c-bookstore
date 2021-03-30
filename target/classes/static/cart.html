@@ -1,0 +1,380 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <title>Team 2C Books</title>
+
+    <!-- Google font (font-family: 'Roboto', sans-serif; Poppins ; Satisfy) -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,600i,700,700i,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"> 
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css"> <!-- main css -->
+    <style>/* Define Colors */
+    .color--theme {
+        color: #e59285; }
+    .color--light {
+        color: #999999; }
+    .color--dark {
+        color: #333444; }
+    .color--black {
+        color: #000000; }
+    .color--white {
+        color: #ffffff; }
+
+    /* ------------------- Overall definitions -------- */
+    h2 {
+        font-family: Poppins;
+        font-size: 25px;
+        text-transform: uppercase;
+    }
+    header {
+        font-family: "Roboto", sans-serif;
+        text-transform: uppercase;
+    }
+
+
+    /* -------------------- Fonts ------------------ */
+    .indexText {
+        font-family: "Roboto", sans-serif;
+    }
+
+    .row {
+        display:flex;
+        margin-right:-15px;
+        margin-left:-15px;
+    }
+
+
+    /*----------------------------- nav bar --------------------------*/
+    .sticky_header {
+        height: 80px;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding-left: 30px;
+        padding-top: 10px;
+        background-color: white;
+    }
+    .menuItems ul {
+        position: fixed;
+        top: 0;
+        width: 80%;
+        list-style-type: none;
+        margin: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+    }
+    .menuItems li {
+        float: left;
+    }
+    .menuItems li a {
+        display: block;
+        color: black;
+        text-align: center;
+        font-size: 12pt;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    .menuItems li a:hover:not(.active) {
+        background-color: #d5805d;
+        color: white;
+    }
+    .menuItems li a:hover:not(.drop) {
+        background-color: #d5805d;
+        color: black;
+    }
+    .menuItems .active, .dd-btn {
+        background-color: #d5805d;
+        color: white;
+    }
+    .dd-btn {
+        cursor: pointer;
+        background-color: #d5805d;
+        color: white;
+        border: none;
+    }
+    #dd {
+        position: relative;
+        display: inline-block;
+    }
+    .dd-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 5;
+    }
+    .dd-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    .dd-content a:hover {background-color: #f1f1f1;}
+    #dd:hover .dd-content { display: block; }
+
+
+    /*--------------------- index page --------------------------*/
+    .indexImage .bigBoy {
+        max-width: 100%;
+        padding-top: 70px;
+    }
+    .indexText {
+        font-size: 15px;
+        margin: auto;
+        text-align: center;
+    }
+    .bookImg {
+        width: 30vw;
+    }
+    .indexBook {
+        padding: 30px;
+    }
+    .bigBoy {
+        z-index: 1;
+    }
+
+    /* ----------------- login page ------------------ */
+    #login fieldset {
+        border-color: RoyalBlue;
+        border-style: solid;
+        width: 400px;
+        margin: auto;
+        margin-top: 70px;
+        margin-bottom: 135px;
+    }
+    #login fieldset legend {
+        font-size: 120%;
+        padding-bottom: 10px;
+        color: RoyalBlue;
+    }
+    #login label {
+        margin-left: 0;
+        float: left;
+        text-align: right;
+        width: 5.7em;
+        font-size: 94%;
+    }
+    #login input {
+        margin-left: .5em;
+        width: 17em;
+        margin-bottom: 10px;
+    }
+    #login_submit {
+        margin-left: 95px !important;
+    }
+    .login_fail {
+        color: red;
+        text-align: center;
+        margin-top: 4px;
+        margin-bottom: 7px;
+        font-size: 90%;
+    }
+
+    /* ----------------- ---- footer  ---  ------------------ */
+    .footerBody {
+        margin: 0px auto;
+        padding-left: 50px;
+        padding-right: 100px;
+        width: 80vw;
+        background-color: #f6f6f6;
+    }
+    .footerLogoText {
+        padding: 30px 0;
+        text-align: center;
+    }
+    .footer__content {
+        float: right;
+        padding: 30px 0;
+
+        text-align: center;
+    }
+
+
+    /* ----------------- ---- cart  ---  ------------------ */
+    .cartMainBody {
+        padding-top: 100px;
+    }
+    #cartTable tr {
+        padding: 20px;
+    }
+    p #cartName {
+        text-align: center;
+    }
+    .addToCart td, th, tr {
+        margin-left: 40px;
+        margin-right: 40px;
+        padding: 10px;
+        border-bottom: #F0F0F0 1px solid;
+    }
+    p, #qty {
+        text-align: center;
+        padding-top: -10px;
+    }
+    .addToCart {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 25px;
+        width: 100%;
+        font-size: 0;
+        text-align: center;
+    }
+    #cart_square {
+        /* border: red solid 1pt; */
+        width: 70px;
+        height: 70px;
+        vertical-align: middle;
+        text-align: center;
+        display: table-cell;
+    }
+    #cartImage {
+        margin: auto;
+        max-width: 70px;
+        height: auto;
+        max-height: 70px;
+    }
+    table {
+        margin: 0 auto;
+    }
+    table td {
+        border-bottom: #F0F0F0 1px solid;
+    }
+    strong #total {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+    #checkoutButton {
+        margin: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <!-- Main wrapper -->
+    <div class="wrapper" id="wrapper">
+        <!-- Header -->
+        <!-- NAV BAR AT THE TOP -->
+        <header id="wn__header" class="sticky_header header_bar">
+            <div class="nav_bar">
+                <div class="row">
+                    <div class="logo">
+                            <a href="index">
+                                <img src="../../images/logo.png" alt="logo images">
+                            </a>
+                        </div>
+                    
+                    <!-- Nav bar menu items -->
+                    <div class="menuItems">
+
+                        <ul class="navUl">
+                            <li ><a class="drop" href='index'>Home</a></li>
+                            <li ><a class="drop" href="shop-grid.html"><b>Shop</b></a></li>
+                            <li ><a class="drop" href="about.html">About</a></li>
+                            <li><a class="drop" href="contact.html">Contact</a></li>
+                            <li id='dd' style='float:right'>
+                                <a class='dd-btn active' href='login'>Login</a>
+                                <div class='dd-content'>
+                                    <a href='userProfile'>Profile</a>
+                                    <a href='admin_page.html'>Admin Panel</a>
+                                    <a href='logout.php'>Logout</a>
+                                </div>
+
+                            </li>
+                            <li style='float:right'><a class='active' href='cart.html'>Your Cart</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>      
+        </header>
+        <!-- End Header -->
+        <div class="cartMainBody">
+        <table class="cartTable">
+            <tbody>
+              <tr>
+                <td></td>
+                <th>ITEM NAME</th>
+                <th>QUANTITY</th>
+                <th>UNIT PRICE</th>
+                <th>ITEM TOTAL</th>
+                <td></td>
+              </tr>
+
+              <main>
+
+                <div class="addToCart">
+
+                      <tr>
+                        <td>
+                          <div id="cart_square">
+                            <img src="../../images/8.jpg" id="cartImage"/>
+                          </div>
+                        </td>
+                        <td class="prodName">Test Name <br />
+                          <form method='post' action=''>
+                            <input type='hidden' name='code' value="45" />
+                            <input type='hidden' name='action' value="remove" />
+                            <button type="submit" name="remove">Remove</button>
+                          </form>
+                        </td>
+
+                        <td>
+                          <form method='post' action=''>
+                            <input type='hidden' name='code' value="45" />
+                            <input type='hidden' name='action' value="change" />
+                            <input class="qty" type="hidden" name="qty" value="2">
+                            <p id="qty">2</p>
+
+                          </form>
+                        </td>
+                        <td>
+                          <p></p>
+                        </td>
+                        <td>
+                          <p></p>
+                        </td>
+                      </tr>
+                      
+                    <tr>
+                      <td colspan="5" align="right">
+                        <strong id="total">TOTAL: </strong>
+                      </td>
+                    </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="checkoutButton">
+          <form action="" method="post">
+              <input type="submit" name="" value="Proceed to Checkout">
+
+            <input type="hidden" name="total">
+          </form>
+        </div>
+
+        </main>
+    </div>
+
+            <!-- Footer --->
+        <div class="footerBody">
+            <div class="footerLogoText">
+                <a href="index.html">
+                    <img src="../../images/footer.png" alt="logo">
+                </a>
+                <p id="footerP">There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages</p>
+            </div>
+        </div>
+        <!-- //Footer Area -->
+        <!-- QUICKVIEW PRODUCT -->
+        
+        <!-- END QUICKVIEW PRODUCT -->
+    </div>
+    <!-- //Main wrapper -->
+</body>
+</html>
