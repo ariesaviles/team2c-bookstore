@@ -44,11 +44,11 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
 
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
-                .usersByUsernameQuery("SELECT u.email, u.password, (u.userState = Active) AS enabled " +
+                .usersByUsernameQuery("SELECT email, password, (userState = 'Active') AS enabled " +
                         "FROM user u " +
-                        "WHERE email = ?")
-                .authoritiesByUsernameQuery("SELECT username, (u.userState = Active) AS enabled " +
-                        "FROM user WHERE email = ?");
+                        "WHERE email = ?;")
+                .authoritiesByUsernameQuery("SELECT u.username, (u.userState = 'Active') AS enabled " +
+                        "FROM user u WHERE u.email = ?;");
                 //.passwordEncoder(passwordEncoder())
 
         /*
