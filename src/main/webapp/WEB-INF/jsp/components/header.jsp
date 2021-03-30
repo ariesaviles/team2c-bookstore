@@ -22,7 +22,7 @@
                 <div class='dd-content'>
                     <a href='userProfile'>Profile</a>
                     <a href='admin_page.html'>Admin Panel</a>
-                    <a href='logout.php'>Logout</a>
+                    <a href='logout'>Logout</a>
                 </div>
 
             </li>
