@@ -30,7 +30,7 @@ public class EmailController {
         message.setTo(to);
         message.setSubject(subject);
         message.setText(text);
-        Transport.send(message);
+        //Transport.send(message);
 
     }
 

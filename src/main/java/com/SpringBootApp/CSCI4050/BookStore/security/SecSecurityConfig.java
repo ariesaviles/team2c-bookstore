@@ -26,6 +26,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
     private DataSource dataSource;
 
     @Override
+    @Autowired
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
         /*
         auth.inMemoryAuthentication()
@@ -37,7 +38,14 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
         */
 
         auth.jdbcAuthentication()
-                .dataSource(dataSource);
+                .dataSource(dataSource)
+                .passwordEncoder(passwordEncoder())
+                .usersByUsernameQuery("SELECT email, password, isAdmin " +
+                        "FROM user " +
+                        "WHERE email = ?")
+                .authoritiesByUsernameQuery("SELECT username, isAdmin " +
+                        "FROM user " +
+                        "WHERE email = ?");
                 //.withDefaultSchema()
                 //.withUser(User.withUsername("user")
                 //        .password(passwordEncoder().encode("pass"))

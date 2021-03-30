@@ -1,4 +1,5 @@
 com\SpringBootApp\CSCI4050\BookStore\controllers\RegistrationController.class
+com\SpringBootApp\CSCI4050\BookStore\EmailApplication.class
 com\SpringBootApp\CSCI4050\BookStore\controllers\LoginController.class
 com\SpringBootApp\CSCI4050\BookStore\entities\BookEntity.class
 com\SpringBootApp\CSCI4050\BookStore\security\SecSecurityConfig.class
@@ -7,6 +8,7 @@ com\SpringBootApp\CSCI4050\BookStore\repository\BookRepository.class
 com\SpringBootApp\CSCI4050\BookStore\controllers\ShopController.class
 com\SpringBootApp\CSCI4050\BookStore\entities\UserAccountEntity.class
 com\SpringBootApp\CSCI4050\BookStore\repository\AccountRepository.class
+com\SpringBootApp\CSCI4050\BookStore\controllers\EmailController.class
 com\SpringBootApp\CSCI4050\BookStore\BookStoreApplication.class
 com\SpringBootApp\CSCI4050\BookStore\controllers\IndexController.class
 com\SpringBootApp\CSCI4050\BookStore\controllers\BookController.class
