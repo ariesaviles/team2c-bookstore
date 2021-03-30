@@ -1,31 +1,138 @@
-<!doctype html>
+<%@ page import="java.sql.*" %>
+<html>
+
 <head>
-    <meta charset="utf-8">
-    <title>Team 2C Books</title>
 
-    <!-- Google font (font-family: 'Roboto', sans-serif; Poppins ; Satisfy) -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,600i,700,700i,800" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-    <!-- Stylesheets -->
-    <style> <%@ include file="css/style.css"%> </style>
+    <title>Login</title>
+
 </head>
+
 <body>
-<!-- Main wrapper -->
-<div class="wrapper" id="wrapper">
-    <!-- Header -->
-    <jsp:include page="components/header.jsp"/>
 
-    <div id="register" style="padding-top: 100px;">
-        <jsp:include page="components/forms/loginForm.jsp"/>
-    </div>
+<%! String userdbName;
 
-    <p>Are you a new user? <a href='registration' id="contact_link">Click here to register.</a> </p>
+    String userdbPsw;
 
-    <!-- Footer --->
-    <jsp:include page="components/footer.jsp"/>
-</div>
-<!-- //Main wrapper -->
+    String dbUsertype;
+
+%>
+
+<%
+
+    Connection con= null;
+
+    PreparedStatement ps = null;
+
+    ResultSet rs = null;
+
+
+
+    String driverName = "com.mysql.jdbc.Driver";
+
+    String url = "jdbc:mysql://localhost:3306/record";
+
+    String user = "root";
+
+    String dbpsw = "root";
+
+
+
+    String sql = "select * from userdetail where name=? and password=? and usertype=?";
+
+
+
+    String name = request.getParameter("name");
+
+    String password = request.getParameter("password");
+
+    String usertype = request.getParameter("usertype");
+
+
+
+    if((!(name.equals(null) || name.equals("")) && !(password.equals(null) ||
+            password.equals(""))) && !usertype.equals("select"))
+
+    {
+
+        try{
+
+            Class.forName(driverName);
+
+            con = DriverManager.getConnection(url, user, dbpsw);
+
+            ps = con.prepareStatement(sql);
+
+            ps.setString(1, name);
+
+            ps.setString(2, password);
+
+            ps.setString(3, usertype);
+
+            rs = ps.executeQuery();
+
+            if(rs.next())
+
+            {
+
+                userdbName = rs.getString("name");
+
+                userdbPsw = rs.getString("password");
+
+                dbUsertype = rs.getString("usertype");
+
+                if(name.equals(userdbName) && password.equals(userdbPsw) && usertype.equals(dbUsertype))
+
+                {
+
+                    session.setAttribute("name",userdbName);
+
+                    session.setAttribute("usertype", dbUsertype);
+
+                    response.sendRedirect("welcome.jsp");
+
+                }
+
+            }
+
+            else
+
+                response.sendRedirect("error.jsp");
+
+            rs.close();
+
+            ps.close();
+
+        }
+
+        catch(SQLException sqe)
+
+        {
+
+            out.println(sqe);
+
+        }
+
+    }
+
+    else
+
+    {
+
+%>
+
+<center><p style="color:red">Error In Login</p></center>
+
+<%
+
+        request.getServletContext().getRequestDispatcher("/home.jsp").include(request,
+                response);
+
+    }
+
+%>
+
 </body>
+
 </html>
