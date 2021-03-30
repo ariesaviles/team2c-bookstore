@@ -1,5 +1,6 @@
 package com.SpringBootApp.CSCI4050.BookStore.controllers;
 
+import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +17,7 @@ public class EmailController {
 
         return "Email was sent successfully";
     }
-
+    private MailSender sender;
     private void sendmail(String to, String from, String subject, String text) throws AddressException, MessagingException, IOException {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -30,7 +31,8 @@ public class EmailController {
         message.setTo(to);
         message.setSubject(subject);
         message.setText(text);
-        Transport.send(message);
+        sender.send(message);
+
 
     }
 
