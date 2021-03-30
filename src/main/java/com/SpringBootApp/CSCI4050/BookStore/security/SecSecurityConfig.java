@@ -1,6 +1,7 @@
 package com.SpringBootApp.CSCI4050.BookStore.security;
 
 import com.SpringBootApp.CSCI4050.BookStore.entities.UserAccountEntity;
+import com.SpringBootApp.CSCI4050.BookStore.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,6 +26,9 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
+    @Autowired
+    private AccountRepository accountRepo;
+
     @Override
     @Autowired
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
@@ -37,19 +41,38 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("admin").password(passwordEncoder().encode("adminPass")).roles("ADMIN");
         */
 
+
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
-                .passwordEncoder(passwordEncoder())
-                .usersByUsernameQuery("SELECT email, password, isAdmin " +
-                        "FROM user " +
+                .usersByUsernameQuery("SELECT u.email, u.password, (u.userState = Active) AS enabled " +
+                        "FROM user u " +
                         "WHERE email = ?")
-                .authoritiesByUsernameQuery("SELECT username, isAdmin " +
+                .authoritiesByUsernameQuery("SELECT username, (u.userState = Active) AS enabled " +
+                        "FROM user WHERE email = ?");
+                //.passwordEncoder(passwordEncoder())
+
+        /*
+                .usersByUsernameQuery("SELECT u.email, u.password, CAST( " +
+                        "CASE" +
+                        "WHEN u.userState = Active THEN 1 ELSE 0" +
+                        "END AS BIT) as permission" +
+                        "FROM user u " +
+                        "WHERE email = ?")
+                .authoritiesByUsernameQuery("SELECT username, CAST( " +
+                        "CASE" +
+                        "WHEN u.userState = Active THEN 1 ELSE 0" +
+                        "END AS BIT) as permission" +
                         "FROM user " +
                         "WHERE email = ?");
+
+
+         */
+
                 //.withDefaultSchema()
                 //.withUser(User.withUsername("user")
                 //        .password(passwordEncoder().encode("pass"))
                 //        .roles("USER"));
+
 
     }
 
