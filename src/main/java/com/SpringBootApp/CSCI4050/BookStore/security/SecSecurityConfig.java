@@ -19,7 +19,6 @@ import javax.sql.DataSource;
 
 
 @Configuration
-@PreAuthorize("user")
 @EnableWebSecurity
 public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -28,21 +27,21 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
+        /*
         auth.inMemoryAuthentication()
                 .withUser("user1").password(passwordEncoder().encode("user1Pass")).roles("USER")
                 .and()
                 .withUser("user2").password(passwordEncoder().encode("user2Pass")).roles("USER")
                 .and()
                 .withUser("admin").password(passwordEncoder().encode("adminPass")).roles("ADMIN");
-        /*
-        auth.jdbcAuthentication()
-                .dataSource(dataSource)
-                .withDefaultSchema()
-                .withUser(User.withUsername("user")
-                        .password(passwordEncoder().encode("pass"))
-                        .roles("USER"));
         */
 
+        auth.jdbcAuthentication()
+                .dataSource(dataSource);
+                //.withDefaultSchema()
+                //.withUser(User.withUsername("user")
+                //        .password(passwordEncoder().encode("pass"))
+                //        .roles("USER"));
 
     }
 

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.SpringBootApp.CSCI4050.BookStore.BookStoreApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.316 s - in com.SpringBootApp.CSCI4050.BookStore.BookStoreApplicationTests
