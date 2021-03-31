@@ -1,4 +1,4 @@
-package com.SpringBootApp.CSCI4050.BookStore.controllers;
+package com.SpringBootApp.CSCI4050.BookStore;
 
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
@@ -11,23 +11,23 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
 
-public class EmailController {
+public class Email {
     @RequestMapping(value = "/sendemail")
     public String sendEmail() throws IOException,MessagingException,AddressException {
 
         return "Email was sent successfully";
     }
+
     private MailSender sender;
-    private void sendmail(String to, String from, String subject, String text) throws AddressException, MessagingException, IOException {
+    public void sendmail(String to, String subject, String text) throws AddressException, MessagingException, IOException {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
 
-
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("noreply@baeldung.com");
+        message.setFrom("kruthika.uga@gmail.com");
         message.setTo(to);
         message.setSubject(subject);
         message.setText(text);
