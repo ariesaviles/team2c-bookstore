@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 
     @GetMapping(value="")
-    @PreAuthorize("hasRole('USER')")
     public String display(ModelMap Model) {
         return "index";
     }

@@ -71,8 +71,8 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin_page.html").hasAuthority("1")
                 .antMatchers("/index/**").hasAuthority("0")
                 .antMatchers("/").permitAll()
-                .and().formLogin();
-                //loginPage("/Users/andino/team2c-bookstore/src/main/webapp/WEB-INF/jsp/logintest.html");
+                .and().formLogin()
+                .loginPage("/login").permitAll();
     }
 
 
