@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
 <header id="wn__header" class="sticky_header header_bar">
   <div class="nav_bar">
@@ -18,11 +23,27 @@
             <li ><a class="drop" href="about.html">About</a></li>
             <li><a class="drop" href="contact.html">Contact</a></li>
             <li id='dd' style='float:right'>
-                <a class='dd-btn active' href='login'>Login</a>
+
+                <sec:authorize access="!hasAnyRole('USER','ADMIN')">
+                <a class='dd-btn active' href='login'>Sign-Up/Login</a>
+                </sec:authorize>
+
+                <sec:authorize access="hasAnyRole('USER','ADMIN')">
+                 <a class='dd-btn active' href='login'>Account</a>
+                </sec:authorize>
+
                 <div class='dd-content'>
+                    <sec:authorize access="hasRole('USER')">
                     <a href='userProfile'>Profile</a>
+                    </sec:authorize>
+
+                    <sec:authorize access="hasRole('ADMIN')">
                     <a href='admin_page.html'>Admin Panel</a>
+                    </sec:authorize>
+
+                    <sec:authorize access="hasAnyRole('USER','ADMIN')">
                     <a href='logout'>Logout</a>
+                    </sec:authorize>
                 </div>
 
             </li>
