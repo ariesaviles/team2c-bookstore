@@ -25,6 +25,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
+
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
 /*
@@ -72,7 +73,13 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/index/**").hasAuthority("0")
                 .antMatchers("/").permitAll()
                 .and().formLogin()
-                .loginPage("/login").permitAll();
+                .loginPage("/login")
+                .defaultSuccessUrl("/index", true)
+                .permitAll()
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .deleteCookies("JSESSIONID");
     }
 
 

@@ -27,18 +27,20 @@
 
 
 
-    <form name= "loginForm" method="POST" action="/login" class="form-signin" style="padding-top: 100px">
-        <h2 class="form-heading">Log in</h2>
-
-        <div class="form-group ">
-            <span></span>
-            <input name="username" type="text" class="form-control" placeholder="Username"
-                   autofocus="true"/>
-            <input name="password" type="password" class="form-control" placeholder="Password"/>
-            <span></span>
-
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
-        </div>
+    <form name= "loginForm" method="POST" action="login" class="form-signin" style="padding-top: 100px">
+        <table>
+            <tr>
+                <td>User:</td>
+                <td><input type='text' name='username' value=''></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type='password' name='password' /></td>
+            </tr>
+            <tr>
+                <td><input name="submit" type="submit" value="submit" /></td>
+            </tr>
+        </table>
 
     </form>
     <p>Are you a new user? <a href='registration' id="contact_link">Click here to register.</a> </p>
