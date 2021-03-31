@@ -1,5 +1,6 @@
 package com.SpringBootApp.CSCI4050.BookStore.controllers;
 
+import com.SpringBootApp.CSCI4050.BookStore.Email;
 import com.SpringBootApp.CSCI4050.BookStore.entities.UserAccountEntity;
 import com.SpringBootApp.CSCI4050.BookStore.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 @Controller
@@ -28,6 +30,8 @@ public class RegistrationController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    private Email sendEmail;
 
     public RegistrationController(AccountRepository accountRepository){
         this.accountRepository = accountRepository;
@@ -41,7 +45,7 @@ public class RegistrationController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public Object registerAccount(@ModelAttribute("accountForm") UserAccountEntity accountForm, BindingResult bindingResult,
-                                  Model model, HttpServletRequest request) throws UnsupportedEncodingException, MessagingException {
+                                  Model model, HttpServletRequest request) throws IOException, MessagingException {
 
         if (bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
@@ -55,7 +59,7 @@ public class RegistrationController {
         accountForm.setLastName(accountForm.getLastName());
 
         accountRepository.save(accountForm);
-
+        sendEmail.sendmail(accountForm.getEmail(), "Registration Successful","Thank you for signing up for Team 2C Bookstore Service");
         return "redirect:/login";
     }
 
