@@ -53,12 +53,13 @@ public class RegistrationController {
         accountForm.setFirstName(accountForm.getFirstName());
         accountForm.setEmail(accountForm.getEmail().toLowerCase());
         accountForm.setBirthDate(accountForm.getBirthDate());
-
+        //System.out.println(passwordEncoder.encode(accountForm.getPassword()));
         accountForm.setPassword(passwordEncoder.encode(accountForm.getPassword()));
         accountForm.setUserName(accountForm.getUserName());
         accountForm.setLastName(accountForm.getLastName());
 
         accountRepository.save(accountForm);
+        sendEmail = new Email();
         sendEmail.sendmail(accountForm.getEmail(), "Registration Successful","Thank you for signing up for Team 2C Bookstore Service");
         return "redirect:/login";
     }

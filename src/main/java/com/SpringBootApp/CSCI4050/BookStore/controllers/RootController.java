@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(path="/index/shop")
+@RequestMapping(path="/shop")
 public class RootController {
 
-    @GetMapping("/shop")
+    @GetMapping("")
     public String shop(Model model) {
         return "shop";
     }

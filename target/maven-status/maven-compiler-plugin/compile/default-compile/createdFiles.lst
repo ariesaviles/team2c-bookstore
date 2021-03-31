@@ -8,7 +8,9 @@ com/SpringBootApp/CSCI4050/BookStore/controllers/ProfileController.class
 com/SpringBootApp/CSCI4050/BookStore/security/SecSecurityConfig.class
 com/SpringBootApp/CSCI4050/BookStore/controllers/RootController.class
 com/SpringBootApp/CSCI4050/BookStore/repository/AccountRepository.class
+com/SpringBootApp/CSCI4050/BookStore/security/AppInitializer.class
 com/SpringBootApp/CSCI4050/BookStore/entities/UserAccountEntity.class
 com/SpringBootApp/CSCI4050/BookStore/Address.class
 com/SpringBootApp/CSCI4050/BookStore/Email.class
 com/SpringBootApp/CSCI4050/BookStore/entities/BookEntity.class
+com/SpringBootApp/CSCI4050/BookStore/controllers/LoginController.class
