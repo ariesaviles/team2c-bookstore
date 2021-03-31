@@ -26,7 +26,7 @@
                 </div>
 
             </li>
-            <li style='float:right'><a class='active' href='cart.html'>Your Cart</a></li>
+            <li style='float:right'><a class='active' href='index/cart.html'>Your Cart</a></li>
 
           </ul>
       </div>

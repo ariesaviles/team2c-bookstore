@@ -3,8 +3,11 @@ package com.SpringBootApp.CSCI4050.BookStore.controllers;
 import com.SpringBootApp.CSCI4050.BookStore.entities.UserAccountEntity;
 import com.SpringBootApp.CSCI4050.BookStore.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -22,6 +25,9 @@ public class RegistrationController {
 
     @Autowired
     private AccountRepository accountRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public RegistrationController(AccountRepository accountRepository){
         this.accountRepository = accountRepository;
@@ -43,7 +49,8 @@ public class RegistrationController {
         accountForm.setFirstName(accountForm.getFirstName());
         accountForm.setEmail(accountForm.getEmail().toLowerCase());
         //encrypt password here before calling set password
-        accountForm.setPassword(accountForm.getPassword());
+
+        accountForm.setPassword(passwordEncoder.encode(accountForm.getPassword()));
         accountForm.setUserName(accountForm.getUserName());
         accountForm.setLastName(accountForm.getLastName());
 
@@ -52,4 +59,8 @@ public class RegistrationController {
         return "redirect:/login";
     }
 
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 }

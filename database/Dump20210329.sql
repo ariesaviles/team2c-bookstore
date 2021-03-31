@@ -230,7 +230,7 @@ CREATE TABLE `user` (
   `firstName` varchar(45) NOT NULL,
   `lastName` varchar(45) NOT NULL,
   `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `password` varchar(150) NOT NULL,
   `birthDate` date DEFAULT NULL,
   `isAdmin` tinyint NOT NULL DEFAULT '0',
   `userState` varchar(45) NOT NULL DEFAULT 'Active',

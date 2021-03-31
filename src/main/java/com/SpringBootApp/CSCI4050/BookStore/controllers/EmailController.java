@@ -16,7 +16,7 @@ public class EmailController {
 
         return "Email was sent successfully";
     }
-
+    /*
     private void sendmail(String to, String from, String subject, String text) throws AddressException, MessagingException, IOException {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -33,5 +33,7 @@ public class EmailController {
         Transport.send(message);
 
     }
+
+     */
 
 }

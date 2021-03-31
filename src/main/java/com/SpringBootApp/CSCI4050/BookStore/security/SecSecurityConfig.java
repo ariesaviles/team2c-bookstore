@@ -27,38 +27,51 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
-        /*
+/*
         auth.inMemoryAuthentication()
                 .withUser("user1").password(passwordEncoder().encode("user1Pass")).roles("USER")
                 .and()
                 .withUser("user2").password(passwordEncoder().encode("user2Pass")).roles("USER")
                 .and()
                 .withUser("admin").password(passwordEncoder().encode("adminPass")).roles("ADMIN");
-        */
+                */
 
+/*
+        auth.jdbcAuthentication()
+                .dataSource(dataSource)
+                .passwordEncoder(new BCryptPasswordEncoder())
+                .usersByUsernameQuery("SELECT u.email, u.password, u.isAdmin " +
+                        "FROM user u " +
+                        "WHERE email = ?")
+                .authoritiesByUsernameQuery("SELECT username, isAdmin FROM user WHERE email = ?");
+*/
+        auth.jdbcAuthentication()
+                .dataSource(dataSource)
+                .passwordEncoder(new BCryptPasswordEncoder())
+                .usersByUsernameQuery("SELECT u.username, u.password, (u.userState = 'Active') AS enabled " +
+                        "FROM user u " +
+                        "WHERE u.username = ?;")
+                .authoritiesByUsernameQuery("SELECT u.username, CAST(u.isAdmin AS CHAR) as authority " +
+                        "FROM user u WHERE u.username = ?;");
+/*
         auth.jdbcAuthentication()
                 .dataSource(dataSource);
                 //.withDefaultSchema()
                 //.withUser(User.withUsername("user")
                 //        .password(passwordEncoder().encode("pass"))
                 //        .roles("USER"));
-
+*/
     }
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/admin_page.html").hasRole("ADMIN")
-                .antMatchers("/index").hasRole("USER")
+                .antMatchers("/admin_page.html").hasRole("1")
+                .antMatchers("/index/**").hasRole("0")
                 .antMatchers("/").permitAll()
                 .and().formLogin();
                 //loginPage("/Users/andino/team2c-bookstore/src/main/webapp/WEB-INF/jsp/logintest.html");
     }
 
 
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
 }
