@@ -9,8 +9,8 @@
         <form:label path="lastName">Last Name:</form:label>
         <form:input type="text" class="springInput" id="lastName" placeholder="i.e. Butson" path="lastName"/>
 
-        <form:label path="email">Date of Birth:</form:label>
-        <form:input type="text" class="springInput" id="dateOfBirth" placeholder="YYYYmmDD" path="dateOfBirth"/>
+        <form:label path="birthDate">Date of Birth:</form:label>
+        <form:input type="text" class="springInput" id="birthDate" placeholder="YYYYmmDD" path="birthDate"/>
 
         <form:label path="email">E-mail:</form:label>
         <form:input type="email" class="springInput" id="email" path="email"/>

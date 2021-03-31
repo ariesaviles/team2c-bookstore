@@ -30,6 +30,17 @@ public class UserAccountEntity {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "birthdate")
+    private String birthDate;
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(String dateOfBirth) {
+        this.birthDate = dateOfBirth;
+    }
+
     public String getUserName() {
         return userName;
     }

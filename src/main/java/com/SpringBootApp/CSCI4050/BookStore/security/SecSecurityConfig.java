@@ -48,11 +48,13 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .passwordEncoder(new BCryptPasswordEncoder())
-                .usersByUsernameQuery("SELECT u.username, u.password, (u.userState = 'Active') AS enabled " +
+                .usersByUsernameQuery("SELECT u.email, u.password, (u.userState = 'Active') AS enabled " +
                         "FROM user u " +
-                        "WHERE u.username = ?;")
-                .authoritiesByUsernameQuery("SELECT u.username, CAST(u.isAdmin AS CHAR) as authority " +
-                        "FROM user u WHERE u.username = ?;");
+                        "WHERE u.email = ?;")
+                .authoritiesByUsernameQuery("SELECT u.email, CAST(u.isAdmin AS CHAR) as authority " +
+                        "FROM user u WHERE u.email = ?;");
+
+
 /*
         auth.jdbcAuthentication()
                 .dataSource(dataSource);
@@ -66,8 +68,8 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/admin_page.html").hasRole("1")
-                .antMatchers("/index/**").hasRole("0")
+                .antMatchers("/admin_page.html").hasAuthority("1")
+                .antMatchers("/index/**").hasAuthority("0")
                 .antMatchers("/").permitAll()
                 .and().formLogin();
                 //loginPage("/Users/andino/team2c-bookstore/src/main/webapp/WEB-INF/jsp/logintest.html");
