@@ -1,8 +1,7 @@
 /Users/aries/IdeaProjects/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/RegistrationController.java
+/Users/aries/IdeaProjects/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/Email.java
 /Users/aries/IdeaProjects/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/Address.java
-/Users/aries/IdeaProjects/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/EmailController.java
 /Users/aries/IdeaProjects/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/ProfileController.java
-/Users/aries/IdeaProjects/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/LoginController.java
 /Users/aries/IdeaProjects/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/entities/UserAccountEntity.java
 /Users/aries/IdeaProjects/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/BookStoreApplication.java
 /Users/aries/IdeaProjects/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/EmailApplication.java

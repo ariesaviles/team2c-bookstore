@@ -108,6 +108,11 @@ header {
 
 
 /*--------------------- index page --------------------------*/
+.indexImage {
+    position: relative;
+    text-align: center;
+    color: white;
+}
 .indexImage .bigBoy {
   max-width: 100%;
   padding-top: 70px;

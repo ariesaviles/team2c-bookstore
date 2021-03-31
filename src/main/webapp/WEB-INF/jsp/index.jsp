@@ -3,6 +3,8 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <%
 	String id = request.getParameter("userId");
 	String driverName = "com.mysql.jdbc.Driver";
@@ -36,7 +38,19 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
 
 	<!-- Stylesheets -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style> <%@ include file="css/style.css"%> </style>
+	<style>
+	.bottom-right {
+		position: absolute;
+		bottom: 8px;
+		right: 16px;
+		color: white;
+		background-color: #e59285;
+		padding: 5px;
+
+	}
+	</style>
 </head>
 <body>
 <%--@elvariable id="accountForm" type=""--%>
@@ -44,9 +58,10 @@
 	<!-- Header -->
 	<jsp:include page="components/header.jsp"/>
 
-	<!-- Start image -->
+	<!---------------  large image at the top ----------------->
 	<div class="indexImage">
-		<img class= "bigBoy" src="../../images/plasticMockup.png" id="logo" alt="SAJ Logo" width="100%">
+		<img class= "bigBoy" src="../../images/plasticMockup.png" id="logo" alt="Team2c Large Image" width="100%">
+		<div class="bottom-right"><i class="fa fa-cog" style="font-size:20px;"> Edit</i></div>
 	</div>
 
 
@@ -114,10 +129,10 @@
 
 	<div class="testimonial__text__slide testext_active">
 		<div class="clint__info">
-			<p>absolutely outstanding. When I needed them they came through in a big way! I know that if you buy this theme, you'll get the one thing we all look for when we buy on.</p>
+			<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
 			<div class="name__post">
-				<span>Ra Munne</span>
-				<h6>Head Of Project</h6>
+				<span>Generic User</span>
+				<h6>"Best E-Commerce Bookstore"</h6>
 			</div>
 		</div>
 	</div>
