@@ -1,8 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<head>
-
-</head>
 
 <%--@elvariable id="accountForm" type=""--%>
 <form:form method="POST" modelAttribute="accountForm">
@@ -11,6 +8,10 @@
         <form:input type="text" class="springInput" id="firstName" placeholder="i.e. Calvin" path="firstName"/>
         <form:label path="lastName">Last Name:</form:label>
         <form:input type="text" class="springInput" id="lastName" placeholder="i.e. Butson" path="lastName"/>
+
+        <form:label path="email">Date of Birth:</form:label>
+        <form:input type="text" class="springInput" id="dateOfBirth" placeholder="YYYYmmDD" path="dateOfBirth"/>
+
         <form:label path="email">E-mail:</form:label>
         <form:input type="email" class="springInput" id="email" path="email"/>
         <form:label path="email">Username:</form:label>
