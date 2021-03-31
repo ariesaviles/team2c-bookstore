@@ -59,13 +59,9 @@
             Class.forName(driverName);
 
             con = DriverManager.getConnection(url, user, dbpsw);
-
             ps = con.prepareStatement(sql);
-
             ps.setString(1, name);
-
             ps.setString(2, password);
-
 
             rs = ps.executeQuery();
 
@@ -74,9 +70,7 @@
             {
 
                 userdbName = rs.getString("name");
-
                 userdbPsw = rs.getString("password");
-
                 dbUsertype = rs.getString("usertype");
 
                 if(name.equals(userdbName) && password.equals(userdbPsw))
@@ -84,7 +78,6 @@
                 {
 
                     session.setAttribute("name",userdbName);
-
                     session.setAttribute("usertype", dbUsertype);
 
                     response.sendRedirect("welcome.jsp");
