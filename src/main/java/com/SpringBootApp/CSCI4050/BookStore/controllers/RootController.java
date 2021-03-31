@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(path="/index")
+@RequestMapping(path="/index/shop")
 public class RootController {
 
     @GetMapping("/shop")
@@ -16,8 +16,11 @@ public class RootController {
         return "shop";
     }
 
+    /*
     @GetMapping("/cart.html")
     public String cart(Model model) {
         return "cart.html";
     }
+    */
+
 }

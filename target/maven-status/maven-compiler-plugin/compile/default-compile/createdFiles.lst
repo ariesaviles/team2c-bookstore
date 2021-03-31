@@ -12,4 +12,3 @@ com/SpringBootApp/CSCI4050/BookStore/repository/AccountRepository.class
 com/SpringBootApp/CSCI4050/BookStore/entities/UserAccountEntity.class
 com/SpringBootApp/CSCI4050/BookStore/Address.class
 com/SpringBootApp/CSCI4050/BookStore/entities/BookEntity.class
-com/SpringBootApp/CSCI4050/BookStore/controllers/LoginController.class
