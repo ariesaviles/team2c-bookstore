@@ -26,12 +26,11 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
-    @Autowired
-    private AccountRepository accountRepo;
+    //@Autowired
+    //private AccountRepository accountRepo;
 
-    @Override
     @Autowired
-    protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
+    protected void configureGlobal(final AuthenticationManagerBuilder auth) throws Exception {
         /*
         auth.inMemoryAuthentication()
                 .withUser("user1").password(passwordEncoder().encode("user1Pass")).roles("USER")
@@ -41,14 +40,13 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("admin").password(passwordEncoder().encode("adminPass")).roles("ADMIN");
         */
 
-
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
-                .usersByUsernameQuery("SELECT email, password, (userState = 'Active') AS enabled " +
+                .usersByUsernameQuery("SELECT u.username, u.password, (u.userState = 'Active') AS enabled " +
                         "FROM user u " +
-                        "WHERE email = ?;")
-                .authoritiesByUsernameQuery("SELECT u.username, (u.userState = 'Active') AS enabled " +
-                        "FROM user u WHERE u.email = ?;");
+                        "WHERE u.username = ?;")
+                .authoritiesByUsernameQuery("SELECT u.username, CAST(u.isAdmin AS CHAR) as authority " +
+                        "FROM user u WHERE u.username = ?;");
                 //.passwordEncoder(passwordEncoder())
 
         /*
@@ -79,8 +77,8 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/admin_page.html").hasRole("ADMIN")
-                .antMatchers("/index").hasRole("USER")
+                .antMatchers("/admin_page.html").access("1")
+                .antMatchers("/index").hasRole("0")
                 .antMatchers("/").permitAll()
                 .and().formLogin();
                 //loginPage("/Users/andino/team2c-bookstore/src/main/webapp/WEB-INF/jsp/logintest.html");
