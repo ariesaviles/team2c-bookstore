@@ -31,15 +31,15 @@
 
     String driverName = "com.mysql.jdbc.Driver";
 
-    String url = "jdbc:mysql://localhost:3306/record";
+    String url = "jdbc:mysql://localhost:3306/mydb";
 
     String user = "root";
 
-    String dbpsw = "root";
+    String dbpsw = "aries123";
 
 
 
-    String sql = "select * from userdetail where name=? and password=? and usertype=?";
+    String sql = "select * from user where username=? and password=?";
 
 
 
@@ -47,12 +47,10 @@
 
     String password = request.getParameter("password");
 
-    String usertype = request.getParameter("usertype");
-
 
 
     if((!(name.equals(null) || name.equals("")) && !(password.equals(null) ||
-            password.equals(""))) && !usertype.equals("select"))
+            password.equals(""))))
 
     {
 
@@ -68,7 +66,6 @@
 
             ps.setString(2, password);
 
-            ps.setString(3, usertype);
 
             rs = ps.executeQuery();
 
@@ -82,7 +79,7 @@
 
                 dbUsertype = rs.getString("usertype");
 
-                if(name.equals(userdbName) && password.equals(userdbPsw) && usertype.equals(dbUsertype))
+                if(name.equals(userdbName) && password.equals(userdbPsw))
 
                 {
 

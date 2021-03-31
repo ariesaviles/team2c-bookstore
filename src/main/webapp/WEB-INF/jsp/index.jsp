@@ -32,7 +32,7 @@
 
 
 
-	String sql = "select * from books";
+	String sql = "select * from user";
 
 
 
@@ -79,20 +79,6 @@
 				<option value="select">select</option>
 
 				<%
-
-					while(rs.next())
-
-					{
-
-						String usertype = rs.getString("Title");
-
-				%>
-
-				<option value=<%=usertype%>><%=usertype%></option>
-
-				<%
-
-						}
 
 					}
 

@@ -14,10 +14,8 @@
 <center><p style="color:red">Sorry, your record is not available.</p></center>
 
 <%
-
     request.getServletContext().getRequestDispatcher("/home.jsp").include(request,
             response);
-
 %>
 
 </body>
