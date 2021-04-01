@@ -18,11 +18,12 @@
     <jsp:include page="components/header.jsp"/>
 
 <form:form method="POST" modelAttribute="accountForm">
+    <span style="color: red">${passwordMessage}</span>
     <form:label path="password">Password:</form:label>
-    <form:password class="springInput" id="password" path="password"/>
+    <form:password class="springInput" id="firstName" path="firstName"/>
 
     <form:label path="password">Re-Enter Password:</form:label>
-    <form:password class="springInput" id="password" path="password"/>
+    <form:password class="springInput" id="lastName" path="lastName"/>
 
     <form:button type="submit" class="from-control">Submit</form:button>
 </form:form>

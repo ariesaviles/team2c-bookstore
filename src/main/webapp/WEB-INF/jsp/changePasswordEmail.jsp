@@ -18,7 +18,7 @@
     <jsp:include page="components/header.jsp"/>
 
     <form:form method="POST" modelAttribute="accountForm">
-        <div class="MyForm form-group" style="padding-top: 90px;">
+        <div class="MyForm form-group" style="padding-top: 100px;">
             <form:label path="email">E-mail:</form:label>
             <span style="color: red">${emailMessage}</span>
             <form:input type="email" class="springInput" id="email" path="email"/>

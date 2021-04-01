@@ -44,6 +44,7 @@ public class EditProfileController {
         model.addAttribute("lastName", user.getLastName());
         model.addAttribute("userName", user.getUserName());
         model.addAttribute("birthDate", user.getBirthDate());
+        model.addAttribute("isPromote", user.isPromotion());
         return "editProfile";
     }
 
@@ -55,6 +56,7 @@ public class EditProfileController {
         user.setFirstName(accountForm.getFirstName());
         user.setLastName(accountForm.getLastName());
         user.setBirthDate(accountForm.getBirthDate());
+        user.setPromotion(accountForm.isPromotion());
         accountRepository.save(user);
         //accountForm.setFirstName(accountForm.getFirstName());
         //accountForm.setLastName(accountForm.getLastName());
