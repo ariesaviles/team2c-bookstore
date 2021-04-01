@@ -24,28 +24,23 @@
             <li><a class="drop" href="contact.html">Contact</a></li>
             <li id='dd' style='float:right'>
 
-                <sec:authorize access="!hasAnyRole('USER','ADMIN')">
+                <sec:authorize access="!hasAnyAuthority('0','1')">
                 <a class='dd-btn active' href='loginOrRegister'>Sign-Up/Login</a>
                 </sec:authorize>
 
-                <sec:authorize access="hasAnyRole('USER','ADMIN')">
+                <sec:authorize access="hasAnyAuthority('0','1')">
                  <a class='dd-btn active' href='login'>Account</a>
-                </sec:authorize>
 
                 <div class='dd-content'>
-                    <sec:authorize access="hasRole('USER')">
                     <a href='userProfile'>Profile</a>
-                    </sec:authorize>
 
-                    <sec:authorize access="hasRole('ADMIN')">
+                    <sec:authorize access="hasAnyAuthority('1')">
                     <a href='admin_page.html'>Admin Panel</a>
                     </sec:authorize>
 
-                    <sec:authorize access="hasAnyRole('USER','ADMIN')">
                     <a href='logout'>Logout</a>
-                    </sec:authorize>
                 </div>
-
+                </sec:authorize>
             </li>
             <li style='float:right'><a class='active' href='cart.html'>Your Cart</a></li>
 
