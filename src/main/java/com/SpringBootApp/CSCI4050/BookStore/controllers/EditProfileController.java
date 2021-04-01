@@ -58,17 +58,9 @@ public class EditProfileController {
         user.setBirthDate(accountForm.getBirthDate());
         user.setPromotion(accountForm.getPromotion());
         accountRepository.save(user);
-        //accountForm.setFirstName(accountForm.getFirstName());
-        //accountForm.setLastName(accountForm.getLastName());
-        //accountForm.setUserName(accountForm.getUserName());
-        //accountForm.setBirthDate(accountForm.getBirthDate());
-        //accountForm.setEmail(user.getEmail());
-        //accountForm.setPassword(user.getPassword());
 
-
-        //ccountRepository.save(accountForm);
-        //sendEmail = new Email();
-        //sendEmail.sendmail(accountForm.getEmail(), "Registration Successful","Thank you for signing up for Team 2C Bookstore Service");
+        sendEmail = new Email();
+        sendEmail.sendmail(user.getEmail(), "User Info","Some of your user information in your account has been changed.");
         return "redirect:/userProfile";
     }
 
