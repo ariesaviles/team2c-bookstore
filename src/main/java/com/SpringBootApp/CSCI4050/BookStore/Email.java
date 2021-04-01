@@ -38,7 +38,7 @@ public class Email {
 
         SimpleMailMessage message = new SimpleMailMessage();
 
-        message.setFrom("kruthika.uga@mgmail.com");
+        message.setFrom("team2cbookstore@gmail.com");
         message.setTo(to);
         message.setSubject(subject);
         message.setText(text);

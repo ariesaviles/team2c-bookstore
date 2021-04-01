@@ -10,8 +10,8 @@
 	String driverName = "com.mysql.jdbc.Driver";
 	String connectionUrl = "jdbc:mysql://localhost:3306/mydb";
 	//String dbName = "mydb";
-	String userId = "root";
-	String password = "aries123";
+	String userId = "adminuser";
+	String password = "password";
 
 	try {
 		Class.forName(driverName);

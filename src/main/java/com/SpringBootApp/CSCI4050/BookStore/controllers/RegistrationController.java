@@ -99,7 +99,7 @@ public class RegistrationController {
 
         accountRepository.save(accountForm);
         sendEmail = new Email();
-        //sendEmail.sendmail(accountForm.getEmail(), "Registration Successful","Thank you for signing up for Team 2C Bookstore Service");
+        sendEmail.sendmail(accountForm.getEmail(), "Registration Successful","Thank you for signing up for Team 2C Bookstore Service");
         return "redirect:/login";
     }
 
