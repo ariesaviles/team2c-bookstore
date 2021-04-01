@@ -75,7 +75,8 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/cart.html").hasAuthority("0")
                 .antMatchers("/").permitAll()
                 .antMatchers("/changePasswordEmail").permitAll()
-                .and().formLogin().permitAll();
+                .and().formLogin().defaultSuccessUrl("/index").permitAll()
+                .and().logout().logoutSuccessUrl("/");
                 //.loginPage("/login")
                 //.defaultSuccessUrl("/index", true)
                 //.permitAll();

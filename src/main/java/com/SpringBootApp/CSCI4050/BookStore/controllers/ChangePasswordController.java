@@ -58,21 +58,21 @@ public class ChangePasswordController {
     @RequestMapping(value = "/changePasswordConfirm", method = RequestMethod.GET)
     public String showChangePassword(ModelMap model){
         UserAccountEntity user = accountRepository.findByEmail(userEmail);
-        model.addAttribute("passwordForm", user);
+        model.addAttribute("accountForm", user);
         return "changePasswordConfirm";
     }
 
     @RequestMapping(value = "/changePasswordConfirm", method = RequestMethod.POST)
     public Object changePassword(@ModelAttribute("accountForm") UserAccountEntity accountForm, Model model) throws IOException, MessagingException {
         UserAccountEntity user = accountRepository.findByEmail(userEmail);
-        if(accountForm.getFirstName() != accountForm.getLastName()){
+        if(!accountForm.getFirstName().equals(accountForm.getLastName())){
             model.addAttribute("passwordMessage", "Passwords do not macth");
             return "changePasswordConfirm";
         }
         else{
-            user.setPassword(passwordEncoder.encode(accountForm.getPassword()));
+            user.setPassword(passwordEncoder.encode(accountForm.getFirstName()));
             accountRepository.save(user);
-            return "redirect:/login";
+            return "redirect:/";
         }
 
     }
