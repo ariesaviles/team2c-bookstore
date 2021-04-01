@@ -61,7 +61,9 @@
 	<!---------------  large image at the top ----------------->
 	<div class="indexImage">
 		<img class= "bigBoy" src="../../images/plasticMockup.png" id="logo" alt="Team2c Large Image" width="100%">
+		<sec:authorize access="hasAnyAuthority('1')">
 		<div class="bottom-right"><i class="fa fa-cog" style="font-size:20px;"> Edit</i></div>
+		</sec:authorize>
 	</div>
 
 
