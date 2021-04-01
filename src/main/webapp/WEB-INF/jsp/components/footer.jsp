@@ -5,6 +5,6 @@
         <a href="index.html">
             <img src="images/footer.png" alt="logo">
         </a>
-        <p id="footerP">There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages</p>
+        <p id="footerP">Welcome to Team 2C Books! The best selection of books!</p>
     </div>
 </div>

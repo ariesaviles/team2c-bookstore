@@ -26,8 +26,8 @@
             <div class="columnL">
               <div class="cardLight">
                 <div class="cardDark">
-                    <h>${firstname} </h>
-                    <h class="color--theme" style="margin-top: -50px;"> ${lastname}</h>
+                    <h>${firstName} </h>
+                    <h class="color--theme" style="margin-top: -50px;"> ${lastName}</h>
                 </div>
                 <p>Username: ${username}</p>
                 <p>E-mail: ${userEmail}</p>
