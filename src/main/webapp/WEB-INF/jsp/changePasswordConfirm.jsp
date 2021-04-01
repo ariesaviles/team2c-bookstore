@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%--@elvariable id="accountForm" type=""--%>
 <!doctype html>
 <head>
     <meta charset="utf-8">
@@ -16,7 +18,7 @@
 <div class="wrapper" id="wrapper">
     <!-- Header -->
     <jsp:include page="components/header.jsp"/>
-
+    <div id="passwordEmail" style="padding-top: 100px;">
 <form:form method="POST" modelAttribute="accountForm">
     <span style="color: red">${passwordMessage}</span>
     <form:label path="password">Password:</form:label>
@@ -27,6 +29,7 @@
 
     <form:button type="submit" class="from-control">Submit</form:button>
 </form:form>
+    </div>
 
     <!-- Footer --->
     <jsp:include page="components/footer.jsp"/>
