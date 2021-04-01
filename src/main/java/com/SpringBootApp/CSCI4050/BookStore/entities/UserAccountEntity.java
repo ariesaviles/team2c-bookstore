@@ -33,6 +33,9 @@ public class UserAccountEntity {
     @Column(name = "birthdate")
     private String birthDate;
 
+    @Column(name = "ispromotion")
+    private boolean isPromotion;
+
     public String getBirthDate() {
         return birthDate;
     }
@@ -84,6 +87,10 @@ public class UserAccountEntity {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public boolean isPromotion() {return isPromotion;}
+
+    public void setPromotion(boolean isPromotion) { this.isPromotion = isPromotion; }
 
 
 
