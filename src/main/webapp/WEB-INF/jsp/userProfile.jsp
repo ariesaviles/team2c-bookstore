@@ -13,8 +13,8 @@
 	<!-- Stylesheets -->
     <style> <%@ include file="css/style.css"%> </style> <!-- main css -->
     <style> <%@ include file="css/userProfile.css"%> </style>
-
 </head>
+
 <body>
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
@@ -26,13 +26,13 @@
             <div class="columnL">
               <div class="cardLight">
                 <div class="cardDark">
-                    <h>First </h>
-                    <h class="color--theme" style="margin-top: -50px;"> Last</h>
+                    <h>${firstname} </h>
+                    <h class="color--theme" style="margin-top: -50px;"> ${lastname}</h>
                 </div>
-                  <p>Name: ${name}</p>
                 <p>Username: ${username}</p>
                 <p>E-mail: ${userEmail}</p>
                 <p>Birthdate: ${birthDate}</p>
+                  <p>Subscribed to Promos: ${isPromotion}</p>
                 <button class="editButton" onclick="location.href='editProfile';">Edit Info</button>
               </div>
 
