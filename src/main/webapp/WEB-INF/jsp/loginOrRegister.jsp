@@ -18,6 +18,13 @@
 
     <!-- Stylesheets -->
     <style> <%@ include file="css/style.css"%> </style>
+    <style>
+        hr.solid {
+            border-top: 3px solid #bbb;
+            width: 500px;
+        }
+
+    </style>
 </head>
 <body>
 <!-- Main wrapper -->
@@ -25,10 +32,13 @@
     <!-- Header -->
     <jsp:include page="components/header.jsp"/>
 
-    <div style="padding-top: 200px"
-    <p>Already have an account? <a href='/login' id="login_link">Click here to Login.</a></p>
-    <p>Are you a new user? <a href='registration' id="contact_link">Click here to register.</a> </p>
+    <div style="padding-top: 200px; padding-bottom: 100px">
+    <p class="login Line">Already have an account?</p> <p><a href='/login' id="login_link">Click here to Login.</a></p>
+        <p style="padding-top: 20px;" >Forgot password?</p> <p><a href='/login' id="login_link">Create new password here.</a></p>
+        <hr class="solid">
+        <p>Are you a new user?</p> <p><a href='registration' id="contact_link">Click here to register.</a> </p>
     </div>
+
     <!-- Footer --->
     <jsp:include page="components/footer.jsp"/>
 </div>

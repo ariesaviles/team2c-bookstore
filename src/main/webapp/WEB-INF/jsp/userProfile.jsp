@@ -30,7 +30,7 @@
                     <h class="color--theme" style="margin-top: -50px;"> Last</h>
                 </div>
                 <p>Username: username420</p>
-                <p>E-mail: username420@lmao.com</p>
+                <p><span style="color: red">${badEmail}</span></p>
                 <p>Birthdate: 04/20/2021</p>
                 <button class="editButton">Edit Info</button>
               </div>
