@@ -230,7 +230,7 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
-  `IDuser` int NOT NULL AUTO_INCREMENT,
+  `IDuser` int NOT NULL AUTO_INCREMENT=5,
   `firstName` varchar(45) NOT NULL,
   `lastName` varchar(45) NOT NULL,
   `username` varchar(45) NOT NULL,
@@ -251,7 +251,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Calvin','Butson','cb81','$2a$10$MHkkOXE9ikUsTNEvVwSNT.wJDst0iXVV3VBK4G.gJOvXIMsEiOOwC','1999-01-01',0,'Active','calvin.butson@gmail.com',0),(2,'Example','Test','test1','$2a$10$rFkio6T39ynyDhToSbEey.EwtO17XpFKLcaUohmodTfn.YwqeMebm','2015-06-15',1,'Active','test@gmail.com',0),(3,'Calvin2','Butson','ceb999','$2a$10$w2VSbe4ZNtzSgAgXDfGZI.3r985ys4YR2zG64JCN4iUrEZMVSufPS','1999-10-21',1,'Active','ceb28103@uga.edu',0),(5,'Aries','Aviles','aries','$2a$10$XoJEjaWb0luiU8wjTAA6RuN80V8ghGxX9MIqeA6LucyvUR.rNupYa','1999-01-01',1,'Active','ane.aviles@gmail.com',0);
+INSERT INTO `user` VALUES (1,'Calvin','Butson','cb81','$2a$10$MHkkOXE9ikUsTNEvVwSNT.wJDst0iXVV3VBK4G.gJOvXIMsEiOOwC','1999-01-01',0,'Active','calvin.butson@gmail.com',0),(2,'Example','Test','test1','$2a$10$rFkio6T39ynyDhToSbEey.EwtO17XpFKLcaUohmodTfn.YwqeMebm','2015-06-15',1,'Active','test@gmail.com',0),(3,'Calvin2','Butson','ceb999','$2a$10$w2VSbe4ZNtzSgAgXDfGZI.3r985ys4YR2zG64JCN4iUrEZMVSufPS','1999-10-21',1,'Active','ceb28103@uga.edu',0),(4,'Aries','Aviles','aries','$2a$10$XoJEjaWb0luiU8wjTAA6RuN80V8ghGxX9MIqeA6LucyvUR.rNupYa','1999-01-01',1,'Active','ane.aviles@gmail.com',0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
