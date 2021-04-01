@@ -48,22 +48,26 @@ public class EditProfileController {
     }
 
     @RequestMapping(value = "/editProfile", method = RequestMethod.POST)
-    public Object registerAccount(@ModelAttribute("accountForm") UserAccountEntity accountForm, BindingResult bindingResult,
-                                  Model model, HttpServletRequest request, Principal principal) throws IOException, MessagingException {
+    public Object registerAccount(@ModelAttribute("accountForm") UserAccountEntity accountForm, Model model,  Principal principal) throws IOException, MessagingException {
 
-        if (bindingResult.hasErrors()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-        }
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
+        user.setUserName(accountForm.getUserName());
         user.setFirstName(accountForm.getFirstName());
         user.setLastName(accountForm.getLastName());
-        user.setUserName(accountForm.getUserName());
         user.setBirthDate(accountForm.getBirthDate());
+        accountRepository.save(user);
+        //accountForm.setFirstName(accountForm.getFirstName());
+        //accountForm.setLastName(accountForm.getLastName());
+        //accountForm.setUserName(accountForm.getUserName());
+        //accountForm.setBirthDate(accountForm.getBirthDate());
+        //accountForm.setEmail(user.getEmail());
+        //accountForm.setPassword(user.getPassword());
 
-        //accountRepository.save(accountForm);
+
+        //ccountRepository.save(accountForm);
         //sendEmail = new Email();
         //sendEmail.sendmail(accountForm.getEmail(), "Registration Successful","Thank you for signing up for Team 2C Bookstore Service");
-        return "redirect:/login";
+        return "redirect:/userProfile";
     }
 
 }
