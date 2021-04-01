@@ -27,8 +27,8 @@ public class Email {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
-        mailSender.setUsername("kruthika.uga@gmail.com");
-        mailSender.setPassword("");
+        mailSender.setUsername("team2cbookstore@gmail.com");
+        mailSender.setPassword("team2cbook");
 
         Properties properties = new Properties();
         properties.setProperty("mail.smtp.auth", "true");
