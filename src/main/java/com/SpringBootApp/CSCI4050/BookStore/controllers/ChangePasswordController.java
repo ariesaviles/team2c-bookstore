@@ -4,6 +4,8 @@ import com.SpringBootApp.CSCI4050.BookStore.Email;
 import com.SpringBootApp.CSCI4050.BookStore.entities.UserAccountEntity;
 import com.SpringBootApp.CSCI4050.BookStore.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,11 +36,12 @@ public class ChangePasswordController {
 
     @RequestMapping(value = "/changePasswordEmail", method = RequestMethod.GET)
     public String showChangePasswordEmail(ModelMap model){
+        model.addAttribute("passwordForm", new UserAccountEntity());
         return "changePasswordEmail";
     }
 
     @RequestMapping(value = "/changePasswordEmail", method = RequestMethod.POST)
-    public Object sendChangePassword(@ModelAttribute("accountForm") UserAccountEntity accountForm, Model model) throws IOException, MessagingException {
+    public Object sendChangePassword(@ModelAttribute("passwordForm") UserAccountEntity accountForm, Model model) throws IOException, MessagingException {
         UserAccountEntity emailCheck = accountRepository.findByEmail(accountForm.getEmail());
         if(emailCheck == null){
             model.addAttribute("emailMessage", "This email does not have an account");
@@ -54,7 +57,8 @@ public class ChangePasswordController {
 
     @RequestMapping(value = "/changePasswordConfirm", method = RequestMethod.GET)
     public String showChangePassword(ModelMap model){
-
+        UserAccountEntity user = accountRepository.findByEmail(userEmail);
+        model.addAttribute("passwordForm", user);
         return "changePasswordConfirm";
     }
 
@@ -71,5 +75,10 @@ public class ChangePasswordController {
             return "redirect:/login";
         }
 
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder2() {
+        return new BCryptPasswordEncoder();
     }
 }
