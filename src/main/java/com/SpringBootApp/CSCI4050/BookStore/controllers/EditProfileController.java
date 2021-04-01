@@ -23,77 +23,34 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 @Controller
-public class RegistrationController {
+public class EditProfileController {
 
     @Autowired
     private AccountRepository accountRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
     private Email sendEmail;
 
-    public RegistrationController(AccountRepository accountRepository){
+    public EditProfileController(AccountRepository accountRepository){
         this.accountRepository = accountRepository;
     }
 
-    @RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public String showRegistrationPage(ModelMap model){
+    @RequestMapping(value = "/editProfile", method = RequestMethod.GET)
+    public String showEditProfilePage(ModelMap model){
+        //NEED TO PASS USER AS INSTANCE
         model.addAttribute("accountForm", new UserAccountEntity());
-        return "registration";
+        return "editProfile";
     }
 
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    @RequestMapping(value = "/editProfile", method = RequestMethod.POST)
     public Object registerAccount(@ModelAttribute("accountForm") UserAccountEntity accountForm, BindingResult bindingResult,
                                   Model model, HttpServletRequest request) throws IOException, MessagingException {
 
         if (bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
-        boolean problems = false;
-        UserAccountEntity emailCheck = accountRepository.findByEmail(accountForm.getEmail());
-        UserAccountEntity userNameCheck = accountRepository.findByUserName(accountForm.getUserName());
-
-        if(emailCheck != null){
-            model.addAttribute("emailExist", "This email already has an account");
-            problems = true;
-        }
-        if(userNameCheck != null){
-            model.addAttribute("userNameExist", "Username in use");
-            problems = true;
-        }
-        if(accountForm.getFirstName().isEmpty()){
-            model.addAttribute("badFirst", "Please enter a first name");
-            problems = true;
-        }
-        if(accountForm.getLastName().isEmpty()){
-            model.addAttribute("badLast", "Please enter a last name");
-            problems = true;
-        }
-        if(accountForm.getEmail().isEmpty()){
-            model.addAttribute("badEmail", "Please enter an email");
-            problems = true;
-        }
-        if(accountForm.getBirthDate().isEmpty()){
-            model.addAttribute("badBirth", "Please enter a birthdate");
-            problems = true;
-        }
-        if(accountForm.getPassword().isEmpty()){
-            model.addAttribute("badPass", "Please enter a password");
-            problems = true;
-        }
-        if(accountForm.getUserName().isEmpty()){
-            model.addAttribute("badUser", "Please enter a username");
-            problems = true;
-        }
-        if(problems){
-            return  "registration";
-        }
         accountForm.setFirstName(accountForm.getFirstName());
         accountForm.setEmail(accountForm.getEmail().toLowerCase());
         accountForm.setBirthDate(accountForm.getBirthDate());
-        //System.out.println(passwordEncoder.encode(accountForm.getPassword()));
-        accountForm.setPassword(passwordEncoder.encode(accountForm.getPassword()));
         accountForm.setUserName(accountForm.getUserName());
         accountForm.setLastName(accountForm.getLastName());
 
@@ -103,8 +60,4 @@ public class RegistrationController {
         return "redirect:/login";
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
 }

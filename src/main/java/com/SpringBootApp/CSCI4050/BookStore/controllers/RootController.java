@@ -1,5 +1,6 @@
 package com.SpringBootApp.CSCI4050.BookStore.controllers;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -8,19 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(path="/shop")
 public class RootController {
 
-    @GetMapping("")
+    @RequestMapping(path="/shop", method = RequestMethod.GET)
     public String shop(Model model) {
         return "shop";
     }
 
-    /*
-    @GetMapping("/cart.html")
+
+    @RequestMapping(path="/cart", method = RequestMethod.GET)
     public String cart(Model model) {
-        return "cart.html";
+        return "cart";
     }
-    */
+
 
 }

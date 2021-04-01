@@ -4,6 +4,7 @@ import com.SpringBootApp.CSCI4050.BookStore.entities.UserAccountEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -71,16 +72,12 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/admin_page.html").hasAuthority("1")
                 .antMatchers("/index/**").hasAuthority("0")
+                .antMatchers("/cart").hasAuthority("0")
                 .antMatchers("/").permitAll()
-                .and().formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/index", true)
-                .permitAll()
-                .and()
-                .logout()
-                .logoutUrl("/logout")
-                .deleteCookies("JSESSIONID");
+                .and().formLogin().permitAll();
+                //.loginPage("/login")
+                //.defaultSuccessUrl("/index", true)
+                //.permitAll();
     }
-
 
 }

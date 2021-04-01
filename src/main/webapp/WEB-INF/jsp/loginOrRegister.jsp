@@ -4,7 +4,7 @@
 
 <c:set var="contextPath" value=""/>
 
-<!doctype html>
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,26 +25,10 @@
     <!-- Header -->
     <jsp:include page="components/header.jsp"/>
 
-
-
-    <form name= "loginForm" method="POST" action="login" class="form-signin" style="padding-top: 100px">
-        <table>
-            <tr>
-                <td>User:</td>
-                <td><input type='text' name='username' value=''></td>
-            </tr>
-            <tr>
-                <td>Password:</td>
-                <td><input type='password' name='password' /></td>
-            </tr>
-            <tr>
-                <td><input name="submit" type="submit" value="submit" /></td>
-            </tr>
-        </table>
-
-    </form>
+    <div style="padding-top: 200px"
+    <p>Already have an account? <a href='/login' id="login_link">Click here to Login.</a></p>
     <p>Are you a new user? <a href='registration' id="contact_link">Click here to register.</a> </p>
-
+    </div>
     <!-- Footer --->
     <jsp:include page="components/footer.jsp"/>
 </div>

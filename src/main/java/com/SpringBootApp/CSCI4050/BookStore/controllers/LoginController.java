@@ -14,18 +14,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping(value = "/login")
 public class LoginController
 {
-    @GetMapping(value = "")
-    public String login(Model model){
-        return "login";
+    @RequestMapping(value = "/loginOrRegister", method = RequestMethod.GET)
+    public String login(){
+        return "loginOrRegister";
     }
-
+/*
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String loginPage(Model model) {
         return "redirect:index";
     }
+
+ */
 /*
     @RequestMapping(value="/logout", method = RequestMethod.POST)
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {

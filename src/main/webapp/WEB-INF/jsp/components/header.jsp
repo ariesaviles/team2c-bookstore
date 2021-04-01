@@ -25,7 +25,7 @@
             <li id='dd' style='float:right'>
 
                 <sec:authorize access="!hasAnyRole('USER','ADMIN')">
-                <a class='dd-btn active' href='login'>Sign-Up/Login</a>
+                <a class='dd-btn active' href='loginOrRegister'>Sign-Up/Login</a>
                 </sec:authorize>
 
                 <sec:authorize access="hasAnyRole('USER','ADMIN')">
@@ -47,7 +47,7 @@
                 </div>
 
             </li>
-            <li style='float:right'><a class='active' href='index/cart.html'>Your Cart</a></li>
+            <li style='float:right'><a class='active' href='cart.html'>Your Cart</a></li>
 
           </ul>
       </div>
