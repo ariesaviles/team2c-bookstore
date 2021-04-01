@@ -28,18 +28,67 @@
   </ol>
 </details>
 
-<!-- ABOUT THE PROJECT -->
 ## About The Project
 
+This text is a placeholder
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+### Built With
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
+<u>Languages:</u>
+* HTML
+* CSS
+* Java
+* SQL
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
+<u>Technologies:</u>
+* Maven
+* IntelliJ
+* MySQL
+* JavaServer Pages
+* Spring Boot
+    * Spring Security
 
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
 
+<!-- GETTING STARTED -->
+## Getting Started
+
+### Prerequisites
+
+To run, users should have [MySQL](https://dev.mysql.com/downloads/mysql/) & [Maven](https://maven.apache.org/download.cgi) installed and set up. 
+
+### Setup & Running
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/ariesaviles/team2c-bookstore.git
+   ```
+1. Change into the newly cloned repository.
+1. Sign in to MySQL & setup the database   
+   ```sh
+   mysql -u root -p
+   ```
+
+   ```sh
+   create mydb;
+   ```
+   
+   ```sh
+   exit
+   ```
+
+    ```sh
+   mysql -u root -p mydb < /database/Dump20210331.sql
+   ```
+
+
+
+1. Change into the repository and setup maven with the following command
+   ```sh
+   mvn clean install
+   ```
+1. Run the localhost webapp with
+   ```sh
+   mvn spring-boot:run
+   ```
+1. The application should now be running. In your preferred browser, go to
+    http://localhost:8080 to get started.
