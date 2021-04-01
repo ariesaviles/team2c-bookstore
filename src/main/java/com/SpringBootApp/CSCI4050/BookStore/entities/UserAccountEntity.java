@@ -77,9 +77,9 @@ public class UserAccountEntity {
         this.lastName = lastName;
     }
 
-    public boolean isAdmin() {return isAdmin;}
+    public boolean isAdmin() { return isAdmin; }
 
-    public void setAdmin(boolean isAdmin) {this.isAdmin = isAdmin;}
+    public void setAdmin(boolean isAdmin) { this.isAdmin = isAdmin; }
 
     public String getEmail() {
         return email;
@@ -89,10 +89,9 @@ public class UserAccountEntity {
         this.email = email;
     }
 
-    public boolean isPromotion() {return isPromotion;}
+    public boolean getPromotion() { return isPromotion; }
 
     public void setPromotion(boolean isPromotion) { this.isPromotion = isPromotion; }
-
 
 
 }
