@@ -29,9 +29,10 @@
                     <h>First </h>
                     <h class="color--theme" style="margin-top: -50px;"> Last</h>
                 </div>
-                <p>Username: username420</p>
-                <p>E-mail: username420@lmao.com</p>
-                <p>Birthdate: 04/20/2021</p>
+                  <p>Name: ${name}</p>
+                <p>Username: ${username}</p>
+                <p>E-mail: ${userEmail}</p>
+                <p>Birthdate: ${birthDate}</p>
                 <button class="editButton">Edit Info</button>
               </div>
 

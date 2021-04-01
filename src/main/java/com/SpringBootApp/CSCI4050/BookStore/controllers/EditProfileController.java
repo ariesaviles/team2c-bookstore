@@ -21,6 +21,7 @@ import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.security.Principal;
 
 @Controller
 public class EditProfileController {
@@ -35,27 +36,32 @@ public class EditProfileController {
     }
 
     @RequestMapping(value = "/editProfile", method = RequestMethod.GET)
-    public String showEditProfilePage(ModelMap model){
+    public String showEditProfilePage(ModelMap model, Principal principal){
         //NEED TO PASS USER AS INSTANCE
-        model.addAttribute("accountForm", new UserAccountEntity());
+        UserAccountEntity user = accountRepository.findByEmail(principal.getName());
+
+        model.addAttribute("firstName", user.getFirstName());
+        model.addAttribute("lastName", user.getLastName());
+        model.addAttribute("userName", user.getUserName());
+        model.addAttribute("birthDate", user.getBirthDate());
         return "editProfile";
     }
 
     @RequestMapping(value = "/editProfile", method = RequestMethod.POST)
     public Object registerAccount(@ModelAttribute("accountForm") UserAccountEntity accountForm, BindingResult bindingResult,
-                                  Model model, HttpServletRequest request) throws IOException, MessagingException {
+                                  Model model, HttpServletRequest request, Principal principal) throws IOException, MessagingException {
 
         if (bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
-        accountForm.setFirstName(accountForm.getFirstName());
-        accountForm.setEmail(accountForm.getEmail().toLowerCase());
-        accountForm.setBirthDate(accountForm.getBirthDate());
-        accountForm.setUserName(accountForm.getUserName());
-        accountForm.setLastName(accountForm.getLastName());
+        UserAccountEntity user = accountRepository.findByEmail(principal.getName());
+        user.setFirstName(accountForm.getFirstName());
+        user.setLastName(accountForm.getLastName());
+        user.setUserName(accountForm.getUserName());
+        user.setBirthDate(accountForm.getBirthDate());
 
-        accountRepository.save(accountForm);
-        sendEmail = new Email();
+        //accountRepository.save(accountForm);
+        //sendEmail = new Email();
         //sendEmail.sendmail(accountForm.getEmail(), "Registration Successful","Thank you for signing up for Team 2C Bookstore Service");
         return "redirect:/login";
     }
