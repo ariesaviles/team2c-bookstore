@@ -17,6 +17,10 @@
         <form:label path="email">Username:</form:label>
         <form:input type="text" class="springInput" id="userName" placeholder="${userName}" path="userName"/>
 
+        <form:label path="promos">Subscribe to Promos:</form:label>
+            <form:radiobutton path="promos" value = "Y" label = "Yes" />
+            <form:radiobutton path="promos" value = "N" label = "No" />
+
         <form:button type="submit" class="from-control">Submit</form:button>
     </div>
 </form:form>

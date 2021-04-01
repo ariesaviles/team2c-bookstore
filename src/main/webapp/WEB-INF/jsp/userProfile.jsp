@@ -33,9 +33,8 @@
                 <p>Username: ${username}</p>
                 <p>E-mail: ${userEmail}</p>
                 <p>Birthdate: ${birthDate}</p>
-                <button class="editButton">Edit Info</button>
+                <button class="editButton" href="editProfile" >Edit Info</button>
               </div>
-
 
             </div>
 
