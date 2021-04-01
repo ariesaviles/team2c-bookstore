@@ -39,7 +39,7 @@ public class EditProfileController {
     public String showEditProfilePage(ModelMap model, Principal principal){
         //NEED TO PASS USER AS INSTANCE
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
-
+        model.addAttribute("accountForm", user);
         model.addAttribute("firstName", user.getFirstName());
         model.addAttribute("lastName", user.getLastName());
         model.addAttribute("userName", user.getUserName());
