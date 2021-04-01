@@ -82,7 +82,7 @@
 						try{
 							connection = DriverManager.getConnection(connectionUrl, userId, password);
 							statement=connection.createStatement();
-							String sql ="SELECT * FROM books;";
+							String sql ="SELECT * FROM book;";
 
 							resultSet = statement.executeQuery(sql);
 							while(resultSet.next()){
