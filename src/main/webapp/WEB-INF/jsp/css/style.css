@@ -67,11 +67,11 @@ header {
   padding: 14px 16px;
   text-decoration: none;
 }
-.menuItems li a:hover:not(.active) {
+.menuItems li a:hover:not(.active, .adminFlair) {
   background-color: #d5805d;
   color: white;
 }
-.menuItems li a:hover:not(.drop) {
+.menuItems li a:hover:not(.drop, .adminFlair) {
   background-color: #d5805d;
   color: black;
 }
@@ -122,6 +122,7 @@ header {
   font-size: 15px;
   margin: auto;
   text-align: center;
+    padding-top: 20px;
 }
 .bookImg {
   width: 30vw;

@@ -72,7 +72,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="indexText">
+					<sec:authorize access="hasAnyAuthority('1')">
+						<div style="position: inherit; color: black; border-style: solid; border-color: #e59285;padding: 5px; "><i class="fa fa-cog" style="font-size:20px;"> Edit</i></div>
+					</sec:authorize>
 					<h2 class="indexH2">Featured <span class="color--theme">Reads</span></h2>
+
 					<p><span class="color--dark">There are many variations of passages of Lorem Ipsum available, but the majority have suffered lebmid alteration in some ledmid form</span></p>
 				</div>
 			</div>
@@ -145,7 +149,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="indexText">
+					<sec:authorize access="hasAnyAuthority('1')">
+						<div style="position: inherit; color: black; border-style: solid; border-color: #e59285;padding: 5px; "><i class="fa fa-cog" style="font-size:20px;"> Edit</i></div>
+					</sec:authorize>
 					<h2 class="indexH2">New <span class="color--theme">Arrivals</span></h2>
+
 					<p><span class="color--dark">There are many variations of passages of Lorem Ipsum available, but the majority have suffered lebmid alteration in some ledmid form</span></p>
 				</div>
 			</div>
@@ -170,6 +178,7 @@
             								<img src="<%=resultSet.getString("Cover_Picture") %>" width="200" alt="product image">
             							</a>
             						</div>
+
 
             						<div class="bookLabel">
             							<h4><a href="test"> <%=resultSet.getString("Authors_Names") %> </a></h4>
