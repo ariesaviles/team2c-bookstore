@@ -29,7 +29,7 @@
                 </sec:authorize>
 
                 <sec:authorize access="hasAnyAuthority('0','1')">
-                 <a class='dd-btn active' href='login'>Account</a>
+                 <a class='dd-btn active'>Account</a>
 
                 <div class='dd-content'>
                     <a href='userProfile'>Profile</a>
