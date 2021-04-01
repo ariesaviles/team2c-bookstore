@@ -71,8 +71,8 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/admin_page.html").hasAuthority("1")
-                .antMatchers("/userProfile").hasAuthority("0")
-                .antMatchers("/cart.html").hasAuthority("0")
+                .antMatchers("/userProfile").hasAnyAuthority("0", "1")
+                .antMatchers("/cart.html").hasAnyAuthority("0", "1")
                 .antMatchers("/").permitAll()
                 .antMatchers("/changePasswordEmail").permitAll()
                 .and().formLogin().defaultSuccessUrl("/index").permitAll()
