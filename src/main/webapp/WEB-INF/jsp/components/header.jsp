@@ -3,6 +3,14 @@
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .adminFlair {
+            border-style: solid;
+            border-color: #e59285;
+            height: 13px;
+        }
+
+    </style>
 </head>
 
 <header id="wn__header" class="sticky_header header_bar">
@@ -43,6 +51,7 @@
                 </sec:authorize>
             </li>
             <li style='float:right'><a class='active' href='cart.html'>Your Cart</a></li>
+              <li style='float:right'><a class='adminFlair' >ADMINISTRATOR</a></li>
 
           </ul>
       </div>
