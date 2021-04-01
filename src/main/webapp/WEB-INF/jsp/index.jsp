@@ -116,6 +116,7 @@
 					</div>
 
 					<%
+					        resultSet.next();
 							}
 
 						} catch (Exception e) {
@@ -150,81 +151,53 @@
 			</div>
 
 			<div class="row">
-				<!--            BOOK           -->
-				<div class="indexBook">
-					<div class="bookImg">
-						<a href="single-product.html">
-							<img src="../../images/8.jpg" alt="product image">
-						</a>
-					</div>
 
-					<div class="bookLabel">
-						<h4><a href="single-product.html">Bowen Greenwood</a></h4>
-						<ul class="prize d-flex">
-							<li>$40.00</li>
-						</ul>
+            					<%
+            						try{
+            							connection = DriverManager.getConnection(connectionUrl, userId, password);
+            							statement=connection.createStatement();
+            							String sql ="SELECT * FROM book;";
 
-						<div class="action">
-							<div class="actions_inner">
-								<ul class="add_to_links">
-									<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-								</ul>
-							</div>
-						</div>
+            							resultSet = statement.executeQuery(sql);
+            							while(resultSet.next()){
+            							resultSet.next();
+            					%>
 
-					</div>
-				</div>
+            					<!--            BOOK           -->
+            					<div class="indexBook">
+            						<div class="bookImg">
+            							<a href="test">
+            								<img src="<%=resultSet.getString("Cover_Picture") %>" width="200" alt="product image">
+            							</a>
+            						</div>
 
-				<!--            BOOK           -->
-				<div class="indexBook">
-					<div class="bookImg">
-						<a href="single-product.html">
-							<img src="../../images/8.jpg" alt="product image">
-						</a>
-					</div>
+            						<div class="bookLabel">
+            							<h4><a href="test"> <%=resultSet.getString("Authors_Names") %> </a></h4>
+            							<ul class="prize d-flex">
+            								<li>$<%=resultSet.getString("Selling_Price") %>.99</li>
+            							</ul>
 
-					<div class="bookLabel">
-						<h4><a href="single-product.html">Bowen Greenwood</a></h4>
-						<ul class="prize d-flex">
-							<li>$40.00</li>
-						</ul>
+            							<div class="action">
+            								<div class="actions_inner">
+            									<ul class="add_to_links">
+            										<li><a class="cart" href="cart.html">Add to cart<i class="bi bi-shopping-bag4"></i></a></li>
+            									</ul>
+            								</div>
+            							</div>
 
-						<div class="action">
-							<div class="actions_inner">
-								<ul class="add_to_links">
-									<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-								</ul>
-							</div>
-						</div>
+            						</div>
+            					</div>
 
-					</div>
-				</div>
+            					<%
+            							}
 
-				<!--            BOOK           -->
-				<div class="indexBook">
-					<div class="bookImg">
-						<a href="single-product.html">
-							<img src="../../images/8.jpg" alt="product image">
-						</a>
-					</div>
+            						} catch (Exception e) {
+            							e.printStackTrace();
+            						}
+            					%>
 
-					<div class="bookLabel">
-						<h4><a href="single-product.html">Bowen Greenwood</a></h4>
-						<ul class="prize d-flex">
-							<li>$40.00</li>
-						</ul>
 
-						<div class="action">
-							<div class="actions_inner">
-								<ul class="add_to_links">
-									<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-								</ul>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
+            			</div>
 			<!-- End New Arrival Content -->
 		</div>
 	</section>
