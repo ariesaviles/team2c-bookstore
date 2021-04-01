@@ -72,8 +72,9 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/admin_page.html").hasAuthority("1")
                 .antMatchers("/userProfile").hasAuthority("0")
-                .antMatchers("/cart").hasAuthority("0")
+                .antMatchers("/cart.html").hasAuthority("0")
                 .antMatchers("/").permitAll()
+                .antMatchers("/changePasswordEmail").permitAll()
                 .and().formLogin().permitAll();
                 //.loginPage("/login")
                 //.defaultSuccessUrl("/index", true)

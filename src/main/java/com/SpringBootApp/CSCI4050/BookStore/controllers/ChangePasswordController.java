@@ -4,6 +4,7 @@ import com.SpringBootApp.CSCI4050.BookStore.Email;
 import com.SpringBootApp.CSCI4050.BookStore.entities.UserAccountEntity;
 import com.SpringBootApp.CSCI4050.BookStore.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.annotation.security.PermitAll;
 import javax.mail.MessagingException;
 import java.io.IOException;
 import java.security.Principal;
@@ -20,19 +22,23 @@ public class ChangePasswordController {
     @Autowired
     private AccountRepository accountRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     private Email sendEmail;
+    private String userEmail;
 
     public ChangePasswordController(AccountRepository accountRepository){
         this.accountRepository = accountRepository;
     }
 
-    @RequestMapping(value = "/changePassword", method = RequestMethod.GET)
-    public String showEditProfilePage(ModelMap model, Principal principal){
-        return "changePassword";
+    @RequestMapping(value = "/changePasswordEmail", method = RequestMethod.GET)
+    public String showChangePasswordEmail(ModelMap model){
+        return "changePasswordEmail";
     }
 
-    @RequestMapping(value = "/changePassword", method = RequestMethod.POST)
-    public Object registerAccount(@ModelAttribute("accountForm") UserAccountEntity accountForm, Model model, Principal principal) throws IOException, MessagingException {
+    @RequestMapping(value = "/changePasswordEmail", method = RequestMethod.POST)
+    public Object sendChangePassword(@ModelAttribute("accountForm") UserAccountEntity accountForm, Model model) throws IOException, MessagingException {
         UserAccountEntity emailCheck = accountRepository.findByEmail(accountForm.getEmail());
         if(emailCheck == null){
             model.addAttribute("emailMessage", "This email does not have an account");
@@ -40,8 +46,30 @@ public class ChangePasswordController {
         else{
             model.addAttribute("emailMessage", "Confirmation Email Has Been Sent");
             sendEmail = new Email();
-            sendEmail.sendmail(accountForm.getEmail(), "PASSWORD RESET", "Go to this link to change your password: http://localhost:8080/confirmChangePassword");
+            userEmail = accountForm.getEmail();
+            sendEmail.sendmail(userEmail, "PASSWORD RESET", "Go to this link to change your password: http://localhost:8080/changePasswordConfirm");
         }
-        return "changePassword";
+        return "changePasswordEmail";
+    }
+
+    @RequestMapping(value = "/changePasswordConfirm", method = RequestMethod.GET)
+    public String showChangePassword(ModelMap model){
+
+        return "changePasswordConfirm";
+    }
+
+    @RequestMapping(value = "/changePasswordConfirm", method = RequestMethod.POST)
+    public Object changePassword(@ModelAttribute("accountForm") UserAccountEntity accountForm, Model model) throws IOException, MessagingException {
+        UserAccountEntity user = accountRepository.findByEmail(userEmail);
+        if(accountForm.getFirstName() != accountForm.getLastName()){
+            model.addAttribute("passwordMessage", "Passwords do not macth");
+            return "changePasswordConfirm";
+        }
+        else{
+            user.setPassword(passwordEncoder.encode(accountForm.getPassword()));
+            accountRepository.save(user);
+            return "redirect:/login";
+        }
+
     }
 }

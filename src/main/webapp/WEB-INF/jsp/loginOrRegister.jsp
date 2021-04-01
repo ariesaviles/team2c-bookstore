@@ -34,7 +34,7 @@
 
     <div style="padding-top: 200px; padding-bottom: 100px">
     <p class="login Line">Already have an account?</p> <p><a href='/login' id="login_link">Click here to Login.</a></p>
-        <p style="padding-top: 20px;" >Forgot password?</p> <p><a href='/login' id="login_link">Create new password here.</a></p>
+        <p style="padding-top: 20px;" >Forgot password?</p> <p><a href='/changePasswordEmail' id="login_link">Create new password here.</a></p>
         <hr class="solid">
         <p>Are you a new user?</p> <p><a href='registration' id="contact_link">Click here to register.</a> </p>
     </div>
