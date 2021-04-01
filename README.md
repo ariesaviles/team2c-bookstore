@@ -13,40 +13,20 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#setup-&-run">How to Run Webapp</a></li>
+      </ul>
+    </li>
+    <li>
+        <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#running">How to Run Webapp</a></li>
-      </ul>
-   
   </ol>
 </details>
-
-## About The Project
-
-This text is a placeholder
-
-### Built With
-
-<u>Languages:</u>
-* HTML
-* CSS
-* Java
-* SQL
-
-<u>Technologies:</u>
-* Maven
-* IntelliJ
-* MySQL
-* JavaServer Pages
-* Spring Boot
-    * Spring Security
 
 
 <!-- GETTING STARTED -->
@@ -67,22 +47,15 @@ To run, users should have [MySQL](https://dev.mysql.com/downloads/mysql/) & [Mav
    ```sh
    mysql -u root -p
    ```
-
-   ```sh
-   create mydb;
-   ```
-   
-   ```sh
-   exit
-   ```
+    Then create the empty database (`create mydb;`) and logout (`exit`). Once logged out, call the following command to use the dumpfile:
 
     ```sh
    mysql -u root -p mydb < /database/Dump20210331.sql
    ```
+   Check to see if mydb was properly populated by logging back into MySQL and `use mydb;` and `show tables;`
+   
 
-
-
-1. Change into the repository and setup maven with the following command
+4. Change into the repository and setup maven with the following command
    ```sh
    mvn clean install
    ```
@@ -92,3 +65,23 @@ To run, users should have [MySQL](https://dev.mysql.com/downloads/mysql/) & [Mav
    ```
 1. The application should now be running. In your preferred browser, go to
     http://localhost:8080 to get started.
+
+## About The Project
+
+This text is a placeholder
+
+### Built With
+
+<u>Languages:</u>
+* HTML
+* CSS
+* Java
+* SQL
+
+<u>Technologies:</u>
+* Maven
+* IntelliJ
+* MySQL
+* JavaServer Pages
+* Spring Boot
+    * Spring Security
