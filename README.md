@@ -22,7 +22,7 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#running">How to Run Webapp</a></li>
+        <li><a href="#setup-&-running">How to Run</a></li>
       </ul>
    
   </ol>
