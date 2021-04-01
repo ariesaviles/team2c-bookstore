@@ -1,4 +1,3 @@
-
 package com.SpringBootApp.CSCI4050.BookStore.entities;
 
 
