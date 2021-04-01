@@ -2,6 +2,7 @@ package com.SpringBootApp.CSCI4050.BookStore.entities;
 
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.Bean;
 
 import javax.persistence.*;
 

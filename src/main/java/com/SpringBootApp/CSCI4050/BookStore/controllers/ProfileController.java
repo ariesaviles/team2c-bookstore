@@ -21,7 +21,8 @@ public class ProfileController {
     @RequestMapping(value = "/userProfile", method = RequestMethod.GET)
     public String display(Model model, Principal principal) {
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
-        model.addAttribute("name", (user.getFirstName() +" " + user.getLastName()));
+        model.addAttribute("firstName", user.getFirstName());
+        model.addAttribute("lastName", user.getLastName());
         model.addAttribute("username", user.getUserName());
         model.addAttribute("userEmail", user.getEmail());
         model.addAttribute("birthDate", user.getBirthDate());
