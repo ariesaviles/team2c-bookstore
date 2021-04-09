@@ -55,7 +55,7 @@ To run, users should have [MySQL](https://dev.mysql.com/downloads/mysql/) & [Mav
    Check to see if mydb was properly populated by logging back into MySQL and `use mydb;` and `show tables;`
    
 
-4. Change into the repository and setup maven with the following command
+4. Make sure you are still in the repository and setup maven with the following command
    ```sh
    mvn clean install
    ```

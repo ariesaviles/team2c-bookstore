@@ -16,6 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Create new user and give it access
+--
+CREATE USER 'adminuser'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON mydb.* to 'adminuser'@'localhost';
+FLUSH PRIVILEGES;
+
+--
 -- Table structure for table `address`
 --
 
