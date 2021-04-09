@@ -64,9 +64,23 @@
               <br>
               <p>Saved Payment Options</p>
               <hr class="solid">
+                <tr>
+                    <th></th>
+                    <th>Card Holder</th>
+                    <th>Card Number</th>
+                    <th>Expiration Date</th>
+                </tr>
+
               <br>
               <p>Saved Addresses</p>
               <hr class="solid">
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Street </th>
+                    <th>Expiration Date: </th>
+                </tr>
+
               <br>
 
             </div>
