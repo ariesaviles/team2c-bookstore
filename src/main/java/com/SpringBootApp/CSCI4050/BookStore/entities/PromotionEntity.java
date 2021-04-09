@@ -30,7 +30,7 @@ public class PromotionEntity {
             joinColumns = @JoinColumn(name = "promotion_idpromotion", referencedColumnName = "idPromotion"),
             inverseJoinColumns = @JoinColumn(name = "book_isbn", referencedColumnName = "ISBN")
     )
-    private BookEntity books;
+    private Set<BookEntity> books;
 
     public Long getIdPromotion() {
         return idPromotion;
@@ -62,13 +62,5 @@ public class PromotionEntity {
 
     public void setDateEnd(Date dateEnd) {
         this.dateEnd = dateEnd;
-    }
-
-    public BookEntity getBooks() {
-        return books;
-    }
-
-    public void setBooks(BookEntity books) {
-        this.books = books;
     }
 }
