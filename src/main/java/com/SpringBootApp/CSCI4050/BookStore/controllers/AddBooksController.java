@@ -18,12 +18,12 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 @Controller
-public class BookController {
+public class AddBooksController {
 
     @Autowired
     private BookRepository bookRepository;
 
-    public BookController(BookRepository bookRepository){
+    public AddBooksController(BookRepository bookRepository){
         this.bookRepository = bookRepository;
     }
 
