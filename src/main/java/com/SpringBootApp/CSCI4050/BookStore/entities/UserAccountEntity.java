@@ -1,7 +1,6 @@
 package com.SpringBootApp.CSCI4050.BookStore.entities;
 
 
-import com.SpringBootApp.CSCI4050.BookStore.Address;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 
@@ -41,7 +40,7 @@ public class UserAccountEntity {
     private boolean isPromotion;
 
     @OneToMany(mappedBy = "user")
-    private Set<Address> addresses;
+    private Set<AddressEntity> addresses;
 
     public String getBirthDate() {
         return birthDate;
