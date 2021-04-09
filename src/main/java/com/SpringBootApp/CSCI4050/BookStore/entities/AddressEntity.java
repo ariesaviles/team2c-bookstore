@@ -1,8 +1,5 @@
 package com.SpringBootApp.CSCI4050.BookStore.entities;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.context.annotation.Bean;
-
 import javax.persistence.*;
 
 @Entity
@@ -11,7 +8,7 @@ public class AddressEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idadress")
+    @Column(name = "idaddress")
     private long idAddress;
 
     @Column(name = "street")
@@ -27,7 +24,7 @@ public class AddressEntity {
     private int zipCode;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "IDuser", nullable = false)
+    @JoinColumn(name = "user_IDuser", nullable = false)
     private UserAccountEntity user;
 
     public Long getIdAddress() {

@@ -24,11 +24,11 @@ public class PromotionEntity {
     @Column(name = "dateend")
     private Date dateEnd;
 
-    @ManyToMany
+    @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
             name = "promotion_has_books",
-            joinColumns = @JoinColumn(name = "promotion_idpromotion", referencedColumnName = "idPromotion"),
-            inverseJoinColumns = @JoinColumn(name = "book_isbn", referencedColumnName = "ISBN")
+            joinColumns = @JoinColumn(name = "promotion_idpromotion", referencedColumnName = "idpromotion"),
+            inverseJoinColumns = @JoinColumn(name = "book_isbn", referencedColumnName = "id")
     )
     private Set<BookEntity> books;
 

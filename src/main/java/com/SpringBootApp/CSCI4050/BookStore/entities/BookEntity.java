@@ -26,7 +26,7 @@ public class BookEntity {
     private String imgLink;
     private int quantity;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "books")
     private Set<PromotionEntity> promotions;
 
 
