@@ -22,5 +22,10 @@ public class RootController {
         return "cart";
     }
 
+    @RequestMapping(path="/addBook", method = RequestMethod.GET)
+    public String addBook(Model model) {
+        return "addBook";
+    }
+
 
 }

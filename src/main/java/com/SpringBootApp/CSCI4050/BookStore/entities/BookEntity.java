@@ -12,7 +12,7 @@ public class BookEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int ISBN;
+    private String ISBN;
 
     //private Long id;
 
@@ -40,7 +40,7 @@ public class BookEntity {
         return authors;
     }
 
-    public int getISBN() {
+    public String getISBN() {
         return ISBN;
     }
 
