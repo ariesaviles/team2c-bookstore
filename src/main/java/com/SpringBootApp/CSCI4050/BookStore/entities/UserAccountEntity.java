@@ -5,8 +5,10 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 
 import javax.persistence.*;
+import java.util.Set;
 
-@Entity(name = "user")
+@Entity
+@Table(name = "user")
 public class UserAccountEntity {
 
     @Id
@@ -36,6 +38,9 @@ public class UserAccountEntity {
 
     @Column(name = "ispromotion")
     private boolean isPromotion;
+
+    @OneToMany(mappedBy = "user")
+    private Set<AddressEntity> addresses;
 
     public String getBirthDate() {
         return birthDate;

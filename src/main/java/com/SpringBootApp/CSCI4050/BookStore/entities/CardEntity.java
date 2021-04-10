@@ -23,7 +23,7 @@ public class CardEntity {
     @ManyToOne
     @MapsId
     @JoinColumn(name = "user_iduser")
-    private int user_IDuser;
+    private UserAccountEntity user_IDuser;
 
     public Long getIdCard() {
         return idCard;
@@ -47,13 +47,5 @@ public class CardEntity {
 
     public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
-    }
-
-    public int getUser_IDuser() {
-        return user_IDuser;
-    }
-
-    public void setUser_IDuser(int user_IDuser) {
-        this.user_IDuser = user_IDuser;
     }
 }
