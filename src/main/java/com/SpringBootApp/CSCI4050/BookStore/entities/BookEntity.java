@@ -3,22 +3,21 @@ package com.SpringBootApp.CSCI4050.BookStore.entities;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity(name = "book")
 public class BookEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private int ISBN;
+
+    //private Long id;
 
     private String title;
     private String authors;
-    private int ISBN;
     private String genre;
     private int edition;
     private String publisher;
@@ -28,6 +27,9 @@ public class BookEntity {
     private String description;
     private String imgLink;
     private int quantity;
+
+    @ManyToMany(mappedBy = "books")
+    private Set<PromotionEntity> promotions;
 
 
     public Long getId() {
