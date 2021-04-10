@@ -25,7 +25,6 @@ public class AddressEntity {
     @Column(name = "zipcode")
     private int zipCode;
 
-    @OneToMany(mappedBy = "user")
     @Column(name = "user_iduser")
     private Long IDuser;
 

@@ -24,7 +24,7 @@ public class PromotionEntity {
     @Column(name = "dateend")
     private Date dateEnd;
 
-    @ManyToMany
+
     @JoinTable(
             name = "promotion_has_books",
             joinColumns = @JoinColumn(name = "promotion_idpromotion", referencedColumnName = "idPromotion"),

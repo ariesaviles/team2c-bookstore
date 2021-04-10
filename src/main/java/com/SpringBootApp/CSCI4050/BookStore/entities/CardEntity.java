@@ -20,7 +20,6 @@ public class CardEntity {
     @Column(name = "username")
     private Date expirationDate;
 
-    @ManyToOne
     @MapsId
     @JoinColumn(name = "user_iduser")
     private int user_IDuser;

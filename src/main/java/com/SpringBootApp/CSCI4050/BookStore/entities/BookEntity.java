@@ -24,70 +24,116 @@ public class BookEntity {
     private String publisher;
     private int publishYear;
     private double price;
+    private double buyPrice;
     private String description;
     private String imgLink;
     private int quantity;
 
 
-    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getAuthors() {
         return authors;
     }
 
+    public void setAuthors(String authors) {
+        this.authors = authors;
+    }
+
     public int getISBN() {
         return ISBN;
+    }
+
+    public void setISBN(int ISBN) {
+        this.ISBN = ISBN;
     }
 
     public String getGenre() {
         return genre;
     }
 
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
     public int getEdition() {
         return edition;
     }
 
-    public String getPub() {
+    public void setEdition(int edition) {
+        this.edition = edition;
+    }
+
+    public String getPublisher() {
         return publisher;
     }
-  
-    public int getPubYear() {
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public int getPublishYear() {
         return publishYear;
     }
-    
-    public double price() {
+
+    public void setPublishYear(int publishYear) {
+        this.publishYear = publishYear;
+    }
+
+    public double getPrice() {
         return price;
     }
-    
+
     public void setPrice(double price) {
-      this.price = price;
+        this.price = price;
     }
-  
+
     public String getDescription() {
         return description;
     }
-    
+
     public void setDescription(String description) {
-      this.description = description; 
+        this.description = description;
     }
-  
+
     public String getImgLink() {
         return imgLink;
     }
-    
+
     public void setImgLink(String imgLink) {
-      this.imgLink = imgLink;
+        this.imgLink = imgLink;
     }
-    
+
     public int getQuantity() {
         return quantity;
     }
-  
+
     public void setQuantity(int quantity) {
-      this.quantity = quantity;
+        this.quantity = quantity;
     }
+
+    public double getBuyPrice() {
+        return buyPrice;
+    }
+
+    public void setBuyPrice(double buyPrice) {
+        this.buyPrice = buyPrice;
+    }
+
+
     
 }
