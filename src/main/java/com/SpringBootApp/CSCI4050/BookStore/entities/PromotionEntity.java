@@ -27,8 +27,8 @@ public class PromotionEntity {
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
             name = "promotion_has_books",
-            joinColumns = @JoinColumn(name = "promotion_idpromotion", referencedColumnName = "idpromotion"),
-            inverseJoinColumns = @JoinColumn(name = "book_isbn", referencedColumnName = "id")
+            joinColumns = @JoinColumn(name = "promotion_idpromotion"),
+            inverseJoinColumns = @JoinColumn(name = "book_isbn", referencedColumnName = "isbn")
     )
     private Set<BookEntity> books;
 
