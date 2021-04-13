@@ -10,17 +10,22 @@
 
     <!-- Stylesheets -->
     <style> <%@ include file="css/style.css"%> </style>
+    <style> <%@ include file="css/userProfile.css"%> </style>
 </head>
 <body>
 <!-- Main wrapper -->
-<div class="wrapper" id="wrapper">
+<div class="wrapper" id="wrapper" style="width: 100%;">
     <!-- Header -->
     <jsp:include page="components/header.jsp"/>
-
-    <div id="register" style="padding-top: 100px;">
+    <div style="width: 50%; margin: 50px; margin-top: 120px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); padding: 16px;background-color: #fff;">
+        <div class="cardDark">
+            <h>Add</h>
+            <h class="color--theme" style="margin-top: -50px;"> Book</h>
+        </div>
+    <div id="register">
         <jsp:include page="components/forms/adminAddBookForm.jsp"/>
     </div>
-
+    </div>
     <!-- Footer --->
     <jsp:include page="components/footer.jsp"/>
 </div>

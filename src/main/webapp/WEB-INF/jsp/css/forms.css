@@ -1,0 +1,11 @@
+.MyForm {
+    text-align: center;
+}
+.innerForm {
+    display: inline-block;
+    text-align: left;
+    margin-bottom: 5px;
+}
+.inputField {
+    margin-bottom: 10px;
+}
