@@ -9,6 +9,7 @@
 /Users/andino/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/security/SecSecurityConfig.java
 /Users/andino/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/EmailApplication.java
 /Users/andino/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/repository/BookRepository.java
+/Users/andino/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/ManageUserController.java
 /Users/andino/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/AddBooksController.java
 /Users/andino/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/IndexController.java
 /Users/andino/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/repository/AccountRepository.java
