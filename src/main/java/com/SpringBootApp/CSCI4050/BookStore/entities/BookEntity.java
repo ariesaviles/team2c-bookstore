@@ -31,7 +31,7 @@ public class BookEntity {
     @ManyToMany(mappedBy = "books")
     private Set<PromotionEntity> promotions;
 
-
+    /*
     public Long getId() {
         return id;
     }
@@ -39,6 +39,7 @@ public class BookEntity {
     public void setId(Long id) {
         this.id = id;
     }
+     */
 
     public String getTitle() {
         return title;
