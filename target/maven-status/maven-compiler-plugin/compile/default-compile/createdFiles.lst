@@ -1,7 +1,6 @@
 com/SpringBootApp/CSCI4050/BookStore/controllers/AddBooksController.class
 com/SpringBootApp/CSCI4050/BookStore/controllers/ManageUserController.class
 com/SpringBootApp/CSCI4050/BookStore/repository/AddressRepository.class
-com/SpringBootApp/CSCI4050/BookStore/repository/EntityRepository.class
 com/SpringBootApp/CSCI4050/BookStore/entities/PromotionEntity.class
 com/SpringBootApp/CSCI4050/BookStore/EmailApplication.class
 com/SpringBootApp/CSCI4050/BookStore/controllers/EditProfileController.class
@@ -12,9 +11,11 @@ com/SpringBootApp/CSCI4050/BookStore/BookStoreApplication.class
 com/SpringBootApp/CSCI4050/BookStore/controllers/RegistrationController.class
 com/SpringBootApp/CSCI4050/BookStore/controllers/ProfileController.class
 com/SpringBootApp/CSCI4050/BookStore/security/SecSecurityConfig.class
+com/SpringBootApp/CSCI4050/BookStore/controllers/ManagePromotionController.class
 com/SpringBootApp/CSCI4050/BookStore/controllers/RootController.class
 com/SpringBootApp/CSCI4050/BookStore/controllers/ChangePasswordController.class
 com/SpringBootApp/CSCI4050/BookStore/repository/AccountRepository.class
+com/SpringBootApp/CSCI4050/BookStore/repository/PromotionRepository.class
 com/SpringBootApp/CSCI4050/BookStore/entities/UserAccountEntity.class
 com/SpringBootApp/CSCI4050/BookStore/Address.class
 com/SpringBootApp/CSCI4050/BookStore/Email.class
