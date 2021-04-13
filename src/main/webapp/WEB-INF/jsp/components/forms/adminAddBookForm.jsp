@@ -1,5 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/../../css/forms.css">
+
 <style> <%@ include file="../../css/forms.css"%> </style>
 
 <%--@elvariable id="bookForm" type=""--%>
