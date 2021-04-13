@@ -33,13 +33,13 @@ public class AddBooksController {
     }
 
     @RequestMapping(value = "/addBook", method = RequestMethod.GET)
-    public String showRegistrationPage(ModelMap model){
+    public String showAddBookPage(ModelMap model){
         model.addAttribute("bookForm", new BookEntity());
         return "addBook";
     }
 
     @RequestMapping(value = "/addBook", method = RequestMethod.POST)
-    public Object registerAccount(@ModelAttribute("accountForm") BookEntity bookForm, BindingResult bindingResult,
+    public Object addBook(@ModelAttribute("accountForm") BookEntity bookForm, BindingResult bindingResult,
                                   Model model, HttpServletRequest request) throws IOException, MessagingException {
 
         if (bindingResult.hasErrors()) {

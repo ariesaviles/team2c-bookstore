@@ -50,9 +50,9 @@
         <span style="color: red">${badPass}</span>
         <form:password class="springInput" id="price" path="price"/>
 
-        <form:label path="sellPrice">Selling Price:</form:label>
+        <form:label path="buyPrice">Selling Price:</form:label>
         <span style="color: red">${badPass}</span>
-        <form:password class="springInput" id="sellPrice" path="sellPrice"/>
+        <form:password class="springInput" id="buyPrice" path="buyPrice"/>
 
 <%--        <form:label path="password">Bookscol:</form:label>--%>
 <%--        <span style="color: red">${badPass}</span>--%>

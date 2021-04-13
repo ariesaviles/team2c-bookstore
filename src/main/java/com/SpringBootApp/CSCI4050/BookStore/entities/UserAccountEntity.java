@@ -39,6 +39,9 @@ public class UserAccountEntity {
     @Column(name = "ispromotion")
     private boolean isPromotion;
 
+    @Column(name = "userstate")
+    private String userState;
+
     @OneToMany(mappedBy = "user")
     private Set<AddressEntity> addresses;
 
@@ -97,6 +100,14 @@ public class UserAccountEntity {
     public boolean getPromotion() { return isPromotion; }
 
     public void setPromotion(boolean isPromotion) { this.isPromotion = isPromotion; }
+
+    public String getUserState() {
+        return userState;
+    }
+
+    public void setUserState(String userState) {
+        this.userState = userState;
+    }
 
 
 }
