@@ -30,6 +30,7 @@
                 <th scope="row" data-field="lastName">Last Name</th>
                 <th scope="row" data-field="userName">Username</th>
                 <th scope="row" data-field="email">Email</th>
+                <th scope="row" data-field="birthDate">Date of Birth</th>
             </tr>
             </thead>
         <c:forEach items="${accountForm}" var="account">
@@ -38,6 +39,7 @@
                 <td>${account.lastName}</td>
                 <td>${account.userName}</td>
                 <td>${account.email}</td>
+                <td>${account.birthDate}</td>
             </tr>
         </c:forEach>
         </table>
