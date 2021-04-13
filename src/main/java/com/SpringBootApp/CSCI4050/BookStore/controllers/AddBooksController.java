@@ -58,7 +58,7 @@ public class AddBooksController {
             model.addAttribute("badEmail", "Please enter an email");
             problems = true;
         }
-        if(bookForm.getISBN() == 0){
+        if(bookForm.getISBN().isEmpty()){
             model.addAttribute("badBirth", "Please enter a birthdate");
             problems = true;
         }

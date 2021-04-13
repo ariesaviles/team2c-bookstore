@@ -1,8 +1,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 
-<%--@elvariable id="accountForm" type=""--%>
-<form:form method="POST" modelAttribute="accountForm">
+<%--@elvariable id="bookForm" type=""--%>
+<form:form method="POST" modelAttribute="bookForm">
     <div class="MyForm form-group" style="padding-top: 90px;">
         <form:label path="title">Title:</form:label>
         <span style="color: red">${badFirst}</span>

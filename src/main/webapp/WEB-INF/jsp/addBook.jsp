@@ -9,20 +9,20 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
 
     <!-- Stylesheets -->
-    <style> <%@ include file="../css/style.css"%> </style>
+    <style> <%@ include file="css/style.css"%> </style>
 </head>
 <body>
 <!-- Main wrapper -->
 <div class="wrapper" id="wrapper">
     <!-- Header -->
-    <jsp:include page="../components/header.jsp"/>
+    <jsp:include page="components/header.jsp"/>
 
     <div id="register" style="padding-top: 100px;">
-        <jsp:include page="../components/forms/adminAddBookForm.jsp"/>
+        <jsp:include page="components/forms/adminAddBookForm.jsp"/>
     </div>
 
     <!-- Footer --->
-    <jsp:include page="../components/footer.jsp"/>
+    <jsp:include page="components/footer.jsp"/>
 </div>
 <!-- //Main wrapper -->
 </body>
