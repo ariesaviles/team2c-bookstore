@@ -19,5 +19,4 @@ com\SpringBootApp\CSCI4050\BookStore\BookStoreApplication.class
 com\SpringBootApp\CSCI4050\BookStore\controllers\IndexController.class
 com\SpringBootApp\CSCI4050\BookStore\entities\PromotionEntity.class
 com\SpringBootApp\CSCI4050\BookStore\controllers\EditProfileController.class
-com\SpringBootApp\CSCI4050\BookStore\controllers\BookController.class
 com\SpringBootApp\CSCI4050\BookStore\controllers\ProfileController.class
