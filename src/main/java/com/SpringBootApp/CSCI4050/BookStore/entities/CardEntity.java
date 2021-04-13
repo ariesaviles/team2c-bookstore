@@ -20,6 +20,12 @@ public class CardEntity {
     @Column(name = "username")
     private Date expirationDate;
 
+    @Column(name = "cardnumber")
+    private String cardNumber;
+
+    @Column(name = "cardsecurity")
+    private String cardSecurity;
+
     @ManyToOne
     @MapsId
     @JoinColumn(name = "user_iduser")
@@ -47,5 +53,21 @@ public class CardEntity {
 
     public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public String getCardSecurity() {
+        return cardSecurity;
+    }
+
+    public void setCardSecurity(String cardSecurity) {
+        this.cardSecurity = cardSecurity;
     }
 }
