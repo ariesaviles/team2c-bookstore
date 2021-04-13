@@ -29,7 +29,7 @@ public class ManageUserController {
             accountForm.setUserState("Active");
         }
         accountRepository.save(accountForm);
-        return "redirect:/manageUsers";
+        return "redirect:/adminManageUsers";
     }
 
 }
