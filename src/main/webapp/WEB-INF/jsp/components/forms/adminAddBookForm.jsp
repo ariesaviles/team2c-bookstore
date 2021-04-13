@@ -6,7 +6,7 @@
     <div class="MyForm form-group" style="padding-top: 90px;">
         <form:label path="quantity">Quantity to Add:</form:label>
         <span style="color: red">${badPass}</span>
-        <form:password class="springInput" id="quantity" path="quantity"/>
+        <form:input class="springInput" id="quantity" path="quantity"/>
 
         <form:label path="title">Title:</form:label>
         <span style="color: red">${badFirst}</span>
@@ -32,27 +32,27 @@
 
         <form:label path="publisher">Publisher:</form:label>
         <span style="color: red">${badPass}</span>
-        <form:password class="springInput" id="publisher" path="publisher"/>
+        <form:input class="springInput" id="publisher" path="publisher"/>
 
         <form:label path="publishYear">Publication Year:</form:label>
         <span style="color: red">${badPass}</span>
-        <form:password class="springInput" id="publishYear" path="publishYear"/>
+        <form:input class="springInput" id="publishYear" path="publishYear"/>
 
         <form:label path="quantity">Quantity In Stock:</form:label>
         <span style="color: red">${badPass}</span>
-        <form:password class="springInput" id="quantity" path="quantity"/>
+        <form:input class="springInput" id="quantity" path="quantity"/>
 
 <%--        <form:label path="password">Minimum_Threshold:</form:label>--%>
 <%--        <span style="color: red">${badPass}</span>--%>
 <%--        <form:password class="springInput" id="password" path="password"/>--%>
 
-        <form:label path="price">Buying Price:</form:label>
+        <form:label path="buyPrice">Buying Price:</form:label>
         <span style="color: red">${badPass}</span>
-        <form:password class="springInput" id="price" path="price"/>
+        <form:input class="springInput" id="buyPrice" path="buyPrice"/>
 
-        <form:label path="sellPrice">Selling Price:</form:label>
+        <form:label path="price">Selling Price:</form:label>
         <span style="color: red">${badPass}</span>
-        <form:password class="springInput" id="sellPrice" path="sellPrice"/>
+        <form:input class="springInput" id="price" path="price"/>
 
 <%--        <form:label path="password">Bookscol:</form:label>--%>
 <%--        <span style="color: red">${badPass}</span>--%>
@@ -60,7 +60,7 @@
 
         <form:label path="description">Description:</form:label>
         <span style="color: red">${badPass}</span>
-        <form:password class="springInput" id="description" path="description"/>
+        <form:input class="springInput" id="description" path="description"/>
 
         <form:button type="submit" class="from-control">Submit</form:button>
     </div>

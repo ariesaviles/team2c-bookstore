@@ -32,13 +32,13 @@ public class AddBooksController {
         this.bookRepository = bookRepository;
     }
 
-    @RequestMapping(value = "/addBook", method = RequestMethod.GET)
+    @RequestMapping(value = "/adminAddBook", method = RequestMethod.GET)
     public String showRegistrationPage(ModelMap model){
         model.addAttribute("bookForm", new BookEntity());
-        return "addBook";
+        return "adminAddBook";
     }
 
-    @RequestMapping(value = "/addBook", method = RequestMethod.POST)
+    @RequestMapping(value = "/adminAddBook", method = RequestMethod.POST)
     public Object registerAccount(@ModelAttribute("accountForm") BookEntity bookForm, BindingResult bindingResult,
                                   Model model, HttpServletRequest request) throws IOException, MessagingException {
 

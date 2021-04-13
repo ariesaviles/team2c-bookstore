@@ -12,10 +12,10 @@ public class ManageUserController {
     @Autowired
     private AccountRepository accountRepository;
 
-    @RequestMapping(value = "/manageUsers", method = RequestMethod.GET)
+    @RequestMapping(value = "/adminManageUsers", method = RequestMethod.GET)
     public String displayUsers(Model model){
         model.addAttribute("accountForm", accountRepository.findAll());
-        return "manageUsers";
+        return "adminManageUsers";
     }
 
 
