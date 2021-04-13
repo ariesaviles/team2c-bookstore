@@ -4,10 +4,19 @@
 
 .columnL {
   flex: 0.5;
+
+}
+.columnLForm {
+  flex: 0.5;
+  margin-right: 50px;
 }
 .columnR {
   flex: 1;
 }
+.columnRForm {
+  flex: 0.5;
+}
+
 
 .mainBody {
   padding-top: 100px;
