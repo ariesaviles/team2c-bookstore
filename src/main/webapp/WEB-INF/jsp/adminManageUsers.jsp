@@ -23,13 +23,15 @@
     <jsp:include page="components/header.jsp"/>
 
     <div class="mainBody">
-        <table id = "table">
+        <table id = "table" data-search="true" data-toggle ="table" data-sort-order="desc" class="table table-striped table-hover sortable">
             <thead>
             <tr>
-                <th scope="row" data-field="firstName">First Name</th>
-                <th scope="row" data-field="lastName">Last Name</th>
-                <th scope="row" data-field="userName">Username</th>
-                <th scope="row" data-field="email">Email</th>
+                <th scope="row" data-field="firstName" data-sortable="true">First Name</th>
+                <th scope="row" data-field="lastName" data-sortable="true">Last Name</th>
+                <th scope="row" data-field="userName" data-sortable="true">Username</th>
+                <th scope="row" data-field="email" data-sortable="true">Email</th>
+                <th scope="row" data-field="birthDate" data-sortable="true">Date of Birth</th>
+                <th scope="row" data-field="userStatus" data-sortable="false">User Status</th>
             </tr>
             </thead>
         <c:forEach items="${accountForm}" var="account">
@@ -38,6 +40,10 @@
                 <td>${account.lastName}</td>
                 <td>${account.userName}</td>
                 <td>${account.email}</td>
+                <td>${account.birthDate}</td>
+                <td><a href="/changeStatus?email=${account.email}"><button class="btn btn-primary">
+                    <p> ${account.userState}</p>
+                  </button></a></td>
             </tr>
         </c:forEach>
         </table>
