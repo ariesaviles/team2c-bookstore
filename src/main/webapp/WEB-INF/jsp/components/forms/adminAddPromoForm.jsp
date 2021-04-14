@@ -5,13 +5,15 @@
 <form:form method="POST" modelAttribute="promoForm">
     <div class="MyForm form-group" style="padding-top: 90px;">
 
-        <form:label path="promoCode">Promotion Code to Add:</form:label>
-        <span style="color: red">${badPromoCode}</span>
-        <form:input type = "text" class="springInput" id="promoCode" path="promoCode"/>
 
         <form:label path="startDate">Start Date:</form:label>
         <span style="color: red">${badStart}</span>
         <form:input type="text" class="springInput" id="startDate" placeholder="YYYYmmDD" path="startDate"/>
+
+        <form:label path="promocode">Promotion Code to Add:</form:label>
+        <span style="color: red">${badPromoCode}</span>
+        <form:input type = "text" class="springInput" id="promocode" path="promocode"/>
+
 
         <form:label path="endDate">End Date:</form:label>
         <span style="color: red">${badEnd}</span>

@@ -1,11 +1,7 @@
 package com.SpringBootApp.CSCI4050.BookStore.entities;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.context.annotation.Bean;
-
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.Set;
 
 @Entity(name = "promotion")
 public class PromotionEntity {
@@ -16,7 +12,7 @@ public class PromotionEntity {
     private Long idPromotion;
 
     @Column(name = "promocode")
-    private String promoCode;
+    private String promocode;
 
     @Column(name = "discount")
     private Double discount;
@@ -38,12 +34,12 @@ public class PromotionEntity {
 //    )
 //    private Set<BookEntity> books;
 
-    public String getPromoCode() {
-        return promoCode;
+    public String getPromocode() {
+        return promocode;
     }
 
-    public void setPromoCode(String promoCode) {
-        this.promoCode = promoCode;
+    public void setPromocode(String promocode) {
+        this.promocode = promocode;
     }
     public Long getIdPromotion() {
         return idPromotion;

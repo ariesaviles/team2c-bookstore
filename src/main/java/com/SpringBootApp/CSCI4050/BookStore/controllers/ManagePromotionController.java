@@ -1,16 +1,12 @@
 package com.SpringBootApp.CSCI4050.BookStore.controllers;
 
-import com.SpringBootApp.CSCI4050.BookStore.entities.BookEntity;
 import com.SpringBootApp.CSCI4050.BookStore.entities.PromotionEntity;
-import com.SpringBootApp.CSCI4050.BookStore.repository.AccountRepository;
-import com.SpringBootApp.CSCI4050.BookStore.repository.BookRepository;
 import com.SpringBootApp.CSCI4050.BookStore.repository.PromotionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,7 +40,7 @@ public class ManagePromotionController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
         boolean problems = false;
-        if(promoForm.getPromoCode().isEmpty()){
+        if(promoForm.getPromocode().isEmpty()){
             model.addAttribute("badPromoCode", "Please enter a valid Promo Code");
             problems = true;
         }
@@ -69,7 +65,7 @@ public class ManagePromotionController {
             return  "addPromo";
         }
 
-        promoForm.setPromoCode(promoForm.getPromoCode());
+        promoForm.setPromocode(promoForm.getPromocode());
         promoForm.setDateEnd(promoForm.getDateEnd());
         promoForm.setDateStart(promoForm.getDateStart());
         promoForm.setDiscount(promoForm.getDiscount());
