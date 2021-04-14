@@ -71,5 +71,5 @@ public class CardEntity {
         this.cardSecurity = cardSecurity;
     }
 
-   
+
 }
