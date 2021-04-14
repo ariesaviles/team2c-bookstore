@@ -1,25 +1,25 @@
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\controllers\ProfileController.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\repository\BookRepository.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\controllers\RegistrationController.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\repository\CardRepository.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\EmailApplication.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\controllers\IndexController.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\controllers\EditProfileController.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\entities\PromotionEntity.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\Email.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\controllers\RootController.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\controllers\ChangePasswordController.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\controllers\LoginController.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\repository\AccountRepository.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\Address.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\repository\AddressRepository.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\entities\CardEntity.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\controllers\ManagePromotionController.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\controllers\AddBooksController.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\controllers\ManageUserController.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\entities\BookEntity.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\entities\UserAccountEntity.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\repository\PromotionRepository.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\security\SecSecurityConfig.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\BookStoreApplication.java
-C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\entities\AddressEntity.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/repository/PromotionRepository.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/EmailApplication.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/repository/BookRepository.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/EditProfileController.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/entities/BookEntity.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/entities/CardEntity.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/IndexController.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/LoginController.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/security/SecSecurityConfig.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/AddBooksController.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/Email.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/RegistrationController.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/BookStoreApplication.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/entities/AddressEntity.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/ManagePromotionController.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/entities/PromotionEntity.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/Address.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/repository/CardRepository.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/repository/AccountRepository.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/ManageUserController.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/repository/AddressRepository.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/ChangePasswordController.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/ProfileController.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/entities/UserAccountEntity.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/RootController.java
