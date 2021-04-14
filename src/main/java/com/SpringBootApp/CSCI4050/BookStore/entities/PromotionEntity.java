@@ -15,6 +15,9 @@ public class PromotionEntity {
     @Column(name = "idpromotion")
     private Long idPromotion;
 
+    @Column(name = "promocode")
+    private String promoCode;
+
     @Column(name = "discount")
     private Double discount;
 
@@ -24,6 +27,9 @@ public class PromotionEntity {
     @Column(name = "dateend")
     private Date dateEnd;
 
+    @Column(name = "hasbeensent")
+    private int hasSent;
+
 //    @ManyToMany(cascade = { CascadeType.ALL })
 //    @JoinTable(
 //            name = "promotion_has_books",
@@ -32,6 +38,13 @@ public class PromotionEntity {
 //    )
 //    private Set<BookEntity> books;
 
+    public String getPromoCode() {
+        return promoCode;
+    }
+
+    public void setPromoCode(String promoCode) {
+        this.promoCode = promoCode;
+    }
     public Long getIdPromotion() {
         return idPromotion;
     }
@@ -62,5 +75,13 @@ public class PromotionEntity {
 
     public void setDateEnd(Date dateEnd) {
         this.dateEnd = dateEnd;
+    }
+
+    public int getHasSent() {
+        return hasSent;
+    }
+
+    public void setHasSent(int hasSent) {
+        this.hasSent = hasSent;
     }
 }

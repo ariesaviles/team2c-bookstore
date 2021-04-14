@@ -8,6 +8,7 @@ import com.SpringBootApp.CSCI4050.BookStore.repository.PromotionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Date;
 
+@Controller
 public class ManagePromotionController {
     @Autowired
     private PromotionRepository promoRepository;
@@ -28,13 +30,13 @@ public class ManagePromotionController {
         this.promoRepository = promoRepository;
     }
 
-    @RequestMapping(value = "/adminManagePromotions", method = RequestMethod.GET)
+    @RequestMapping(value = "/adminAddPromo", method = RequestMethod.GET)
     public String displayPromos(Model model){
         model.addAttribute("promoForm", promoRepository.findAll());
-        return "adminManagePromotions";
+        return "adminAddPromo";
     }
 
-    @RequestMapping(value = "/adminManagePromotions", method = RequestMethod.POST)
+    @RequestMapping(value = "/adminAddPromo", method = RequestMethod.POST)
     public Object addPromo(@ModelAttribute("promoForm") PromotionEntity promoForm, BindingResult bindingResult,
                            Model model, HttpServletRequest request) throws IOException, MessagingException {
 
@@ -42,8 +44,8 @@ public class ManagePromotionController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
         boolean problems = false;
-        if(promoForm.getIdPromotion() == 0){
-            model.addAttribute("badPromoID", "Please enter a valid Promo ID");
+        if(promoForm.getPromoCode().isEmpty()){
+            model.addAttribute("badPromoCode", "Please enter a valid Promo Code");
             problems = true;
         }
         if(promoForm.getDateStart().before(new Date())){
@@ -67,14 +69,14 @@ public class ManagePromotionController {
             return  "addPromo";
         }
 
-        promoForm.setIdPromotion(promoForm.getIdPromotion());
+        promoForm.setPromoCode(promoForm.getPromoCode());
         promoForm.setDateEnd(promoForm.getDateEnd());
         promoForm.setDateStart(promoForm.getDateStart());
         promoForm.setDiscount(promoForm.getDiscount());
 
         promoRepository.save(promoForm);
 
-        return "redirect:/admin_page";
+        return "redirect:/admin_page.html";
     }
 
 
