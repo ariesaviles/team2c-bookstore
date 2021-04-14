@@ -1,6 +1,7 @@
 package com.SpringBootApp.CSCI4050.BookStore.controllers;
 
 import com.SpringBootApp.CSCI4050.BookStore.Email;
+import com.SpringBootApp.CSCI4050.BookStore.entities.AddressEntity;
 import com.SpringBootApp.CSCI4050.BookStore.entities.UserAccountEntity;
 import com.SpringBootApp.CSCI4050.BookStore.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,6 +97,8 @@ public class RegistrationController {
         accountForm.setPassword(passwordEncoder.encode(accountForm.getPassword()));
         accountForm.setUserName(accountForm.getUserName());
         accountForm.setLastName(accountForm.getLastName());
+        accountForm.setAddresses(accountForm.getAddresses());
+
 
         accountRepository.save(accountForm);
         sendEmail = new Email();

@@ -113,6 +113,7 @@ public class AddBooksController {
         bookForm.setBuyPrice(bookForm.getBuyPrice());
 
 
+
         bookRepository.save(bookForm);
 
         return "redirect:/admin_page.html";
