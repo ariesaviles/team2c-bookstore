@@ -12,24 +12,53 @@ public class BookEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String ISBN;
 
     private Long id;
 
+    @Column(name = "isbn")
+    private String ISBN;
+
+    @Column(name = "category")
+    private String category;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "authors_names")
     private String authors;
-    private String genre;
+
+//    @Column(name = "genre")
+//    private String genre;
+
+    @Column(name = "edition")
     private int edition;
+
+    @Column(name = "publisher")
     private String publisher;
+
+    @Column(name = "publication_year")
     private int publishYear;
+
+    @Column(name = "selling_price")
     private double price;
+
+    @Column(name = "buying_price")
     private double buyPrice;
+
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "cover_picture")
     private String imgLink;
+
+    @Column(name = "quantity_in_stock")
     private int quantity;
 
-    @ManyToMany(mappedBy = "books")
-    private Set<PromotionEntity> promotions;
+//    @Column(name = "minimum_threshold")
+//    private int minimumThreshold;
+
+//    @ManyToMany(mappedBy = "books")
+//    private Set<PromotionEntity> promotions;
 
     /*
     public Long getId() {
@@ -65,12 +94,12 @@ public class BookEntity {
         this.ISBN = ISBN;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getCategory() {
+        return category;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setCategory(String category) {
+            this.category = category;
     }
 
     public int getEdition() {

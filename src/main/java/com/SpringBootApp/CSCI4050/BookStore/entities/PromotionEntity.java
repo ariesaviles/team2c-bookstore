@@ -24,13 +24,13 @@ public class PromotionEntity {
     @Column(name = "dateend")
     private Date dateEnd;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
-    @JoinTable(
-            name = "promotion_has_books",
-            joinColumns = @JoinColumn(name = "promotion_idpromotion"),
-            inverseJoinColumns = @JoinColumn(name = "book_isbn", referencedColumnName = "isbn")
-    )
-    private Set<BookEntity> books;
+//    @ManyToMany(cascade = { CascadeType.ALL })
+//    @JoinTable(
+//            name = "promotion_has_books",
+//            joinColumns = @JoinColumn(name = "promotion_idpromotion"),
+//            inverseJoinColumns = @JoinColumn(name = "book_isbn", referencedColumnName = "isbn")
+//    )
+//    private Set<BookEntity> books;
 
     public Long getIdPromotion() {
         return idPromotion;
