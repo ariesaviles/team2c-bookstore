@@ -8,9 +8,13 @@
         <div class="innerForm">
              <div class="row">
                  <div class="columnLForm"
-                    <form:label path="quantity" cssStyle="text-align: left">Quantity to Add:</form:label>
+                    <form:label path="quantity">Quantity to Add:</form:label>
                     <span style="color: red">${badPass}</span><br/>
                     <form:input class="springInput" id="quantity" path="quantity" cssClass="inputField"/><br/>
+
+                 <form:label path="ISBN">ISBN:</form:label>
+                 <span style="color: red">${badPass}</span><br/>
+                 <form:input class="springInput" id="ISBN" path="ISBN" cssClass="inputField"/><br/>
 
                     <form:label path="title">Title:</form:label>
                     <span style="color: red">${badFirst}</span><br/>
@@ -28,13 +32,13 @@
                     <span style="color: red">${emailExist}</span>
                     <span style="color: red">${badEmail}</span>
                     <br/>
-                    <form:input type="email" class="springInput" id="edition" path="edition" cssClass="inputField"/><br/>
+                    <form:input type="text" class="springInput" id="edition" path="edition" cssClass="inputField"/><br/>
 
-                    <form:label path="genre">Category:</form:label>
+                    <form:label path="category">Category:</form:label>
                     <span style="color: red">${userNameExist}</span>
                     <span style="color: red">${badUser}</span>
                     <br/>
-                    <form:input type="text" class="springInput" id="genre" path="genre" cssClass="inputField"/><br/>
+                    <form:input type="text" class="springInput" id="category" path="category" cssClass="inputField"/><br/>
                 </div>
 
                 <div class="columnRForm">
@@ -61,6 +65,7 @@
                     <form:label path="price">Selling Price:</form:label>
                     <span style="color: red">${badPass}</span><br/>
                     <form:input class="springInput" id="price" path="price" cssClass="inputField"/><br/>
+
 
             <%--        <form:label path="password">Bookscol:</form:label>--%>
             <%--        <span style="color: red">${badPass}</span>--%>

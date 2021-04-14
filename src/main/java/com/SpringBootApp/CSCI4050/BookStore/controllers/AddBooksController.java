@@ -39,7 +39,7 @@ public class AddBooksController {
     }
 
     @RequestMapping(value = "/adminAddBook", method = RequestMethod.POST)
-    public Object registerAccount(@ModelAttribute("accountForm") BookEntity bookForm, BindingResult bindingResult,
+    public Object registerAccount(@ModelAttribute("bookForm") BookEntity bookForm, BindingResult bindingResult,
                                   Model model, HttpServletRequest request) throws IOException, MessagingException {
 
         if (bindingResult.hasErrors()) {
@@ -54,7 +54,7 @@ public class AddBooksController {
             model.addAttribute("badLast", "Please enter a last name");
             problems = true;
         }
-        if(bookForm.getGenre().isEmpty()){
+        if(bookForm.getCategory().isEmpty()){
             model.addAttribute("badEmail", "Please enter an email");
             problems = true;
         }
@@ -101,7 +101,7 @@ public class AddBooksController {
 
         bookForm.setAuthors(bookForm.getAuthors());
         bookForm.setEdition(bookForm.getEdition());
-        bookForm.setGenre(bookForm.getGenre());
+        bookForm.setCategory(bookForm.getCategory());
         bookForm.setISBN(bookForm.getISBN());
         bookForm.setPrice(bookForm.getPrice());
         bookForm.setPublisher(bookForm.getPublisher());
@@ -115,7 +115,7 @@ public class AddBooksController {
 
         bookRepository.save(bookForm);
 
-        return "redirect:/admin_page";
+        return "redirect:/admin_page.html";
     }
 
 
