@@ -77,8 +77,4 @@ public class ChangePasswordController {
 
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder2() {
-        return new BCryptPasswordEncoder();
-    }
 }

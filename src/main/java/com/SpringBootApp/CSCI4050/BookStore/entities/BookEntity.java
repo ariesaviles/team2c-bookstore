@@ -12,7 +12,6 @@ public class BookEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private Long id;
 
     @Column(name = "isbn")

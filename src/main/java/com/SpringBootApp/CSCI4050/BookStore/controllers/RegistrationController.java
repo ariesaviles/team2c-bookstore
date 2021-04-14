@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 
 @Controller
 public class RegistrationController {
@@ -29,7 +28,7 @@ public class RegistrationController {
     private AccountRepository accountRepository;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private PasswordEncoder encoder;
 
     private Email sendEmail;
 
@@ -93,9 +92,11 @@ public class RegistrationController {
         accountForm.setEmail(accountForm.getEmail().toLowerCase());
         accountForm.setBirthDate(accountForm.getBirthDate());
         //System.out.println(passwordEncoder.encode(accountForm.getPassword()));
-        accountForm.setPassword(passwordEncoder.encode(accountForm.getPassword()));
+        accountForm.setPassword(encoder.encode(accountForm.getPassword()));
         accountForm.setUserName(accountForm.getUserName());
         accountForm.setLastName(accountForm.getLastName());
+        accountForm.setAddresses(accountForm.getAddresses());
+
 
         accountRepository.save(accountForm);
         sendEmail = new Email();
@@ -103,8 +104,6 @@ public class RegistrationController {
         return "redirect:/login";
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+
+
 }

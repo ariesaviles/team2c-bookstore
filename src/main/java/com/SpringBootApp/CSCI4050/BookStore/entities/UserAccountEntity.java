@@ -42,6 +42,14 @@ public class UserAccountEntity {
     @Column(name = "userstate")
     private String userState;
 
+    public Set<AddressEntity> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(Set<AddressEntity> addresses) {
+        this.addresses = addresses;
+    }
+
     @OneToMany(mappedBy = "user")
     private Set<AddressEntity> addresses;
 
