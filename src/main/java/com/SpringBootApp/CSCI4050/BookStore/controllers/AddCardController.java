@@ -1,6 +1,8 @@
 package com.SpringBootApp.CSCI4050.BookStore.controllers;
 
 import com.SpringBootApp.CSCI4050.BookStore.entities.CardEntity;
+import com.SpringBootApp.CSCI4050.BookStore.entities.UserAccountEntity;
+import com.SpringBootApp.CSCI4050.BookStore.repository.AccountRepository;
 import com.SpringBootApp.CSCI4050.BookStore.repository.CardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,12 +21,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.security.Principal;
 
 @Controller
 public class AddCardController {
 
     @Autowired
     private CardRepository cardRepository;
+
+    @Autowired
+    private AccountRepository accountRepository;
 
     @Autowired
     private PasswordEncoder cardNumberEncoder;
@@ -41,7 +47,7 @@ public class AddCardController {
 
     @RequestMapping(value = "/addCard", method = RequestMethod.POST)
     public Object registerAccount(@ModelAttribute("cardForm") CardEntity cardForm, BindingResult bindingResult,
-                                  Model model, HttpServletRequest request) throws IOException, MessagingException {
+                                  Model model, Principal principal, HttpServletRequest request) throws IOException, MessagingException {
 
         if (bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
