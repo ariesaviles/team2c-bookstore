@@ -7,7 +7,7 @@
 
         <form:label path="promoCode">Promotion Code to Add:</form:label>
         <span style="color: red">${badPromoCode}</span>
-        <form:input class="springInput" id="promoCode" path="promoCode"/>
+        <form:input type = "text" class="springInput" id="promoCode" path="promoCode"/>
 
         <form:label path="startDate">Start Date:</form:label>
         <span style="color: red">${badStart}</span>
