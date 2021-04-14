@@ -62,7 +62,8 @@
 
 
               <br>
-              <p>Saved Payment Options</p>
+              <p style="text-align: right">Saved Payment Options <button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='addCard';">Edit Card</button></p>
+
               <hr class="solid">
                 <tr>
                     <th></th>
@@ -72,7 +73,7 @@
                 </tr>
 
               <br>
-              <p>Saved Addresses</p>
+                <p style="text-align: right">Saved Addresses <button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='editProfile';">Edit Address</button></p>
               <hr class="solid">
                 <tr>
                     <th></th>
