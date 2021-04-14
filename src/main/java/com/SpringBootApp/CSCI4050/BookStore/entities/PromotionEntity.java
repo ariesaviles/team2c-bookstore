@@ -41,6 +41,7 @@ public class PromotionEntity {
     public void setPromocode(String promocode) {
         this.promocode = promocode;
     }
+
     public Long getIdPromotion() {
         return idPromotion;
     }

@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ import java.util.Date;
 
 @Controller
 public class ManagePromotionController {
+
     @Autowired
     private PromotionRepository promoRepository;
 
@@ -27,8 +29,8 @@ public class ManagePromotionController {
     }
 
     @RequestMapping(value = "/adminAddPromo", method = RequestMethod.GET)
-    public String displayPromos(Model model){
-        model.addAttribute("promoForm", promoRepository.findAll());
+    public String displayPromos(ModelMap model){
+        model.addAttribute("promoForm", new PromotionEntity());
         return "adminAddPromo";
     }
 
@@ -62,7 +64,7 @@ public class ManagePromotionController {
         }
 
         if(problems){
-            return  "addPromo";
+            return "addPromo";
         }
 
         promoForm.setPromocode(promoForm.getPromocode());
