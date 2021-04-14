@@ -70,4 +70,6 @@ public class CardEntity {
     public void setCardSecurity(String cardSecurity) {
         this.cardSecurity = cardSecurity;
     }
+
+   
 }
