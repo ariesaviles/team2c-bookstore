@@ -8,10 +8,6 @@
         <div class="innerForm">
             <div class="row">
 
-                <form:label path="idCard">Card ID (?):</form:label>
-                <span style="color: red">${badPass}</span><br/>
-                <form:input type="text" class="springInput" id="idCard" path="idCard" cssClass="inputField"/><br/>
-
                 <form:label path="cardType">cardType:</form:label>
                 <span style="color: red">${badPass}</span><br/>
                 <form:input type="text" class="springInput" id="cardType" path="cardType" cssClass="inputField"/><br/>
@@ -24,7 +20,7 @@
                 <span style="color: red">${badLast}</span><br/>
                 <form:input type="text" class="springInput" id="cardNumber" placeholder="i.e. Calvin Butson" path="cardNumber" cssClass="inputField"/><br/>
 
-                <form:label path="imgLink">card Security:</form:label>
+                <form:label path="cardSecurity">card Security:</form:label>
                 <span style="color: red">${badBirth}</span><br/>
                 <form:input type="text" class="springInput" id="cardSecurity" placeholder="i.e. https://www.cs.uga.edu/sites/default/files/styles/square_400x400/public/faculty_13.jpg" path="cardSecurity" cssClass="inputField"/><br/>
             </div>

@@ -48,11 +48,6 @@ public class AddCardController {
         }
         boolean problems = false;
 
-
-        if(cardForm.getIdCard() == 0){
-            model.addAttribute("badFirst", "Please enter a first name");
-            problems = true;
-        }
         if(cardForm.getCardType().isEmpty()){
             model.addAttribute("badLast", "Please enter a last name");
             problems = true;
@@ -74,7 +69,6 @@ public class AddCardController {
             return  "addCard";
         }
 
-        cardForm.setIdCard(cardForm.getIdCard());
         cardForm.setCardType(cardForm.getCardType());
         cardForm.setExpirationDate(cardForm.getExpirationDate());
         cardForm.setCardNumber(cardNumberEncoder.encode(cardForm.getCardNumber()));
@@ -82,11 +76,8 @@ public class AddCardController {
 
         cardRepository.save(cardForm);
 
-        return "redirect:/userprofile";
+        return "redirect:/userProfile";
     }
 
-    @Bean
-    public PasswordEncoder cardNumberEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+
 }

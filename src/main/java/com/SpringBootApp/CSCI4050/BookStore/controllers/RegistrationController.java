@@ -28,7 +28,7 @@ public class RegistrationController {
     private AccountRepository accountRepository;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private PasswordEncoder encoder;
 
     private Email sendEmail;
 
@@ -92,7 +92,7 @@ public class RegistrationController {
         accountForm.setEmail(accountForm.getEmail().toLowerCase());
         accountForm.setBirthDate(accountForm.getBirthDate());
         //System.out.println(passwordEncoder.encode(accountForm.getPassword()));
-        accountForm.setPassword(passwordEncoder.encode(accountForm.getPassword()));
+        accountForm.setPassword(encoder.encode(accountForm.getPassword()));
         accountForm.setUserName(accountForm.getUserName());
         accountForm.setLastName(accountForm.getLastName());
         accountForm.setAddresses(accountForm.getAddresses());
@@ -105,8 +105,5 @@ public class RegistrationController {
     }
 
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+
 }
