@@ -181,12 +181,15 @@ DROP TABLE IF EXISTS `promotion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `promotion` (
-  `idPromotion` int NOT NULL,
+  `idPromotion` int NOT NULL AUTO_INCREMENT,
   `discount` decimal(10,0) NOT NULL,
   `dateStart` date NOT NULL,
   `dateEnd` date NOT NULL,
   `hasBeenSent` tinyint NOT NULL,
-  PRIMARY KEY (`idPromotion`)
+  `promoCode` varchar(45) NOT NULL,
+  PRIMARY KEY (`idPromotion`),
+  UNIQUE KEY `idPromotion_UNIQUE` (`idPromotion`),
+  UNIQUE KEY `promoCode_UNIQUE` (`promoCode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -296,4 +299,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-13 21:45:00
+-- Dump completed on 2021-04-13 22:29:32
