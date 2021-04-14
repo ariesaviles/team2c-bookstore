@@ -1,7 +1,6 @@
 package com.SpringBootApp.CSCI4050.BookStore.controllers;
 
 import com.SpringBootApp.CSCI4050.BookStore.Email;
-import com.SpringBootApp.CSCI4050.BookStore.entities.AddressEntity;
 import com.SpringBootApp.CSCI4050.BookStore.entities.UserAccountEntity;
 import com.SpringBootApp.CSCI4050.BookStore.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 
 @Controller
 public class RegistrationController {
@@ -105,6 +103,7 @@ public class RegistrationController {
         sendEmail.sendmail(accountForm.getEmail(), "Registration Successful","Thank you for signing up for Team 2C Bookstore Service");
         return "redirect:/login";
     }
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
