@@ -2,8 +2,8 @@
 
 <style> <%@ include file="../../css/forms.css"%> </style>
 
-<%--@elvariable id="cardForm" type=""--%>
-<form:form method="POST" modelAttribute="cardForm">
+<%--@elvariable id="addressForm" type=""--%>
+<form:form method="POST" modelAttribute="addressForm">
     <div class="MyForm form-group" style="padding-top: 20px; ">
         <div class="innerForm">
             <div class="row">
