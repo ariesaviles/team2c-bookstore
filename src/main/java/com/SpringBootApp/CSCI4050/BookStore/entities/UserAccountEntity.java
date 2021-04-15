@@ -53,6 +53,8 @@ public class UserAccountEntity {
     @OneToMany(mappedBy = "user_IDuser")
     private Set<AddressEntity> addresses;
 
+    public Long getIDuser() { return IDuser; }
+
     public String getBirthDate() {
         return birthDate;
     }
