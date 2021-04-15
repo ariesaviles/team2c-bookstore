@@ -23,7 +23,7 @@
 
     </div>
     </div>
-        <form:button type="submit" class="from-control">Submit</form:button>
+        <form:button type="submit" class="editButton">Submit</form:button>
     </div>
     </div>
 
