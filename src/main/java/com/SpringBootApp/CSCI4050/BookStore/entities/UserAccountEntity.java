@@ -50,7 +50,7 @@ public class UserAccountEntity {
         this.addresses = addresses;
     }
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user_IDuser")
     private Set<AddressEntity> addresses;
 
     public String getBirthDate() {
