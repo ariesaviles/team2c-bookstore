@@ -41,10 +41,10 @@
                     <td>${promo.dateStart}</td>
                     <td>${promo.dateEnd}</td>
                     <td style="padding-left: 35px"><a href="/sendEmail?promocode=${promo.promocode}" ><button class="btn btn-primary">
-                        <p> ${promo.hasSent}</p>
+                        <p> ${promo.hasSent == 1 ? 'Yes' : 'No'} </p>
                     </button></a></td>
                     <td><a href="/editPromo?promocode=${promo.promocode}"><button class="btn btn-primary">
-                        <p> Edit Promo</p>
+                        <p> Edit </p>
                     </button></a></td>
                 </tr>
             </c:forEach>

@@ -56,6 +56,8 @@ public class AddCardController {
 
         boolean problems = false;
 
+
+
         if(cardForm.getCardType().isEmpty()){
             model.addAttribute("badType", "Please enter a last name");
             problems = true;
