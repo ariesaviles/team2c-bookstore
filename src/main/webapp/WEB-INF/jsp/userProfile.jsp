@@ -73,7 +73,7 @@
                 </tr>
 
               <br>
-                <p style="text-align: right">Saved Addresses <button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='editProfile';">Edit Address</button></p>
+                <p style="text-align: right">Saved Addresses <button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='addAddress';">Edit Address</button></p>
               <hr class="solid">
                 <tr>
                     <th></th>

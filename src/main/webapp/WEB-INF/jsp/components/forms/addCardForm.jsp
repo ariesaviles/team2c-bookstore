@@ -16,6 +16,11 @@
                 <span style="color: red">${badExp}</span><br/>
                 <form:input type="text" class="springInput" id="expirationDate" placeholder="i.e. Cracking the Coding Interview" path="expirationDate" cssClass="inputField"/><br/>
 
+                <form:label path="cardHolderName">cardHolderName:</form:label>
+                <span style="color: red">${badNumber}</span><br/>
+                <form:input type="text" class="springInput" id="cardHolderName" placeholder="i.e. Calvin Butson" path="cardHolderName" cssClass="inputField"/><br/>
+
+
                 <form:label path="cardNumber">card number:</form:label>
                 <span style="color: red">${badNumber}</span><br/>
                 <form:input type="text" class="springInput" id="cardNumber" placeholder="i.e. Calvin Butson" path="cardNumber" cssClass="inputField"/><br/>
