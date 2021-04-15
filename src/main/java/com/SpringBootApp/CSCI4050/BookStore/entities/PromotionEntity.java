@@ -5,8 +5,7 @@ import java.sql.Date;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 
-@Entity
-@Table(name = "promotion")
+@Entity(name = "promotion")
 public class PromotionEntity {
 
     @Id
@@ -19,7 +18,6 @@ public class PromotionEntity {
 
     @Column(name = "discount")
     private Double discount;
-
 
     @Column(name = "datestart")
     private String dateStart;
