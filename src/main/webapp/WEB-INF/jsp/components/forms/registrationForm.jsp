@@ -30,19 +30,27 @@
         <span style="color: red">${badPass}</span>
         <form:password class="springInput" id="password" path="password"/><br/>
 
-        <form:label path="streetAdd">Street:</form:label>
-        <form:input type="text" class="springInput" id="streetAdd" placeholder="123 Broad St" path="streetAdd"/><br/>
+        <form:button type="submit" class="from-control">Submit</form:button>
 
-        <form:label path="city">Street:</form:label>
+    </div>
+</form:form>
+
+
+<%--@elvariable id="addressForm" type=""--%>
+<form:form method="POST" modelAttribute="addressForm">
+    <div class="MyForm form-group" style="padding-top: 90px;">
+
+        <form:label path="street">Street:</form:label>
+        <form:input type="text" class="springInput" id="street" placeholder="123 Broad St" path="street"/><br/>
+
+        <form:label path="city">City:</form:label>
         <form:input type="text" class="springInput" id="city" placeholder="Athens" path="city"/><br/>
 
-        <form:label path="state">Street:</form:label>
+        <form:label path="state">State:</form:label>
         <form:input type="text" class="springInput" id="state" placeholder="Georgia" path="state"/><br/>
 
-        <form:label path="zipCode">Street:</form:label>
+        <form:label path="zipCode">Zip Code:</form:label>
         <form:input type="text" class="springInput" id="zipCode" placeholder="30609" path="zipCode"/><br/>
 
-
-        <form:button type="submit" class="from-control">Submit</form:button>
     </div>
 </form:form>

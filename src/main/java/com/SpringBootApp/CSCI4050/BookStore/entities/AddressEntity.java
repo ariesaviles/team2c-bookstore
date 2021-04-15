@@ -23,6 +23,7 @@ public class AddressEntity {
     @Column(name = "zipcode")
     private int zipCode;
 
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_IDuser", nullable = false)
     private UserAccountEntity user;
@@ -65,5 +66,13 @@ public class AddressEntity {
 
     public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public UserAccountEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserAccountEntity user) {
+        this.user = user;
     }
 }

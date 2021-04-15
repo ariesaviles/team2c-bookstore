@@ -17,8 +17,8 @@ public class CardEntity {
     @Column(name = "cardtype")
     private String cardType;
 
-    @Column(name = "username")
-    private Date expirationDate;
+    @Column(name = "expirationdate")
+    private String expirationDate;
 
     @Column(name = "cardnumber")
     private String cardNumber;
@@ -48,11 +48,11 @@ public class CardEntity {
         this.cardType = cardType;
     }
 
-    public Date getExpirationDate() {
+    public String getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(Date expirationDate) {
+    public void setExpirationDate(String expirationDate) {
         this.expirationDate = expirationDate;
     }
 

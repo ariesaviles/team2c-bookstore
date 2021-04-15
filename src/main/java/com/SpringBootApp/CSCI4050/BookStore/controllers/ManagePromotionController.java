@@ -46,16 +46,12 @@ public class ManagePromotionController {
             model.addAttribute("badPromoCode", "Please enter a valid Promo Code");
             problems = true;
         }
-        if(promoForm.getDateStart().before(new Date())){
+        if(promoForm.getDateStart().isEmpty()){
             model.addAttribute("badStart", "Please enter a valid start date");
             problems = true;
         }
-        if(promoForm.getDateEnd().before(new Date())){
+        if(promoForm.getDateEnd().isEmpty()){
             model.addAttribute("badEnd", "Please enter a valid expiration date");
-            problems = true;
-        }
-        if (promoForm.getDateEnd().before(promoForm.getDateStart())) {
-            model.addAttribute("badOrder", "The end date should not be before the start date");
             problems = true;
         }
         if(promoForm.getDiscount() <= 0){
