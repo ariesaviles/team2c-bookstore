@@ -59,7 +59,7 @@ public class AddCardController {
             model.addAttribute("badType", "Please enter a last name");
             problems = true;
         }
-        if(cardForm.getExpirationDate().equals("")){
+        if(cardForm.getExpirationDate().isEmpty()){
             model.addAttribute("badExp", "Please enter an email");
             problems = true;
         }

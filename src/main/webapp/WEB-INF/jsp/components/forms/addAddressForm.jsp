@@ -8,25 +8,22 @@
         <div class="innerForm">
             <div class="row">
 
-                <form:label path="idCard">Card ID (?):</form:label>
-                <span style="color: red">${badPass}</span><br/>
-                <form:input type="text" class="springInput" id="idCard" path="idCard" cssClass="inputField"/><br/>
+                <form:label path="street">Street:</form:label>
+                <span style="color: red">${badStreet}</span><br/>
+                <form:input type="text" class="springInput" id="street" path="street" cssClass="inputField"/><br/>
 
-                <form:label path="cardType">cardType:</form:label>
-                <span style="color: red">${badPass}</span><br/>
-                <form:input type="text" class="springInput" id="cardType" path="cardType" cssClass="inputField"/><br/>
+                <form:label path="city">city:</form:label>
+                <span style="color: red">${badCity}</span><br/>
+                <form:input type="text" class="springInput" id="city" path="city" cssClass="inputField"/><br/>
 
-                <form:label path="expirationDate">expirationDate:</form:label>
-                <span style="color: red">${badFirst}</span><br/>
-                <form:input type="text" class="springInput" id="expirationDate" placeholder="i.e. Cracking the Coding Interview" path="expirationDate" cssClass="inputField"/><br/>
+                <form:label path="state">state:</form:label>
+                <span style="color: red">${badState}</span><br/>
+                <form:input type="text" class="springInput" id="state" placeholder="i.e. Cracking the Coding Interview" path="state" cssClass="inputField"/><br/>
 
-                <form:label path="cardNumber">card number:</form:label>
-                <span style="color: red">${badLast}</span><br/>
-                <form:input type="text" class="springInput" id="cardNumber" placeholder="i.e. Calvin Butson" path="cardNumber" cssClass="inputField"/><br/>
+                <form:label path="zipCode">zip: </form:label>
+                <span style="color: red">${badZip}</span><br/>
+                <form:input type="text" class="springInput" id="zipCode" placeholder="i.e. Calvin Butson" path="zipCode" cssClass="inputField"/><br/>
 
-                <form:label path="imgLink">card Security:</form:label>
-                <span style="color: red">${badBirth}</span><br/>
-                <form:input type="text" class="springInput" id="cardSecurity" placeholder="i.e. https://www.cs.uga.edu/sites/default/files/styles/square_400x400/public/faculty_13.jpg" path="cardSecurity" cssClass="inputField"/><br/>
             </div>
 
             <form:button type="submit" class="from-control" cssStyle="text-align: center">Submit</form:button>
