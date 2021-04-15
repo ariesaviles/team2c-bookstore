@@ -59,6 +59,8 @@ public class RegistrationController {
         UserAccountEntity emailCheck = accountRepository.findByEmail(accountForm.getEmail());
         UserAccountEntity userNameCheck = accountRepository.findByUserName(accountForm.getUserName());
 
+
+
         if(emailCheck != null){
             model.addAttribute("emailExist", "This email already has an account");
             problems = true;

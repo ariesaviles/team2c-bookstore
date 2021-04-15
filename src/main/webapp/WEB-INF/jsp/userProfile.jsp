@@ -44,6 +44,7 @@
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 		<!-- Header -->
+        <div class="hidden"><h>${userID}</h></div>
         <jsp:include page="components/header.jsp"/>
 
         <div class="mainBody">
@@ -51,7 +52,6 @@
             <div class="columnL">
               <div class="cardLight">
                 <div class="cardDark">
-                    <h>${userID}</h>
                     <h>${firstName} </h>
                     <h class="color--theme" style="margin-top: -50px;"> ${lastName}</h>
                 </div>
@@ -107,7 +107,7 @@
                             statement=connection.createStatement();
 
                             System.out.println("-----------UserProfile-----------");
-                            String StringUserID = pageContext.findAttribute("userEmail").toString()''
+                            String StringUserID = pageContext.findAttribute("userID").toString();
                             System.out.println(StringUserID);
 
                             String sql ="SELECT * FROM card c WHERE c.user_IDuser = " + StringUserID;
