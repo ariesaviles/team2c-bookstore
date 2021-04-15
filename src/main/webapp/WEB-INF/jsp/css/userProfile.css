@@ -10,6 +10,9 @@
   flex: 0.5;
   margin-right: 50px;
 }
+.columnFullForm {
+  flex: 1;
+}
 .columnR {
   flex: 1;
 }
@@ -49,7 +52,7 @@
 
 .cardLight p {
   font-family: "Roboto";
-  margin: 2;
+  margin: 2px;
 }
 
 .editButton {
