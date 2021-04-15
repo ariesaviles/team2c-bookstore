@@ -29,13 +29,13 @@ public class PromotionsController {
         this.promoRep = promoRep;
     }
 
-    @RequestMapping(value = "/adminPromo", method = RequestMethod.GET)
+    @RequestMapping(value = "/adminAddPromo", method = RequestMethod.GET)
     public String showPromoPage(ModelMap model){
         model.addAttribute("promoForm", new PromotionEntity());
-        return "adminPromo";
+        return "adminAddPromo";
     }
 
-    @RequestMapping(value = "/adminPromo", method = RequestMethod.POST)
+    @RequestMapping(value = "/adminAddPromo", method = RequestMethod.POST)
     public Object addPromo(@ModelAttribute("promoForm") PromotionEntity promoForm, BindingResult bindingResult,
                            Model model, HttpServletRequest request) throws IOException, MessagingException {
 
@@ -65,7 +65,7 @@ public class PromotionsController {
         }
 
         if(problems){
-            return  "addBook";
+            return  "adminAddPromo";
         }
 
         promoForm.setPromocode(promoForm.getPromocode());

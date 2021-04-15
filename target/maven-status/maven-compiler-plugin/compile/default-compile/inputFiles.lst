@@ -11,8 +11,8 @@
 /Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/Email.java
 /Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/RegistrationController.java
 /Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/BookStoreApplication.java
+/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/PromotionsController.java
 /Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/entities/AddressEntity.java
-/Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/ManagePromotionController.java
 /Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/entities/PromotionEntity.java
 /Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/Address.java
 /Users/keerthi/Documents/proj4050/src/main/java/com/SpringBootApp/CSCI4050/BookStore/repository/CardRepository.java
