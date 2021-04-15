@@ -1,7 +1,8 @@
 package com.SpringBootApp.CSCI4050.BookStore.entities;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
+//import java.sql.Date;
 
 @Entity(name = "promotion")
 public class PromotionEntity {
@@ -10,9 +11,6 @@ public class PromotionEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idpromotion")
     private Long idPromotion;
-
-    @Column(name = "promocode")
-    private String promocode;
 
     @Column(name = "discount")
     private Double discount;
@@ -25,6 +23,9 @@ public class PromotionEntity {
 
     @Column(name = "hasbeensent")
     private int hasSent;
+
+    @Column(name = "promocode")
+    private String promocode;
 
 //    @ManyToMany(cascade = { CascadeType.ALL })
 //    @JoinTable(

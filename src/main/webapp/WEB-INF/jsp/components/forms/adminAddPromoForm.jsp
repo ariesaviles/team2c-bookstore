@@ -14,7 +14,6 @@
         <span style="color: red">${badPromoCode}</span>
         <form:input type = "text" class="springInput" id="promocode" path="promocode"/>
 
-
         <form:label path="endDate">End Date:</form:label>
         <span style="color: red">${badEnd}</span>
         <span style="color: red">${badOrder}</span>
