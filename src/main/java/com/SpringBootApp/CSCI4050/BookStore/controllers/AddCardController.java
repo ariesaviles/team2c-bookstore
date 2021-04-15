@@ -48,10 +48,10 @@ public class AddCardController {
     @RequestMapping(value = "/addCard", method = RequestMethod.POST)
     public Object addCard(@ModelAttribute("cardForm") CardEntity cardForm, BindingResult bindingResult,
                                   ModelMap model, Principal principal, HttpServletRequest request) throws IOException, MessagingException {
-
+        /*
         if (bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-        }
+        }*/
 
         boolean problems = false;
 
