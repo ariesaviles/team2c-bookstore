@@ -26,6 +26,7 @@ public class CardEntity {
     @Column(name = "cardsecurity")
     private String cardSecurity;
 
+
     @ManyToOne
     @MapsId
     @JoinColumn(name = "user_iduser")
@@ -71,5 +72,13 @@ public class CardEntity {
         this.cardSecurity = cardSecurity;
     }
 
-   
+    public UserAccountEntity getUser_IDuser() {
+        return user_IDuser;
+    }
+
+    public void setUser_IDuser(UserAccountEntity user_IDuser) {
+        this.user_IDuser = user_IDuser;
+    }
+
+
 }

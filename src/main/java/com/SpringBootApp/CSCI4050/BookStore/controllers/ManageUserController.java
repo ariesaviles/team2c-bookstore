@@ -32,4 +32,16 @@ public class ManageUserController {
         return "redirect:/adminManageUsers";
     }
 
+    @RequestMapping(value = "/changeAdminStatus", method = RequestMethod.GET)
+    public String changeAdminStatus(@RequestParam("email") String email, Model model){
+        UserAccountEntity accountForm = accountRepository.findByEmail(email);
+        if(accountForm.isAdmin()) {
+            accountForm.setAdmin(false);
+        }else{
+            accountForm.setAdmin(true);
+        }
+        accountRepository.save(accountForm);
+        return "redirect:/adminManageUsers";
+    }
+
 }

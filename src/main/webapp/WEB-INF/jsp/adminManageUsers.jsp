@@ -32,6 +32,7 @@
                 <th scope="row" data-field="email" data-sortable="true">Email</th>
                 <th scope="row" data-field="birthDate" data-sortable="true">Date of Birth</th>
                 <th scope="row" data-field="userStatus" data-sortable="false">User Status</th>
+                <th scope="row" data-field="isAdmin" data-sortable="false">Admin Status</th>
             </tr>
             </thead>
         <c:forEach items="${accountForm}" var="account">
@@ -44,6 +45,9 @@
                 <td><a href="/changeStatus?email=${account.email}"><button class="btn btn-primary">
                     <p> ${account.userState}</p>
                   </button></a></td>
+                <td><a href="/changeAdminStatus?email=${account.email}"><button class="btn btn-primary">
+                    <p> ${account.isAdmin}</p>
+                </button></a></td>
             </tr>
         </c:forEach>
         </table>
