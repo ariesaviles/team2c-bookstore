@@ -11,14 +11,13 @@
 }
 
 .editButtonAdmin {
-    background-color: #ddd;
+    background-color: #d5805d80;
     border: none;
     color: black;
     padding: 30px 30px;
     text-align: center;
     text-decoration: none;
     text-decoration-thickness: 10px;
-
     display: inline-block;
     margin: 4px 2px;
     cursor: pointer;

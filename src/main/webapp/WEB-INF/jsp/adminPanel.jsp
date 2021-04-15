@@ -20,16 +20,19 @@
 <div class="wrapper" id="wrapper">
     <!-- Header -->
     <jsp:include page="components/header.jsp"/>
-
-    <div class="row2" style="margin-top: 120px;">
+    <div style="margin-top: 200px"></div>
+    <div class="cardLight" style="width: 95%;">
+        <div class="cardDark">
+            <h>Admin </h>
+            <h class="color--theme" style="margin-top: -50px;"> Panel</h>
+        </div>
+    <div class="row2" style="margin-top: 30px;">
         <div class="column2"><div class="cardLight" style="margin-right: 10px;">
-
 
             <button class="editButtonAdmin" onclick="location.href='adminManageUsers';"> Manage Users </button>
         </div></div>
 
         <div class="column2"><div class="cardLight" >
-
 
             <button class="editButtonAdmin" onclick="location.href='adminAddBook';"> Add Books </button>
         </div></div>
@@ -40,8 +43,9 @@
             <button class="editButtonAdmin" onclick="location.href='adminManagePromo';"> Manage Promos </button>
         </div></div>
     </div>
+    </div>
 
-
+    <div style="margin-top: 200px"></div>
     <!-- Footer --->
     <jsp:include page="components/footer.jsp"/>
 </div>
