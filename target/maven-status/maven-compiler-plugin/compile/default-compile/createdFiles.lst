@@ -11,8 +11,8 @@ com/SpringBootApp/CSCI4050/BookStore/repository/BookRepository.class
 com/SpringBootApp/CSCI4050/BookStore/BookStoreApplication.class
 com/SpringBootApp/CSCI4050/BookStore/controllers/RegistrationController.class
 com/SpringBootApp/CSCI4050/BookStore/controllers/ProfileController.class
+com/SpringBootApp/CSCI4050/BookStore/controllers/PromotionsController.class
 com/SpringBootApp/CSCI4050/BookStore/security/SecSecurityConfig.class
-com/SpringBootApp/CSCI4050/BookStore/controllers/ManagePromotionController.class
 com/SpringBootApp/CSCI4050/BookStore/controllers/RootController.class
 com/SpringBootApp/CSCI4050/BookStore/controllers/ChangePasswordController.class
 com/SpringBootApp/CSCI4050/BookStore/repository/AccountRepository.class
