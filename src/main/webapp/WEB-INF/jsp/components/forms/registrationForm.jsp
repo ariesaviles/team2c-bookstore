@@ -3,7 +3,10 @@
 
 <%--@elvariable id="accountForm" type=""--%>
 <form:form method="POST" modelAttribute="accountForm">
-    <div class="MyForm form-group" style="padding-top: 90px;">
+    <div class="MyForm form-group" style="padding-top: 20px;">
+    <div class="innerForm">
+    <div class="row">
+        <div class="columnFullForm"
         <form:label path="firstName">First Name: *</form:label>
         <span style="color: red">${badFirst}</span>
         <form:input type="text" class="springInput" id="firstName" placeholder="i.e. Calvin" path="firstName"/><br/>
