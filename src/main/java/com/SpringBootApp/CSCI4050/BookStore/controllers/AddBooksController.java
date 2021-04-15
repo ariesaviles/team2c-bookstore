@@ -116,7 +116,7 @@ public class AddBooksController {
 
         bookRepository.save(bookForm);
 
-        return "redirect:/admin_page.html";
+        return "redirect:/adminPanel";
     }
 
 
