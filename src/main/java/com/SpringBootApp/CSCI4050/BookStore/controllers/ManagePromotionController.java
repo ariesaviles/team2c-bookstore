@@ -36,7 +36,7 @@ public class ManagePromotionController {
 
     @RequestMapping(value = "/adminAddPromo", method = RequestMethod.POST)
     public Object addPromo(@ModelAttribute("promoForm") PromotionEntity promoForm, BindingResult bindingResult,
-                           Model model, HttpServletRequest request) throws IOException, MessagingException {
+                           ModelMap model, HttpServletRequest request) throws IOException, MessagingException {
 
         if (bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
