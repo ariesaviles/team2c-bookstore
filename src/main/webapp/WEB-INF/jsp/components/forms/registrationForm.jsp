@@ -32,7 +32,7 @@
 
             <%--@elvariable id="addressForm" type=""--%>
         <form:form method="POST" modelAttribute="addressForm">
-            <div class="MyForm form-group" style="padding-top: 90px;">
+
 
                 <form:label path="street">Street:</form:label>
                 <form:input type="text" class="springInput" id="street" placeholder="123 Broad St" path="street"/><br/>
@@ -46,7 +46,6 @@
                 <form:label path="zipCode">Zip Code:</form:label>
                 <form:input type="text" class="springInput" id="zipCode" placeholder="30609" path="zipCode"/><br/>
 
-            </div>
         </form:form>
 
 

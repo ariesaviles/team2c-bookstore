@@ -23,9 +23,9 @@
 				<h class="color--theme" style="margin-top: -50px;"> USER</h>
 			</div>
 			<div id="register">
-    	<div id="register" style="padding-top: 100px;">
+
 			<jsp:include page="components/forms/registrationForm.jsp"/>
-    	</div>
+
 
 		<!-- Footer --->
 		<jsp:include page="components/footer.jsp"/>
