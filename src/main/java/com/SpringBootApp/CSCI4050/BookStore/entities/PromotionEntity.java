@@ -2,6 +2,8 @@ package com.SpringBootApp.CSCI4050.BookStore.entities;
 
 import javax.persistence.*;
 import java.sql.Date;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.Bean;
 
 @Entity(name = "promotion")
 public class PromotionEntity {
