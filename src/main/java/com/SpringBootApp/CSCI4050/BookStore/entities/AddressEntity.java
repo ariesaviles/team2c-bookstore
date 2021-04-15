@@ -2,8 +2,7 @@ package com.SpringBootApp.CSCI4050.BookStore.entities;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "address")
+@Entity(name = "address")
 public class AddressEntity {
 
     @Id
@@ -71,7 +70,7 @@ public class AddressEntity {
         return user_IDuser;
     }
 
-    public void setUser_IDuser(UserAccountEntity user_IDuser) {
+    public void setUser(UserAccountEntity user_IDuser) {
         this.user_IDuser = user_IDuser;
     }
 

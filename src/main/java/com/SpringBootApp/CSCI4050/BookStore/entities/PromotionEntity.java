@@ -1,5 +1,6 @@
 package com.SpringBootApp.CSCI4050.BookStore.entities;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import javax.persistence.*;
 import java.sql.Date;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
