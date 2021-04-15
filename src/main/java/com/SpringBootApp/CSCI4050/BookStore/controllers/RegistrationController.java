@@ -110,7 +110,7 @@ public class RegistrationController {
         addressForm.setCity(addressForm.getCity());
         addressForm.setState(addressForm.getState());
         addressForm.setZipCode(addressForm.getZipCode());
-        addressForm.setUser_IDuser(accountForm);
+        addressForm.setUser(accountForm);
         addressRepository.save(addressForm);
         sendEmail = new Email();
         sendEmail.sendmail(accountForm.getEmail(), "Registration Successful","Thank you for signing up for Team 2C Bookstore Service");
