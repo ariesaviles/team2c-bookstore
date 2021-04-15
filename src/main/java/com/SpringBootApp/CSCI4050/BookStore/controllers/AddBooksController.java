@@ -63,7 +63,7 @@ public class AddBooksController {
             problems = true;
         }
         if(bookForm.getPrice() == 0){
-            model.addAttribute("badPrice", "Please enter a price");
+            model.addAttribute("badSellPrice", "Please enter a price");
             problems = true;
         }
         if(bookForm.getPublisher().isEmpty()){

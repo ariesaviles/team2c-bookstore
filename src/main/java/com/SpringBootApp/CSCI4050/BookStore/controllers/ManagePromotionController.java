@@ -43,13 +43,23 @@ public class ManagePromotionController {
     }
 
     @RequestMapping(value = "/sendEmail", method = RequestMethod.GET)
-    public String deactivateUser(@RequestParam("promocode") String promocode, Model model){
+    public String emailPromo(@RequestParam("promocode") String promocode, Model model){
         PromotionEntity promoForm = promoRepository.findByPromocode(promocode);
         if(promoForm.getHasSent() == 0) {
             System.out.println("Send Emails here");
             promoForm.setHasSent(1);
         }
         promoRepository.save(promoForm);
+        return "redirect:/adminManagePromo";
+    }
+
+    @RequestMapping(value = "/deletePromo", method = RequestMethod.GET)
+    public String deletePromo(@RequestParam("promocode") String promocode, Model model){
+        PromotionEntity promoForm = promoRepository.findByPromocode(promocode);
+        if(promoForm.getHasSent() == 1){
+            return "redirect:/adminManagePromo";
+        }
+        promoRepository.delete(promoForm);
         return "redirect:/adminManagePromo";
     }
 
