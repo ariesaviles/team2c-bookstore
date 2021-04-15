@@ -10,19 +10,20 @@
 
                 <form:label path="street">Street:</form:label>
                 <span style="color: red">${badStreet}</span><br/>
-                <form:input type="text" class="springInput" id="street" path="street" cssClass="inputField"/><br/>
+                <form:input type="text" class="springInput" id="street" placeholder="123 Broad St" path="street"/><br/>
 
                 <form:label path="city">city:</form:label>
                 <span style="color: red">${badCity}</span><br/>
-                <form:input type="text" class="springInput" id="city" path="city" cssClass="inputField"/><br/>
+                <form:input type="text" class="springInput" id="city" placeholder="Athens" path="city"/><br/>
 
                 <form:label path="state">state:</form:label>
                 <span style="color: red">${badState}</span><br/>
-                <form:input type="text" class="springInput" id="state" placeholder="i.e. Cracking the Coding Interview" path="state" cssClass="inputField"/><br/>
+                <form:input type="text" class="springInput" id="state" placeholder="Georgia" path="state"/><br/>
+
 
                 <form:label path="zipCode">zip: </form:label>
                 <span style="color: red">${badZip}</span><br/>
-                <form:input type="text" class="springInput" id="zipCode" placeholder="i.e. Calvin Butson" path="zipCode" cssClass="inputField"/><br/>
+                <form:input type="text" class="springInput" id="zipCode" placeholder="30609" path="zipCode"/><br/>
 
             </div>
 

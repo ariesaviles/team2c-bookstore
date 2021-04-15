@@ -9,13 +9,13 @@
         <span style="color: red">${badPromoCode}</span>
         <form:input type = "text" class="springInput" id="promocode" path="promocode"/>
 
-        <form:label path="startDate">Start Date:</form:label>
+        <form:label path="dateStart">Start Date:</form:label>
         <span style="color: red">${badStart}</span>
-        <form:input type="text" class="springInput" id="startDate" placeholder="YYYYmmDD" path="startDate"/>
+        <form:input type="text" class="springInput" id="dateStart" placeholder="YYYYmmDD" path="dateStart"/>
 
-        <form:label path="endDate">End Date:</form:label>
+        <form:label path="dateEnd">End Date:</form:label>
         <span style="color: red">${badEnd}</span>
-        <form:input type="text" class="springInput" id="endDate" placeholder="YYYYmmDD" path="endDate"/>
+        <form:input type="text" class="springInput" id="dateEnd" placeholder="YYYYmmDD" path="dateEnd"/>
 
         <form:label path="discount">Discount Price:</form:label>
         <span style="color: red">${badDiscount}</span>
