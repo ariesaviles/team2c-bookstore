@@ -8,8 +8,8 @@ public class AddressEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idaddress")
-    private long idAddress;
+    //@Column(name = "idaddress")
+    private Long idAddress;
 
     @Column(name = "street")
     private String street;
@@ -23,10 +23,9 @@ public class AddressEntity {
     @Column(name = "zipcode")
     private int zipCode;
 
-
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_IDuser", nullable = false)
-    private UserAccountEntity user;
+    @JoinColumn(name = "user_iduser", nullable = false)
+    private UserAccountEntity user_IDuser;
 
     public Long getIdAddress() {
         return idAddress;
@@ -68,11 +67,12 @@ public class AddressEntity {
         this.zipCode = zipCode;
     }
 
-    public UserAccountEntity getUser() {
-        return user;
+    public UserAccountEntity getUser_IDuser() {
+        return user_IDuser;
     }
 
-    public void setUser(UserAccountEntity user) {
-        this.user = user;
+    public void setUser_IDuser(UserAccountEntity user_IDuser) {
+        this.user_IDuser = user_IDuser;
     }
+
 }
