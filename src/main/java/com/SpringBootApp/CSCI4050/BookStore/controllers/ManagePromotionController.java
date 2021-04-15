@@ -60,7 +60,7 @@ public class ManagePromotionController {
         }
 
         if(problems){
-            return "addPromo";
+            return "adminAddPromo";
         }
 
         promoForm.setPromocode(promoForm.getPromocode());
