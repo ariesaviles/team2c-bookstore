@@ -76,15 +76,15 @@
               <br>
                 <p style="text-align: right">Saved Addresses <button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='addAddress';">Edit Address</button></p>
               <hr class="solid">
-                    <table id = "table" data-search="true" data-toggle ="table" data-sort-order="desc" class="table table-striped table-hover sortable">
-                        <thead>
-                        <tr>
-                            <th scope="row" data-field="street" data-sortable="true">Street</th>
-                            <th scope="row" data-field="city" data-sortable="true">City</th>
-                            <th scope="row" data-field="state" data-sortable="true">State</th>
-                            <th scope="row" data-field="zipCode" data-sortable="true">Zip Code</th>
-                        </tr>
-                        </thead>
+                <table id = "table" data-search="true" data-toggle ="table" data-sort-order="desc" class="table table-striped table-hover sortable">
+                    <thead>
+                    <tr>
+                        <th scope="row" data-field="street" data-sortable="true">Street</th>
+                        <th scope="row" data-field="city" data-sortable="true">City</th>
+                        <th scope="row" data-field="state" data-sortable="true">State</th>
+                        <th scope="row" data-field="zipCode" data-sortable="true">Zip Code</th>
+                    </tr>
+                    </thead>
                         <c:forEach items="${addressForm}" var="address">
                             <tr>
                                 <td>${address.street}</td>
