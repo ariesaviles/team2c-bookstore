@@ -6,7 +6,8 @@ import org.springframework.context.annotation.Bean;
 import javax.persistence.*;
 import java.sql.Date;
 
-@Entity(name = "card")
+@Entity
+@Table(name = "card")
 public class CardEntity {
 
     @Id
@@ -25,7 +26,6 @@ public class CardEntity {
 
     @Column(name = "cardsecurity")
     private String cardSecurity;
-
 
     @ManyToOne
     @MapsId
