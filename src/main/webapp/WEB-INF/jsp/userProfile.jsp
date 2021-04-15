@@ -88,7 +88,7 @@
 
 
               <br>
-              <p style="text-align: right">Saved Payment Options <button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='addCard';">Edit Card</button></p>
+              <p style="text-align: right">Saved Payment Options <button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='addCard';">Add Card</button></p>
 
               <hr class="solid">
                 <table id = "table" data-search="true" data-toggle ="table" data-sort-order="desc" class="table table-striped table-hover sortable">
@@ -116,10 +116,7 @@
 
                             int cardLimit = 0;
                             while(resultSet.next() ){
-//                                System.out.println("-----------cardLimit-----------");
-//                                System.out.println("out:" + cardLimit);
                                 cardLimit++;
-                                if(cardLimit < 3) {
 //                                    System.out.println("in:" + cardLimit);
                     %>
 
@@ -140,7 +137,7 @@
 
                 </table>
               <br>
-                <p style="text-align: right">Saved Addresses <button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='addAddress';">Edit Address</button></p>
+                <p style="text-align: right">Saved Addresses <button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='addAddress';">Add Address</button></p>
               <hr class="solid">
                 <table id = "table" data-search="true" data-toggle ="table" data-sort-order="desc" class="table table-striped table-hover sortable">
                     <thead>

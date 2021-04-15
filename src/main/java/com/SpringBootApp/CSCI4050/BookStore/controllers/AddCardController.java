@@ -17,11 +17,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import javax.servlet.http.HttpServletRequest;
 
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.security.Principal;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 
 @Controller
@@ -41,9 +43,25 @@ public class AddCardController {
     }
 
     @RequestMapping(value = "/addCard", method = RequestMethod.GET)
-    public String showAddCardPage(ModelMap model){
-        // count cards
+    public String showAddCardPage(ModelMap model, Principal principal) throws SQLException {
         // if > 3 cards redirect:/userProfile
+        UserAccountEntity user = accountRepository.findByEmail(principal.getName());
+        // -------------------- set up SQL ------------------
+        ResultSet resultSet = setUpSQL(user);
+
+        // count cards for current signed in user
+        int amountOfCards = 0;
+        while(resultSet.next()) {
+            amountOfCards++;
+        }
+
+        System.out.println("---------_Card Count Test in AddCardController------------");
+        System.out.println("Number: " + amountOfCards);
+
+        if(amountOfCards > 2) {
+            return "redirect:/userProfile";
+        }
+
         model.addAttribute("cardForm", new CardEntity());
         return "addCard";
     }
@@ -94,5 +112,29 @@ public class AddCardController {
         return "redirect:/userProfile";
     }
 
+    public ResultSet setUpSQL(UserAccountEntity user) throws SQLException {
+        String driverName = "com.mysql.jdbc.Driver";
+        String connectionUrl = "jdbc:mysql://localhost:3306/mydb";
+        //String dbName = "mydb";
+        String userId = "adminuser";
+        String password = "password";
+
+        try {
+            Class.forName(driverName);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        connection = DriverManager.getConnection(connectionUrl, userId, password);
+        statement = connection.createStatement();
+
+        String sql = "SELECT * FROM card c WHERE c.user_IDuser = " + user.getIDuser();
+
+        return resultSet = statement.executeQuery(sql);
+    }
 
 }
