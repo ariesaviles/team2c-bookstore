@@ -1,9 +1,13 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+<style> <%@ include file="../../css/forms.css"%> </style>
 
 <%--@elvariable id="accountForm" type=""--%>
 <form:form method="POST" modelAttribute="accountForm">
     <div class="MyForm form-group" style="padding-top: 90px;">
+    <div class="innerForm">
+    <div class="row">
+        <div class="columnLForm">
         <form:label path="firstName">First Name: *</form:label>
         <span style="color: red">${badFirst}</span>
         <form:input type="text" class="springInput" id="firstName" placeholder="i.e. Calvin" path="firstName"/><br/>
@@ -32,7 +36,7 @@
 
         <form:button type="submit" class="from-control">Submit</form:button>
 
-    </div>
+
 </form:form>
 
 
