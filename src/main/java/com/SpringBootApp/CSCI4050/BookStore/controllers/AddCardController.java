@@ -22,6 +22,7 @@ import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.security.Principal;
+import java.text.SimpleDateFormat;
 
 @Controller
 public class AddCardController {
@@ -78,6 +79,7 @@ public class AddCardController {
 
         cardForm.setCardType(cardForm.getCardType());
         cardForm.setExpirationDate(cardForm.getExpirationDate());
+        cardForm.setCardHolderName(cardForm.getCardHolderName());
         cardForm.setCardNumber(cardNumberEncoder.encode(cardForm.getCardNumber()));
         cardForm.setCardSecurity(cardNumberEncoder.encode(cardForm.getCardSecurity()));
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
