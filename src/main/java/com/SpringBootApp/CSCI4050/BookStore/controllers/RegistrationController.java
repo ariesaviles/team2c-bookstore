@@ -1,8 +1,10 @@
 package com.SpringBootApp.CSCI4050.BookStore.controllers;
 
 import com.SpringBootApp.CSCI4050.BookStore.Email;
+import com.SpringBootApp.CSCI4050.BookStore.entities.AddressEntity;
 import com.SpringBootApp.CSCI4050.BookStore.entities.UserAccountEntity;
 import com.SpringBootApp.CSCI4050.BookStore.repository.AccountRepository;
+import com.SpringBootApp.CSCI4050.BookStore.repository.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
@@ -28,6 +30,9 @@ public class RegistrationController {
     private AccountRepository accountRepository;
 
     @Autowired
+    private AddressRepository addressRepository;
+
+    @Autowired
     private PasswordEncoder encoder;
 
     private Email sendEmail;
@@ -39,12 +44,13 @@ public class RegistrationController {
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String showRegistrationPage(ModelMap model){
         model.addAttribute("accountForm", new UserAccountEntity());
+        model.addAttribute("addressForm", new AddressEntity());
         return "registration";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public Object registerAccount(@ModelAttribute("accountForm") UserAccountEntity accountForm, BindingResult bindingResult,
-                                  Model model, HttpServletRequest request) throws IOException, MessagingException {
+    public Object registerAccount(@ModelAttribute("accountForm") UserAccountEntity accountForm, @ModelAttribute("addressForm") AddressEntity addressForm,
+                                  BindingResult bindingResult, Model model, HttpServletRequest request) throws IOException, MessagingException {
 
         if (bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
@@ -95,10 +101,17 @@ public class RegistrationController {
         accountForm.setPassword(encoder.encode(accountForm.getPassword()));
         accountForm.setUserName(accountForm.getUserName());
         accountForm.setLastName(accountForm.getLastName());
-        accountForm.setAddresses(accountForm.getAddresses());
+        accountForm.setUserState("Active");
 
 
         accountRepository.save(accountForm);
+
+        addressForm.setStreet(addressForm.getStreet());
+        addressForm.setCity(addressForm.getCity());
+        addressForm.setState(addressForm.getState());
+        addressForm.setZipCode(addressForm.getZipCode());
+        addressForm.setUser_IDuser(accountForm);
+        addressRepository.save(addressForm);
         sendEmail = new Email();
         sendEmail.sendmail(accountForm.getEmail(), "Registration Successful","Thank you for signing up for Team 2C Bookstore Service");
         return "redirect:/login";

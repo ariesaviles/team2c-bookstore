@@ -18,26 +18,25 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Date;
 
-
 @Controller
-public class PromotionsController {
+public class ManagePromotionController {
 
     @Autowired
-    private PromotionRepository promoRep;
+    private PromotionRepository promoRepository;
 
-    public PromotionsController(PromotionRepository promoRep){
-        this.promoRep = promoRep;
+    public ManagePromotionController(PromotionRepository promoRepository){
+        this.promoRepository = promoRepository;
     }
 
     @RequestMapping(value = "/adminAddPromo", method = RequestMethod.GET)
-    public String showPromoPage(ModelMap model){
+    public String displayPromos(ModelMap model){
         model.addAttribute("promoForm", new PromotionEntity());
         return "adminAddPromo";
     }
 
     @RequestMapping(value = "/adminAddPromo", method = RequestMethod.POST)
     public Object addPromo(@ModelAttribute("promoForm") PromotionEntity promoForm, BindingResult bindingResult,
-                           Model model, HttpServletRequest request) throws IOException, MessagingException {
+                           ModelMap model, HttpServletRequest request) throws IOException, MessagingException {
 
         if (bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
@@ -47,25 +46,21 @@ public class PromotionsController {
             model.addAttribute("badPromoCode", "Please enter a valid Promo Code");
             problems = true;
         }
-        if(promoForm.getDateStart().before(new Date())){
+        if(promoForm.getDateStart().isEmpty()){
             model.addAttribute("badStart", "Please enter a valid start date");
             problems = true;
         }
-        if(promoForm.getDateEnd().before(new Date())){
+        if(promoForm.getDateEnd().isEmpty()){
             model.addAttribute("badEnd", "Please enter a valid expiration date");
             problems = true;
         }
-        if (promoForm.getDateEnd().before(promoForm.getDateStart())) {
-            model.addAttribute("badOrder", "The end date should not be before the start date");
-            problems = true;
-        }
-        if(promoForm.getDiscount() <= 0.00){
+        if(promoForm.getDiscount() <= 0){
             model.addAttribute("badDiscount", "Please enter a valid Discount value");
             problems = true;
         }
 
         if(problems){
-            return  "adminAddPromo";
+            return "addPromo";
         }
 
         promoForm.setPromocode(promoForm.getPromocode());
@@ -73,10 +68,11 @@ public class PromotionsController {
         promoForm.setDateStart(promoForm.getDateStart());
         promoForm.setDiscount(promoForm.getDiscount());
 
-        promoRep.save(promoForm);
+        promoRepository.save(promoForm);
 
         return "redirect:/admin_page.html";
     }
 
 
 }
+

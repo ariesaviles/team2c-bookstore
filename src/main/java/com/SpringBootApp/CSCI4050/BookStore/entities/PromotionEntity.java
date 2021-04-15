@@ -1,8 +1,10 @@
 package com.SpringBootApp.CSCI4050.BookStore.entities;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import javax.persistence.*;
-import java.util.Date;
-//import java.sql.Date;
+import java.sql.Date;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.Bean;
 
 @Entity(name = "promotion")
 public class PromotionEntity {
@@ -12,20 +14,20 @@ public class PromotionEntity {
     @Column(name = "idpromotion")
     private Long idPromotion;
 
+    @Column(name = "promocode")
+    private String promocode;
+
     @Column(name = "discount")
     private Double discount;
 
     @Column(name = "datestart")
-    private Date dateStart;
+    private String dateStart;
 
     @Column(name = "dateend")
-    private Date dateEnd;
+    private String dateEnd;
 
     @Column(name = "hasbeensent")
     private int hasSent;
-
-    @Column(name = "promocode")
-    private String promocode;
 
 //    @ManyToMany(cascade = { CascadeType.ALL })
 //    @JoinTable(
@@ -59,19 +61,19 @@ public class PromotionEntity {
         this.discount = discount;
     }
 
-    public Date getDateStart() {
+    public String getDateStart() {
         return dateStart;
     }
 
-    public void setDateStart(Date dateStart) {
+    public void setDateStart(String dateStart) {
         this.dateStart = dateStart;
     }
 
-    public Date getDateEnd() {
+    public String getDateEnd() {
         return dateEnd;
     }
 
-    public void setDateEnd(Date dateEnd) {
+    public void setDateEnd(String dateEnd) {
         this.dateEnd = dateEnd;
     }
 

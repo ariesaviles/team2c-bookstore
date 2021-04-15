@@ -48,10 +48,10 @@ public class AddCardController {
     @RequestMapping(value = "/addCard", method = RequestMethod.POST)
     public Object addCard(@ModelAttribute("cardForm") CardEntity cardForm, BindingResult bindingResult,
                                   ModelMap model, Principal principal, HttpServletRequest request) throws IOException, MessagingException {
-
+        /*
         if (bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-        }
+        }*/
 
         boolean problems = false;
 
@@ -59,7 +59,7 @@ public class AddCardController {
             model.addAttribute("badType", "Please enter a last name");
             problems = true;
         }
-        if(cardForm.getExpirationDate().equals("")){
+        if(cardForm.getExpirationDate().isEmpty()){
             model.addAttribute("badExp", "Please enter an email");
             problems = true;
         }
