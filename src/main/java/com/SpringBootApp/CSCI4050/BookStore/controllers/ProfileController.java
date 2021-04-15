@@ -34,7 +34,7 @@ public class ProfileController {
         model.addAttribute("username", user.getUserName());
         model.addAttribute("userEmail", user.getEmail());
         model.addAttribute("birthDate", user.getBirthDate());
-        model.addAttribute("isPromotion", user.getPromotion());
+        model.addAttribute("isPromotion", user.getIsPromotion());
         model.addAttribute("addressTable", addressRepository.findByUser_IDuser(user.getIDuser()));
         model.addAttribute("cardTable", cardRepository.findByUser_IDuser(user.getIDuser()));
 
