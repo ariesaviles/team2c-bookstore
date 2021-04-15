@@ -106,13 +106,10 @@ public class ManagePromotionController {
             model.addAttribute("badEnd", "Please enter a valid expiration date");
             problems = true;
         }
-        if(promoForm.getDiscount() <= 0){
-            model.addAttribute("badDiscount", "Please enter a valid Discount value");
-            problems = true;
-        }
+
 
         if(problems){
-            return "addPromo";
+            return "adminAddPromo";
         }
 
         promoForm.setPromocode(promoForm.getPromocode());

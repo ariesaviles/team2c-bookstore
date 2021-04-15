@@ -21,11 +21,11 @@
     <div style="width: 50%; margin: 50px; margin-top: 120px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); padding: 16px;background-color: #fff;">
         <div class="cardDark">
             <h>Edit</h>
-            <h class="color--theme" style="margin-top: -50px;"> User Info</h>
+            <h class="color--theme" style="margin-top: -50px;"> Promo</h>
         </div>
 
 
-        <div id="register" style="padding-top: 100px;">
+        <div id="register" style="padding-top: 10px;">
 
             <%--@elvariable id="promoForm" type=""--%>
             <form:form method="POST" modelAttribute="promoForm">
