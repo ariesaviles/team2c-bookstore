@@ -1,15 +1,16 @@
 Admin functionalities:
 
 - Manage Promos:
-[] add new promotion
+[] add new promotion, format add promo form and add spans
 [] admin should not edit or delete an already emailed promotion
+      - faanaensene, show you can't edit if sent but don't actually edit.
 [] edit promotion, only dates(?) unless emailed
 
 - Manage Users:
 [] admin: suspend and unsuspend
 
 - Manage Books:
-[] add books
+[] add books, check spans
 
 ------------------------------
 
