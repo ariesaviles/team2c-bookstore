@@ -47,7 +47,7 @@
                     <td><a href="/editPromo?promocode=${promo.promocode}"><button class="btn btn-primary">
                         <p> Edit </p>
                     </button></a></td>
-                    <td><a href="/editPromo?promocode=${promo.promocode}"><button class="btn btn-primary">
+                    <td><a href="/deletePromo?promocode=${promo.promocode}"><button class="btn btn-primary">
                         <p> Delete </p>
                     </button></a></td>
                 </tr>
