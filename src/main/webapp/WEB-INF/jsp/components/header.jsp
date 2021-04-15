@@ -43,7 +43,7 @@
                     <a href='userProfile'>Profile</a>
 
                     <sec:authorize access="hasAnyAuthority('1')">
-                    <a href='admin_page.html'>Admin Panel</a>
+                    <a href='adminPanel'>Admin Panel</a>
                     </sec:authorize>
 
                     <a href='logout'>Logout</a>

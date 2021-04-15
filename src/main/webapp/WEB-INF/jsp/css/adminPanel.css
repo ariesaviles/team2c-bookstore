@@ -9,3 +9,18 @@
     display: table;
     clear: both;
 }
+
+.editButtonAdmin {
+    background-color: #ddd;
+    border: none;
+    color: black;
+    padding: 30px 30px;
+    text-align: center;
+    text-decoration: none;
+    text-decoration-thickness: 10px;
+
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}

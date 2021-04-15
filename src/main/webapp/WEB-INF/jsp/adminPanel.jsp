@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html"%>
+
 <!doctype html>
 <head>
     <meta charset="utf-8">
@@ -11,6 +13,7 @@
     <!-- Stylesheets -->
     <style> <%@ include file="css/style.css"%> </style>
     <style> <%@ include file="css/adminPanel.css"%> </style>
+    <style> <%@ include file="css/userProfile.css"%> </style>
 </head>
 <body>
 <!-- Main wrapper -->
@@ -18,10 +21,24 @@
     <!-- Header -->
     <jsp:include page="components/header.jsp"/>
 
-    <div class="row2">
-        <div class="column2"></div>
-        <div class="column2"></div>
-        <div class="column2"></div>
+    <div class="row2" style="margin-top: 120px;">
+        <div class="column2"><div class="cardLight" style="margin-right: 10px;">
+
+
+            <button class="editButtonAdmin" onclick="location.href='adminManageUsers';"> Manage Users </button>
+        </div></div>
+
+        <div class="column2"><div class="cardLight" >
+
+
+            <button class="editButtonAdmin" onclick="location.href='adminAddBook';"> Add Books </button>
+        </div></div>
+
+        <div class="column2"><div class="cardLight" style="margin-left: 10px;">
+
+
+            <button class="editButtonAdmin" onclick="location.href='adminManagePromo';"> Manage Promos </button>
+        </div></div>
     </div>
 
 
