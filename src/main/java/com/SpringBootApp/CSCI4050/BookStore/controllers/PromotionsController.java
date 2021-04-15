@@ -18,25 +18,26 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Date;
 
+
 @Controller
-public class ManagePromotionController {
+public class PromotionsController {
 
     @Autowired
-    private PromotionRepository promoRepository;
+    private PromotionRepository promoRep;
 
-    public ManagePromotionController(PromotionRepository promoRepository){
-        this.promoRepository = promoRepository;
+    public PromotionsController(PromotionRepository promoRep){
+        this.promoRep = promoRep;
     }
 
-    @RequestMapping(value = "/adminAddPromo", method = RequestMethod.GET)
-    public String displayPromos(ModelMap model){
+    @RequestMapping(value = "/adminPromo", method = RequestMethod.GET)
+    public String showPromoPage(ModelMap model){
         model.addAttribute("promoForm", new PromotionEntity());
-        return "adminAddPromo";
+        return "adminPromo";
     }
 
-    @RequestMapping(value = "/adminAddPromo", method = RequestMethod.POST)
+    @RequestMapping(value = "/adminPromo", method = RequestMethod.POST)
     public Object addPromo(@ModelAttribute("promoForm") PromotionEntity promoForm, BindingResult bindingResult,
-                           Model model, HttpServletRequest request) throws IOException, MessagingException {
+                                  Model model, HttpServletRequest request) throws IOException, MessagingException {
 
         if (bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
@@ -58,13 +59,13 @@ public class ManagePromotionController {
             model.addAttribute("badOrder", "The end date should not be before the start date");
             problems = true;
         }
-        if(promoForm.getDiscount() <= 0){
+        if(promoForm.getDiscount() <= 0.00){
             model.addAttribute("badDiscount", "Please enter a valid Discount value");
             problems = true;
         }
 
         if(problems){
-            return "addPromo";
+            return  "addPromo";
         }
 
         promoForm.setPromocode(promoForm.getPromocode());
@@ -72,11 +73,10 @@ public class ManagePromotionController {
         promoForm.setDateStart(promoForm.getDateStart());
         promoForm.setDiscount(promoForm.getDiscount());
 
-        promoRepository.save(promoForm);
+        promoRep.save(promoForm);
 
         return "redirect:/admin_page.html";
     }
 
 
 }
-
