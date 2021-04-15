@@ -93,9 +93,9 @@ public class UserAccountEntity {
         this.lastName = lastName;
     }
 
-    public boolean isAdmin() { return isAdmin; }
+    public boolean getIsAdmin() { return isAdmin; }
 
-    public void setAdmin(boolean isAdmin) { this.isAdmin = isAdmin; }
+    public void setIsAdmin(boolean isAdmin) { this.isAdmin = isAdmin; }
 
     public String getEmail() {
         return email;
