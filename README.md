@@ -5,7 +5,7 @@
     <img src="src/main/webapp/images/logo.png" alt="Logo" >
   </a>
 
-<h3 align="center">Current: Deliverable 6 out of 8</h3>
+<h3 align="center">Current: Deliverable 7 out of 8</h3>
 </p>
 
 <!-- TABLE OF CONTENTS -->
