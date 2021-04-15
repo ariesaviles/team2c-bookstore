@@ -40,34 +40,35 @@ public class AddCardController {
     }
 
     @RequestMapping(value = "/addCard", method = RequestMethod.GET)
-    public String showRegistrationPage(ModelMap model){
+    public String showAddCardPage(ModelMap model){
         model.addAttribute("cardForm", new CardEntity());
         return "addCard";
     }
 
     @RequestMapping(value = "/addCard", method = RequestMethod.POST)
-    public Object registerAccount(@ModelAttribute("cardForm") CardEntity cardForm, BindingResult bindingResult,
-                                  Model model, Principal principal, HttpServletRequest request) throws IOException, MessagingException {
+    public Object addCard(@ModelAttribute("cardForm") CardEntity cardForm, BindingResult bindingResult,
+                                  ModelMap model, Principal principal, HttpServletRequest request) throws IOException, MessagingException {
 
         if (bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
+
         boolean problems = false;
 
         if(cardForm.getCardType().isEmpty()){
-            model.addAttribute("badLast", "Please enter a last name");
+            model.addAttribute("badType", "Please enter a last name");
             problems = true;
         }
         if(cardForm.getExpirationDate().equals("")){
-            model.addAttribute("badEmail", "Please enter an email");
+            model.addAttribute("badExp", "Please enter an email");
             problems = true;
         }
         if(cardForm.getCardNumber().isEmpty()){
-            model.addAttribute("badBirth", "Please enter a birthdate");
+            model.addAttribute("badNumber", "Please enter a birthdate");
             problems = true;
         }
         if(cardForm.getCardSecurity().isEmpty()){
-            model.addAttribute("badPass", "Please enter a password");
+            model.addAttribute("badSec", "Please enter a password");
             problems = true;
         }
 
@@ -78,7 +79,9 @@ public class AddCardController {
         cardForm.setCardType(cardForm.getCardType());
         cardForm.setExpirationDate(cardForm.getExpirationDate());
         cardForm.setCardNumber(cardNumberEncoder.encode(cardForm.getCardNumber()));
-        cardForm.setCardSecurity(cardForm.getCardSecurity());
+        cardForm.setCardSecurity(cardNumberEncoder.encode(cardForm.getCardSecurity()));
+        UserAccountEntity user = accountRepository.findByEmail(principal.getName());
+        cardForm.setUser_IDuser(user);
 
         cardRepository.save(cardForm);
 
