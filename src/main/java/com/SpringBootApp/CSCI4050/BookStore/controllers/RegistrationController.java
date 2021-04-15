@@ -106,12 +106,16 @@ public class RegistrationController {
 
         accountRepository.save(accountForm);
 
-        addressForm.setStreet(addressForm.getStreet());
-        addressForm.setCity(addressForm.getCity());
-        addressForm.setState(addressForm.getState());
-        addressForm.setZipCode(addressForm.getZipCode());
-        addressForm.setUser_IDuser(accountForm);
-        addressRepository.save(addressForm);
+        if(!addressForm.getStreet().isEmpty()) {
+            addressForm.setStreet(addressForm.getStreet());
+            addressForm.setCity(addressForm.getCity());
+            addressForm.setState(addressForm.getState());
+            addressForm.setZipCode(addressForm.getZipCode());
+            addressForm.setUser_IDuser(accountForm);
+            addressRepository.save(addressForm);
+        }
+
+
         sendEmail = new Email();
         sendEmail.sendmail(accountForm.getEmail(), "Registration Successful","Thank you for signing up for Team 2C Bookstore Service");
         return "redirect:/login";
