@@ -105,9 +105,9 @@ public class UserAccountEntity {
         this.email = email;
     }
 
-    public boolean getPromotion() { return isPromotion; }
+    public boolean getIsPromotion() { return isPromotion; }
 
-    public void setPromotion(boolean isPromotion) { this.isPromotion = isPromotion; }
+    public void setIsPromotion(boolean isPromotion) { this.isPromotion = isPromotion; }
 
     public String getUserState() {
         return userState;
