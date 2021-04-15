@@ -10,13 +10,19 @@
 
 	<!-- Stylesheets -->
 	<style> <%@ include file="css/style.css"%> </style>
+	<style> <%@ include file="css/userProfile.css"%> </style>
 </head>
 <body>
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 		<!-- Header -->
 		<jsp:include page="components/header.jsp"/>
-
+		<div style="width: 50%; margin: 50px; margin-top: 120px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); padding: 16px;background-color: #fff;">
+			<div class="cardDark">
+				<h>NEW</h>
+				<h class="color--theme" style="margin-top: -50px;"> USER</h>
+			</div>
+			<div id="register">
     	<div id="register" style="padding-top: 100px;">
 			<jsp:include page="components/forms/registrationForm.jsp"/>
     	</div>
