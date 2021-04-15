@@ -1,13 +1,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<style> <%@ include file="../../css/forms.css"%> </style>
 
 <%--@elvariable id="accountForm" type=""--%>
 <form:form method="POST" modelAttribute="accountForm">
     <div class="MyForm form-group" style="padding-top: 90px;">
-    <div class="innerForm">
-    <div class="row">
-        <div class="columnLForm">
         <form:label path="firstName">First Name: *</form:label>
         <span style="color: red">${badFirst}</span>
         <form:input type="text" class="springInput" id="firstName" placeholder="i.e. Calvin" path="firstName"/><br/>
@@ -34,27 +30,26 @@
         <span style="color: red">${badPass}</span>
         <form:password class="springInput" id="password" path="password"/><br/>
 
+            <%--@elvariable id="addressForm" type=""--%>
+        <form:form method="POST" modelAttribute="addressForm">
+
+
+                <form:label path="street">Street:</form:label>
+                <form:input type="text" class="springInput" id="street" placeholder="123 Broad St" path="street"/><br/>
+
+                <form:label path="city">City:</form:label>
+                <form:input type="text" class="springInput" id="city" placeholder="Athens" path="city"/><br/>
+
+                <form:label path="state">State:</form:label>
+                <form:input type="text" class="springInput" id="state" placeholder="Georgia" path="state"/><br/>
+
+                <form:label path="zipCode">Zip Code:</form:label>
+                <form:input type="text" class="springInput" id="zipCode" placeholder="30609" path="zipCode"/><br/>
+
+        </form:form>
+
+
         <form:button type="submit" class="from-control">Submit</form:button>
-
-
-</form:form>
-
-
-<%--@elvariable id="addressForm" type=""--%>
-<form:form method="POST" modelAttribute="addressForm">
-    <div class="MyForm form-group" style="padding-top: 90px;">
-
-        <form:label path="street">Street:</form:label>
-        <form:input type="text" class="springInput" id="street" placeholder="123 Broad St" path="street"/><br/>
-
-        <form:label path="city">City:</form:label>
-        <form:input type="text" class="springInput" id="city" placeholder="Athens" path="city"/><br/>
-
-        <form:label path="state">State:</form:label>
-        <form:input type="text" class="springInput" id="state" placeholder="Georgia" path="state"/><br/>
-
-        <form:label path="zipCode">Zip Code:</form:label>
-        <form:input type="text" class="springInput" id="zipCode" placeholder="30609" path="zipCode"/><br/>
-
     </div>
 </form:form>
+

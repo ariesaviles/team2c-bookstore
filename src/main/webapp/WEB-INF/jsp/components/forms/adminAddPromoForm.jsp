@@ -13,7 +13,6 @@
         <span style="color: red">${badStart}</span>
         <form:input type="text" class="springInput" id="startDate" placeholder="YYYYmmDD" path="startDate"/>
 
-
         <form:label path="endDate">End Date:</form:label>
         <span style="color: red">${badEnd}</span>
         <form:input type="text" class="springInput" id="endDate" placeholder="YYYYmmDD" path="endDate"/>
