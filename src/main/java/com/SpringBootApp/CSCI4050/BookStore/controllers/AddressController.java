@@ -76,7 +76,7 @@ public class AddressController {
         addressForm.setCity(addressForm.getCity());
         addressForm.setZipCode(addressForm.getZipCode());
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
-        addressForm.setUser(user);
+        addressForm.setUser_IDuser(user);
 
         addressRepository.save(addressForm);
 
