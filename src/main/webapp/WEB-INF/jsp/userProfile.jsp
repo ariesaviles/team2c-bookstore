@@ -44,6 +44,7 @@
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 		<!-- Header -->
+        <div class="hidden"><h>${userID}</h></div>
         <jsp:include page="components/header.jsp"/>
 
         <div class="mainBody">
@@ -55,7 +56,7 @@
                     <h class="color--theme" style="margin-top: -50px;"> ${lastName}</h>
                 </div>
                 <p>Username: ${username}</p>
-                <p name="email_load">E-mail: ${userEmail}</p>
+                <p>E-mail: ${userEmail}</p>
                 <p>Birthdate: ${birthDate}</p>
                   <p>Subscribed to Promos: ${isPromotion}</p>
                 <button class="editButton" onclick="location.href='editProfile';">Edit Info</button>
@@ -105,22 +106,21 @@
                             connection = DriverManager.getConnection(connectionUrl, userId, password);
                             statement=connection.createStatement();
 
-                            // attempt to store current user email in cat_load
-                            // ctrl + f, email_load and see first instance
-                            String cat_load="";
-                            String loadtext="";
-                            if(request.getParameter("email_load")!=null)
-                            {
-                                cat_load=(String)((request.getParameter("email_load")).trim());
-                            }
+                            System.out.println("-----------UserProfile-----------");
+                            String StringUserID = pageContext.findAttribute("userID").toString();
+                            System.out.println(StringUserID);
 
-                            System.out.println("-----------UserProfile-----------\n\n\n");
-                            System.out.println(cat_load);
-
-                            String sql ="SELECT * FROM card  WHERE card.user_IDuser = 5;";
+                            String sql ="SELECT * FROM card c WHERE c.user_IDuser = " + StringUserID;
 
                             resultSet = statement.executeQuery(sql);
-                            while(resultSet.next()){
+
+                            int cardLimit = 0;
+                            while(resultSet.next() ){
+//                                System.out.println("-----------cardLimit-----------");
+//                                System.out.println("out:" + cardLimit);
+                                cardLimit++;
+                                if(cardLimit < 3) {
+//                                    System.out.println("in:" + cardLimit);
                     %>
 
                         <tr>
@@ -130,8 +130,8 @@
                         </tr>
 
                     <%
-
-                            }
+                                } // if
+                            } // while
 
                         } catch (Exception e) {
                             e.printStackTrace();

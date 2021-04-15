@@ -52,9 +52,12 @@
 
 .cardLight p {
   font-family: "Roboto";
-  margin: 2px;
+  margin: 2;
 }
+.centerForm {
+  justify-content: center;
 
+}
 .editButton {
   background-color: #ddd;
   border: none;

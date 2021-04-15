@@ -42,6 +42,8 @@ public class AddCardController {
 
     @RequestMapping(value = "/addCard", method = RequestMethod.GET)
     public String showAddCardPage(ModelMap model){
+        // count cards
+        // if > 3 cards redirect:/userProfile
         model.addAttribute("cardForm", new CardEntity());
         return "addCard";
     }
@@ -55,6 +57,8 @@ public class AddCardController {
         }*/
 
         boolean problems = false;
+
+
 
         if(cardForm.getCardType().isEmpty()){
             model.addAttribute("badType", "Please enter a last name");
