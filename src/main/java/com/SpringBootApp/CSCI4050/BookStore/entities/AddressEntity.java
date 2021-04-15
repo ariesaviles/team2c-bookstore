@@ -70,7 +70,7 @@ public class AddressEntity {
         return user_IDuser;
     }
 
-    public void setUser(UserAccountEntity user_IDuser) {
+    public void setUser_IDuser(UserAccountEntity user_IDuser) {
         this.user_IDuser = user_IDuser;
     }
 
