@@ -32,6 +32,7 @@ public class ProfileController {
         model.addAttribute("firstName", user.getFirstName());
         model.addAttribute("lastName", user.getLastName());
         model.addAttribute("username", user.getUserName());
+        model.addAttribute("userID", user.getIDuser());
         model.addAttribute("userEmail", user.getEmail());
         model.addAttribute("birthDate", user.getBirthDate());
         model.addAttribute("isPromotion", user.getIsPromotion());

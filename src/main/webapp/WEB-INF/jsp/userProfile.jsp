@@ -51,6 +51,7 @@
             <div class="columnL">
               <div class="cardLight">
                 <div class="cardDark">
+                    <h>${userID}</h>
                     <h>${firstName} </h>
                     <h class="color--theme" style="margin-top: -50px;"> ${lastName}</h>
                 </div>
@@ -106,9 +107,10 @@
                             statement=connection.createStatement();
 
                             System.out.println("-----------UserProfile-----------");
-                            System.out.println(pageContext.findAttribute("userEmail"));
+                            String StringUserID = pageContext.findAttribute("userEmail").toString()''
+                            System.out.println(StringUserID);
 
-                            String sql ="SELECT * FROM card  WHERE card.user_IDuser = 5;";
+                            String sql ="SELECT * FROM card c WHERE c.user_IDuser = " + StringUserID;
 
                             resultSet = statement.executeQuery(sql);
 

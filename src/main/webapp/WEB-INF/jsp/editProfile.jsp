@@ -23,8 +23,7 @@
             <h class="color--theme" style="margin-top: -50px;"> User Info</h>
         </div>
 
-
-    <div id="register" style="padding-top: 100px;">
+    <div id="register" style="padding-top: 30px;">
         <jsp:include page="components/forms/editProfileForm.jsp"/>
     </div>
     </div>

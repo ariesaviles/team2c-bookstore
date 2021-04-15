@@ -42,6 +42,7 @@ public class EditProfileController {
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
         model.addAttribute("accountForm", user);
         model.addAttribute("firstName", user.getFirstName());
+
         model.addAttribute("lastName", user.getLastName());
         model.addAttribute("userName", user.getUserName());
         model.addAttribute("birthDate", user.getBirthDate());

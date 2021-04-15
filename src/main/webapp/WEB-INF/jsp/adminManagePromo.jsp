@@ -32,6 +32,7 @@
                 <th scope="row" data-field="dateEnd" data-sortable="true">End Date</th>
                 <th scope="row" data-field="hasSent" data-sortable="true">Has Been Sent</th>
                 <th scope="row"  data-sortable="true">Edit</th>
+                <th scope="row"  data-sortable="true">Delete</th>
             </tr>
             </thead>
             <c:forEach items="${promoForm}" var="promo">
@@ -41,17 +42,22 @@
                     <td>${promo.dateStart}</td>
                     <td>${promo.dateEnd}</td>
                     <td style="padding-left: 35px"><a href="/sendEmail?promocode=${promo.promocode}" ><button class="btn btn-primary">
-                        <p> ${promo.hasSent == 1 ? 'Yes' : 'No'} </p>
+                        <p>${promo.hasSent == 1 ? 'Yes' : 'No'}</p>
                     </button></a></td>
                     <td><a href="/editPromo?promocode=${promo.promocode}"><button class="btn btn-primary">
                         <p> Edit </p>
                     </button></a></td>
+                    <td><a href="/editPromo?promocode=${promo.promocode}"><button class="btn btn-primary">
+                        <p> Delete </p>
+                    </button></a></td>
                 </tr>
             </c:forEach>
         </table>
-        <td><a href="/adminAddPromo"><button class="btn btn-primary">
-            <p>Add Promo</p>
+        <div  style="text-align: center; padding-top: 30px">
+        <td ><a href="/adminAddPromo"><button class="btn btn-primary">
+            <p>Create New Promo</p>
         </button></a></td>
+        </div>
     </div>
 
 
