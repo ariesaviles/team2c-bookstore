@@ -21,6 +21,6 @@ public class RootController {
     public String cart(Model model) {
         return "cart";
     }
-
+    
 
 }
