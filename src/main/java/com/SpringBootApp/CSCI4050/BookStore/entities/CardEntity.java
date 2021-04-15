@@ -6,13 +6,12 @@ import org.springframework.context.annotation.Bean;
 import javax.persistence.*;
 import java.sql.Date;
 
-@Entity
-@Table(name = "card")
+@Entity(name = "card")
 public class CardEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idcard")
+    //@Column(name = "idcard")
     private Long idCard;
 
     @Column(name = "cardtype")
@@ -20,6 +19,9 @@ public class CardEntity {
 
     @Column(name = "expirationdate")
     private String expirationDate;
+
+    @Column(name = "cardholdername")
+    private String cardHolderName;
 
     @Column(name = "cardnumber")
     private String cardNumber;
@@ -54,6 +56,14 @@ public class CardEntity {
 
     public void setExpirationDate(String expirationDate) {
         this.expirationDate = expirationDate;
+    }
+
+    public String getCardHolderName() {
+        return cardHolderName;
+    }
+
+    public void setCardHolderName(String cardHolderName) {
+        this.cardHolderName = cardHolderName;
     }
 
     public String getCardNumber() {
