@@ -7,7 +7,7 @@ public class AddressEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //@Column(name = "idaddress")
+    @Column(name = "idaddress")
     private Long idAddress;
 
     @Column(name = "street")

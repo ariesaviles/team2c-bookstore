@@ -44,6 +44,7 @@ public class BookEntity {
     @Column(name = "buying_price")
     private double buyPrice;
 
+    @Lob
     @Column(name = "description")
     private String description;
 
@@ -56,18 +57,8 @@ public class BookEntity {
 //    @Column(name = "minimum_threshold")
 //    private int minimumThreshold;
 
-//    @ManyToMany(mappedBy = "books")
-//    private Set<PromotionEntity> promotions;
-
-    /*
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-     */
+    @ManyToMany(mappedBy = "booksInCart")
+    private Set<UserCartEntity> areInCart;
 
     public String getTitle() {
         return title;
