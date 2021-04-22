@@ -30,8 +30,7 @@ CREATE TABLE `address` (
   `zipCode` int DEFAULT NULL,
   `User_IDuser` bigint NOT NULL,
   PRIMARY KEY (`idAddress`),
-  KEY `fk_Address_User1_idx` (`User_IDuser`),
-  CONSTRAINT `FKr8pvvu626ueoet11r68nwvvxq` FOREIGN KEY (`User_IDuser`) REFERENCES `user` (`IDuser`)
+  KEY `fk_Address_User1_idx` (`User_IDuser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -97,8 +96,7 @@ CREATE TABLE `card` (
   `cardNumber` varchar(70) NOT NULL,
   `cardSecurity` varchar(70) NOT NULL,
   PRIMARY KEY (`idCard`),
-  KEY `fk_Card_User_idx` (`User_IDuser`),
-  CONSTRAINT `FK41k43lwd6k757ih7um19s8xyp` FOREIGN KEY (`User_IDuser`) REFERENCES `user` (`IDuser`)
+  KEY `fk_Card_User_idx` (`User_IDuser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -148,7 +146,6 @@ CREATE TABLE `order` (
   `Address_idAddress` bigint NOT NULL,
   `orderDate` date NOT NULL,
   `Promotion_idPromotion` bigint DEFAULT NULL,
-  `Ordercol` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idOrder`),
   KEY `fk_Order_User1_idx` (`User_IDuser`),
   KEY `fk_Order_Card1_idx` (`Card_idCard`),
@@ -267,8 +264,7 @@ CREATE TABLE `usercart` (
   PRIMARY KEY (`idUserCart`),
   UNIQUE KEY `User_IDuser_UNIQUE` (`User_IDuser`),
   UNIQUE KEY `idUserCart_UNIQUE` (`idUserCart`),
-  KEY `fk_UserCart_User1_idx` (`User_IDuser`),
-  CONSTRAINT `FK3k1c17geflygvb1kj66wwxfca` FOREIGN KEY (`User_IDuser`) REFERENCES `user` (`IDuser`)
+  KEY `fk_UserCart_User1_idx` (`User_IDuser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -293,9 +289,7 @@ CREATE TABLE `usercart_has_books` (
   `Book_id` bigint NOT NULL,
   PRIMARY KEY (`UserCart_idUserCart`,`Book_id`),
   KEY `fk_UserCart_has_Books_Books1_idx` (`Book_id`),
-  KEY `fk_UserCart_has_Books_UserCart1_idx` (`UserCart_idUserCart`),
-  CONSTRAINT `FK1iva724esp2nbbvypxc53d6f6` FOREIGN KEY (`UserCart_idUserCart`) REFERENCES `usercart` (`idUserCart`),
-  CONSTRAINT `FKneihq1rheyhwwf7uda94vkjc0` FOREIGN KEY (`Book_id`) REFERENCES `book` (`id`)
+  KEY `fk_UserCart_has_Books_UserCart1_idx` (`UserCart_idUserCart`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -317,4 +311,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-22 17:30:08
+-- Dump completed on 2021-04-22 17:41:31
