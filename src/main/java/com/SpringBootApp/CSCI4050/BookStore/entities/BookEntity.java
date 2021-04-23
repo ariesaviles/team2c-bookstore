@@ -60,6 +60,9 @@ public class BookEntity {
     @ManyToMany(mappedBy = "booksInCart")
     private Set<UserCartEntity> areInCart;
 
+    @ManyToMany(mappedBy = "booksInOrder")
+    private Set<OrderEntity> areInOrder;
+
     public String getTitle() {
         return title;
     }

@@ -5,13 +5,14 @@ import org.springframework.context.annotation.Bean;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Set;
 
 @Entity(name = "card")
 public class CardEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //@Column(name = "idcard")
+    @Column(name = "idcard")
     private Long idCard;
 
     @Column(name = "cardtype")
@@ -33,6 +34,9 @@ public class CardEntity {
     @MapsId
     @JoinColumn(name = "user_iduser")
     private UserAccountEntity user_IDuser;
+
+    @OneToMany(mappedBy = "card_IDcard", targetEntity = OrderEntity.class)
+    private Set<OrderEntity> orders;
 
     public Long getIdCard() {
         return idCard;
@@ -89,6 +93,5 @@ public class CardEntity {
     public void setUser_IDuser(UserAccountEntity user_IDuser) {
         this.user_IDuser = user_IDuser;
     }
-
 
 }

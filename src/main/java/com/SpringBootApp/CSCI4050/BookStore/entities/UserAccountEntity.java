@@ -50,8 +50,13 @@ public class UserAccountEntity {
         this.addresses = addresses;
     }
 
+    // Addresses
     @OneToMany(mappedBy = "user_IDuser")
     private Set<AddressEntity> addresses;
+
+    // Orders
+    @OneToMany(mappedBy = "user_IDuser", targetEntity = OrderEntity.class)
+    private Set<OrderEntity> orders;
 
     public Long getIDuser() { return IDuser; }
 
@@ -118,6 +123,5 @@ public class UserAccountEntity {
     public void setUserState(String userState) {
         this.userState = userState;
     }
-
 
 }

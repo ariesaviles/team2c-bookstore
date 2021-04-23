@@ -135,7 +135,7 @@ UNLOCK TABLES;
 -- Table structure for table `order`
 --
 
-DROP TABLE IF EXISTS `order`;
+DROP TABLE IF EXISTS `order_table`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `order` (

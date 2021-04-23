@@ -1,4 +1,5 @@
 com\SpringBootApp\CSCI4050\BookStore\controllers\AddBooksController.class
+com\SpringBootApp\CSCI4050\BookStore\entities\OrderEntity.class
 com\SpringBootApp\CSCI4050\BookStore\controllers\RegistrationController.class
 com\SpringBootApp\CSCI4050\BookStore\EmailApplication.class
 com\SpringBootApp\CSCI4050\BookStore\controllers\LoginController.class

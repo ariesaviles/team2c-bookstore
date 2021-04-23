@@ -27,7 +27,7 @@ public class UserCartEntity {
     @JoinTable(
             name = "usercart_has_books",
             joinColumns = @JoinColumn(name = "usercart_idusercart"),
-            inverseJoinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id")
+            inverseJoinColumns = @JoinColumn(name = "book_id")
     )
     private Set<BookEntity> booksInCart;
 
