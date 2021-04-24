@@ -50,8 +50,15 @@ public class UserAccountEntity {
         this.addresses = addresses;
     }
 
+    // Addresses
     @OneToMany(mappedBy = "user_IDuser")
     private Set<AddressEntity> addresses;
+
+    // Orders
+    @OneToMany(mappedBy = "user_IDuser", targetEntity = OrderEntity.class)
+    private Set<OrderEntity> orders;
+
+    public Long getIDuser() { return IDuser; }
 
     public String getBirthDate() {
         return birthDate;
@@ -105,9 +112,9 @@ public class UserAccountEntity {
         this.email = email;
     }
 
-    public boolean getPromotion() { return isPromotion; }
+    public boolean getIsPromotion() { return isPromotion; }
 
-    public void setPromotion(boolean isPromotion) { this.isPromotion = isPromotion; }
+    public void setIsPromotion(boolean isPromotion) { this.isPromotion = isPromotion; }
 
     public String getUserState() {
         return userState;
@@ -116,6 +123,5 @@ public class UserAccountEntity {
     public void setUserState(String userState) {
         this.userState = userState;
     }
-
 
 }

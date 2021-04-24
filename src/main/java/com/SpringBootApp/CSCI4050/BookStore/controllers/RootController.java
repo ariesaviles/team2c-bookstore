@@ -22,5 +22,9 @@ public class RootController {
         return "cart";
     }
 
+    @RequestMapping(path="/adminPanel", method = RequestMethod.GET)
+    public String admin(Model model) {
+        return "adminPanel";
+    }
 
 }

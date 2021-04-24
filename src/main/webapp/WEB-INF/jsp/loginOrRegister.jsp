@@ -18,6 +18,7 @@
 
     <!-- Stylesheets -->
     <style> <%@ include file="css/style.css"%> </style>
+    <style> <%@ include file="css/userProfile.css"%> </style>
     <style>
         hr.solid {
             border-top: 3px solid #bbb;
@@ -32,11 +33,11 @@
     <!-- Header -->
     <jsp:include page="components/header.jsp"/>
 
-    <div style="padding-top: 200px; padding-bottom: 100px">
-    <p class="login Line">Already have an account?</p> <p><a href='/login' id="login_link">Click here to Login.</a></p>
-        <p style="padding-top: 20px;" >Forgot password?</p> <p><a href='/changePasswordEmail' id="login_link">Create new password here.</a></p>
+    <div class="cardLight" style="padding-top: 200px; padding-bottom: 100px">
+    <p>Already have an account?</p> <p> <button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='/login';">Click here to Login.</button></p>
+        <p style="padding-top: 20px;" class="color--theme">Forgot password?</p> <p><button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='/changePasswordEmail';">Create new password here.</button></p>
         <hr class="solid">
-        <p>Are you a new user?</p> <p><a href='registration' id="contact_link">Click here to register.</a> </p>
+        <p>Are you a new user?</p> <p><button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='/registration';">Click Here to Register</button> </p>
     </div>
 
     <!-- Footer --->

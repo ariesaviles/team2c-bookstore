@@ -73,8 +73,6 @@
     <!-- Footer --->
     <jsp:include page="components/footer.jsp"/>
 
-
-    <!-- END QUICKVIEW PRODUCT -->
 </div>
 
 </body>

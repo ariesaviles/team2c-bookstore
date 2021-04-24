@@ -10,5 +10,6 @@ import java.util.Optional;
 public interface PromotionRepository extends CrudRepository<PromotionEntity, Long> {
     Optional<PromotionEntity> findById(Long idPromotion);
 
+    PromotionEntity findByPromocode(String promocode);
 
 }

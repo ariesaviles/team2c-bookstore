@@ -47,56 +47,56 @@ public class AddBooksController {
         }
         boolean problems = false;
         if(bookForm.getAuthors().isEmpty()){
-            model.addAttribute("badFirst", "Please enter a first name");
+            model.addAttribute("badAuthors", "Please enter an author");
             problems = true;
         }
         if(bookForm.getEdition() == 0){
-            model.addAttribute("badLast", "Please enter a last name");
+            model.addAttribute("badEdition", "Please enter an edition");
             problems = true;
         }
         if(bookForm.getCategory().isEmpty()){
-            model.addAttribute("badEmail", "Please enter an email");
+            model.addAttribute("badCategory", "Please enter a category");
             problems = true;
         }
         if(bookForm.getISBN().isEmpty()){
-            model.addAttribute("badBirth", "Please enter a birthdate");
+            model.addAttribute("badISBN", "Please enter an ISBN");
             problems = true;
         }
         if(bookForm.getPrice() == 0){
-            model.addAttribute("badPass", "Please enter a password");
+            model.addAttribute("badSellPrice", "Please enter a price");
             problems = true;
         }
         if(bookForm.getPublisher().isEmpty()){
-            model.addAttribute("badUser", "Please enter a username");
+            model.addAttribute("badPublisher", "Please enter a publisher");
             problems = true;
         }
         if(bookForm.getTitle().isEmpty()){
-            model.addAttribute("badEmail", "Please enter an email");
+            model.addAttribute("badTitle", "Please enter a title");
             problems = true;
         }
         if(bookForm.getPublishYear() == 0){
-            model.addAttribute("badBirth", "Please enter a birthdate");
+            model.addAttribute("badPublishYear", "Please enter a publish year");
             problems = true;
         }
         if(bookForm.getQuantity() == 0){
-            model.addAttribute("badPass", "Please enter a password");
+            model.addAttribute("badQuantity", "Please enter a quantity");
             problems = true;
         }
         if(bookForm.getDescription().isEmpty()){
-            model.addAttribute("badUser", "Please enter a username");
+            model.addAttribute("badDescription", "Please enter a description");
             problems = true;
         }
         if(bookForm.getBuyPrice() == 0){
-            model.addAttribute("badBirth", "Please enter a birthdate");
+            model.addAttribute("badBuyPrice", "Please enter a buy price");
             problems = true;
         }
         if(bookForm.getImgLink().isEmpty()){
-            model.addAttribute("badUser", "Please enter a username");
+            model.addAttribute("badImgLink", "Please enter a sell price");
             problems = true;
         }
 
         if(problems){
-            return  "addBook";
+            return  "adminAddBook";
         }
 
         bookForm.setAuthors(bookForm.getAuthors());
@@ -116,7 +116,7 @@ public class AddBooksController {
 
         bookRepository.save(bookForm);
 
-        return "redirect:/admin_page.html";
+        return "redirect:/adminPanel";
     }
 
 

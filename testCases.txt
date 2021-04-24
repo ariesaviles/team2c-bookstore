@@ -1,0 +1,51 @@
+Admin functionalities:
+
+Front-end
+[] Home page
+[] Individual shop page
+
+
+
+[] Home 
+[] Contact and About
+[] Shop
+[] Cart and checkout w/ email confirmation and page
+[] Promo emails, when subscribed
+
+
+- Manage Promos:
+[-] add new promotion, format add promo form and add spans
+[-] admin should not edit or delete an already emailed promotion
+      - faanaensene, show you can't edit if sent but don't actually edit.
+[-] edit promotion, only dates(?) unless emailed
+
+- Manage Users:
+[-] admin: suspend and unsuspend
+
+- Manage Books:
+[-] add books, check spans
+
+------------------------------
+
+Home Page:
+[x] show books from database
+
+Registration Use:
+[] working
+[] sent email
+[] no empty text fields
+[] optional fields
+
+Login Form:
+[] forget password
+
+Suspended:
+[] can't log in 
+
+------------------------------
+
+Edit Profile:
+[] edit user profile, everything except: email address
+[] isSubscribed check
+[] add Card
+[] add Address
