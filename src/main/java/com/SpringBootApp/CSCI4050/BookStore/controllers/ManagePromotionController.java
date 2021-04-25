@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 @Controller
 public class ManagePromotionController {
@@ -31,7 +32,7 @@ public class ManagePromotionController {
 
     @Autowired
     private AccountRepository accountRepository;
-
+    private Email sendEmail;
     public ManagePromotionController(PromotionRepository promoRepository){
         this.promoRepository = promoRepository;
     }
@@ -104,19 +105,32 @@ public class ManagePromotionController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
         boolean problems = false;
+        String pattern = "yyyyMMdd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String curDate = simpleDateFormat.format(new Date());
         if(promoForm.getPromocode().isEmpty()){
             model.addAttribute("badPromoCode", "Please enter a valid Promo Code");
             problems = true;
         }
-        if(promoForm.getDateStart().isEmpty()){
+        //positive =() before current date
+        //0 if same
+        // negative =() after current date
+        if(promoForm.getDateStart().isEmpty() || promoForm.getDateStart().length() != 8
+        || curDate.compareTo(promoForm.getDateStart()) > 0) {
             model.addAttribute("badStart", "Please enter a valid start date");
             problems = true;
         }
-        if(promoForm.getDateEnd().isEmpty()){
+        if(promoForm.getDateEnd().isEmpty() || promoForm.getDateEnd().length() != 8
+        || curDate.compareTo(promoForm.getDateEnd()) > 0){
             model.addAttribute("badEnd", "Please enter a valid expiration date");
             problems = true;
         }
 
+        //we do not want start date before end date so it has to be negative
+        if(promoForm.getDateStart().compareTo(promoForm.getDateEnd()) > 0) {
+            model.addAttribute("badDates", "End date must be on or after start date");
+            problems = true;
+        }
 
         if(problems){
             return "adminAddPromo";
@@ -128,6 +142,9 @@ public class ManagePromotionController {
         promoForm.setDiscount(promoForm.getDiscount());
 
         promoRepository.save(promoForm);
+
+        sendEmail = new Email();
+        //sendEmail.sendmail(promoForm.getEmail(), "New Promotion",promoForm.getPromocode());//getEmail(), "Registration Successful","Thank you for signing up for Team 2C Bookstore Service");
 
         return "redirect:/adminManagePromo";
     }

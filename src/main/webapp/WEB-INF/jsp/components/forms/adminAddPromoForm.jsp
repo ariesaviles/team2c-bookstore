@@ -18,6 +18,7 @@
 
         <form:label path="dateEnd">End Date:  </form:label>
         <span style="color: red">${badEnd}</span><br/>
+        <span style="color: red">${badDates}</span><br/>
         <form:input type="text" class="springInput" id="dateEnd" placeholder="YYYYmmDD" path="dateEnd"/><br/><br/>
 
         <form:label path="discount">Discount Price:</form:label><br/>

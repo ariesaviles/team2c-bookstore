@@ -38,7 +38,7 @@
             <c:forEach items="${promoForm}" var="promo">
                 <tr>
                     <td>${promo.promocode}</td>
-                    <td>${promo.discount}</td>
+                    <td>${promo.discount}</td> <!--The output needs to be two decimal places. It rounds-->
                     <td>${promo.dateStart}</td>
                     <td>${promo.dateEnd}</td>
                     <td style="padding-left: 35px"><a href="/sendEmail?promocode=${promo.promocode}" ><button class="btn btn-primary">
