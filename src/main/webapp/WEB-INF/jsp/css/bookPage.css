@@ -1,0 +1,79 @@
+.row {
+  display: flex;
+}
+
+.columnL {
+  flex: 0.5;
+}
+.columnR {
+  flex: 1;
+}
+
+.mainBody {
+  padding-top: 100px;
+  padding-left: 10px;
+  padding-right: 20px;
+  padding-bottom: 50px;
+}
+
+/* -------------------------- left column -------- */
+.cardDark {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  background-color: #f1f1f1;
+  text-align: center;
+}
+.cardLight {
+  box-shadow: 5px 5px 13px 3px rgba(0, 0, 0, 0.25); /* this adds the "card" effect */
+  width: 95%;
+  height: 400px;
+  background-color: #fff;
+  text-align: center;
+  width: 98%;
+  margin-bottom: 100px;
+}
+
+.cardDark h {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 30pt;
+  text-transform: uppercase;
+}
+
+.cardLight p {
+  font-family: "Roboto";
+  margin: 2;
+}
+
+.editButton {
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+hr.solid {
+  border-top: 3px solid #bbb;
+  width: 500px;
+}
+
+.information {
+  padding-top: 30px;
+  text-align: left;
+}
+.bookGenre, .bookTitle, .bookAuthor, .bookDesc {
+ text-align: left;
+}
+.bookTitle {
+  font-family: "Poppins", sans-serif;
+  font-weight:900;
+  font-size: 30pt;
+  text-transform: uppercase;
+  margin: -10px;
+}
