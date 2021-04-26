@@ -1,7 +1,7 @@
 package com.SpringBootApp.CSCI4050.BookStore.entities;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity(name = "order_table")
 public class OrderEntity {
@@ -39,7 +39,7 @@ public class OrderEntity {
             joinColumns = @JoinColumn(name = "order_idorder"),
             inverseJoinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id")
     )
-    private Set<BookEntity> booksInOrder;
+    private List<BookEntity> booksInOrder;
 
     public Long getIdOrder() {
         return idOrder;
