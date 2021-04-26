@@ -3,6 +3,8 @@ package com.SpringBootApp.CSCI4050.BookStore.entities;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Set;
+
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 
@@ -29,13 +31,8 @@ public class PromotionEntity {
     @Column(name = "hasbeensent")
     private int hasSent;
 
-//    @ManyToMany(cascade = { CascadeType.ALL })
-//    @JoinTable(
-//            name = "promotion_has_books",
-//            joinColumns = @JoinColumn(name = "promotion_idpromotion"),
-//            inverseJoinColumns = @JoinColumn(name = "book_isbn", referencedColumnName = "isbn")
-//    )
-//    private Set<BookEntity> books;
+    @OneToMany(mappedBy = "promotion_IDpromotion", targetEntity = OrderEntity.class)
+    private Set<OrderEntity> orders;
 
     public String getPromocode() {
         return promocode;
@@ -84,4 +81,5 @@ public class PromotionEntity {
     public void setHasSent(int hasSent) {
         this.hasSent = hasSent;
     }
+
 }

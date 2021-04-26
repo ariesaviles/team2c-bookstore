@@ -1,13 +1,14 @@
 package com.SpringBootApp.CSCI4050.BookStore.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity(name = "address")
 public class AddressEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //@Column(name = "idaddress")
+    @Column(name = "idaddress")
     private Long idAddress;
 
     @Column(name = "street")
@@ -25,6 +26,9 @@ public class AddressEntity {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_iduser", nullable = false)
     private UserAccountEntity user_IDuser;
+
+    @OneToMany(mappedBy = "address_IDaddress", targetEntity = OrderEntity.class)
+    private Set<OrderEntity> orders;
 
     public Long getIdAddress() {
         return idAddress;
@@ -74,4 +78,14 @@ public class AddressEntity {
         this.user_IDuser = user_IDuser;
     }
 
+    /*
+    public Set<OrderEntity> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<OrderEntity> orders) {
+        this.orders = orders;
+    }
+
+     */
 }

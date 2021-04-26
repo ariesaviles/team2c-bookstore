@@ -1,5 +1,18 @@
 Admin functionalities:
 
+Front-end
+[] Home page
+[] Individual shop page
+
+
+
+[] Home 
+[] Contact and About
+[] Shop
+[] Cart and checkout w/ email confirmation and page
+[] Promo emails, when subscribed
+
+
 - Manage Promos:
 [-] add new promotion, format add promo form and add spans
 [-] admin should not edit or delete an already emailed promotion

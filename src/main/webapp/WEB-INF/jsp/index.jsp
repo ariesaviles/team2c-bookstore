@@ -60,7 +60,8 @@
 
 	<!---------------  large image at the top ----------------->
 	<div class="indexImage">
-		<img class= "bigBoy" src="../../images/plasticMockup.png" id="logo" alt="Team2c Large Image" width="100%">
+		<img class= "bigBoy" src="../../images/books2.png" id="logo" alt="Team2c Large Image" width="100%">
+<%--	<img class= "bigBoy" src="https://imaginarybookstack.com/wp-content/uploads/2018/02/book-stack-me-challenge-1.jpg" id="logo" alt="Team2c Large Image" width="100%">--%>
 		<sec:authorize access="hasAnyAuthority('1')">
 		<div class="bottom-right"><i class="fa fa-cog" style="font-size:20px;"> Edit</i></div>
 		</sec:authorize>
@@ -82,7 +83,7 @@
 			</div>
 
 			<!-- Start Single Tab Content -->
-			<div class="row">
+			<div class="row" style="margin-left: 10px">
 
 					<%
 						try{
@@ -97,25 +98,19 @@
 					<!--            BOOK           -->
 					<div class="indexBook">
 						<div class="bookImg">
-							<a href="test">
-								<img src="<%=resultSet.getString("Cover_Picture") %>" width="200" alt="product image">
+							<a>
+								<img class="cover" src="<%=resultSet.getString("Cover_Picture") %>" width="" height="250" alt="product image">
 							</a>
 						</div>
 
 						<div class="bookLabel">
-							<h4><a href="test"> <%=resultSet.getString("Authors_Names") %> </a></h4>
-							<ul class="prize d-flex">
-								<li>$<%=resultSet.getString("Selling_Price") %>.99</li>
-							</ul>
+							<h4><a href="test"> <%=resultSet.getString("Title") %> </a> <br> <a href="test"> <%=resultSet.getString("Authors_Names") %> </a></h4>
+								<p>$<%=resultSet.getString("Selling_Price") %>.99</p>
 
-							<div class="action">
-								<div class="actions_inner">
-									<ul class="add_to_links">
-										<li><a class="cart" href="cart.html">Add to cart<i class="bi bi-shopping-bag4"></i></a></li>
-									</ul>
-								</div>
-							</div>
+						</div>
 
+						<div class="action" style="position: relative; bottom: 0">
+							<button class="editButton" onclick="location.href='editProfile';">Add to Cart</button>
 						</div>
 					</div>
 
@@ -134,14 +129,12 @@
 		</div>
 	</section>
 
-	<div class="testimonial__text__slide testext_active">
-		<div class="clint__info">
+	<div class="bodytext">
 			<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-			<div class="name__post">
+			<div class="inside">
 				<span>Generic User</span>
 				<h6>"Best E-Commerce Bookstore"</h6>
 			</div>
-		</div>
 	</div>
 
 	<!-- Start New Arrivals -->
@@ -175,7 +168,7 @@
             					<div class="indexBook">
             						<div class="bookImg">
             							<a href="test">
-            								<img src="<%=resultSet.getString("Cover_Picture") %>" width="200" alt="product image">
+            								<img class="cover" src="<%=resultSet.getString("Cover_Picture") %>" width="200" alt="product image">
             							</a>
             						</div>
 

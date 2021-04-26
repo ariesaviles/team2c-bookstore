@@ -124,14 +124,28 @@ header {
   text-align: center;
     padding-top: 20px;
 }
-.bookImg {
-  width: 30vw;
-}
 .indexBook {
-    padding: 30px;
+    padding: 10px;
+    margin: 20px;
+    border-color: #333444;
+    /*border-style: groove;*/
+    border-width: 2px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.15);
+    width: 20%;
+}
+.cover {
+    box-shadow: 0 8px 15px 5px rgba(0, 0, 0, 0.3);
 }
 .bigBoy {
     z-index: 0;
+}
+.bodytext {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    background-color: #fff;
+    text-align: center;
 }
 
 /* ----------------- login page ------------------ */
