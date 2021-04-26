@@ -21,6 +21,11 @@ public class RootController {
     public String search(Model model) {
         return "search";
     }
+    
+    @RequestMapping(path = "/bookPage", method = RequestMethod.GET)
+    public String bookPage(Model model) {
+        return "bookPage";
+    }
 
 
 //    @RequestMapping(path="/cart", method = RequestMethod.GET)
