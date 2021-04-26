@@ -25,8 +25,8 @@
 }
 .cardLight {
   box-shadow: 5px 5px 13px 3px rgba(0, 0, 0, 0.25); /* this adds the "card" effect */
-  width: 95%;
-  height: 400px;
+
+  height: 480px;
   background-color: #fff;
   text-align: center;
   width: 98%;
@@ -77,3 +77,4 @@ hr.solid {
   text-transform: uppercase;
   margin: -10px;
 }
+
