@@ -22,7 +22,7 @@
   <div class="columnL" >
     <div class="bookIMG" style="position: absolute;  z-index:0 ">
 
-      <img src="images/8.jpg" id="layer1" alt="product image" style="margin-left: 50%; height: 500px; padding-bottom: 10px; z-index:0;">
+      <img src="images/8.jpg" id="layer1" alt="product image" style="margin-left: 40%; height: 600px; padding-bottom: 10px; z-index:0;">
 
     </div>
   </div>
@@ -35,13 +35,21 @@
       <p class="bookGenre">Book Genre</p>
       <p class="bookTitle">Title of the Book</p>
       <p class="bookAuthor">Author Price</p>
+      <div class="row" style="margin-bottom: 40px;">
+      <select class="form-control form-control-sm" id="exampleFormControlSelect2" style="width: 70px; height: 40px; margin-right: 20px; margin-top: 4px; margin-left: 20px;">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+      </select>
       <button class="editButton">Add to Cart</button>
-      <p class="bookDesc">There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages. There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages. </p>
+    </div>
+      <p class="bookDesc">There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages. There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages. There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages. </p>
       </div>
     </div>
   </div>
 </div>
-
 	 <!-- Footer --->
 		<jsp:include page="components/footer.jsp"/>
 
