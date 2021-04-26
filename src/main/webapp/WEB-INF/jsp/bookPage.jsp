@@ -22,7 +22,7 @@
   <div class="columnL" >
     <div class="bookIMG" style="position: absolute;  z-index:0 ">
 
-      <img src="images/8.jpg" id="layer1" alt="product image" style="margin-left: 40%; height: 600px; padding-bottom: 10px; z-index:0;">
+      <img src="images/8.jpg" id="layer1" alt="product image" style="margin-left: 30%; height: 600px; padding-bottom: 10px; z-index:0;">
 
     </div>
   </div>
