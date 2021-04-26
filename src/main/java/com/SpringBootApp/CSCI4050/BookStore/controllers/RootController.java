@@ -11,9 +11,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class RootController {
 
-    @RequestMapping(path="/shop", method = RequestMethod.GET)
+
+    @RequestMapping(path = "/shop", method = RequestMethod.GET)
     public String shop(Model model) {
         return "shop";
+    }
+
+    @RequestMapping(path = "/search", method = RequestMethod.GET)
+    public String search(Model model) {
+        return "search";
     }
 
 
