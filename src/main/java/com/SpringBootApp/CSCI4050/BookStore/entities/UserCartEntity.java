@@ -54,4 +54,12 @@ public class UserCartEntity {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
+
+    public List<BookEntity> getBooksInCart() {
+        return booksInCart;
+    }
+
+    public void setBooksInCart(List<BookEntity> booksInCart) {
+        this.booksInCart = booksInCart;
+    }
 }
