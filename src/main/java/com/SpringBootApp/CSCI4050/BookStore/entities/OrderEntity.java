@@ -39,7 +39,7 @@ public class OrderEntity {
             joinColumns = @JoinColumn(name = "order_idorder"),
             inverseJoinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id")
     )
-    private List<BookEntity> booksInOrder;
+        private List<BookEntity> booksInOrder;
 
     public Long getIdOrder() {
         return idOrder;
