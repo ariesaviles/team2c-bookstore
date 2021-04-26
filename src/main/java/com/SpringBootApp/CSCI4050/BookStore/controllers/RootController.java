@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class RootController {
 
 
-    @RequestMapping(path = "/shop", method = RequestMethod.GET)
-    public String shop(Model model) {
-        return "shop";
-    }
+//    @RequestMapping(path = "/shop", method = RequestMethod.GET)
+//    public String shop(Model model) {
+//        return "shop";
+//    }
 
     @RequestMapping(path = "/search", method = RequestMethod.GET)
     public String search(Model model) {
@@ -23,10 +23,10 @@ public class RootController {
     }
 
 
-    @RequestMapping(path="/cart", method = RequestMethod.GET)
-    public String cart(Model model) {
-        return "cart";
-    }
+//    @RequestMapping(path="/cart", method = RequestMethod.GET)
+//    public String cart(Model model) {
+//        return "cart";
+//    }
 
     @RequestMapping(path="/adminPanel", method = RequestMethod.GET)
     public String admin(Model model) {

@@ -72,16 +72,24 @@
             <div class="columnR">
 
                 <div class="input-group">
-                    <form action="/search" method="POST">
-                    <input type="search" name="searchTerm" value="<%=request.getParameter("searchTerm")%>" style="width: 300px; margin-left: 30%;" class="form-control rounded" placeholder="Search by Title, Author, Category..." aria-label="Search"/>
-<%--                    figure out how to get input from html input search bar--%>
-<%--                    then put that info into the a href below--%>
-<%--                    SELECT * FROM book WHERE title LIKE [var from input]--%>
-<%--                    make a selection--%>
+                    <form action="search" method="POST">
+<%--                        textfield for search--%>
+                        <input type="search" name="searchTerm" style="width: 300px; margin-left: 30%;" class="form-control rounded" placeholder="Search by Title, Author, Category..." aria-label="Search"/>
 
-                    <a href="/searchBy?term="><button class="btn btn-primary">
-                        <p> Search</p>
-                    </button></a>
+<%--                        drop down search by--%>
+                        <select class="form-control form-control-sm" id="exampleFormControlSelect2" style="width: 70px; height: 20px; margin-right: 5px; margin-top: 4px; margin-left: 5px;">
+                            <option>Title</option>
+                            <option>Author</option>
+                            <option>Category</option>
+                            <option>ISBN</option>
+                        </select>
+
+<%--                        button submit --%>
+                        <input type="submit">
+
+                        <%--                        <a href="/searchBy?term="><button class="btn btn-primary">--%>
+                        <%--                            <p> Search</p>--%>
+                        <%--                        </button></a>--%>
                 </div>
 
                 <hr class="solid" style="width: 90%;">
