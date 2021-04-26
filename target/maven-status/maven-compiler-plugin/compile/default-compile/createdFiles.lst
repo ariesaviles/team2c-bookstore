@@ -16,6 +16,7 @@ com/SpringBootApp/CSCI4050/BookStore/controllers/ManagePromotionController.class
 com/SpringBootApp/CSCI4050/BookStore/controllers/RootController.class
 com/SpringBootApp/CSCI4050/BookStore/controllers/ChangePasswordController.class
 com/SpringBootApp/CSCI4050/BookStore/repository/AccountRepository.class
+com/SpringBootApp/CSCI4050/BookStore/controllers/ShopController.class
 com/SpringBootApp/CSCI4050/BookStore/controllers/AddCardController.class
 com/SpringBootApp/CSCI4050/BookStore/repository/PromotionRepository.class
 com/SpringBootApp/CSCI4050/BookStore/entities/UserAccountEntity.class

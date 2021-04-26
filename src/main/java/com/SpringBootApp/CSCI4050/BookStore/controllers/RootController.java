@@ -11,11 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class RootController {
 
-    @RequestMapping(path="/shop", method = RequestMethod.GET)
-    public String shop(Model model) {
-        return "shop";
-    }
-
 
     @RequestMapping(path="/cart", method = RequestMethod.GET)
     public String cart(Model model) {

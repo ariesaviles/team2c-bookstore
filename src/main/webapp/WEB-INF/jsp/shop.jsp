@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<style> <%@ include file="css/forms.css"%> </style>
 
 <!doctype html>
 <head>
@@ -44,7 +46,19 @@
             </div>
 
             <div class="columnR">
-                <p>shop</p>
+                <%--@elvariable id="bookForm" type=""--%>
+                <form:form method="POST" modelAttribute="bookForm">
+                    <div class="MyForm form-group" style="padding-top: 100px;">
+                        <form:label path="title">Title Search:</form:label>
+
+                        <form:input type="text" class="springInput" id="title" path="title"/><br/>
+
+                        <form:button type="submit" class="from-control">Submit</form:button>
+                    </div>
+                </form:form>
+                    <td><a href="/shop?book=Hunger Games"><button class="btn btn-primary">
+                        <p> ${account.isAdmin}</p>
+                    </button></a></td>
                 <hr class="solid" style="width: 90%;">
                 <div class="orderHistory">
                     <table class="cartTable">
