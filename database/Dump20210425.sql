@@ -30,7 +30,8 @@ CREATE TABLE `address` (
   `zipCode` int DEFAULT NULL,
   `User_IDuser` bigint NOT NULL,
   PRIMARY KEY (`idAddress`),
-  KEY `fk_Address_User1_idx` (`User_IDuser`)
+  KEY `fk_Address_User1_idx` (`User_IDuser`),
+  CONSTRAINT `FKr8pvvu626ueoet11r68nwvvxq` FOREIGN KEY (`User_IDuser`) REFERENCES `user` (`IDuser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -96,7 +97,8 @@ CREATE TABLE `card` (
   `cardNumber` varchar(70) NOT NULL,
   `cardSecurity` varchar(70) NOT NULL,
   PRIMARY KEY (`idCard`),
-  KEY `fk_Card_User_idx` (`User_IDuser`)
+  KEY `fk_Card_User_idx` (`User_IDuser`),
+  CONSTRAINT `FK41k43lwd6k757ih7um19s8xyp` FOREIGN KEY (`User_IDuser`) REFERENCES `user` (`IDuser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -127,7 +129,7 @@ CREATE TABLE `hibernate_sequence` (
 
 LOCK TABLES `hibernate_sequence` WRITE;
 /*!40000 ALTER TABLE `hibernate_sequence` DISABLE KEYS */;
-INSERT INTO `hibernate_sequence` VALUES (1);
+INSERT INTO `hibernate_sequence` VALUES (6);
 /*!40000 ALTER TABLE `hibernate_sequence` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,7 +177,9 @@ CREATE TABLE `order_has_books` (
   `Book_id` bigint NOT NULL,
   PRIMARY KEY (`Order_idOrder`,`Book_id`),
   KEY `fk_Order_has_Books_Books1_idx` (`Book_id`),
-  KEY `fk_Order_has_Books_Order1_idx` (`Order_idOrder`)
+  KEY `fk_Order_has_Books_Order1_idx` (`Order_idOrder`),
+  CONSTRAINT `FK1kwaju9cb52hv5gp4lyt267tf` FOREIGN KEY (`Order_idOrder`) REFERENCES `order_table` (`idorder`),
+  CONSTRAINT `FKjj2dk5peituopfa3srx9o3w9o` FOREIGN KEY (`Book_id`) REFERENCES `book` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -282,7 +286,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Calvin','Butson','cb81','$2a$10$MHkkOXE9ikUsTNEvVwSNT.wJDst0iXVV3VBK4G.gJOvXIMsEiOOwC','1999-01-01',0,'Active','calvin.butson@gmail.com',0),(2,'Example','Test','test1','$2a$10$rFkio6T39ynyDhToSbEey.EwtO17XpFKLcaUohmodTfn.YwqeMebm','2015-06-15',1,'Active','test@gmail.com',0),(3,'Calvin2','Butson','ceb999','$2a$10$w2VSbe4ZNtzSgAgXDfGZI.3r985ys4YR2zG64JCN4iUrEZMVSufPS','1999-10-21',1,'Active','ceb28103@uga.edu',0),(5,'Aries','Aviles','aries','$2a$10$XoJEjaWb0luiU8wjTAA6RuN80V8ghGxX9MIqeA6LucyvUR.rNupYa','1999-01-01',1,'Active','ane.aviles@gmail.com',0);
+INSERT INTO `user` VALUES (1,'Calvin','Butson','cb81','$2a$10$MHkkOXE9ikUsTNEvVwSNT.wJDst0iXVV3VBK4G.gJOvXIMsEiOOwC','1999-01-01',0,'Active','calvin.butson@gmail.com',0),(2,'Example','Test','test1','$2a$10$rFkio6T39ynyDhToSbEey.EwtO17XpFKLcaUohmodTfn.YwqeMebm','2015-06-15',1,'Active','test@gmail.com',0),(3,'Calvin2','Butson','ceb999','$2a$10$w2VSbe4ZNtzSgAgXDfGZI.3r985ys4YR2zG64JCN4iUrEZMVSufPS','1999-10-21',1,'Active','ceb28103@uga.edu',0),(4,'Aries','Aviles','aries','$2a$10$XoJEjaWb0luiU8wjTAA6RuN80V8ghGxX9MIqeA6LucyvUR.rNupYa','1999-01-01',1,'Active','ane.aviles@gmail.com',0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -300,8 +304,9 @@ CREATE TABLE `usercart` (
   PRIMARY KEY (`idUserCart`),
   UNIQUE KEY `User_IDuser_UNIQUE` (`User_IDuser`),
   UNIQUE KEY `idUserCart_UNIQUE` (`idUserCart`),
-  KEY `fk_UserCart_User1_idx` (`User_IDuser`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `fk_UserCart_User1_idx` (`User_IDuser`),
+  CONSTRAINT `FK3k1c17geflygvb1kj66wwxfca` FOREIGN KEY (`User_IDuser`) REFERENCES `user` (`IDuser`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -310,6 +315,7 @@ CREATE TABLE `usercart` (
 
 LOCK TABLES `usercart` WRITE;
 /*!40000 ALTER TABLE `usercart` DISABLE KEYS */;
+INSERT INTO `usercart` VALUES (1,1,0),(2,2,0),(3,3,0),(4,4,0);
 /*!40000 ALTER TABLE `usercart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -325,7 +331,9 @@ CREATE TABLE `usercart_has_books` (
   `Book_id` bigint NOT NULL,
   PRIMARY KEY (`UserCart_idUserCart`,`Book_id`),
   KEY `fk_UserCart_has_Books_Books1_idx` (`Book_id`),
-  KEY `fk_UserCart_has_Books_UserCart1_idx` (`UserCart_idUserCart`)
+  KEY `fk_UserCart_has_Books_UserCart1_idx` (`UserCart_idUserCart`),
+  CONSTRAINT `FK1iva724esp2nbbvypxc53d6f6` FOREIGN KEY (`UserCart_idUserCart`) REFERENCES `usercart` (`idUserCart`),
+  CONSTRAINT `FKneihq1rheyhwwf7uda94vkjc0` FOREIGN KEY (`Book_id`) REFERENCES `book` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -347,4 +355,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-25 20:16:08
+-- Dump completed on 2021-04-26  0:06:23

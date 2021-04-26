@@ -3,8 +3,10 @@ package com.SpringBootApp.CSCI4050.BookStore.controllers;
 import com.SpringBootApp.CSCI4050.BookStore.Email;
 import com.SpringBootApp.CSCI4050.BookStore.entities.AddressEntity;
 import com.SpringBootApp.CSCI4050.BookStore.entities.UserAccountEntity;
+import com.SpringBootApp.CSCI4050.BookStore.entities.UserCartEntity;
 import com.SpringBootApp.CSCI4050.BookStore.repository.AccountRepository;
 import com.SpringBootApp.CSCI4050.BookStore.repository.AddressRepository;
+import com.SpringBootApp.CSCI4050.BookStore.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
@@ -28,6 +30,9 @@ public class RegistrationController {
 
     @Autowired
     private AccountRepository accountRepository;
+
+    @Autowired
+    private CartRepository cartRepository;
 
     @Autowired
     private AddressRepository addressRepository;
@@ -116,6 +121,12 @@ public class RegistrationController {
             addressForm.setUser_IDuser(accountForm);
             addressRepository.save(addressForm);
         }
+
+        UserCartEntity cartEntity = new UserCartEntity();
+        cartEntity.setUser_iduser(accountRepository.findByUserName(accountForm.getUserName()));
+        cartEntity.setTotalPrice(0.0);
+
+        cartRepository.save(cartEntity);
 
 
         sendEmail = new Email();
