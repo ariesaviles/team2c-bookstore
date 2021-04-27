@@ -129,7 +129,7 @@ CREATE TABLE `hibernate_sequence` (
 
 LOCK TABLES `hibernate_sequence` WRITE;
 /*!40000 ALTER TABLE `hibernate_sequence` DISABLE KEYS */;
-INSERT INTO `hibernate_sequence` VALUES (1);
+INSERT INTO `hibernate_sequence` VALUES (6);
 /*!40000 ALTER TABLE `hibernate_sequence` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -286,7 +286,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Calvin','Butson','cb81','$2a$10$MHkkOXE9ikUsTNEvVwSNT.wJDst0iXVV3VBK4G.gJOvXIMsEiOOwC','1999-01-01',0,'Active','calvin.butson@gmail.com',0),(2,'Example','Test','test1','$2a$10$rFkio6T39ynyDhToSbEey.EwtO17XpFKLcaUohmodTfn.YwqeMebm','2015-06-15',1,'Active','test@gmail.com',0),(3,'Calvin2','Butson','ceb999','$2a$10$w2VSbe4ZNtzSgAgXDfGZI.3r985ys4YR2zG64JCN4iUrEZMVSufPS','1999-10-21',1,'Active','ceb28103@uga.edu',0),(5,'Aries','Aviles','aries','$2a$10$XoJEjaWb0luiU8wjTAA6RuN80V8ghGxX9MIqeA6LucyvUR.rNupYa','1999-01-01',1,'Active','ane.aviles@gmail.com',0);
+INSERT INTO `user` VALUES (1,'Calvin','Butson','cb81','$2a$10$MHkkOXE9ikUsTNEvVwSNT.wJDst0iXVV3VBK4G.gJOvXIMsEiOOwC','1999-01-01',0,'Active','calvin.butson@gmail.com',0),(2,'Example','Test','test1','$2a$10$rFkio6T39ynyDhToSbEey.EwtO17XpFKLcaUohmodTfn.YwqeMebm','2015-06-15',1,'Active','test@gmail.com',0),(3,'Calvin2','Butson','ceb999','$2a$10$w2VSbe4ZNtzSgAgXDfGZI.3r985ys4YR2zG64JCN4iUrEZMVSufPS','1999-10-21',1,'Active','ceb28103@uga.edu',0),(4,'Aries','Aviles','aries','$2a$10$XoJEjaWb0luiU8wjTAA6RuN80V8ghGxX9MIqeA6LucyvUR.rNupYa','1999-01-01',1,'Active','ane.aviles@gmail.com',0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -306,7 +306,7 @@ CREATE TABLE `usercart` (
   UNIQUE KEY `idUserCart_UNIQUE` (`idUserCart`),
   KEY `fk_UserCart_User1_idx` (`User_IDuser`),
   CONSTRAINT `FK3k1c17geflygvb1kj66wwxfca` FOREIGN KEY (`User_IDuser`) REFERENCES `user` (`IDuser`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -315,6 +315,7 @@ CREATE TABLE `usercart` (
 
 LOCK TABLES `usercart` WRITE;
 /*!40000 ALTER TABLE `usercart` DISABLE KEYS */;
+INSERT INTO `usercart` VALUES (1,1,0),(2,2,0),(3,3,0),(4,4,0);
 /*!40000 ALTER TABLE `usercart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -354,4 +355,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-25 23:37:25
+-- Dump completed on 2021-04-26  0:06:23

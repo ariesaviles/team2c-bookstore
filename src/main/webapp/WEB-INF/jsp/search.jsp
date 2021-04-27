@@ -3,9 +3,17 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
+
 <%
+//    String searchTerm = request.getParameter("searchTerm");
+//    System.out.println(searchTerm);
+
     String id = request.getParameter("userId");
     String driverName = "com.mysql.jdbc.Driver";
     String connectionUrl = "jdbc:mysql://localhost:3306/mydb";
@@ -40,6 +48,13 @@
     <style> <%@ include file="css/style.css"%> </style> <!-- main css -->
     <style> <%@ include file="css/shop.css"%> </style>
 
+    <sql:setDataSource var="snapshot" driver="com.mysql.cj.jdbc.Driver"
+                   url="jdbc:mysql://localhost:3306/mydb"
+                   user="adminuser"  password="password"/>
+
+    <sql:query dataSource="${snapshot}" var="sql">
+    SELECT * from book;
+    </sql:query>
 </head>
 <body>
 <!-- Main wrapper -->
@@ -73,10 +88,8 @@
 
                 <div class="input-group">
                     <form action="search" method="POST">
-<%--                        textfield for search--%>
                         <input type="search" name="searchTerm" style="width: 300px; margin-left: 30%;" class="form-control rounded" placeholder="Search by Title, Author, Category..." aria-label="Search"/>
 
-<%--                        drop down search by--%>
                         <select class="form-control form-control-sm" id="exampleFormControlSelect2" style="width: 70px; height: 20px; margin-right: 5px; margin-top: 4px; margin-left: 5px;">
                             <option>Title</option>
                             <option>Author</option>
@@ -84,62 +97,24 @@
                             <option>ISBN</option>
                         </select>
 
-<%--                        button submit --%>
                         <input type="submit">
 
-                        <%--                        <a href="/searchBy?term="><button class="btn btn-primary">--%>
-                        <%--                            <p> Search</p>--%>
-                        <%--                        </button></a>--%>
+<%--                        <a href="/searchBy?term="><button class="btn btn-primary">--%>
+<%--                            <p> Search</p>--%>
+<%--                        </button></a>--%>
                 </div>
 
                 <hr class="solid" style="width: 90%;">
                 <div class="orderHistory">
-                    <%
+                    <p>For page is for testing purposes: this currently displays ALL the book titles in the database. see search.jsp</p>
+                    <c:forEach var="book" items="${sql.rows}">
 
-//                        if (request.getParameter("name") == null) {
-//                            out.println("Please enter your name.");
-//                        } else {
-//                            out.println("Hello <b>"+request. getParameter("name")+"</b>!");
-//                        }
+                            <td><c:out value="${book.title}" /></td>
 
-                        try{
-                            connection = DriverManager.getConnection(connectionUrl, userId, password);
-                            statement=connection.createStatement();
-                            String sql ="SELECT * FROM book;";
-
-                            resultSet = statement.executeQuery(sql);
-                            while(resultSet.next()){
-                    %>
-
-                    <div class="indexBook">
-                        <div class="bookImg">
-                            <a>
-                                <img class="cover" src="<%=resultSet.getString("Cover_Picture") %>" width="" height="250" alt="product image">
-                            </a>
-                        </div>
-
-                        <div class="bookLabel">
-                            <h4><a href="test"> <%=resultSet.getString("Title") %> </a> <br> <a href="test"> <%=resultSet.getString("Authors_Names") %> </a></h4>
-                            <p>$<%=resultSet.getString("Selling_Price") %>.99</p>
-
-                        </div>
-
-                        <div class="action" style="position: relative; bottom: 0">
-                            <button class="editButton" onclick="location.href='editProfile';">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <%
-                            }
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    %>
+                    </c:forEach>
 
 
                 </div>
-
 
             </div>
 
