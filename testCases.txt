@@ -3,8 +3,9 @@ Admin functionalities:
 Front-end
 [] Home page
 [] Individual shop page
-
-
+[] shop
+[] checkout
+[] cart
 
 [] Home 
 [] Contact and About
