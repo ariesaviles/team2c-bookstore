@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 @Controller
 public class ManagePromotionController {
@@ -31,7 +32,7 @@ public class ManagePromotionController {
 
     @Autowired
     private AccountRepository accountRepository;
-
+    private Email sendEmail;
     public ManagePromotionController(PromotionRepository promoRepository){
         this.promoRepository = promoRepository;
     }
@@ -69,12 +70,20 @@ public class ManagePromotionController {
         if(promoForm.getHasSent() == 1){
             return "redirect:/adminManagePromo";
         }
-        model.addAttribute("promoForm", promoForm);
+        promoForm.setPromocode(promoForm.getPromocode());
+        promoForm.setDiscount(promoForm.getDiscount());
+        promoForm.setDateStart(promoForm.getDateStart());
+        promoForm.setDateEnd(promoForm.getDateEnd());
+
+        promoRepository.save(promoForm);
+
+        return "redirect:/adminManagePromo";
+       /* model.addAttribute("promoForm", promoForm);
         model.addAttribute("promocode", promoForm.getPromocode());
         model.addAttribute("discount", promoForm.getDiscount());
         model.addAttribute("dateStart", promoForm.getDateStart());
         model.addAttribute("dateEnd", promoForm.getDateEnd());
-        return "editPromo";
+        return "editPromo";*/
     }
 
     @RequestMapping(value = "/editPromo", method = RequestMethod.POST)
@@ -98,26 +107,63 @@ public class ManagePromotionController {
 
     @RequestMapping(value = "/adminAddPromo", method = RequestMethod.POST)
     public Object addPromo(@ModelAttribute("promoForm") PromotionEntity promoForm, BindingResult bindingResult,
-                           ModelMap model, HttpServletRequest request) throws IOException, MessagingException {
+                           ModelMap model, HttpServletRequest request) throws IOException, MessagingException, NumberFormatException{
 
         if (bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
         boolean problems = false;
-        if(promoForm.getPromocode().isEmpty()){
+        String pattern = "yyyyMMdd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String curDate = simpleDateFormat.format(new Date());
+
+        PromotionEntity prom = promoRepository.findByPromocode(promoForm.getPromocode());
+        if (prom != null) {
+            model.addAttribute("badPromo", "Please enter a new promocode that is not already been used.");
+            problems = true;
+        }
+
+        if(prom == null && promoForm.getPromocode().isEmpty()){
             model.addAttribute("badPromoCode", "Please enter a valid Promo Code");
             problems = true;
         }
-        if(promoForm.getDateStart().isEmpty()){
+
+        //positive =() before current date
+        //0 if same
+        // negative =() after current date
+        boolean validDates = true;
+        if(promoForm.getDateStart().isEmpty() || promoForm.getDateStart().length() != 8
+        || curDate.compareTo(promoForm.getDateStart()) > 0) {
             model.addAttribute("badStart", "Please enter a valid start date");
             problems = true;
         }
-        if(promoForm.getDateEnd().isEmpty()){
+
+        //we do not want start date before end date so it has to be negative
+        if(promoForm.getDateStart().compareTo(promoForm.getDateEnd()) > 0) {
+            model.addAttribute("badDates", "End date must be on or after start date");
+            problems = true;
+            validDates = false;
+        } else {
+            validDates = true;
+        }
+
+        if(validDates && (promoForm.getDateEnd().isEmpty() || promoForm.getDateEnd().length() != 8
+        || curDate.compareTo(promoForm.getDateEnd()) > 0)){
             model.addAttribute("badEnd", "Please enter a valid expiration date");
             problems = true;
         }
 
+        Integer dis;
+        if (promoForm.getDiscount() % 1 == 0) {
+            dis = promoForm.getDiscount();
+        } else {
+            dis = -1;
+        }
 
+        if (dis == null || dis == -1 || (promoForm.getDiscount() <= 0 || promoForm.getDiscount() >= 100)) {
+            model.addAttribute("badPer", "Please enter a valid discount percentage");
+            problems = true;
+        }
         if(problems){
             return "adminAddPromo";
         }
@@ -128,6 +174,9 @@ public class ManagePromotionController {
         promoForm.setDiscount(promoForm.getDiscount());
 
         promoRepository.save(promoForm);
+
+        sendEmail = new Email();
+        //sendEmail.sendmail(promoForm.getEmail(), "New Promotion",promoForm.getPromocode());//getEmail(), "Registration Successful","Thank you for signing up for Team 2C Bookstore Service");
 
         return "redirect:/adminManagePromo";
     }
