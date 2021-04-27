@@ -101,7 +101,7 @@
                         try{
                             connection = DriverManager.getConnection(connectionUrl, userId, password);
                             statement=connection.createStatement();
-                            String sql ="SELECT * FROM book;";
+                            String sql ="SELECT * FROM book WHERE book.title LIKE " + request.getElementById('searchTerm').value;
 
                             resultSet = statement.executeQuery(sql);
                             while(resultSet.next()){

@@ -11,6 +11,7 @@
 /Users/aries/IdeaProjects/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/IndexController.java
 /Users/aries/IdeaProjects/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/repository/AddressRepository.java
 /Users/aries/IdeaProjects/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/repository/AccountRepository.java
+/Users/aries/IdeaProjects/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/CheckoutController.java
 /Users/aries/IdeaProjects/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/entities/UserCartEntity.java
 /Users/aries/IdeaProjects/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/entities/AddressEntity.java
 /Users/aries/IdeaProjects/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/repository/PromotionRepository.java
