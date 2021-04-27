@@ -29,8 +29,6 @@ public class ShopController {
     @Autowired
     private BookRepository bookRepository;
 
-    private Iterable<BookEntity> books;
-
     /*
     @RequestMapping(value = "/shop", method = RequestMethod.GET)
     public String displayBooks(Model model){
@@ -47,23 +45,27 @@ public class ShopController {
         return "shop";
     }
     */
-
+/*
     @RequestMapping(value = "/shop", method = RequestMethod.GET)
     public String displayBooks(@ModelAttribute("searchForm") BookEntity searchForm, Model model, Principal principal){
-        model.addAttribute("searchForm", new BookEntity());
+
+        model.addAttribute("bookForm", bookRepository.findAll());
+
+        return "shop";
+    }
+*/
+
+    @RequestMapping(value = "/shop", method = RequestMethod.GET)
+    public String showResults(@RequestParam("title") String title, Model model){
+
+        List<BookEntity> books = bookRepository.findRelatedTitle(title);
+        books.addAll(bookRepository.findRelatedAuthors(title));
+        books.addAll(bookRepository.findRelatedCategories(title));
+        books.addAll(bookRepository.findRelatedISBN(title));
+
         model.addAttribute("bookForm", books);
-        System.out.println("boobs");
         return "shop";
     }
-
-    @RequestMapping(value = "/shop", method = RequestMethod.POST)
-    public String searchBooks(@ModelAttribute("searchForm") BookEntity searchForm, Model model) throws IOException, MessagingException {
-        books = bookRepository.findRelatedTitle(searchForm.getTitle());
-        //model.addAttribute("bookForm", books);
-
-        return "shop";
-    }
-
 
 
 
