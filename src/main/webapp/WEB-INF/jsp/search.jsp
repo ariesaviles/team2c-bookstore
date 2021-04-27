@@ -87,8 +87,8 @@
             <div class="columnR">
 
                 <div class="input-group">
-                    <form action="search" method="POST">
-                        <input type="search" name="searchTerm" style="width: 300px; margin-left: 30%;" class="form-control rounded" placeholder="Search by Title, Author, Category..." aria-label="Search"/>
+<%--                    <form onclick="document.getElementById('searchTerm').value" method="POST">--%>
+                        <input type="search" id="searchTerm" name="searchTerm" style="width: 300px; margin-left: 30%;" class="form-control rounded" placeholder="Search by Title, Author, Category..." aria-label="Search"/>
 
                         <select class="form-control form-control-sm" id="exampleFormControlSelect2" style="width: 70px; height: 20px; margin-right: 5px; margin-top: 4px; margin-left: 5px;">
                             <option>Title</option>
@@ -97,7 +97,7 @@
                             <option>ISBN</option>
                         </select>
 
-                        <input type="submit">
+                        <button type="submit" onclick="location.href=document.getElementById('searchTerm').value">
 
 <%--                        <a href="/searchBy?term="><button class="btn btn-primary">--%>
 <%--                            <p> Search</p>--%>

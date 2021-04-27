@@ -44,6 +44,7 @@
         </table>
     </div>
     <div><p>Total: ${total}</p></div>
+    <button class="editButton" onclick="location.href='checkout?user=${userEmail}';">Add to Cart</button>
 
 
     <!-- Footer --->
