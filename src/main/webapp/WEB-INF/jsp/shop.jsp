@@ -5,25 +5,10 @@
 
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html"%>
 
-<%
-    String id = request.getParameter("userId");
-    String driverName = "com.mysql.jdbc.Driver";
-    String connectionUrl = "jdbc:mysql://localhost:3306/mydb";
-    //String dbName = "mydb";
-    String userId = "adminuser";
-    String password = "password";
 
-    try {
-        Class.forName(driverName);
-    } catch (ClassNotFoundException e) {
-        e.printStackTrace();
-    }
-
-    Connection connection = null;
-    Statement statement = null;
-    ResultSet resultSet = null;
-%>
 
 <!doctype html>
 <head>
@@ -75,14 +60,9 @@
                 <%--@elvariable id="searchForm" type=""--%>
                     <input type="search" id="searchTerm" name="searchTerm" style="width: 300px; margin-left: 30%;" class="form-control rounded" placeholder="Search by Title, Author, Category..." aria-label="Search"/>
 
-                    <select class="form-control form-control-sm" id="exampleFormControlSelect2" style="width: 70px; height: 20px; margin-right: 5px; margin-top: 4px; margin-left: 5px;">
-                        <option>Title</option>
-                        <option>Author</option>
-                        <option>Category</option>
-                        <option>ISBN</option>
-                    </select>
+                    
 
-                    <button type="submit" onclick="location.href=document.getElementById('searchTerm').value">
+                    <button type="submit" onclick="location.href='/shop?title=' + document.getElementById('searchTerm').value">Submit</button>
                         <%--                        <a href="/searchBy?term="><button class="btn btn-primary">--%>
                         <%--                            <p> Search</p>--%>
                         <%--                        </button></a>--%>
@@ -90,33 +70,18 @@
 
                 <hr class="solid" style="width: 90%;">
                 <div class="orderHistory">
-                    <%
 
-//                        if (request.getParameter("name") == null) {
-//                            out.println("Please enter your name.");
-//                        } else {
-//                            out.println("Hello <b>"+request. getParameter("name")+"</b>!");
-//                        }
-
-                        try{
-                            connection = DriverManager.getConnection(connectionUrl, userId, password);
-                            statement=connection.createStatement();
-                            String sql ="SELECT * FROM book WHERE book.title LIKE " + request.getElementById('searchTerm').value;
-
-                            resultSet = statement.executeQuery(sql);
-                            while(resultSet.next()){
-                    %>
-
+        <c:forEach items="${bookForm}" var="book">
                     <div class="indexBook">
                         <div class="bookImg">
                             <a>
-                                <img class="cover" src="<%=resultSet.getString("Cover_Picture") %>" width="" height="250" alt="product image">
+                                <img class="cover" src="${book.imgLink}" width="" height="250" alt="product image">
                             </a>
                         </div>
 
                         <div class="bookLabel">
-                            <h4><a href="test"> <%=resultSet.getString("Title") %> </a> <br> <a href="test"> <%=resultSet.getString("Authors_Names") %> </a></h4>
-                            <p>$<%=resultSet.getString("Selling_Price") %>.99</p>
+                            <h4><a href="test"> ${book.title} </a> <br> <a href="test"> ${book.authors} </a></h4>
+                            <p>$<${book.price}</p>
 
                         </div>
 
@@ -124,15 +89,7 @@
                             <button class="editButton" onclick="location.href='editProfile';">Add to Cart</button>
                         </div>
                     </div>
-
-                    <%
-                            }
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    %>
-
+        </c:forEach>
 
                 </div>
 
