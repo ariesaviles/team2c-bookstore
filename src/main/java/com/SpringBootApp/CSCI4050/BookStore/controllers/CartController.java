@@ -34,6 +34,7 @@ public class CartController {
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
         Iterable<BookEntity> books = cartRepository.findByUser_IDuser(user.getIDuser()).getBooksInCart();
         model.addAttribute("cartForm", books);
+        model.addAttribute("total", cartRepository.findByUser_IDuser(user.getIDuser()).getTotalPrice());
 
         return "cart";
     }
@@ -46,6 +47,21 @@ public class CartController {
         List<BookEntity> listOfBooks = thisCart.getBooksInCart();
         listOfBooks.add(bookForm);
         thisCart.setBooksInCart(listOfBooks);
+        thisCart.setTotalPrice(thisCart.getTotalPrice() + bookForm.getPrice());
+
+        cartRepository.save(thisCart);
+        return "redirect:/cart";
+    }
+
+    @RequestMapping(value = "/removeFromCart", method = RequestMethod.GET)
+    public String removeFromCart(@RequestParam("title") String title, Model model, Principal principal){
+        BookEntity bookForm = bookRepository.findByTitle(title);
+        UserAccountEntity user = accountRepository.findByEmail(principal.getName());
+        UserCartEntity thisCart = cartRepository.findByUser_IDuser(user.getIDuser());
+        List<BookEntity> listOfBooks = thisCart.getBooksInCart();
+        listOfBooks.remove(bookForm);
+        thisCart.setBooksInCart(listOfBooks);
+        thisCart.setTotalPrice(thisCart.getTotalPrice() - bookForm.getPrice());
 
         cartRepository.save(thisCart);
         return "redirect:/cart";

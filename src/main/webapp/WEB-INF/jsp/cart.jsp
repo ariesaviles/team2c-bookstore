@@ -36,10 +36,14 @@
                     <td>${usercart.title}</td>
                     <td>${usercart.authors}</td>
                     <td>${usercart.price}</td>
+                    <td><a href="/removeFromCart?title=${usercart.title}"><button class="btn btn-primary">
+                        <p> Remove </p>
+                    </button></a></td>
                 </tr>
             </c:forEach>
         </table>
     </div>
+    <div><p>Total: ${total}</p></div>
 
 
     <!-- Footer --->

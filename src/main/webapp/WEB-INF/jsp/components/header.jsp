@@ -50,7 +50,7 @@
                 </div>
                 </sec:authorize>
             </li>
-            <li style='float:right'><a class='active' href='cart.html'>Your Cart</a></li>
+            <li style='float:right'><a class='active' href='cart'>Your Cart</a></li>
               <sec:authorize access="hasAnyAuthority('1')">
               <li style='float:right'><a class='adminFlair' >ADMINISTRATOR</a></li>
               </sec:authorize>
