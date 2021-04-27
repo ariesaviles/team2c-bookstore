@@ -1,18 +1,26 @@
-Admin functionalities:
+key: 
+x - complete 
+/ - sorta complete
 
 Functionality
 [x] Individual shop page
-[] shop
-[] checkout 
-[x] cart // ask about mulitples of one book, 
-[] if promo expired
-[] if card expired
+[x] shop
+[/] checkout // parse in details
+[/] cart // multiple books
+[] on checkout: if promo expired- show error, if card is expired- show error
+[] on checkout: if user has two cards saved, don't allow them to make a new card
+[] in admin manage promos: shouldnt be able to make a promo that is already expired
+[] email users who are subscribed to promo when a new promo is active
+[] build order confirmed page, page that displays after user places order
 
-[] Home 
-[] Contact and About
-[] Shop
-[] Cart and checkout w/ email confirmation and page
-[] Promo emails, when subscribed
+Formatting
+[] cart 
+[] forget password
+[/] checkout
+[] shop
+[] userprofile: previously ordered books
+[/] adminpanel: manage users
+[] 
 
 
 - Manage Promos:
