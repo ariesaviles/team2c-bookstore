@@ -43,8 +43,9 @@
             </c:forEach>
         </table>
     </div>
-    <div><p>Total: ${total}</p></div>
-    <button class="editButton" onclick="location.href='checkout';">Add to Cart</button>
+    <div><p>Total: ${total}</p>
+        <button class="editButton" onclick="location.href='checkout';">Checkout</button></div>
+
 
 
     <!-- Footer --->

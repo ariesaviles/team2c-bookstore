@@ -4,6 +4,7 @@
 /Users/andino/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/repository/AccountRepository.java
 /Users/andino/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/repository/CartRepository.java
 /Users/andino/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/ProfileController.java
+/Users/andino/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/CheckoutController.java
 /Users/andino/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/entities/BookEntity.java
 /Users/andino/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/entities/UserCartEntity.java
 /Users/andino/team2c-bookstore/src/main/java/com/SpringBootApp/CSCI4050/BookStore/controllers/ChangePasswordController.java

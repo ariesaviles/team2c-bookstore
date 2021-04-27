@@ -2,10 +2,7 @@ package com.SpringBootApp.CSCI4050.BookStore.controllers;
 
 import com.SpringBootApp.CSCI4050.BookStore.entities.BookEntity;
 import com.SpringBootApp.CSCI4050.BookStore.entities.UserAccountEntity;
-import com.SpringBootApp.CSCI4050.BookStore.repository.AccountRepository;
-import com.SpringBootApp.CSCI4050.BookStore.repository.AddressRepository;
-import com.SpringBootApp.CSCI4050.BookStore.repository.BookRepository;
-import com.SpringBootApp.CSCI4050.BookStore.repository.CartRepository;
+import com.SpringBootApp.CSCI4050.BookStore.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +27,9 @@ public class CheckoutController {
     @Autowired
     private AddressRepository addressRepository;
 
+    @Autowired
+    private CardRepository cardRepository;
+
     @RequestMapping(value = "/checkout", method = RequestMethod.GET)
     public String displayCheckout(Model model, Principal principal) {
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
@@ -38,6 +38,7 @@ public class CheckoutController {
         model.addAttribute("total", cartRepository.findByUser_IDuser(user.getIDuser()).getTotalPrice());
         model.addAttribute("userEmail", user.getEmail());
         model.addAttribute("addressTable", addressRepository.findByUser_IDuser(user.getIDuser()));
+        model.addAttribute("cardTable", cardRepository.findByUser_IDuser(user.getIDuser()));
 
         return "checkout";
     }

@@ -51,7 +51,7 @@ public class CartController {
         List<BookEntity> listOfBooks = thisCart.getBooksInCart();
         listOfBooks.add(bookForm);
         thisCart.setBooksInCart(listOfBooks);
-//        thisCart.setTotalPrice(decimalFormat.format( thisCart.getTotalPrice() + bookForm.getPrice() ));
+        thisCart.setTotalPrice(thisCart.getTotalPrice() + bookForm.getPrice());
 
         cartRepository.save(thisCart);
         return "redirect:/cart";
