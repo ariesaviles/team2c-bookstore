@@ -1,10 +1,10 @@
 Admin functionalities:
 
-Front-end
-[] Home page
-[] Individual shop page
-
-
+Functionality
+[x] Individual shop page
+[] shop
+[] checkout
+[x] cart
 
 [] Home 
 [] Contact and About

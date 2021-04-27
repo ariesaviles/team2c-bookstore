@@ -4,6 +4,7 @@
 <%@page import="java.sql.Connection"%>
 
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <%
     String id = request.getParameter("userId");
@@ -71,22 +72,15 @@
 
             <div class="columnR">
 
-                <div class="input-group">
-                    <form action="search" method="POST">
-<%--                        textfield for search--%>
-                        <input type="search" name="searchTerm" style="width: 300px; margin-left: 30%;" class="form-control rounded" placeholder="Search by Title, Author, Category..." aria-label="Search"/>
+                <%--@elvariable id="searchForm" type=""--%>
+                <form:form method="POST" modelAttribute="searchForm">
+                    <div class="MyForm form-group" style="padding-top: 100px;">
+                        <form:label path="title">Search:</form:label>
+                        <form:input type="title" class="springInput" id="title" path="title"/><br/>
 
-<%--                        drop down search by--%>
-                        <select class="form-control form-control-sm" id="exampleFormControlSelect2" style="width: 70px; height: 20px; margin-right: 5px; margin-top: 4px; margin-left: 5px;">
-                            <option>Title</option>
-                            <option>Author</option>
-                            <option>Category</option>
-                            <option>ISBN</option>
-                        </select>
-
-<%--                        button submit --%>
-                        <input type="submit">
-
+                        <form:button type="submit" class="from-control">Submit</form:button>
+                    </div>
+                </form:form>
                         <%--                        <a href="/searchBy?term="><button class="btn btn-primary">--%>
                         <%--                            <p> Search</p>--%>
                         <%--                        </button></a>--%>
