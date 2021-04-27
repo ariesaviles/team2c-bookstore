@@ -5,6 +5,8 @@ Functionality
 [] shop
 [] checkout 
 [x] cart // ask about mulitples of one book, 
+[] if promo expired
+[] if card expired
 
 [] Home 
 [] Contact and About
