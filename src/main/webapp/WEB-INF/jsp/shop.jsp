@@ -73,14 +73,16 @@
             <div class="columnR">
 
                 <%--@elvariable id="searchForm" type=""--%>
-                <form:form method="POST" modelAttribute="searchForm">
-                    <div class="MyForm form-group" style="padding-top: 100px;">
-                        <form:label path="title">Search:</form:label>
-                        <form:input type="title" class="springInput" id="title" path="title"/><br/>
+                    <input type="search" id="searchTerm" name="searchTerm" style="width: 300px; margin-left: 30%;" class="form-control rounded" placeholder="Search by Title, Author, Category..." aria-label="Search"/>
 
-                        <form:button type="submit" class="from-control">Submit</form:button>
-                    </div>
-                </form:form>
+                    <select class="form-control form-control-sm" id="exampleFormControlSelect2" style="width: 70px; height: 20px; margin-right: 5px; margin-top: 4px; margin-left: 5px;">
+                        <option>Title</option>
+                        <option>Author</option>
+                        <option>Category</option>
+                        <option>ISBN</option>
+                    </select>
+
+                    <button type="submit" onclick="location.href=document.getElementById('searchTerm').value">
                         <%--                        <a href="/searchBy?term="><button class="btn btn-primary">--%>
                         <%--                            <p> Search</p>--%>
                         <%--                        </button></a>--%>
