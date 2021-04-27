@@ -30,14 +30,13 @@ public class CartController {
     @Autowired
     CartRepository cartRepository;
 
-    private static DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
     @RequestMapping(value = "/cart", method = RequestMethod.GET)
     public String displayCart(Model model, Principal principal) {
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
         Iterable<BookEntity> books = cartRepository.findByUser_IDuser(user.getIDuser()).getBooksInCart();
         model.addAttribute("cartForm", books);
-        model.addAttribute("total", decimalFormat.format(cartRepository.findByUser_IDuser(user.getIDuser()).getTotalPrice()));
+        model.addAttribute("total", cartRepository.findByUser_IDuser(user.getIDuser()).getTotalPrice());
         model.addAttribute("userEmail", user.getEmail());
 
         return "cart";
@@ -45,13 +44,14 @@ public class CartController {
 
     @RequestMapping(value = "/addToCart", method = RequestMethod.GET)
     public String addToCart(@RequestParam("title") String title, Model model, Principal principal){
+
         BookEntity bookForm = bookRepository.findByTitle(title);
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
         UserCartEntity thisCart = cartRepository.findByUser_IDuser(user.getIDuser());
         List<BookEntity> listOfBooks = thisCart.getBooksInCart();
         listOfBooks.add(bookForm);
         thisCart.setBooksInCart(listOfBooks);
-//        thisCart.setTotalPrice(decimalFormat.format( thisCart.getTotalPrice() + bookForm.getPrice() ));
+        thisCart.setTotalPrice(thisCart.getTotalPrice() + bookForm.getPrice());
 
         cartRepository.save(thisCart);
         return "redirect:/cart";

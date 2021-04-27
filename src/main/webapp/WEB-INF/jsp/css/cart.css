@@ -1,0 +1,180 @@
+.row {
+    display: flex;
+}
+
+.columnL {
+    flex: 0.7;
+
+}
+.columnLForm {
+    flex: 0.5;
+    margin-right: 50px;
+}
+.columnFullForm {
+    flex: 1;
+}
+.columnR {
+    flex: 0.3;
+}
+.columnRForm {
+    flex: 0.5;
+}
+
+
+.mainBody {
+    padding-top: 100px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 50px;
+}
+
+/* -------------------------- left column -------- */
+
+
+.cardDark h {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 30pt;
+    text-transform: uppercase;
+}
+
+.cardLight p {
+    font-family: "Roboto";
+    margin: 2;
+}
+.centerForm {
+    justify-content: center;
+
+}
+.editButton {
+    background-color: #ddd;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+hr.solid {
+    border-top: 3px solid #bbb;
+    width: 500px;
+}
+
+/* ---------------------------- cart--------------------- */
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: Roboto;
+    width: 100%;
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+#cart_square {
+    /* border: red solid 1pt; */
+    width: 70px;
+    height: 70px;
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+}
+.divider-line-x {
+    /* position: relative; */
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #ccc;
+    width: 50%;
+    /* margin-left: 8%; */
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.cartSection {
+    align-items: center;
+    background-color: #f0f0f0;
+    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),
+    inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    /*display: flex;*/
+    height: auto;
+    /* justify-content: center; */
+    /*margin-left: 10%;*/
+    /*width: 100%;*/
+    /*margin-bottom: 2%;*/
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.orderSection {
+    align-items: center;
+    text-align: center;
+    background-color: #f0f0f0;
+    box-shadow:
+            12px 12px 16px 0 rgba(0, 0, 0, 0.25),
+            -8px -8px 12px 0 rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    /* display: flex; */
+    /*height: 20px;*/
+    /* justify-content: center; */
+    margin-left: 10%;
+    /*width: 82%;*/
+    margin-top: 100px;
+    margin-bottom: 5%;
+    padding-top: 2%;
+    font-family: Roboto;
+}
+
+.editButton {
+    background-color: #f0f0f0;
+    box-shadow:
+            12px 12px 16px 0 rgba(0, 0, 0, 0.25),
+            -8px -8px 12px 0 rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+.editButton:active {
+    background-color: #f0f0f0;
+    box-shadow:
+            12px 12px 16px 0 rgba(0, 0, 0, 0.0),
+            -8px -8px 12px 0 rgba(255, 255, 255, 0.0);
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+.editButton:active, .editButton:focus {
+    outline: 0;
+    border: none;
+    -moz-outline-style: none;
+}

@@ -237,7 +237,7 @@ DROP TABLE IF EXISTS `promotion`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `promotion` (
   `idPromotion` bigint NOT NULL AUTO_INCREMENT,
-  `discount` int NOT NULL,
+  `discount` decimal(10,0) NOT NULL,
   `dateStart` date NOT NULL,
   `dateEnd` date NOT NULL,
   `hasBeenSent` tinyint NOT NULL,
@@ -315,7 +315,7 @@ CREATE TABLE `usercart` (
 
 LOCK TABLES `usercart` WRITE;
 /*!40000 ALTER TABLE `usercart` DISABLE KEYS */;
-INSERT INTO `usercart` VALUES (1,1,0),(2,2,0),(3,3,0),(4,4,0);
+INSERT INTO `usercart` VALUES (1,1,7.99),(2,2,0),(3,3,0),(4,4,0);
 /*!40000 ALTER TABLE `usercart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -329,6 +329,7 @@ DROP TABLE IF EXISTS `usercart_has_books`;
 CREATE TABLE `usercart_has_books` (
   `UserCart_idUserCart` bigint NOT NULL,
   `Book_id` bigint NOT NULL,
+  `count` int DEFAULT NULL,
   PRIMARY KEY (`UserCart_idUserCart`,`Book_id`),
   KEY `fk_UserCart_has_Books_Books1_idx` (`Book_id`),
   KEY `fk_UserCart_has_Books_UserCart1_idx` (`UserCart_idUserCart`),
@@ -343,6 +344,7 @@ CREATE TABLE `usercart_has_books` (
 
 LOCK TABLES `usercart_has_books` WRITE;
 /*!40000 ALTER TABLE `usercart_has_books` DISABLE KEYS */;
+INSERT INTO `usercart_has_books` VALUES (1,17,1);
 /*!40000 ALTER TABLE `usercart_has_books` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -355,4 +357,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-26  0:06:23
+-- Dump completed on 2021-04-27 15:08:51
