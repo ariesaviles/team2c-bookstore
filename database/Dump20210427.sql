@@ -329,7 +329,7 @@ DROP TABLE IF EXISTS `usercart_has_books`;
 CREATE TABLE `usercart_has_books` (
   `UserCart_idUserCart` bigint NOT NULL,
   `Book_id` bigint NOT NULL,
-  `count` int DEFAULT NULL,
+  `count` int DEFAULT 1,
   PRIMARY KEY (`UserCart_idUserCart`,`Book_id`),
   KEY `fk_UserCart_has_Books_Books1_idx` (`Book_id`),
   KEY `fk_UserCart_has_Books_UserCart1_idx` (`UserCart_idUserCart`),
