@@ -1,4 +1,14 @@
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html"%>
+
+
 
 <!doctype html>
 <head>
@@ -11,6 +21,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
 
     <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style> <%@ include file="css/style.css"%> </style> <!-- main css -->
     <style> <%@ include file="css/shop.css"%> </style>
 
@@ -44,23 +56,40 @@
             </div>
 
             <div class="columnR">
-                <p>shop</p>
+
+                <%--@elvariable id="searchForm" type=""--%>
+                    <input type="search" id="searchTerm" name="searchTerm" style="width: 300px; margin-left: 30%;" class="form-control rounded" placeholder="Search by Title, Author, Category..." aria-label="Search"/>
+
+                    
+
+                    <button type="submit" onclick="location.href='/shop?title=' + document.getElementById('searchTerm').value">Submit</button>
+                        <%--                        <a href="/searchBy?term="><button class="btn btn-primary">--%>
+                        <%--                            <p> Search</p>--%>
+                        <%--                        </button></a>--%>
+                </div>
+
                 <hr class="solid" style="width: 90%;">
                 <div class="orderHistory">
-                    <table class="cartTable">
-                        <tbody>
-                        <div class="addToCart">
-                            <tr>
-                                <td>
-                                    <div id="cart_square">
-                                        <img src="images/8.jpg" id="cartImage"/>
-                                    </div>
-                                </td>
-                                <td class="prodName">Test Name</td>
-                            </tr>
+
+        <c:forEach items="${bookForm}" var="book">
+                    <div class="indexBook">
+                        <div class="bookImg">
+                            <a>
+                                <img class="cover" src="${book.imgLink}" width="" height="250" alt="product image">
+                            </a>
                         </div>
-                        </tbody>
-                    </table>
+
+                        <div class="bookLabel">
+                            <h4><a href="test"> ${book.title} </a> <br> <a href="test"> ${book.authors} </a></h4>
+                            <p>$<${book.price}</p>
+
+                        </div>
+
+                        <div class="action" style="position: relative; bottom: 0">
+                            <button class="editButton" onclick="location.href='editProfile';">Add to Cart</button>
+                        </div>
+                    </div>
+        </c:forEach>
 
                 </div>
 

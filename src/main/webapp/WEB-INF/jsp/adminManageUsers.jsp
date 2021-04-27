@@ -41,7 +41,7 @@
                 <td>${account.lastName}</td>
                 <td>${account.userName}</td>
                 <td>${account.email}</td>
-                <td>${account.birthDate}</td>
+                <td>${account.birthDate}</td>ManageUserController
                 <td><a href="/changeStatus?email=${account.email}"><button class="btn btn-primary">
                     <p> ${account.userState}</p>
                   </button></a></td>

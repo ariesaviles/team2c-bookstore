@@ -27,7 +27,7 @@
 
           <ul class="navUl">
             <li ><a class="drop" href='index'>Home</a></li>
-              <li ><a class="drop" href="shop"><b>Shop</b></a></li>
+              <li ><a class="drop" href="shop?title="><b>Shop</b></a></li>
             <li ><a class="drop" href="about.html">About</a></li>
             <li><a class="drop" href="contact.html">Contact</a></li>
             <li id='dd' style='float:right'>
@@ -50,7 +50,7 @@
                 </div>
                 </sec:authorize>
             </li>
-            <li style='float:right'><a class='active' href='cart.html'>Your Cart</a></li>
+            <li style='float:right'><a class='active' href='cart'>Your Cart</a></li>
               <sec:authorize access="hasAnyAuthority('1')">
               <li style='float:right'><a class='adminFlair' >ADMINISTRATOR</a></li>
               </sec:authorize>

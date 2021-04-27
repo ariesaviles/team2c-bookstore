@@ -3,7 +3,7 @@ package com.SpringBootApp.CSCI4050.BookStore.entities;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.Set;
+import java.util.List;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
@@ -29,7 +29,7 @@ public class UserCartEntity {
             joinColumns = @JoinColumn(name = "usercart_idusercart"),
             inverseJoinColumns = @JoinColumn(name = "book_id")
     )
-    private Set<BookEntity> booksInCart;
+    private List<BookEntity> booksInCart;
 
     public Long getIdUserCart() {
         return idUserCart;
@@ -53,5 +53,13 @@ public class UserCartEntity {
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public List<BookEntity> getBooksInCart() {
+        return booksInCart;
+    }
+
+    public void setBooksInCart(List<BookEntity> booksInCart) {
+        this.booksInCart = booksInCart;
     }
 }
