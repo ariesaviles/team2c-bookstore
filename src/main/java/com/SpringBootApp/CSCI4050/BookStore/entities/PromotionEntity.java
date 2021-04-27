@@ -20,7 +20,7 @@ public class PromotionEntity {
     private String promocode;
 
     @Column(name = "discount")
-    private Double discount;
+    private int discount;
 
     @Column(name = "datestart")
     private String dateStart;
@@ -50,11 +50,11 @@ public class PromotionEntity {
         this.idPromotion = idPromotion;
     }
 
-    public Double getDiscount() {
+    public int getDiscount() {
         return discount;
     }
 
-    public void setDiscount(Double discount) {
+    public void setDiscount(int discount) {
         this.discount = discount;
     }
 

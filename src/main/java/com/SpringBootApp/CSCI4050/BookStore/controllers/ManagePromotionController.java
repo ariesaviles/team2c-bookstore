@@ -70,12 +70,20 @@ public class ManagePromotionController {
         if(promoForm.getHasSent() == 1){
             return "redirect:/adminManagePromo";
         }
-        model.addAttribute("promoForm", promoForm);
+        promoForm.setPromocode(promoForm.getPromocode());
+        promoForm.setDiscount(promoForm.getDiscount());
+        promoForm.setDateStart(promoForm.getDateStart());
+        promoForm.setDateEnd(promoForm.getDateEnd());
+
+        promoRepository.save(promoForm);
+
+        return "redirect:/adminManagePromo";
+       /* model.addAttribute("promoForm", promoForm);
         model.addAttribute("promocode", promoForm.getPromocode());
         model.addAttribute("discount", promoForm.getDiscount());
         model.addAttribute("dateStart", promoForm.getDateStart());
         model.addAttribute("dateEnd", promoForm.getDateEnd());
-        return "editPromo";
+        return "editPromo";*/
     }
 
     @RequestMapping(value = "/editPromo", method = RequestMethod.POST)
@@ -99,7 +107,7 @@ public class ManagePromotionController {
 
     @RequestMapping(value = "/adminAddPromo", method = RequestMethod.POST)
     public Object addPromo(@ModelAttribute("promoForm") PromotionEntity promoForm, BindingResult bindingResult,
-                           ModelMap model, HttpServletRequest request) throws IOException, MessagingException {
+                           ModelMap model, HttpServletRequest request) throws IOException, MessagingException, NumberFormatException{
 
         if (bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
@@ -108,27 +116,46 @@ public class ManagePromotionController {
         String pattern = "yyyyMMdd";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String curDate = simpleDateFormat.format(new Date());
-        if(promoForm.getPromocode().isEmpty()){
+
+        PromotionEntity prom = promoRepository.findByPromocode(promoForm.getPromocode());
+        if (prom != null) {
+            model.addAttribute("badPromo", "Please enter a new promocode that is not already been used.");
+            problems = true;
+        }
+
+        if(prom == null && promoForm.getPromocode().isEmpty()){
             model.addAttribute("badPromoCode", "Please enter a valid Promo Code");
             problems = true;
         }
+
         //positive =() before current date
         //0 if same
         // negative =() after current date
+        boolean validDates = true;
         if(promoForm.getDateStart().isEmpty() || promoForm.getDateStart().length() != 8
         || curDate.compareTo(promoForm.getDateStart()) > 0) {
             model.addAttribute("badStart", "Please enter a valid start date");
-            problems = true;
-        }
-        if(promoForm.getDateEnd().isEmpty() || promoForm.getDateEnd().length() != 8
-        || curDate.compareTo(promoForm.getDateEnd()) > 0){
-            model.addAttribute("badEnd", "Please enter a valid expiration date");
             problems = true;
         }
 
         //we do not want start date before end date so it has to be negative
         if(promoForm.getDateStart().compareTo(promoForm.getDateEnd()) > 0) {
             model.addAttribute("badDates", "End date must be on or after start date");
+            problems = true;
+            validDates = false;
+        } else {
+            validDates = true;
+        }
+
+        if(validDates && (promoForm.getDateEnd().isEmpty() || promoForm.getDateEnd().length() != 8
+        || curDate.compareTo(promoForm.getDateEnd()) > 0)){
+            model.addAttribute("badEnd", "Please enter a valid expiration date");
+            problems = true;
+        }
+
+        Integer dis = promoForm.getDiscount();
+        if(dis == null || (promoForm.getDiscount() <= 0 || promoForm.getDiscount() >= 100)){
+            model.addAttribute("badPer", "Please enter a valid discount percentage");
             problems = true;
         }
 
