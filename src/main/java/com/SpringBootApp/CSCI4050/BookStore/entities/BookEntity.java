@@ -57,8 +57,8 @@ public class BookEntity {
 //    @Column(name = "minimum_threshold")
 //    private int minimumThreshold;
 
-    @ManyToMany(mappedBy = "booksInCart")
-    private Set<UserCartEntity> areInCart;
+    @OneToMany(mappedBy = "book")
+    List<UserCartHasBooksEntity> userCartHasBooks;
 
     @ManyToMany(mappedBy = "booksInOrder")
     private Set<OrderEntity> areInOrder;

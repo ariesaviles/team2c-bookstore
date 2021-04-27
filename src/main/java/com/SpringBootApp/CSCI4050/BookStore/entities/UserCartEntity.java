@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
+import java.util.List;
 
 @Entity(name = "usercart")
 public class UserCartEntity {
@@ -23,13 +24,8 @@ public class UserCartEntity {
     @Column(name = "totalprice")
     private double totalPrice;
 
-    @ManyToMany
-    @JoinTable(
-            name = "usercart_has_books",
-            joinColumns = @JoinColumn(name = "usercart_idusercart"),
-            inverseJoinColumns = @JoinColumn(name = "book_id")
-    )
-    private List<BookEntity> booksInCart;
+    @OneToMany(mappedBy = "userCart")
+    List<UserCartHasBooksEntity> booksInCart;
 
     public Long getIdUserCart() {
         return idUserCart;
@@ -55,11 +51,11 @@ public class UserCartEntity {
         this.totalPrice = totalPrice;
     }
 
-    public List<BookEntity> getBooksInCart() {
+    public List<UserCartHasBooksEntity> getBooksInCart() {
         return booksInCart;
     }
 
-    public void setBooksInCart(List<BookEntity> booksInCart) {
+    public void setBooksInCart(List<UserCartHasBooksEntity> booksInCart) {
         this.booksInCart = booksInCart;
     }
 }

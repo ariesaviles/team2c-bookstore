@@ -3,6 +3,7 @@ package com.SpringBootApp.CSCI4050.BookStore.controllers;
 import com.SpringBootApp.CSCI4050.BookStore.entities.BookEntity;
 import com.SpringBootApp.CSCI4050.BookStore.entities.PromotionEntity;
 import com.SpringBootApp.CSCI4050.BookStore.entities.UserAccountEntity;
+import com.SpringBootApp.CSCI4050.BookStore.entities.UserCartHasBooksEntity;
 import com.SpringBootApp.CSCI4050.BookStore.repository.AccountRepository;
 import com.SpringBootApp.CSCI4050.BookStore.repository.BookRepository;
 import com.SpringBootApp.CSCI4050.BookStore.repository.CartRepository;
@@ -29,7 +30,7 @@ public class CartController {
     @RequestMapping(value = "/cart", method = RequestMethod.GET)
     public String displayCart(Model model, Principal principal) {
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
-        Iterable<BookEntity> books = cartRepository.findByUser_IDuser(user.getIDuser()).getBooksInCart();
+        //Iterable<UserCartHasBooksEntity> books = cartRepository.findByUser_IDuser(user.getIDuser()).getBooksInCart();
         model.addAttribute("cartForm", books);
 
         return "cart";
