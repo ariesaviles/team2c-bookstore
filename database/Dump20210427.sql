@@ -237,7 +237,7 @@ DROP TABLE IF EXISTS `promotion`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `promotion` (
   `idPromotion` bigint NOT NULL AUTO_INCREMENT,
-  `discount` decimal(10,0) NOT NULL,
+  `discount` int NOT NULL,
   `dateStart` date NOT NULL,
   `dateEnd` date NOT NULL,
   `hasBeenSent` tinyint NOT NULL,
