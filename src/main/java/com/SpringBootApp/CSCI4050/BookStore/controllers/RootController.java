@@ -27,6 +27,10 @@ public class RootController {
         return "bookPage";
     }
 
+    @RequestMapping(path = "/checkout", method = RequestMethod.GET)
+    public String checkout(Model model) {
+        return "checkout";
+    }
 
 //    @RequestMapping(path="/cart", method = RequestMethod.GET)
 //    public String cart(Model model) {
