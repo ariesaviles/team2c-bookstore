@@ -3,8 +3,8 @@ Admin functionalities:
 Functionality
 [x] Individual shop page
 [] shop
-[] checkout
-[x] cart
+[] checkout 
+[x] cart // ask about mulitples of one book, 
 
 [] Home 
 [] Contact and About
