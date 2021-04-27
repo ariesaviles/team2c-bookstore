@@ -22,7 +22,7 @@
   <div class="columnL" >
     <div class="bookIMG" style="position: absolute;  z-index:0 ">
 
-      <img src="images/8.jpg" id="layer1" alt="product image" style="margin-left: 30%; height: 600px; padding-bottom: 10px; z-index:0;">
+      <img src="${imageURL}" id="layer1" alt="product image" style="margin-left: 30%; height: 600px; padding-bottom: 10px; z-index:0;">
 
     </div>
   </div>
@@ -32,9 +32,9 @@
     <div class="columnL" style="width:500px"></div>
     <div class="columnR" style="overflow: hidden; margin-left: 35%">
       <div class="information" style="position: absolute; width: 30%">
-      <p class="bookGenre">Book Genre</p>
-      <p class="bookTitle">Title of the Book</p>
-      <p class="bookAuthor">Author Price</p>
+      <p class="bookGenre">${category}</p>
+      <p class="bookTitle">${title}</p>
+      <p class="bookAuthor">${authors} ${isbn}</p>
       <div class="row" style="margin-bottom: 40px;">
       <select class="form-control form-control-sm" id="exampleFormControlSelect2" style="width: 70px; height: 40px; margin-right: 20px; margin-top: 4px; margin-left: 20px;">
             <option>1</option>
@@ -43,9 +43,9 @@
             <option>4</option>
             <option>5</option>
       </select>
-      <button class="editButton">Add to Cart</button>
+      <button class="editButton" onclick="location.href='addToCart?title=${title}';">Add to Cart</button>
     </div>
-      <p class="bookDesc">There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages. There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages. There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages. </p>
+      <p class="bookDesc"> ${description} </p>
       </div>
     </div>
   </div>

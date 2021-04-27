@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 
 <meta charset="utf-8">
@@ -19,7 +21,7 @@
 	<style>
 	</style>
 </head>
-<body style="background-color: ##f0f0f0">
+<body>
 
 <div class="wrapper" id="wrapper">
 	<!-- Header -->
@@ -34,25 +36,24 @@
     <h2 class="mainLabel">Shipping Address</h2>
   </div>
         <div class="shippingBody">
-          <div class="form-check shippingItems">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label" for="exampleRadios1">
-              2468 Fake Address St. City, ST, 12344
-            </label>
-          </div>
-          <div class="form-check shippingItems">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">
-              1357 Real Address Rd. BigCity, ST, 09876
-            </label>
-          </div>
+                <c:forEach items="${addressTable}" var="address">
+
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                            ${address.street} ${address.city} ${address.state} ${address.zipCode}
+                    </label>
+                    <br>
+
+                </c:forEach>
+
+
 
           <div class="divider-line-x" style="margin-left: 20%"><span> or </span></div>
 
           <div class="form-check shippingItems">
             <div class="">
               <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                <label for="formGroupExampleInput">New Shipping Address</label>
+                <label for="">New Shipping Address</label>
               </div>
               <div class="newFormRow">
                   <input type="text" class="fields" placeholder="Street Address" style="width: 200px">

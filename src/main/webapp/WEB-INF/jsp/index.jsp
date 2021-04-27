@@ -7,7 +7,7 @@
 
 <%
 	String id = request.getParameter("userId");
-	String driverName = "com.mysql.jdbc.Driver";
+	String driverName = "com.mysql.cj.jdbc.Driver";
 	String connectionUrl = "jdbc:mysql://localhost:3306/mydb";
 	//String dbName = "mydb";
 	String userId = "adminuser";
@@ -99,18 +99,18 @@
 					<div class="indexBook">
 						<div class="bookImg">
 							<a>
-								<img class="cover" src="<%=resultSet.getString("Cover_Picture") %>" width="" height="250" alt="product image">
+								<img class="cover" onclick="location.href='bookPage?title=<%=resultSet.getString("Title") %>';" src="<%=resultSet.getString("Cover_Picture") %>" width="" height="250" alt="product image">
 							</a>
 						</div>
 
 						<div class="bookLabel">
 							<h4><a href="test"> <%=resultSet.getString("Title") %> </a> <br> <a href="test"> <%=resultSet.getString("Authors_Names") %> </a></h4>
-								<p>$<%=resultSet.getString("Selling_Price") %>.99</p>
+								<p>$<%=resultSet.getString("Selling_Price") %></p>
 
 						</div>
 
 						<div class="action" style="position: relative; bottom: 0">
-							<button class="editButton" onclick="location.href='editProfile';">Add to Cart</button>
+							<button class="editButton" onclick="location.href='addToCart?title=<%=resultSet.getString("Title") %>';">Add to Cart</button>
 						</div>
 					</div>
 
