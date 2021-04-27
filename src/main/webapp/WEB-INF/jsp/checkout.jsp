@@ -13,8 +13,8 @@
 
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="checkout.css">
+  	<style> <%@ include file="css/style.css"%> </style>
+	<style> <%@ include file="css/checkout.css"%> </style>
 
 	<style>
 	</style>
@@ -23,7 +23,7 @@
 
 <div class="wrapper" id="wrapper">
 	<!-- Header -->
-<div style="box-shadow: inset 8px 8px 8px #cbced1"><?php include('comps/header.php'); ?></div>
+	<jsp:include page="components/header.jsp"/>
 
 
 	<div class="bodytext" style="height: 800px">
@@ -119,16 +119,7 @@
 
 
 	<!-- Footer --->
-  <!-- Footer --->
-<div class="footerBody">
-<div class="footerLogoText">
-  <a href="index.html">
-    <img src="images/footer.png" alt="logo">
-  </a>
-  <p id="footerP">There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages</p>
-</div>
-</div>
-<!-- //Footer Area -->
+ 	<jsp:include page="components/footer.jsp"/>
 
 </div>
 
