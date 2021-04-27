@@ -60,7 +60,7 @@
                 <%--@elvariable id="searchForm" type=""--%>
                     <input type="search" id="searchTerm" name="searchTerm" style="width: 300px; margin-left: 30%;" class="form-control rounded" placeholder="Search by Title, Author, Category..." aria-label="Search"/>
 
-                    
+
 
                     <button type="submit" onclick="location.href='/shop?title=' + document.getElementById('searchTerm').value">Submit</button>
                         <%--                        <a href="/searchBy?term="><button class="btn btn-primary">--%>
