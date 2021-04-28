@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -63,7 +65,13 @@ public class CheckoutController {
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
         List<UserCartHasBooksEntity> books = cartRepository.findByUser_IDuser(user.getIDuser()).getBooksInCart();
         //orderForm.setBooksInOrder(books);
-        orderForm.setOrderDate("2021-04-05");
+
+        // get date
+        String pattern = "yyyyMMdd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String curDate = simpleDateFormat.format(new Date());
+        orderForm.setOrderDate(curDate);
+        
         orderForm.setAddress_IDaddress(addressRepository.findByUser_IDuser(user.getIDuser()).get(0));
         orderForm.setCard_IDcard(cardRepository.findByUser_IDuser(user.getIDuser()).get(0));
         orderForm.setUser_IDuser(user);
