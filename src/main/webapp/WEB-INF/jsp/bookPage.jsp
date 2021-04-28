@@ -36,14 +36,14 @@
       <p class="bookTitle">${title}</p>
       <p class="bookAuthor">${authors} ${isbn}</p>
       <div class="row" style="margin-bottom: 40px;">
-      <select class="form-control form-control-sm" id="exampleFormControlSelect2" style="width: 70px; height: 40px; margin-right: 20px; margin-top: 4px; margin-left: 20px;">
+      <select class="form-control form-control-sm" id="qtySelect" style="width: 70px; height: 40px; margin-right: 20px; margin-top: 4px; margin-left: 20px;">
             <option>1</option>
             <option>2</option>
             <option>3</option>
             <option>4</option>
             <option>5</option>
       </select>
-      <button class="editButton" onclick="location.href='addToCart?title=${title}';">Add to Cart</button>
+      <button class="editButton" onclick="location.href='addToCart?title=${title}&qty=' + document.getElementById('qtySelect').value;">Add to Cart</button>
     </div>
       <p class="bookDesc"> ${description} </p>
       </div>

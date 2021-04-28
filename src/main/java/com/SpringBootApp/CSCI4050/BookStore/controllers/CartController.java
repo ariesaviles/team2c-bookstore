@@ -46,17 +46,17 @@ public class CartController {
     }
 
     @RequestMapping(value = "/addToCart", method = RequestMethod.GET)
-    public String addToCart(@RequestParam("title") String title, Model model, Principal principal){
+    public String addToCart(@RequestParam("title") String title, @RequestParam("qty") int qty,Model model, Principal principal){
         BookEntity bookForm = bookRepository.findByTitle(title);
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
         UserCartEntity cart = cartRepository.findByUser_IDuser(user.getIDuser());
         List<UserCartHasBooksEntity> booksInCart = booksInCartRepository.findByUserId(user.getIDuser());
 
         boolean isInCart = false;
-        double priceToAdd = bookForm.getPrice();
+        double priceToAdd = bookForm.getPrice() * qty;
         for (UserCartHasBooksEntity userCartHasBooksEntity: booksInCart) {
             if (userCartHasBooksEntity.getBook().equals(bookForm)) {
-                userCartHasBooksEntity.setCount(userCartHasBooksEntity.getCount() + 1);
+                userCartHasBooksEntity.setCount(userCartHasBooksEntity.getCount() + qty);
                 isInCart = true;
                 booksInCartRepository.save(userCartHasBooksEntity);
             }
@@ -71,7 +71,7 @@ public class CartController {
             newBookInCart.setId(key);
             newBookInCart.setBook(bookForm);
             newBookInCart.setUserCart(cart);
-            newBookInCart.setCount(1);
+            newBookInCart.setCount(qty);
             booksInCartRepository.save(newBookInCart);
         }
 
