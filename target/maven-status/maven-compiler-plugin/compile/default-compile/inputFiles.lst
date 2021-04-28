@@ -10,6 +10,7 @@ C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\
 C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\entities\PromotionEntity.java
 C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\controllers\BookPageController.java
 C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\Email.java
+C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\entities\OrderHasBooksEntity.java
 C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\entities\UserCartHasBooksEntity.java
 C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\repository\BooksInCartRepository.java
 C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\controllers\AddCardController.java
@@ -33,5 +34,6 @@ C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\
 C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\repository\PromotionRepository.java
 C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\security\SecSecurityConfig.java
 C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\entities\UserCartHasBooksKey.java
+C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\entities\OrderHasBooksKey.java
 C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\BookStoreApplication.java
 C:\Users\Calvin\Desktop\Spring 2021\CSCI 4050 Soft Engineering\team2c-bookstore\src\main\java\com\SpringBootApp\CSCI4050\BookStore\entities\AddressEntity.java
