@@ -115,7 +115,7 @@
 						</div>
 
 						<div class="action" style="position: relative; bottom: 0">
-							<button class="editButton" onclick="location.href='addToCart?title=<%=resultSet.getString("Title") %>';">Add to Cart</button>
+							<button class="editButton" onclick="location.href='addToCart?title=<%=resultSet.getString("Title") %>&qty=1';">Add to Cart</button>
 						</div>
 					</div>
 
@@ -187,7 +187,7 @@
 						</div>
 
 						<div class="action" style="position: relative; bottom: 0">
-							<button class="editButton" onclick="location.href='addToCart?title=<%=resultSet.getString("Title") %>';">Add to Cart</button>
+							<button class="editButton" onclick="location.href='addToCart?title=<%=resultSet.getString("Title") %>&qty=1';">Add to Cart</button>
 						</div>
 					</div>
 
