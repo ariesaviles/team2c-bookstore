@@ -52,9 +52,10 @@ public class ManagePromotionController {
         List<UserAccountEntity> users = accountRepository.getAccountsWithSubscription();
         if(promoForm.getHasSent() == 0) {
             System.out.println("Send Emails here");
+            String promoEmail = "New promocode: " + promoForm.getPromocode() + "\nPromocode valid from: " + promoForm.getDateStart() + " to "+ promoForm.getDateEnd() + "\nDiscount percentage: " + promoForm.getDiscount() +"% OFF";
             for (int i = 0; i < users.size(); i++) {
                 sendEmail = new Email();
-                sendEmail.sendmail(users.get(i).getEmail(), "New Promotion",promoForm.getPromocode());
+                sendEmail.sendmail(users.get(i).getEmail(), "New Promotion",promoEmail);
                 System.out.println("Email sent to:" + users.get(i).getEmail());
             }
             promoForm.setHasSent(1);
@@ -66,7 +67,10 @@ public class ManagePromotionController {
     @RequestMapping(value = "/deletePromo", method = RequestMethod.GET)
     public String deletePromo(@RequestParam("promocode") String promocode, Model model){
         PromotionEntity promoForm = promoRepository.findByPromocode(promocode);
-        if(promoForm.getHasSent() == 1){
+        String pattern = "yyyyMMdd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String curDate = simpleDateFormat.format(new Date());
+        if(promoForm.getHasSent() == 1 && curDate.compareTo(promoForm.getDateEnd()) > 0){
             return "redirect:/adminManagePromo";
         }
         promoRepository.delete(promoForm);
