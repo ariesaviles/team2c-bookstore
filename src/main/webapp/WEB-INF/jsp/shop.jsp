@@ -27,7 +27,7 @@
     <style> <%@ include file="css/shop.css"%> </style>
 
 </head>
-<body>
+<body style="background-color: #F0F0F0">
 <!-- Main wrapper -->
 <div class="wrapper" id="wrapper">
     <!-- Header -->
@@ -49,49 +49,43 @@
                     <hr class="dashed" style="width: 90%">
                     <p class="category">Self Improvement</p>
                     <hr class="dashed" style="width: 90%">
-
                 </div>
-
 
             </div>
 
             <div class="columnR">
 
-                <%--@elvariable id="searchForm" type=""--%>
                     <input type="search" id="searchTerm" name="searchTerm" style="width: 300px; margin-left: 30%;" class="form-control rounded" placeholder="Search by Title, Author, Category..." aria-label="Search"/>
-
-                    
-
                     <button type="submit" onclick="location.href='/shop?title=' + document.getElementById('searchTerm').value">Submit</button>
-                        <%--                        <a href="/searchBy?term="><button class="btn btn-primary">--%>
-                        <%--                            <p> Search</p>--%>
-                        <%--                        </button></a>--%>
-                </div>
 
-                <hr class="solid" style="width: 90%;">
-                <div class="orderHistory">
+                    <hr class="solid" style="width: 90%;">
 
-        <c:forEach items="${bookForm}" var="book">
-                    <div class="indexBook">
-                        <div class="bookImg">
-                            <a>
-                                <img class="cover" src="${book.imgLink}" width="" height="250" alt="product image">
-                            </a>
-                        </div>
+                    <div class="grid-container">
+                        <c:forEach items="${bookForm}" var="book">
+                            <div class="indexBook">
+                                <div class="bookImg">
+                                    <a>
+                                        <img class="cover" src="${book.imgLink}" width="" height="250" alt="product image">
+                                    </a>
+                                </div>
 
-                        <div class="bookLabel">
-                            <h4><a href="test"> ${book.title} </a> <br> <a href="test"> ${book.authors} </a></h4>
-                            <p>$<${book.price}</p>
+                                <div class="bookLabel">
+                                    <h4><a href="test"> ${book.title} </a> <br> <a href="test"> ${book.authors} </a></h4>
+                                    <p>$<${book.price}</p>
 
-                        </div>
+                                </div>
 
-                        <div class="action" style="position: relative; bottom: 0">
-                            <button class="editButton" onclick="location.href='editProfile';">Add to Cart</button>
-                        </div>
+                                <div class="action" style="position: relative; bottom: 0">
+                                    <button class="editButton" onclick="location.href='editProfile';">Add to Cart</button>
+                                </div>
+                            </div>
+                        </c:forEach>
                     </div>
-        </c:forEach>
 
-                </div>
+
+            </div>
+
+
 
 
             </div>

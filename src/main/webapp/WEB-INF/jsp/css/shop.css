@@ -58,6 +58,13 @@
     cursor: pointer;
     border-radius: 16px;
 }
+.grid-container {
+    display: inline-grid;
+}
+.item1 {
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
 
 hr.solid {
     border-top: 3px solid #bbb;
