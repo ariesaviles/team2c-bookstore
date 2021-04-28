@@ -30,11 +30,11 @@
 
 
     <div class="bodytext" style="height: 800px">
-        <h2 style="margin-top: 100px; margin-left: 2%; font-size: 30pt;">Place Order</h2>
+        <h2 style="margin-top: 100px; margin-left: 2%; font-size: 30pt;">Confirm</h2>
 
         <div class="paymentSection" >
             <div class="shippingHeader">
-                <h2 class="mainLabel">Shipping Address</h2>
+                <h2 class="mainLabel">Order Details</h2>
             </div>
             <div class="shippingBody">
                 <c:forEach items="${addressTable}" var="address">
