@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -28,6 +30,9 @@ public class CheckoutController {
 
     @Autowired
     BooksInOrderRepository booksInOrderRepository;
+
+    @Autowired
+    BooksInCartRepository booksInCartRepository;
 
     @Autowired
     private AddressRepository addressRepository;
@@ -60,7 +65,13 @@ public class CheckoutController {
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
         List<UserCartHasBooksEntity> books = cartRepository.findByUser_IDuser(user.getIDuser()).getBooksInCart();
         //orderForm.setBooksInOrder(books);
-        orderForm.setOrderDate("2021-04-05");
+
+        // get date
+        String pattern = "yyyyMMdd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String curDate = simpleDateFormat.format(new Date());
+        orderForm.setOrderDate(curDate);
+        
         orderForm.setAddress_IDaddress(addressRepository.findByUser_IDuser(user.getIDuser()).get(0));
         orderForm.setCard_IDcard(cardRepository.findByUser_IDuser(user.getIDuser()).get(0));
         orderForm.setUser_IDuser(user);
@@ -68,12 +79,39 @@ public class CheckoutController {
         orderForm.setPromotion_IDpromotion(promotionRepository.findByPromocode(orderForm.getPromotion_IDpromotion().toString()));
 
         orderRepository.save(orderForm);
+
+        // The logic for saving every order_has_books row needed
+        for (UserCartHasBooksEntity book: books) {
+            OrderHasBooksEntity hasBooks = new OrderHasBooksEntity();
+            OrderHasBooksKey hasBooksKey = new OrderHasBooksKey();
+            hasBooksKey.setIdBook(book.getBook().getId());
+            hasBooksKey.setIdOrder(orderForm.getIdOrder());
+            hasBooks.setId(hasBooksKey);
+            hasBooks.setBook(book.getBook());
+            hasBooks.setOrder(orderForm);
+            hasBooks.setCount(book.getCount());
+            booksInOrderRepository.save(hasBooks);
+
+            // Also want to delete cart_has_books rows
+            booksInCartRepository.delete(book);
+        }
+        //set usercart to have total price of 0
+        UserCartEntity userCart = cartRepository.findByUser_IDuser(user.getIDuser());
+        userCart.setTotalPrice(0);
+        cartRepository.save(userCart);
+
+
         return "checkout";
     }
 
     @RequestMapping(value = "/confirmCheckout", method = RequestMethod.GET)
     public String confirmCheckout(Model model, Principal principal){
 
+        return "confirmCheckout";
+    }
+
+    @RequestMapping(value = "/confirmCheckout", method = RequestMethod.POST)
+    public String afterCheckout(Model model, Principal principal) {
         return "confirmCheckout";
     }
 }
