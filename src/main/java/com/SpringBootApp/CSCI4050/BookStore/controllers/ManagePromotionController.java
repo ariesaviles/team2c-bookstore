@@ -47,7 +47,7 @@ public class ManagePromotionController {
     }
 
     @RequestMapping(value = "/sendEmail", method = RequestMethod.GET)
-    public String emailPromo(@RequestParam("promocode") String promocode, Model model){
+    public String emailPromo(@RequestParam("promocode") String promocode){
         PromotionEntity promoForm = promoRepository.findByPromocode(promocode);
         List<UserAccountEntity> users = accountRepository.getAccountsWithSubscription();
         if(promoForm.getHasSent() == 0) {
@@ -191,7 +191,8 @@ public class ManagePromotionController {
 
         promoRepository.save(promoForm);
 
-        sendEmail = new Email();
+        emailPromo(promoForm.getPromocode());
+        //sendEmail = new Email();
         //sendEmail.sendmail(promoForm.getEmail(), "New Promotion",promoForm.getPromocode());//getEmail(), "Registration Successful","Thank you for signing up for Team 2C Bookstore Service");
 
         return "redirect:/adminManagePromo";

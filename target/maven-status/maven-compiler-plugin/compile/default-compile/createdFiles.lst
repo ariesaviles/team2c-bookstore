@@ -1,6 +1,0 @@
-com\SpringBootApp\CSCI4050\BookStore\entities\OrderHasBooksKey.class
-com\SpringBootApp\CSCI4050\BookStore\repository\BooksInCartRepository.class
-com\SpringBootApp\CSCI4050\BookStore\controllers\BookPageController.class
-com\SpringBootApp\CSCI4050\BookStore\repository\BooksInOrderRepository.class
-com\SpringBootApp\CSCI4050\BookStore\entities\OrderHasBooksEntity.class
-com\SpringBootApp\CSCI4050\BookStore\controllers\CheckoutController.class
