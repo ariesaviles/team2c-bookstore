@@ -23,7 +23,7 @@
     <jsp:include page="components/header.jsp"/>
 
     <div class="mainBody">
-        <table id = "table" data-search="true" data-toggle ="table" data-sort-order="desc" class="table table-striped table-hover sortable">
+        <table id = "table" data-search="true" data-toggle ="table" data-sort-order="desc" class="">
             <thead>
             <tr>
                 <th scope="row" data-field="firstName" data-sortable="true">First Name</th>
@@ -41,7 +41,7 @@
                 <td>${account.lastName}</td>
                 <td>${account.userName}</td>
                 <td>${account.email}</td>
-                <td>${account.birthDate}</td>ManageUserController
+                <td>${account.birthDate}</td>
                 <td><a href="/changeStatus?email=${account.email}"><button class="btn btn-primary">
                     <p> ${account.userState}</p>
                   </button></a></td>

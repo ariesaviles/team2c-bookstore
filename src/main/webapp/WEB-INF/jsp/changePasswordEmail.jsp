@@ -19,8 +19,9 @@
 
     <!-- Header -->
     <jsp:include page="components/header.jsp"/>
-
-    <div id="passwordEmail" style="padding-top: 100px;">
+    <h2 style="margin-top: 100px; margin-left: 2%; font-size: 30pt; text-align: center">Reset Your Password</h2>
+    <p>Please enter the email associated with your account.</p>
+    <div id="passwordEmail" style=" text-align: center; padding-bottom: 100px">
         <jsp:include page="components/forms/passwordEmailForm.jsp"/>
     </div>
 
