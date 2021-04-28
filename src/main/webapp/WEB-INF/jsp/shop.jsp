@@ -27,71 +27,71 @@
     <style> <%@ include file="css/shop.css"%> </style>
 
 </head>
-<body>
+<body style="background-color: #F0F0F0">
 <!-- Main wrapper -->
 <div class="wrapper" id="wrapper">
     <!-- Header -->
     <jsp:include page="components/header.jsp"/>
 
     <div class="mainBody">
-        <div class="row">
+        <div class="row"><h2 style="margin-top: 10px; margin-left: 2%; font-size: 30pt;">Browse Books</h2>
+            <input type="search" id="searchTerm" name="searchTerm" style="width: 40%; height: 40%; margin-left: 20%; margin-top: 30px;" class="" placeholder="Search by Title, Author, Category..." aria-label="Search"/>
+            <button type="submit" onclick="location.href='/shop?title=' + document.getElementById('searchTerm').value" style="height: 40%; margin-top: 30px;">Submit</button>
+        </div>
+
+        <div class="row" style="margin-top: 10px;">
             <div class="columnL">
-                <div class="cardLight">
-                    <p>Book Categories</p>
-                    <hr class="solid" style="width: 95%">
-                    <p class="category">Action & Adventure</p>
-                    <hr class="dashed" style="width: 90%">
-                    <p class="category">Classics</p>
-                    <hr class="dashed" style="width: 90%">
-                    <p class="category">Cooking</p>
-                    <hr class="dashed" style="width: 90%">
-                    <p class="category">Fantasy</p>
-                    <hr class="dashed" style="width: 90%">
-                    <p class="category">Self Improvement</p>
-                    <hr class="dashed" style="width: 90%">
 
+                <div class="shippingSection">
+                    <div class="categories">
+                    <p style="padding-top: 30px;">Popular Categories</p>
+                    <hr class="solid ticket" style="width: 85%">
+
+                    <p class="category" onclick="location.href='/shop?title=Action'" style="cursor: pointer;">Action</p>
+                    <hr class="dashed" style="width: 90%">
+                        <p class="category" onclick="location.href='/shop?title=Cooking'" style="cursor: pointer;">Cooking</p>
+                    <hr class="dashed" style="width: 90%">
+                        <p class="category" onclick="location.href='/shop?title=Fantasy'" style="cursor: pointer;">Fantasy</p>
+                    <hr class="dashed" style="width: 90%">
+                        <p class="category" onclick="location.href='/shop?title=Fiction'" style="cursor: pointer;">Fiction</p>
+                    <hr class="dashed" style="width: 90%">
+                        <p class="category" onclick="location.href='/shop?title=Personal'" style="cursor: pointer;">Personal</p>
+                    <hr class="dashed" style="width: 90%">
+                        <p class="category" onclick="location.href='/shop?title='" style="cursor: pointer;">Show All</p>
+                        <hr class="dashed" style="width: 90%">
+                    </div>
                 </div>
-
 
             </div>
 
             <div class="columnR">
 
-                <%--@elvariable id="searchForm" type=""--%>
-                    <input type="search" id="searchTerm" name="searchTerm" style="width: 300px; margin-left: 30%;" class="form-control rounded" placeholder="Search by Title, Author, Category..." aria-label="Search"/>
+                    <div class="grid-container">
+                        <c:forEach items="${bookForm}" var="book">
+                            <div class="bookBox">
+                                <div class="bookImg" style="margin-top: 30px;">
+                                    <a>
+                                        <img class="cover" onclick="location.href='bookPage?title=${book.title}';" src="${book.imgLink}" width="" height="250" alt="product image">
+                                    </a>
+                                </div>
 
-                    
+                                <div class="bookLabel">
+                                    <h4><a href="test" style=""> ${book.title} </a> <br> <br>By ${book.authors} </h4>
+                                    <p style="font-size: 20px;">$${book.price}</p>
 
-                    <button type="submit" onclick="location.href='/shop?title=' + document.getElementById('searchTerm').value">Submit</button>
-                        <%--                        <a href="/searchBy?term="><button class="btn btn-primary">--%>
-                        <%--                            <p> Search</p>--%>
-                        <%--                        </button></a>--%>
-                </div>
+                                </div>
 
-                <hr class="solid" style="width: 90%;">
-                <div class="orderHistory">
-
-        <c:forEach items="${bookForm}" var="book">
-                    <div class="indexBook">
-                        <div class="bookImg">
-                            <a>
-                                <img class="cover" src="${book.imgLink}" width="" height="250" alt="product image">
-                            </a>
-                        </div>
-
-                        <div class="bookLabel">
-                            <h4><a href="test"> ${book.title} </a> <br> <a href="test"> ${book.authors} </a></h4>
-                            <p>$<${book.price}</p>
-
-                        </div>
-
-                        <div class="action" style="position: relative; bottom: 0">
-                            <button class="editButton" onclick="location.href='editProfile';">Add to Cart</button>
-                        </div>
+                                <div class="action" style="position: relative; bottom: 0">
+                                    <button class="editButton" onclick="location.href='addToCart?title=${book.title}';">Add to Cart</button>
+                                </div>
+                            </div>
+                        </c:forEach>
                     </div>
-        </c:forEach>
 
-                </div>
+
+            </div>
+
+
 
 
             </div>
