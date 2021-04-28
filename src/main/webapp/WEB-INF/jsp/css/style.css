@@ -147,6 +147,12 @@ header {
     background-color: #fff;
     text-align: center;
 }
+.bookLabel {
+    font-family: Roboto;
+}
+a {
+    color:  #009879;
+}
 
 /* ----------------- login page ------------------ */
 #login fieldset {
