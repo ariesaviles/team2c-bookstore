@@ -136,7 +136,7 @@
 		</div>
 	</section>
 
-	<div class="bodytext">
+	<div class="bodytext" style="margin-left: 10%;">
 			<p style="font-family: Roboto;"> "Team 2C Books has amazing delivery and the best books I've ever seen on the Internet. I can't wait to keep ordering from them"</p>
 			<div class="inside">
 				<p>- Brad Barnes </p>

@@ -36,7 +36,7 @@
                         <th scope="row" >Title</th>
                         <th scope="row" >Author</th>
                         <th scope="row" >Price</th>
-                        <th scope="row" >Quan.</th>
+                        <th scope="row" >Qty</th>
                         <th scope="row" > </th>
                     </tr>
                     </thead>
