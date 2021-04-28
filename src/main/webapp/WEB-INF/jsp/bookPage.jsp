@@ -12,7 +12,7 @@
 	<style> <%@ include file="css/style.css"%> </style>
   <style> <%@ include file="css/bookPage.css"%> </style>
 </head>
-<body>
+<body style="background-color: #f0f0f0;">
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 		<!-- Header -->
@@ -20,11 +20,13 @@
 
 <div class="mainBody">
   <div class="columnL" >
-    <div class="bookIMG" style="position: absolute;  z-index:0 ">
 
-      <img src="${imageURL}" id="layer1" alt="product image" style="margin-left: 30%; height: 600px; padding-bottom: 10px; z-index:0;">
+        <div class="bookBox" style="position: absolute;  width: 40%; margin-top: 80px; margin-left: 80px;">
 
-    </div>
+        <img src="${imageURL}" id="layer1" alt="product image" style="margin-left: 10px; height: 400px; padding-bottom: 10px; margin-top: 20px; z-index:0;">
+
+        </div>
+
   </div>
 
   <div class="cardLight" style="margin-top: 50px;">
@@ -34,16 +36,17 @@
       <div class="information" style="position: absolute; width: 30%">
       <p class="bookGenre">${category}</p>
       <p class="bookTitle">${title}</p>
-      <p class="bookAuthor">${authors} ${isbn}</p>
-      <div class="row" style="margin-bottom: 40px;">
-      <select class="form-control form-control-sm" id="qtySelect" style="width: 70px; height: 40px; margin-right: 20px; margin-top: 4px; margin-left: 20px;">
+      <p class="bookAuthor">${authors} - ISBN: ${isbn}</p>
+      <div class="row" style="margin-bottom: 40px; margin-left: 2%;">
+          <p style="font-family: Roboto; font-size: 20pt; color:  #009879;">$${price}</p>
+      <select class="form-control form-control-sm" id="exampleFormControlSelect2" style="width: 70px; height: 40px; margin-right: 20px; margin-top: 25px; margin-left: 20px;">
             <option>1</option>
             <option>2</option>
             <option>3</option>
             <option>4</option>
             <option>5</option>
       </select>
-      <button class="editButton" onclick="location.href='addToCart?title=${title}&qty=' + document.getElementById('qtySelect').value;">Add to Cart</button>
+      <button class="editButton" onclick="location.href='addToCart?title=${title}';" style="height: 70px; box-shadow:12px 12px 16px 0 rgba(0, 0, 0, 0.25), -8px -8px 12px 0 rgba(255, 255, 255, 0.9);">Add to Cart</button>
     </div>
       <p class="bookDesc"> ${description} </p>
       </div>
