@@ -49,7 +49,9 @@
 		color: white;
 		background-color: #e59285;
 		padding: 5px;
-
+	}
+	a {
+		cursor: pointer;
 	}
 	</style>
 </head>
@@ -108,8 +110,8 @@
 						</div>
 
 						<div class="bookLabel">
-							<h4><a href="test"> <%=resultSet.getString("Title") %> </a>
-								<br> <a href="test"> <%=resultSet.getString("Authors_Names") %> </a></h4>
+							<h4><a onclick="location.href='bookPage?title=<%=resultSet.getString("Title") %>';" > <%=resultSet.getString("Title") %> </a>
+								<br> <a onclick="location.href='bookPage?title=<%=resultSet.getString("Title") %>';" > <%=resultSet.getString("Authors_Names") %> </a></h4>
 								<p>$<%=resultSet.getString("Selling_Price") %></p>
 
 						</div>
@@ -180,8 +182,8 @@
 						</div>
 
 						<div class="bookLabel">
-							<h4><a href="test"> <%=resultSet.getString("Title") %> </a>
-								<br> <a href="test"> <%=resultSet.getString("Authors_Names") %> </a></h4>
+							<h4><a onclick="location.href='bookPage?title=<%=resultSet.getString("Title") %>';" > <%=resultSet.getString("Title") %> </a>
+								<br> <a onclick="location.href='bookPage?title=<%=resultSet.getString("Title") %>';" > <%=resultSet.getString("Authors_Names") %> </a></h4>
 							<p>$<%=resultSet.getString("Selling_Price") %></p>
 
 						</div>
