@@ -89,11 +89,33 @@ public class CartController {
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
         UserCartEntity thisCart = cartRepository.findByUser_IDuser(user.getIDuser());
         List<UserCartHasBooksEntity> listOfBooks = thisCart.getBooksInCart();
-        listOfBooks.remove(bookForm);
-        thisCart.setBooksInCart(listOfBooks);
-        thisCart.setTotalPrice(thisCart.getTotalPrice() - bookForm.getPrice());
 
+        for (UserCartHasBooksEntity userCartHasBooksEntity: listOfBooks) {
+            // find the book that we want to delete in books in cart
+            if(userCartHasBooksEntity.getBook().equals(bookForm)) {
+                // if book is in cart more than one time, lower count by one
+                if(userCartHasBooksEntity.getCount() > 1) {
+                    userCartHasBooksEntity.setCount(userCartHasBooksEntity.getCount() - 1);
+                    booksInCartRepository.save(userCartHasBooksEntity);
+
+                    // remove current userCartHasBooksEntity from booksInCart
+                    listOfBooks.remove(userCartHasBooksEntity);
+                    thisCart.setBooksInCart(listOfBooks);
+                }
+                // otherwise, delete the usercarthasbook from repository.
+                else {
+                    listOfBooks.remove(userCartHasBooksEntity);
+                    thisCart.setBooksInCart(listOfBooks);
+                    booksInCartRepository.delete(userCartHasBooksEntity);
+                }
+                // get out of for loop
+                break;
+            }
+        }
+
+        thisCart.setTotalPrice(thisCart.getTotalPrice() - bookForm.getPrice());
         cartRepository.save(thisCart);
+
         return "redirect:/cart";
     }
 
