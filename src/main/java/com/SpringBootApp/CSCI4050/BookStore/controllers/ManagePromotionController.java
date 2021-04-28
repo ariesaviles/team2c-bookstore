@@ -21,8 +21,11 @@ import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ManagePromotionController {
@@ -44,10 +47,16 @@ public class ManagePromotionController {
     }
 
     @RequestMapping(value = "/sendEmail", method = RequestMethod.GET)
-    public String emailPromo(@RequestParam("promocode") String promocode, Model model){
+    public String emailPromo(@RequestParam("promocode") String promocode){
         PromotionEntity promoForm = promoRepository.findByPromocode(promocode);
+        List<UserAccountEntity> users = accountRepository.getAccountsWithSubscription();
         if(promoForm.getHasSent() == 0) {
             System.out.println("Send Emails here");
+            for (int i = 0; i < users.size(); i++) {
+                sendEmail = new Email();
+                sendEmail.sendmail(users.get(i).getEmail(), "New Promotion",promoForm.getPromocode());
+                System.out.println("Email sent to:" + users.get(i).getEmail());
+            }
             promoForm.setHasSent(1);
         }
         promoRepository.save(promoForm);
@@ -70,6 +79,8 @@ public class ManagePromotionController {
         if(promoForm.getHasSent() == 1){
             return "redirect:/adminManagePromo";
         }
+
+/*
         promoForm.setPromocode(promoForm.getPromocode());
         promoForm.setDiscount(promoForm.getDiscount());
         promoForm.setDateStart(promoForm.getDateStart());
@@ -78,16 +89,19 @@ public class ManagePromotionController {
         promoRepository.save(promoForm);
 
         return "redirect:/adminManagePromo";
-       /* model.addAttribute("promoForm", promoForm);
+*/
+
+        model.addAttribute("promoForm", promoForm);
         model.addAttribute("promocode", promoForm.getPromocode());
         model.addAttribute("discount", promoForm.getDiscount());
         model.addAttribute("dateStart", promoForm.getDateStart());
         model.addAttribute("dateEnd", promoForm.getDateEnd());
-        return "editPromo";*/
+
+        return "editPromo";
     }
 
     @RequestMapping(value = "/editPromo", method = RequestMethod.POST)
-    public Object registerAccount(@ModelAttribute("promoForm") PromotionEntity promoForm, Model model) throws IOException, MessagingException {
+    public Object registerAccount(@ModelAttribute("promoForm") PromotionEntity promoForm, ModelMap model) throws IOException, MessagingException {
         PromotionEntity promo = promoForm;
         promo.setPromocode(promoForm.getPromocode());
         promo.setDiscount(promoForm.getDiscount());
@@ -168,6 +182,8 @@ public class ManagePromotionController {
             return "adminAddPromo";
         }
 
+
+
         promoForm.setPromocode(promoForm.getPromocode());
         promoForm.setDateEnd(promoForm.getDateEnd());
         promoForm.setDateStart(promoForm.getDateStart());
@@ -175,7 +191,8 @@ public class ManagePromotionController {
 
         promoRepository.save(promoForm);
 
-        sendEmail = new Email();
+        emailPromo(promoForm.getPromocode());
+        //sendEmail = new Email();
         //sendEmail.sendmail(promoForm.getEmail(), "New Promotion",promoForm.getPromocode());//getEmail(), "Registration Successful","Thank you for signing up for Team 2C Bookstore Service");
 
         return "redirect:/adminManagePromo";

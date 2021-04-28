@@ -36,6 +36,7 @@
                         <th scope="row" >Title</th>
                         <th scope="row" >Author</th>
                         <th scope="row" >Price</th>
+                        <th scope="row" >Quan.</th>
                         <th scope="row" > </th>
                     </tr>
                     </thead>
@@ -50,6 +51,7 @@
                             <td>${usercart.book.title}</td>
                             <td>${usercart.book.authors}</td>
                             <td>$${usercart.book.price}</td>
+                            <td>${usercart.count}</td>
                             <td><a href="/removeFromCart?title=${usercart.book.title}"><button class="btn btn-primary">
                                 <p> Remove </p>
                             </button></a></td>
