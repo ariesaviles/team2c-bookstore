@@ -99,9 +99,9 @@
                 </thead>
                 <c:forEach items="${cartForm}" var="usercart">
                     <tr>
-                        <td>${usercart.title}</td>
-                        <td>${usercart.authors}</td>
-                        <td>${usercart.price}</td>
+                        <td>${usercart.book.title}</td>
+                        <td>${usercart.book.authors}</td>
+                        <td>${usercart.book.price}</td>
                     </tr>
                 </c:forEach>
             </table>
