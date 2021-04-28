@@ -29,15 +29,15 @@
 </head>
 <body>
 <!-- Main wrapper -->
-<div class="wrapper" id="wrapper">
+<div class="wrapper" id="wrapper" style="margin-bottom: 20px;">
     <!-- Header -->
     <jsp:include page="components/header.jsp"/>
 
-    <div class="cardLight" style="padding-top: 200px; padding-bottom: 100px">
+    <div class="cardLight" style="padding-top: 200px; padding-bottom: 100px; margin-bottom: 100px;">
     <p>Already have an account?</p> <p> <button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='/login';">Click here to Login.</button></p>
-        <p style="padding-top: 20px;" class="color--theme">Forgot password?</p> <p><button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='/changePasswordEmail';">Create new password here.</button></p>
+        <p style="padding-top: 20px; color:  #009879;" >Forgot password?</p> <p><button class="editButton" style="margin-left: 70px; margin-right: 85px; margin-bottom: 20px;" onclick="location.href='/changePasswordEmail';">Create new password here.</button></p>
         <hr class="solid">
-        <p>Are you a new user?</p> <p><button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='/registration';">Click Here to Register</button> </p>
+        <p style="padding-top: 20px;">Are you a new user?</p> <p><button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='/registration';">Click Here to Register</button> </p>
     </div>
 
     <!-- Footer --->
