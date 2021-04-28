@@ -104,7 +104,8 @@
 						</div>
 
 						<div class="bookLabel">
-							<h4><a href="test"> <%=resultSet.getString("Title") %> </a> <br> <a href="test"> <%=resultSet.getString("Authors_Names") %> </a></h4>
+							<h4><a href="test"> <%=resultSet.getString("Title") %> </a>
+								<br> <a href="test"> <%=resultSet.getString("Authors_Names") %> </a></h4>
 								<p>$<%=resultSet.getString("Selling_Price") %></p>
 
 						</div>

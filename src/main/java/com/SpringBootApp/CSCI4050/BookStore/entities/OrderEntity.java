@@ -33,13 +33,8 @@ public class OrderEntity {
     @JoinColumn(name = "promotion_idpromotion")
     private PromotionEntity promotion_IDpromotion;
 
-    @ManyToMany
-    @JoinTable(
-            name = "order_has_books",
-            joinColumns = @JoinColumn(name = "order_idorder"),
-            inverseJoinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id")
-    )
-        private List<BookEntity> booksInOrder;
+    @OneToMany(mappedBy = "order")
+    List<OrderHasBooksEntity> orderHasBooks;
 
     public Long getIdOrder() {
         return idOrder;

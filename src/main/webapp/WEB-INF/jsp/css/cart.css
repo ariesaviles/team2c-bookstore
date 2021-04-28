@@ -1,10 +1,8 @@
 .row {
     display: flex;
 }
-
 .columnL {
     flex: 0.7;
-
 }
 .columnLForm {
     flex: 0.5;
@@ -19,8 +17,6 @@
 .columnRForm {
     flex: 0.5;
 }
-
-
 .mainBody {
     padding-top: 100px;
     padding-left: 60px;
@@ -154,7 +150,6 @@ hr.solid {
     padding-top: 2%;
     font-family: Roboto;
 }
-
 .editButton {
     background-color: #f0f0f0;
     box-shadow:
@@ -163,7 +158,6 @@ hr.solid {
     border-radius: 20px;
     margin-bottom: 50px;
 }
-
 .editButton:active {
     background-color: #f0f0f0;
     box-shadow:
@@ -172,9 +166,9 @@ hr.solid {
     border-radius: 20px;
     margin-bottom: 50px;
 }
-
 .editButton:active, .editButton:focus {
     outline: 0;
     border: none;
     -moz-outline-style: none;
 }
+
