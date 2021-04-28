@@ -92,12 +92,12 @@ public class OrderEntity {
         this.promotion_IDpromotion = promotion_IDpromotion;
     }
 
-    public List<BookEntity> getBooksInOrder() {
-        return booksInOrder;
+    public List<OrderHasBooksEntity> getBooksInOrder() {
+        return orderHasBooks;
     }
 
-    public void setBooksInOrder(List<BookEntity> booksInOrder) {
-        this.booksInOrder = booksInOrder;
+    public void setBooksInOrder(List<OrderHasBooksEntity> orderHasBooks) {
+        this.orderHasBooks = orderHasBooks;
     }
 
 }

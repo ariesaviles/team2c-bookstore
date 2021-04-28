@@ -28,8 +28,8 @@
           <ul class="navUl">
             <li ><a class="drop" href='index'>Home</a></li>
               <li ><a class="drop" href="shop?title="><b>Shop</b></a></li>
-            <li ><a class="drop" href="about.html">About</a></li>
-            <li><a class="drop" href="contact.html">Contact</a></li>
+            <li ><a class="drop" href="about">About</a></li>
+            <li><a class="drop" href="contact">Contact</a></li>
             <li id='dd' style='float:right'>
 
                 <sec:authorize access="!hasAnyAuthority('0','1')">

@@ -42,4 +42,14 @@ public class RootController {
         return "adminPanel";
     }
 
+    @RequestMapping(path= "/about",  method = RequestMethod.GET)
+    public String about(Model model) {
+        return "about";
+    }
+
+    @RequestMapping(path= "/contact",  method = RequestMethod.GET)
+    public String contact(Model model) {
+        return "contact";
+    }
+
 }

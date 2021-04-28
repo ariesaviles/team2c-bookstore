@@ -1,9 +1,6 @@
 package com.SpringBootApp.CSCI4050.BookStore.controllers;
 
-import com.SpringBootApp.CSCI4050.BookStore.entities.BookEntity;
-import com.SpringBootApp.CSCI4050.BookStore.entities.CardEntity;
-import com.SpringBootApp.CSCI4050.BookStore.entities.OrderEntity;
-import com.SpringBootApp.CSCI4050.BookStore.entities.UserAccountEntity;
+import com.SpringBootApp.CSCI4050.BookStore.entities.*;
 import com.SpringBootApp.CSCI4050.BookStore.repository.*;
 import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +41,7 @@ public class CheckoutController {
     @RequestMapping(value = "/checkout", method = RequestMethod.GET)
     public String displayCheckout(Model model, Principal principal) {
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
-        Iterable<BookEntity> books = cartRepository.findByUser_IDuser(user.getIDuser()).getBooksInCart();
+        Iterable<UserCartHasBooksEntity> books = cartRepository.findByUser_IDuser(user.getIDuser()).getBooksInCart();
         model.addAttribute("cartForm", books);
         model.addAttribute("total", cartRepository.findByUser_IDuser(user.getIDuser()).getTotalPrice());
         model.addAttribute("userEmail", user.getEmail());
@@ -58,8 +55,8 @@ public class CheckoutController {
     @RequestMapping(value = "/checkout", method = RequestMethod.POST)
     public String enterCheckout(@ModelAttribute("orderForm") OrderEntity orderForm, Model model, Principal principal) {
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
-        List<BookEntity> books = cartRepository.findByUser_IDuser(user.getIDuser()).getBooksInCart();
-        orderForm.setBooksInOrder(books);
+        List<UserCartHasBooksEntity> books = cartRepository.findByUser_IDuser(user.getIDuser()).getBooksInCart();
+        //orderForm.setBooksInOrder(books);
         orderForm.setOrderDate("2021-04-05");
         orderForm.setAddress_IDaddress(addressRepository.findByUser_IDuser(user.getIDuser()).get(0));
         orderForm.setCard_IDcard(cardRepository.findByUser_IDuser(user.getIDuser()).get(0));
