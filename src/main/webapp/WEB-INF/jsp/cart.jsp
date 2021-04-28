@@ -44,13 +44,13 @@
                         <tr>
                             <td>
                             <div id="cart_square">
-                                <img src="${usercart.imgLink}" id="cartImage"/>
+                                <img src="${usercart.book.imgLink}" id="cartImage"/>
                             </div>
                             </td>
-                            <td>${usercart.title}</td>
-                            <td>${usercart.authors}</td>
-                            <td>$${usercart.price}</td>
-                            <td><a href="/removeFromCart?title=${usercart.title}"><button class="btn btn-primary">
+                            <td>${usercart.book.title}</td>
+                            <td>${usercart.book.authors}</td>
+                            <td>$${usercart.book.price}</td>
+                            <td><a href="/removeFromCart?title=${usercart.book.title}"><button class="btn btn-primary">
                                 <p> Remove </p>
                             </button></a></td>
                         </tr>

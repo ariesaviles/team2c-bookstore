@@ -57,11 +57,22 @@ public class BookEntity {
 //    @Column(name = "minimum_threshold")
 //    private int minimumThreshold;
 
-    @ManyToMany(mappedBy = "booksInCart")
-    private Set<UserCartEntity> areInCart;
+    @OneToMany(mappedBy = "book")
+    List<UserCartHasBooksEntity> userCartHasBooks;
+
+    @OneToMany(mappedBy = "book")
+    List<OrderHasBooksEntity> orderHasBooks;
 
     @ManyToMany(mappedBy = "booksInOrder")
     private Set<OrderEntity> areInOrder;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
