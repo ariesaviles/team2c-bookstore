@@ -25,26 +25,26 @@
 	<style>
 	</style>
 </head>
-<body>
+<body style="background-color: #f0f0f0">
 
-<div class="wrapper" id="wrapper">
+<div class="wrapper" id="wrapper" style="margin-top: 130px;">
 	<!-- Header -->
 	<jsp:include page="components/header.jsp"/>
 
 
-	<div class="bodytext" style="height: 800px">
-    <h2 style="margin-top: 100px; margin-left: 2%; font-size: 30pt;">Place Order</h2>
+	<div class="bodytext" style="height: 800px; width: 90%; margin-left: 5%; height: auto;">
+    <h2 style="margin-top: 10px; margin-left: 5%; font-size: 30pt;">Place Order</h2>
         <%--@elvariable id="orderForm" type=""--%>
-        <form:form method="POST" modelAttribute="orderForm">
+
     <div class="paymentSection" >
       <div class="shippingHeader">
     <h2 class="mainLabel">Shipping Address</h2>
-  </div>
+    </div>
         <div class="shippingBody">
                 <c:forEach items="${addressTable}" var="address">
 
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                    <label class="form-check-label" for="exampleRadios1">
+                    <input  id="selectedAddress" value="${address.idAddress}" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <label for="exampleRadios1">
                             ${address.street} ${address.city} ${address.state} ${address.zipCode}
                     </label>
                     <br>
@@ -65,21 +65,15 @@
                 <h2 class="mainLabel">Payment Method</h2>
             </div>
             <div class="shippingBody">
-                <c:forEach items="${cardTable}" var="cards">
-
-                    <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1" value="option1" checked>
-                    <label class="form-check-label" for="exampleRadios1">
-                            ${cards.cardHolderName} ${cards.cardType}
+                <c:forEach items="${cardTable}" var="card">
+                    <input  id="selectedCard" value="${card.idCard}" class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1" value="option1" checked>
+                    <label  for="exampleRadios1">
+                            ${card.cardHolderName} ${card.cardType}
                     </label>
                     <br>
                 </c:forEach>
-
-
-
                 <div class="divider-line-x" style="margin-left: 20%"><span> or </span></div>
-
-                    <button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='addCard';">Add Card</button>
-
+                <button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='addCard';">Add Card</button>
             </div>
         </div>
 
@@ -87,38 +81,41 @@
 
       <div class="row">
         <div class="columnL">
-            <div class="shippingSection" style="height: 200px;">
-    		<h2 class="mainLabel" style="margin-top: 10px; margin-left: 10%">Cart </h2>
-            <table id = "table" data-search="true" data-toggle ="table" data-sort-order="desc" class="table table-striped table-hover sortable">
+            <div class="shippingSection" style="height: auto; width: 400px; ">
+    		<h2 class="mainLabel" style="margin-top: 10px; margin-left: 10%; text-align: center">Cart </h2>
+            <table id = "table" data-search="true" style="font-family: Roboto">
                 <thead>
                 <tr>
                     <th scope="row" data-field="title" data-sortable="true">Title</th>
-                    <th scope="row" data-field="authors" data-sortable="true">Author</th>
-                    <th scope="row" data-field="sellPrice" data-sortable="true">Price</th>
+                    <th scope="row" style="text-align: left">Author</th>
+                    <th scope="row" style="text-align: left">Price</th>
                 </tr>
                 </thead>
+
                 <c:forEach items="${cartForm}" var="usercart">
-                    <tr>
-                        <td>${usercart.title}</td>
-                        <td>${usercart.authors}</td>
-                        <td>${usercart.price}</td>
+                    <tr >
+                        <td style="padding: 10px;">${usercart.book.title}</td>
+                        <td>${usercart.book.authors}</td>
+                        <td>${usercart.book.price}</td>
                     </tr>
                 </c:forEach>
             </table>
             </div>
       </div>
+<%--    localhost:8080/confirmCheckout?address=+&card=+&promo=+ --%>
 
         <div class="columnR">
         <div class="shippingSection" style="height: 200px;">
-        		<h2 class="mainLabel" style="margin-top: 10px;">Order Summary</h2>
+        		<h2 class="mainLabel" style="margin-top: 10px; text-align: center">Order Summary</h2>
             <div class="paymentMethodItems">
                   <div class="form-check">
                     <p>Total before promos: ${total}</p>
                   <div class="divider-line-x" style="width: 75%; margin-left: 5%"></div>
-                      <form:label path="promotion_IDpromotion.promocode">Promo code: </form:label>
-                      <form:input type="text" class="springInput" id="promotion_IDpromotion.promocode" placeholder="Promo code" path="promotion_IDpromotion.promocode"/><br/>
+                      Promo Code
+                      <input id="selectedPromo" type="text" class="fields" placeholder="Enter Code" style="width: 200px"><br/>
                   <br>
-                      <form:button type="submit" class="from-control">Place Order</form:button>
+<%--                      ocalhost:8080/confirmCheckout?address=+&card=+&promo=+--%>
+                      <button class="editButton" onclick="location.href='confirmCheckout?address='+document.getElementById('selectedAddress').value+'&card='+document.getElementById('selectedCard').value+'&promo='+document.getElementById('selectedPromo').value;">Place Order</button>
               </div>
             </div>
           </div>
@@ -126,7 +123,7 @@
           </div>
 	</div>
 
-</form:form>
+
 
 
 	<!-- Footer --->
