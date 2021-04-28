@@ -153,12 +153,17 @@ public class ManagePromotionController {
             problems = true;
         }
 
-        Integer dis = promoForm.getDiscount();
-        if(dis == null || (promoForm.getDiscount() <= 0 || promoForm.getDiscount() >= 100)){
+        Integer dis;
+        if (promoForm.getDiscount() % 1 == 0) {
+            dis = promoForm.getDiscount();
+        } else {
+            dis = -1;
+        }
+
+        if (dis == null || dis == -1 || (promoForm.getDiscount() <= 0 || promoForm.getDiscount() >= 100)) {
             model.addAttribute("badPer", "Please enter a valid discount percentage");
             problems = true;
         }
-
         if(problems){
             return "adminAddPromo";
         }

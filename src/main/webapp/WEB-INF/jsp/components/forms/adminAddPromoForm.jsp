@@ -24,7 +24,7 @@
 
         <form:label path="discount">Discount Percentage: </form:label>
         <span style="color: red">${badPer}</span><br/>
-        <form:input type="text" class="springInput" id="discount" placeholder="1" path="discount"/><br/><br/>
+        <form:input type="number" class="springInput" id="discount" placeholder="1" path="discount"/><br/><br/>
             </div>
         </div>
 
