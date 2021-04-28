@@ -63,8 +63,8 @@ public class BookEntity {
     @OneToMany(mappedBy = "book")
     List<OrderHasBooksEntity> orderHasBooks;
 
-    @ManyToMany(mappedBy = "booksInOrder")
-    private Set<OrderEntity> areInOrder;
+    //@ManyToMany(mappedBy = "booksInOrder")
+    //private Set<OrderEntity> areInOrder;
 
     public Long getId() {
         return id;
