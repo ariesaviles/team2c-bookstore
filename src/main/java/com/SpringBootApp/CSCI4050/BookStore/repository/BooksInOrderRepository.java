@@ -8,11 +8,11 @@ import java.util.List;
 
 public interface BooksInOrderRepository extends CrudRepository<OrderHasBooksEntity, OrderHasBooksKey> {
 
-    @Query(value = "SELECT * FROM order_has_books INNER JOIN order_table ON " +
-            "order_has_books.order_idorder=order_table.idorder WHERE order_table.user_iduser = :id")
+    @Query(value = "SELECT * FROM order_has_books WHERE order_has_books.order_idorder in " +
+            "SELECT idorder FROM order_table WHERE order_table.user_iduser = :id", nativeQuery = true)
     List<OrderHasBooksEntity> getBooksFromUserId(@Param("id") long id);
 
-    @Query(value = "SELECT * FROM order_has_books WHERE order_has_books.order_idorder = :id")
+    @Query(value = "SELECT * FROM order_has_books WHERE order_has_books.order_idorder = :id", nativeQuery = true)
     List<OrderHasBooksEntity> getBooksFromOrder(@Param("id") long id);
 
 }
