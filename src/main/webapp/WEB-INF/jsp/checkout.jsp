@@ -1,4 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<style> <%@ include file="css/forms.css"%> </style>
+<style> <%@ include file="css/userProfile.css"%> </style>
 
 <html>
 
@@ -17,6 +20,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   	<style> <%@ include file="css/style.css"%> </style>
 	<style> <%@ include file="css/checkout.css"%> </style>
+    <style> <%@ include file="css/userProfile.css"%> </style>
 
 	<style>
 	</style>
@@ -30,7 +34,8 @@
 
 	<div class="bodytext" style="height: 800px">
     <h2 style="margin-top: 100px; margin-left: 2%; font-size: 30pt;">Place Order</h2>
-
+        <%--@elvariable id="orderForm" type=""--%>
+        <form:form method="POST" modelAttribute="orderForm">
     <div class="paymentSection" >
       <div class="shippingHeader">
     <h2 class="mainLabel">Shipping Address</h2>
@@ -43,60 +48,64 @@
                             ${address.street} ${address.city} ${address.state} ${address.zipCode}
                     </label>
                     <br>
-
                 </c:forEach>
-
 
 
           <div class="divider-line-x" style="margin-left: 20%"><span> or </span></div>
 
-          <div class="form-check shippingItems">
-            <div class="">
-              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                <label for="">New Shipping Address</label>
-              </div>
-              <div class="newFormRow">
-                  <input type="text" class="fields" placeholder="Street Address" style="width: 200px">
-                  <input type="text" class="fields" placeholder="City" style="width: 100px">
-                  <input type="text" class="fields" placeholder="State" style="width: 50px">
-                  <input type="text" class="fields" placeholder="Zip" style="width: 70px">
-              </div>
-          </div>
+              <button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='addAddress';">Add Address</button>
+
         </div>
       </div>
 
 
 <br>
-<div class="paymentSection" style="height: 200px;">
-		<h2 class="mainLabel" style="margin-top: 50px;">Payment Method</h2>
-    <div class="paymentMethodItems">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label" for="exampleRadios1">
-              Card info #1
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">
-              Card info #2
-            </label>
-          </div>
-          <div class="form-check disabled">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
-            <label class="form-check-label" for="exampleRadios3">
-              Add new card information
-            </label>
-          </div>
-      </div>
-    </div>
+        <div class="paymentSection" >
+            <div class="shippingHeader">
+                <h2 class="mainLabel">Payment Method</h2>
+            </div>
+            <div class="shippingBody">
+                <c:forEach items="${cardTable}" var="cards">
+
+                    <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1" value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                            ${cards.cardHolderName} ${cards.cardType}
+                    </label>
+                    <br>
+                </c:forEach>
+
+
+
+                <div class="divider-line-x" style="margin-left: 20%"><span> or </span></div>
+
+                    <button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='addCard';">Add Card</button>
+
+            </div>
+        </div>
 
       <div class="divider-line-x" style="width: 75%; margin-left: 13%"></div>
 
       <div class="row">
         <div class="columnL">
+            <div class="shippingSection" style="height: 200px;">
     		<h2 class="mainLabel" style="margin-top: 10px; margin-left: 10%">Cart </h2>
-        <p> table of books similar to cart right here</p>
+            <table id = "table" data-search="true" data-toggle ="table" data-sort-order="desc" class="table table-striped table-hover sortable">
+                <thead>
+                <tr>
+                    <th scope="row" data-field="title" data-sortable="true">Title</th>
+                    <th scope="row" data-field="authors" data-sortable="true">Author</th>
+                    <th scope="row" data-field="sellPrice" data-sortable="true">Price</th>
+                </tr>
+                </thead>
+                <c:forEach items="${cartForm}" var="usercart">
+                    <tr>
+                        <td>${usercart.title}</td>
+                        <td>${usercart.authors}</td>
+                        <td>${usercart.price}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+            </div>
       </div>
 
         <div class="columnR">
@@ -104,24 +113,25 @@
         		<h2 class="mainLabel" style="margin-top: 10px;">Order Summary</h2>
             <div class="paymentMethodItems">
                   <div class="form-check">
-                    <p>add info about total here</p>
+                    <p>Total before promos: ${total}</p>
                   <div class="divider-line-x" style="width: 75%; margin-left: 5%"></div>
-                  Promo Code
-                  <input type="text" class="fields" placeholder="Enter Code" style="width: 200px">
+                      <form:label path="promotion_IDpromotion.promocode">Promo code: </form:label>
+                      <form:input type="text" class="springInput" id="promotion_IDpromotion.promocode" placeholder="Promo code" path="promotion_IDpromotion.promocode"/><br/>
                   <br>
-                  <button class="editButton" style="margin-top: 2%">Place Order</button>
+                      <form:button type="submit" class="from-control">Place Order</form:button>
               </div>
             </div>
           </div>
 
           </div>
 	</div>
-<
+
+</form:form>
 
 
 	<!-- Footer --->
  	<jsp:include page="components/footer.jsp"/>
-
+</div>
 </div>
 
 </body>
