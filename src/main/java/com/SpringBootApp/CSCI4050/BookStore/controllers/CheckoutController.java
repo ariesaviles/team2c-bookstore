@@ -54,7 +54,7 @@ public class CheckoutController {
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
         Iterable<UserCartHasBooksEntity> books = cartRepository.findByUser_IDuser(user.getIDuser()).getBooksInCart();
         model.addAttribute("cartForm", books);
-        model.addAttribute("total", cartRepository.findByUser_IDuser(user.getIDuser()).getTotalPrice());
+        model.addAttribute("total", decimalFormat.format(cartRepository.findByUser_IDuser(user.getIDuser()).getTotalPrice()));
         model.addAttribute("userEmail", user.getEmail());
         model.addAttribute("addressTable", addressRepository.findByUser_IDuser(user.getIDuser()));
         model.addAttribute("cardTable", cardRepository.findByUser_IDuser(user.getIDuser()));
