@@ -60,6 +60,9 @@ public class BookEntity {
     @OneToMany(mappedBy = "book")
     List<UserCartHasBooksEntity> userCartHasBooks;
 
+    @OneToMany(mappedBy = "book")
+    List<OrderHasBooksEntity> orderHasBooks;
+
     @ManyToMany(mappedBy = "booksInOrder")
     private Set<OrderEntity> areInOrder;
 
