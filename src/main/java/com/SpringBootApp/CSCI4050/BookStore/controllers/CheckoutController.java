@@ -27,6 +27,9 @@ public class CheckoutController {
     CartRepository cartRepository;
 
     @Autowired
+    BooksInOrderRepository booksInOrderRepository;
+
+    @Autowired
     private AddressRepository addressRepository;
 
     @Autowired
