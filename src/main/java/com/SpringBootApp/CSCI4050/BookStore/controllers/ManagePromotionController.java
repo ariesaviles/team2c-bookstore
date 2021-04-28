@@ -24,6 +24,7 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -48,10 +49,14 @@ public class ManagePromotionController {
     @RequestMapping(value = "/sendEmail", method = RequestMethod.GET)
     public String emailPromo(@RequestParam("promocode") String promocode, Model model){
         PromotionEntity promoForm = promoRepository.findByPromocode(promocode);
-        List<UserAccountEntity> users = accountRepository.getAccounts();
+        List<UserAccountEntity> users = accountRepository.getAccountsWithSubscription();
         if(promoForm.getHasSent() == 0) {
             System.out.println("Send Emails here");
-
+            for (int i = 0; i < users.size(); i++) {
+                sendEmail = new Email();
+                sendEmail.sendmail(users.get(i).getEmail(), "New Promotion",promoForm.getPromocode());
+                System.out.println("Email sent to:" + users.get(i).getEmail());
+            }
             promoForm.setHasSent(1);
         }
         promoRepository.save(promoForm);
