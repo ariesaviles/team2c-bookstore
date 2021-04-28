@@ -30,8 +30,9 @@ public class CardEntity {
     @Column(name = "cardsecurity")
     private String cardSecurity;
 
+
+    //@MapsId
     @ManyToOne
-    @MapsId
     @JoinColumn(name = "user_iduser")
     private UserAccountEntity user_IDuser;
 

@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 import java.util.Optional;
 
-public interface CardRepository extends CrudRepository<CardEntity, Long> {
+public interface  CardRepository extends CrudRepository<CardEntity, Long> {
     Optional<CardEntity> findById(Long idCard);
 
     @Query(value = "SELECT * FROM card  WHERE card.user_IDuser = :id", nativeQuery = true)

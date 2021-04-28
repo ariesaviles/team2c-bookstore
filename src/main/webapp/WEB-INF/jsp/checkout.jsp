@@ -1,4 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<style> <%@ include file="css/forms.css"%> </style>
+<style> <%@ include file="css/userProfile.css"%> </style>
 
 <html>
 
@@ -31,7 +34,8 @@
 
 	<div class="bodytext" style="height: 800px">
     <h2 style="margin-top: 100px; margin-left: 2%; font-size: 30pt;">Place Order</h2>
-
+        <%--@elvariable id="orderForm" type=""--%>
+        <form:form method="POST" modelAttribute="orderForm">
     <div class="paymentSection" >
       <div class="shippingHeader">
     <h2 class="mainLabel">Shipping Address</h2>
@@ -61,11 +65,11 @@
                 <h2 class="mainLabel">Payment Method</h2>
             </div>
             <div class="shippingBody">
-                <c:forEach items="${cardTable}" var="card">
+                <c:forEach items="${cardTable}" var="cards">
 
                     <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1" value="option1" checked>
                     <label class="form-check-label" for="exampleRadios1">
-                            ${card.cardHolderName} ${card.cardType}
+                            ${cards.cardHolderName} ${cards.cardType}
                     </label>
                     <br>
                 </c:forEach>
@@ -111,10 +115,10 @@
                   <div class="form-check">
                     <p>Total before promos: ${total}</p>
                   <div class="divider-line-x" style="width: 75%; margin-left: 5%"></div>
-                  Promo Code
-                  <input type="text" class="fields" placeholder="Enter Code" style="width: 200px">
+                      <form:label path="promotion_IDpromotion.promocode">Promo code: </form:label>
+                      <form:input type="text" class="springInput" id="promotion_IDpromotion.promocode" placeholder="Promo code" path="promotion_IDpromotion.promocode"/><br/>
                   <br>
-                  <button class="editButton" style="margin-top: 2%">Place Order</button>
+                      <form:button type="submit" class="from-control">Place Order</form:button>
               </div>
             </div>
           </div>
@@ -122,7 +126,7 @@
           </div>
 	</div>
 
-
+</form:form>
 
 
 	<!-- Footer --->

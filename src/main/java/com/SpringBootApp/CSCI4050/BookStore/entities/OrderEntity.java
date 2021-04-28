@@ -65,4 +65,44 @@ public class OrderEntity {
         this.orderDate = orderDate;
     }
 
+    public UserAccountEntity getUser_IDuser() {
+        return user_IDuser;
+    }
+
+    public void setUser_IDuser(UserAccountEntity user_IDuser) {
+        this.user_IDuser = user_IDuser;
+    }
+
+    public CardEntity getCard_IDcard() {
+        return card_IDcard;
+    }
+
+    public void setCard_IDcard(CardEntity card_IDcard) {
+        this.card_IDcard = card_IDcard;
+    }
+
+    public AddressEntity getAddress_IDaddress() {
+        return address_IDaddress;
+    }
+
+    public void setAddress_IDaddress(AddressEntity address_IDaddress) {
+        this.address_IDaddress = address_IDaddress;
+    }
+
+    public PromotionEntity getPromotion_IDpromotion() {
+        return promotion_IDpromotion;
+    }
+
+    public void setPromotion_IDpromotion(PromotionEntity promotion_IDpromotion) {
+        this.promotion_IDpromotion = promotion_IDpromotion;
+    }
+
+    public List<BookEntity> getBooksInOrder() {
+        return booksInOrder;
+    }
+
+    public void setBooksInOrder(List<BookEntity> booksInOrder) {
+        this.booksInOrder = booksInOrder;
+    }
+
 }
