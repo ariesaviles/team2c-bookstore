@@ -115,14 +115,25 @@ public class CheckoutController {
     }
 */
     @RequestMapping(value = "/confirmCheckout", method = RequestMethod.GET)
-    public String confirmCheckout(@RequestParam("address") Long address, @RequestParam("card") Long card, @RequestParam("promo") String promo, Model model, Principal principal){
-        Optional<AddressEntity> findAddress = addressRepository.findById(address);
-        AddressEntity sendAddress =  findAddress.get();
-        Optional<CardEntity> findCard = cardRepository.findById(card);
-        CardEntity sendCard = findCard.get();
+    public String confirmCheckout(@RequestParam("address") String address, @RequestParam("card") String card, @RequestParam("promo") String promo, Model model, Principal principal){
+        AddressEntity sendAddress;
+        UserAccountEntity user = accountRepository.findByEmail(principal.getName());
+        if(address.equals("true") || addressRepository.findByUser_IDuser(user.getIDuser()).size() == 1){
+            sendAddress = addressRepository.findByUser_IDuser(user.getIDuser()).get(0);
+        }
+        else{
+            sendAddress = addressRepository.findByUser_IDuser(user.getIDuser()).get(1);
+        }
+        CardEntity sendCard;
+        if(address.equals("true") || cardRepository.findByUser_IDuser(user.getIDuser()).size() == 1){
+            sendCard = cardRepository.findByUser_IDuser(user.getIDuser()).get(0);
+        }
+        else{
+            sendCard = cardRepository.findByUser_IDuser(user.getIDuser()).get(1);
+        }
+
         PromotionEntity usePromo = promotionRepository.findByPromocode(promo);
 
-        UserAccountEntity user = accountRepository.findByEmail(principal.getName());
         double total = cartRepository.findByUser_IDuser(user.getIDuser()).getTotalPrice();
         if(promo == ""){
             model.addAttribute("message", "");
