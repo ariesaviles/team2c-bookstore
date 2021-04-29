@@ -175,7 +175,9 @@ public class CheckoutController {
         orderForm.setUser_IDuser(user);
 
         orderForm.setPromotion_IDpromotion(promotionRepository.findByPromocode(promo));
-        orderForm.setSubCost(total);
+
+        orderForm.setSubCost(cartRepository.findByUser_IDuser(user.getIDuser()).getTotalPrice());
+
         orderRepository.save(orderForm);
 
         //set usercart to have total price of 0
@@ -198,9 +200,6 @@ public class CheckoutController {
             booksInCartRepository.delete(book);
         }
 
-
-        System.out.println("--------------------------------");
-        System.out.println("Error happens before saving cart");
         // delete book from usercart thing
         userCart.getBooksInCart().removeAll(books);
         cartRepository.save(userCart);
