@@ -160,7 +160,7 @@ public class CheckoutController {
         orderForm.setUser_IDuser(user);
 
         orderForm.setPromotion_IDpromotion(promotionRepository.findByPromocode(promo));
-
+        orderForm.setSubCost(total);
         orderRepository.save(orderForm);
 
         //set usercart to have total price of 0
