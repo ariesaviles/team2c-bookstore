@@ -7,9 +7,9 @@ Functionality
 [x] shop
 [/] checkout // parse in details
 [/] cart // multiple books
-[] on checkout: if promo expired- show error, if card is expired- show error
-[] on checkout: if user has two cards saved, don't allow them to make a new card
-[] in admin manage promos: shouldnt be able to make a promo that is already expired
+[x] on checkout: if promo expired- show error, if card is expired- show error
+[x] on checkout: if user has two cards saved, don't allow them to make a new card
+[x] in admin manage promos: shouldnt be able to make a promo that is already expired
 [] email users who are subscribed to promo when a new promo is active
 [] build order confirmed page, page that displays after user places order
 
