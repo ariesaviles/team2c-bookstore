@@ -117,10 +117,13 @@ public class CheckoutController {
 
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
         double total = cartRepository.findByUser_IDuser(user.getIDuser()).getTotalPrice();
-        if(usePromo == null){
+        if(promo == ""){
+            model.addAttribute("message", "");
+            model.addAttribute("total", decimalFormat.format(total));
+        }
+        else if(usePromo == null){
             model.addAttribute("message", "Promo code was not valid");
             model.addAttribute("total", decimalFormat.format(total));
-            System.out.println(total);
         }else{
             model.addAttribute("message", "Promo has been applied");
             double newTotal = total - (total * ((double)usePromo.getDiscount()/100));
