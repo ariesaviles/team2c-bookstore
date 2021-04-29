@@ -22,7 +22,7 @@ public class OrderEntity {
     private UserAccountEntity user_IDuser;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "card_idcard", referencedColumnName = "idcard")
+    @JoinColumn(name = "card_idcard")
     private CardEntity card_IDcard;
 
     @ManyToOne(cascade = CascadeType.ALL)

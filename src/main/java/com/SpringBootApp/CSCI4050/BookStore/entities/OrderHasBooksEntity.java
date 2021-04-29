@@ -13,7 +13,7 @@ public class OrderHasBooksEntity {
 
     @ManyToOne
     @MapsId("idorder")
-    @JoinColumn(name = "order_idorder", foreignKey = @ForeignKey(name = "none"))
+    @JoinColumn(name = "order_idorder")
     OrderEntity order;
 
     @ManyToOne
