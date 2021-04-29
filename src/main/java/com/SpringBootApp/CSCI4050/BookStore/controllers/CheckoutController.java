@@ -62,7 +62,7 @@ public class CheckoutController {
 
         return "checkout";
     }
-
+/*
     @RequestMapping(value = "/checkout", method = RequestMethod.POST)
     public String enterCheckout(@ModelAttribute("orderForm") OrderEntity orderForm, Model model, Principal principal) {
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
@@ -106,7 +106,7 @@ public class CheckoutController {
 
         return "checkout";
     }
-
+*/
     @RequestMapping(value = "/confirmCheckout", method = RequestMethod.GET)
     public String confirmCheckout(@RequestParam("address") Long address, @RequestParam("card") Long card, @RequestParam("promo") String promo, Model model, Principal principal){
         Optional<AddressEntity> findAddress = addressRepository.findById(address);
@@ -134,8 +134,48 @@ public class CheckoutController {
         return "confirmCheckout";
     }
 
+
     @RequestMapping(value = "/sendOrder", method = RequestMethod.GET)
-    public String afterCheckout(Model model, Principal principal) {
-        return "confirmCheckout";
+    public String afterCheckout(@RequestParam("address") Long address, @RequestParam("card") Long card, @RequestParam("promo") String promo, @RequestParam("total") double total, Model model, Principal principal) {
+        UserAccountEntity user = accountRepository.findByEmail(principal.getName());
+        List<UserCartHasBooksEntity> books = cartRepository.findByUser_IDuser(user.getIDuser()).getBooksInCart();
+        //orderForm.setBooksInOrder(books);
+        OrderEntity orderForm = new OrderEntity();
+
+        // get date
+        String pattern = "yyyyMMdd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String curDate = simpleDateFormat.format(new Date());
+        orderForm.setOrderDate(curDate);
+
+        orderForm.setAddress_IDaddress(addressRepository.findById(address).get());
+        orderForm.setCard_IDcard(cardRepository.findById(card).get());
+        orderForm.setUser_IDuser(user);
+
+        orderForm.setPromotion_IDpromotion(promotionRepository.findByPromocode(promo));
+
+        orderRepository.save(orderForm);
+
+        // The logic for saving every order_has_books row needed
+        for (UserCartHasBooksEntity book: books) {
+            OrderHasBooksEntity hasBooks = new OrderHasBooksEntity();
+            OrderHasBooksKey hasBooksKey = new OrderHasBooksKey();
+            hasBooksKey.setIdBook(book.getBook().getId());
+            hasBooksKey.setIdOrder(orderForm.getIdOrder());
+            hasBooks.setId(hasBooksKey);
+            hasBooks.setBook(book.getBook());
+            hasBooks.setOrder(orderForm);
+            hasBooks.setCount(book.getCount());
+            booksInOrderRepository.save(hasBooks);
+
+            // Also want to delete cart_has_books rows
+            booksInCartRepository.delete(book);
+        }
+        //set usercart to have total price of 0
+        UserCartEntity userCart = cartRepository.findByUser_IDuser(user.getIDuser());
+        userCart.setTotalPrice(0);
+        cartRepository.save(userCart);
+
+        return "sendOrder";
     }
 }
