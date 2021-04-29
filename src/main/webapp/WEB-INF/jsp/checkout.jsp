@@ -113,11 +113,11 @@
                   <div class="form-check">
                     <p>Total before promos: ${total}</p>
                   <div class="divider-line-x" style="width: 75%; margin-left: 5%"></div>
-                      <p>Promo Code
-                      <input id="selectedPromo"  type="text" class="fields" placeholder="Enter Code" style="width: 150px; padding-right: 50px"">
-
+                      Promo Code
+                      <input id="selectedPromo" type="text" class="fields" placeholder="Enter Code" style="width: 200px"><br/>
+                  <br>
 <%--                      ocalhost:8080/confirmCheckout?address=+&card=+&promo=+--%>
-                      <button class="editButton" onclick="location.href='confirmCheckout?address='+document.getElementById('selectedAddress').checked+'&card='+document.getElementById('selectedCard').checked+'&promo='+document.getElementById('selectedPromo').value;">Place Order</button></p>
+                      <button class="editButton" onclick="location.href='confirmCheckout?address='+document.getElementById('selectedAddress').checked+'&card='+document.getElementById('selectedCard').checked+'&promo='+document.getElementById('selectedPromo').value;">Place Order</button>
               </div>
             </div>
           </div>

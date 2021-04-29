@@ -66,29 +66,8 @@
             </div>
 
             <div class="columnR">
-              <p>Previously Ordered Books</p>
-              <hr class="solid">
-              <div class="orderHistory">
-                    <table class="cartTable">
-                        <tbody>
-                          <div class="addToCart">
-                                <tr>
-                                  <td>
-                                    <div id="cart_square">
-                                      <img src="images/8.jpg" id="cartImage"/>
-                                    </div>
-                                  </td>
-                                  <td class="prodName">Test Name</td>
-                                </tr>
-                          </div>
-                        </tbody>
-                    </table>
 
-              </div>
-
-
-              <br>
-              <p style="text-align: right">Saved Payment Options <button class="editButton" style="margin-left: 14%; margin-right: 85px" onclick="location.href='addCard';">Add Card</button></p>
+              <h2 style="font-size: 15pt; margin-left: 20%">Saved Payment Options <button class="editButton" style="margin-left: 14%; margin-right: 85px" onclick="location.href='addCard';">Add Card</button></h2>
 
               <hr class="solid">
                 <table id = "table" data-search="true" data-toggle ="table" data-sort-order="desc" class="table table-striped table-hover sortable">
@@ -136,9 +115,10 @@
 
                 </table>
               <br>
-                <p style="text-align: right">Saved Addresses <button class="editButton" style="margin-left: 14%; margin-right: 85px" onclick="location.href='addAddress';">Add Address</button></p>
+                <br>
+                <h2  style="font-size: 15pt; margin-left: 30%">Saved Addresses <button class="editButton" style="margin-left: 14%; margin-right: 85px" onclick="location.href='addAddress';">Add Address</button></h2>
               <hr class="solid">
-                <table id = "table" data-search="true" data-toggle ="table" data-sort-order="desc" class="table table-striped table-hover sortable">
+                <table data-search="true" data-toggle ="table" data-sort-order="desc" class="table table-striped table-hover sortable">
                     <thead>
                     <tr>
                         <th scope="row" data-field="street" data-sortable="true">Street</th>
@@ -159,8 +139,39 @@
 
 
               <br>
+                <br>
+
+                <h2 style="font-size: 15pt; text-align: center">Previously Ordered Books</h2>
+                <hr class="solid">
+                <div class="orderHistory">
+                    <table style="font-family: Roboto">
+                        <thead>
+                        <tr>
+                            <th ></th>
+                            <th >Title</th>
+                            <th >Author</th>
+                            <th >Price</th>
+                        </tr>
+                        </thead>
+                        <c:forEach items="${bookTable}" var="book">
+                            <tr>
+                                <td>
+                                    <img onclick="location.href='bookPage?title=${book.title}';" src="${book.imgLink}" style="width: 50px; padding: 10px;"/>
+                                </td>
+                                <td>${book.title}</td>
+                                <td>${book.authors}</td>
+                                <td>${book.price}</td>
+
+                            </tr>
+                        </c:forEach>
+                    </table>
+
+                </div>
+
 
             </div>
+
+
 
           </div>
         </div>

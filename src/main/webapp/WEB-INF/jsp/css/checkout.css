@@ -1,6 +1,13 @@
 .mainLabel {
   margin-left: 5%;
 }
+.columnLL {
+    flex: 0.7;
+
+}
+.columnRR {
+    flex: 0.3;
+}
 .paymentMethodItems, .shippingItems {
   margin-left: 15%;
   font-size: 11pt;

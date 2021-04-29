@@ -95,7 +95,7 @@
 							String sql ="SELECT * FROM book;";
 
 							resultSet = statement.executeQuery(sql);
-							for(int i = 0; i < 16; i++) {
+							for(int i = 0; i < 18; i++) {
 								resultSet.next();
 							}
 							for(int i = 0; i < 4; i++) {
@@ -111,7 +111,7 @@
 
 						<div class="bookLabel">
 							<h4><a onclick="location.href='bookPage?title=<%=resultSet.getString("Title") %>';" > <%=resultSet.getString("Title") %> </a>
-								<br> <a onclick="location.href='bookPage?title=<%=resultSet.getString("Title") %>';" > <%=resultSet.getString("Authors_Names") %> </a></h4>
+								<br> <p onclick="location.href='bookPage?title=<%=resultSet.getString("Title") %>';" > <%=resultSet.getString("Authors_Names") %> </p></h4>
 								<p>$<%=resultSet.getString("Selling_Price") %></p>
 
 						</div>
@@ -183,7 +183,7 @@
 
 						<div class="bookLabel">
 							<h4><a onclick="location.href='bookPage?title=<%=resultSet.getString("Title") %>';" > <%=resultSet.getString("Title") %> </a>
-								<br> <a onclick="location.href='bookPage?title=<%=resultSet.getString("Title") %>';" > <%=resultSet.getString("Authors_Names") %> </a></h4>
+								<br> <p onclick="location.href='bookPage?title=<%=resultSet.getString("Title") %>';" > <%=resultSet.getString("Authors_Names") %> </p></h4>
 							<p>$<%=resultSet.getString("Selling_Price") %></p>
 
 						</div>
