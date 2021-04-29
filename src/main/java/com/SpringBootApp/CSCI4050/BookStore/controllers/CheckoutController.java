@@ -130,6 +130,7 @@ public class CheckoutController {
         model.addAttribute("addressTable", sendAddress);
         model.addAttribute("cardTable", sendCard);
         model.addAttribute("name", user.getFirstName());
+        model.addAttribute("promo", promo);
 
         return "confirmCheckout";
     }
