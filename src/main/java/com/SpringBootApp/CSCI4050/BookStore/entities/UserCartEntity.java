@@ -12,8 +12,8 @@ import java.util.List;
 @Entity(name = "usercart")
 public class UserCartEntity {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idusercart")
     private Long idUserCart;
 

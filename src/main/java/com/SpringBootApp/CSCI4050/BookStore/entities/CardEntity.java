@@ -11,7 +11,7 @@ import java.util.Set;
 public class CardEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idcard")
     private Long idCard;
 
@@ -33,10 +33,10 @@ public class CardEntity {
 
     //@MapsId
     @ManyToOne
-    @JoinColumn(name = "user_iduser")
+    @JoinColumn(name = "user_iduser", foreignKey = @ForeignKey(name = "none"))
     private UserAccountEntity user_IDuser;
 
-    @OneToMany(mappedBy = "card_IDcard", targetEntity = OrderEntity.class)
+    @OneToMany(mappedBy = "card_IDcard")
     private Set<OrderEntity> orders;
 
     public Long getIdCard() {

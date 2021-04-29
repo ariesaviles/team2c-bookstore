@@ -12,7 +12,7 @@ import java.util.Set;
 public class UserAccountEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long IDuser;
 
     @Column(name = "username")

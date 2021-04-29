@@ -13,7 +13,7 @@ public class OrderHasBooksEntity {
 
     @ManyToOne
     @MapsId("idorder")
-    @JoinColumn(name = "order_idorder")
+    @JoinColumn(name = "order_idorder", foreignKey = @ForeignKey(name = "none"))
     OrderEntity order;
 
     @ManyToOne
@@ -55,4 +55,5 @@ public class OrderHasBooksEntity {
     public void setCount(int count) {
         this.count = count;
     }
+
 }

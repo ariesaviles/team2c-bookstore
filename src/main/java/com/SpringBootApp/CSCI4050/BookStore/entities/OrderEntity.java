@@ -7,7 +7,7 @@ import java.util.List;
 public class OrderEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idorder")
     private Long idOrder;
 
@@ -18,15 +18,15 @@ public class OrderEntity {
     private String orderDate;
 
     @ManyToOne
-    @JoinColumn(name = "user_iduser")
+    @JoinColumn(name = "user_iduser", referencedColumnName = "iduser")
     private UserAccountEntity user_IDuser;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "card_idcard")
+    @JoinColumn(name = "card_idcard", referencedColumnName = "idcard")
     private CardEntity card_IDcard;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_idaddress")
+    @JoinColumn(name = "address_idaddress", referencedColumnName = "idaddress")
     private AddressEntity address_IDaddress;
 
     @ManyToOne(cascade = CascadeType.ALL)

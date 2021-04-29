@@ -160,6 +160,10 @@ public class CheckoutController {
 
         orderRepository.save(orderForm);
 
+        //set usercart to have total price of 0
+        UserCartEntity userCart = cartRepository.findByUser_IDuser(user.getIDuser());
+        userCart.setTotalPrice(0);
+
         // The logic for saving every order_has_books row needed
         for (UserCartHasBooksEntity book: books) {
             OrderHasBooksEntity hasBooks = new OrderHasBooksEntity();
@@ -174,10 +178,14 @@ public class CheckoutController {
 
             // Also want to delete cart_has_books rows
             booksInCartRepository.delete(book);
+
+            // delete book from usercart thing
+            userCart.getBooksInCart().remove(book);
         }
-        //set usercart to have total price of 0
-        UserCartEntity userCart = cartRepository.findByUser_IDuser(user.getIDuser());
-        userCart.setTotalPrice(0);
+
+
+        System.out.println("--------------------------------");
+        System.out.println("Error happens before saving cart");
         cartRepository.save(userCart);
 
         return "sendOrder";
