@@ -178,14 +178,13 @@ public class CheckoutController {
 
             // Also want to delete cart_has_books rows
             booksInCartRepository.delete(book);
-
-            // delete book from usercart thing
-            userCart.getBooksInCart().remove(book);
         }
 
 
         System.out.println("--------------------------------");
         System.out.println("Error happens before saving cart");
+        // delete book from usercart thing
+        userCart.getBooksInCart().removeAll(books);
         cartRepository.save(userCart);
 
         return "sendOrder";
