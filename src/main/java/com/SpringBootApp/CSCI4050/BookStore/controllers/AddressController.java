@@ -51,19 +51,19 @@ public class AddressController {
         boolean problems = false;
 
         if(addressForm.getStreet().isEmpty()){
-            model.addAttribute("badStreet", "Please enter a last name");
+            model.addAttribute("badStreet", "Please enter a valid street");
             problems = true;
         }
         if(addressForm.getCity().isEmpty()){
-            model.addAttribute("badCity", "Please enter an email");
+            model.addAttribute("badCity", "Please enter a valid city");
             problems = true;
         }
         if(addressForm.getState().isEmpty()){
-            model.addAttribute("badState", "Please enter a birthdate");
+            model.addAttribute("badState", "Please enter valid State");
             problems = true;
         }
         if(addressForm.getZipCode() == 0){
-            model.addAttribute("badZip", "Please enter a password");
+            model.addAttribute("badZip", "Please enter valid zip code");
             problems = true;
         }
 
