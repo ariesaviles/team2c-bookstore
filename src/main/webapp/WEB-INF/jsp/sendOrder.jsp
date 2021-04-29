@@ -30,28 +30,9 @@
 
 
     <div class="bodytext" style="height: 800px">
-        <h2 style="margin-top: 100px; margin-left: 2%; font-size: 30pt;">Confirm</h2>
-
-        <div class="paymentSection" >
-            <div class="shippingHeader">
-                <h2 class="mainLabel">${name}'s Order Details</h2>
-            </div>
-            <div class="shippingBody">
-                <p>SHIP TO: ${addressTable.street} ${addressTable.city} ${addressTable.state} ${addressTable.zipCode}</p>
-                      <p>PAY USING: ${cardTable.cardHolderName} ${cardTable.cardType}</p>
+        <h2 style="margin-top: 100px; margin-left: 2%; font-size: 30pt;">Order Complete!</h2>
 
 
-
-                <div class="divider-line-x" style="margin-left: 20%"></div>
-                <p>${message}</p>
-                <p>TOTAL: ${total} <button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='sendOrder?address=${addressTable.idAddress}&card=${cardTable.idCard}&promo=${promo}&total=${total}';">Confirm</button></p>
-
-
-            </div>
-        </div>
-
-
-        <br>
 
 
 
