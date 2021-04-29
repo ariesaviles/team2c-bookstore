@@ -1,5 +1,6 @@
 package com.SpringBootApp.CSCI4050.BookStore.controllers;
 
+import com.SpringBootApp.CSCI4050.BookStore.Email;
 import com.SpringBootApp.CSCI4050.BookStore.entities.*;
 import com.SpringBootApp.CSCI4050.BookStore.repository.*;
 import org.hibernate.criterion.Order;
@@ -46,6 +47,8 @@ public class CheckoutController {
 
     @Autowired
     private OrderRepository orderRepository;
+
+    private Email sendEmail;
 
     private static DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
@@ -186,6 +189,14 @@ public class CheckoutController {
         // delete book from usercart thing
         userCart.getBooksInCart().removeAll(books);
         cartRepository.save(userCart);
+
+        AddressEntity sendAddress = addressRepository.findById(address).get();
+        String emailMessage = "Thank you for ordering from Team 2C Bookstore Service on " + curDate + ". Your total was $";
+        emailMessage += total;
+        emailMessage += ". Your order will be delivered to ";
+        emailMessage += sendAddress.getStreet() + " " + sendAddress.getCity() + " "  + sendAddress.getState() + " " + sendAddress.getZipCode();
+        sendEmail = new Email();
+        sendEmail.sendmail(user.getEmail(), "OrderConfirmed",emailMessage);
 
         return "sendOrder";
     }

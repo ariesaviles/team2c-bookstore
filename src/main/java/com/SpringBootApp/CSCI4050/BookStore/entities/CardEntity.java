@@ -30,7 +30,6 @@ public class CardEntity {
     @Column(name = "cardsecurity")
     private String cardSecurity;
 
-
     //@MapsId
     @ManyToOne
     @JoinColumn(name = "user_iduser", foreignKey = @ForeignKey(name = "none"))
