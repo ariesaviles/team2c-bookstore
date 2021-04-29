@@ -13,6 +13,6 @@ import java.util.Optional;
 public interface OrderRepository extends CrudRepository<OrderEntity, Long> {
     Optional<OrderEntity> findById(Long idOrder);
 
-    @Query(value = "SELECT * FROM order_table WHERE order_table.user_iduser = :idUser")
+    @Query(value = "SELECT * FROM order_table WHERE order_table.user_iduser = :idUser", nativeQuery = true)
     List<OrderEntity> findByUserIDUser(@Param("idUser")long idUser);
 }
