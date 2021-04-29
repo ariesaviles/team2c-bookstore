@@ -55,6 +55,10 @@ public class CheckoutController {
     @RequestMapping(value = "/checkout", method = RequestMethod.GET)
     public String displayCheckout(Model model, Principal principal) {
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
+        if(cartRepository.findByUser_IDuser(user.getIDuser()).getTotalPrice() == 0){
+            return "redirect:/cart";
+        }
+
         Iterable<UserCartHasBooksEntity> books = cartRepository.findByUser_IDuser(user.getIDuser()).getBooksInCart();
         model.addAttribute("cartForm", books);
         model.addAttribute("total", decimalFormat.format(cartRepository.findByUser_IDuser(user.getIDuser()).getTotalPrice()));

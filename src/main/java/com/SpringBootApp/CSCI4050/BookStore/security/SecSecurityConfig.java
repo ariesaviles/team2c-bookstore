@@ -72,6 +72,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/admin_page.html").hasAuthority("1")
                 .antMatchers("/userProfile").hasAnyAuthority("0", "1")
+                .antMatchers("/addToCart").hasAnyAuthority("0", "1")
                 .antMatchers("/cart").hasAnyAuthority("0", "1")
                 .antMatchers("/").permitAll()
                 .antMatchers("/changePasswordEmail").permitAll()
