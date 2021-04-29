@@ -71,7 +71,7 @@ public class CheckoutController {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String curDate = simpleDateFormat.format(new Date());
         orderForm.setOrderDate(curDate);
-        
+
         orderForm.setAddress_IDaddress(addressRepository.findByUser_IDuser(user.getIDuser()).get(0));
         orderForm.setCard_IDcard(cardRepository.findByUser_IDuser(user.getIDuser()).get(0));
         orderForm.setUser_IDuser(user);
