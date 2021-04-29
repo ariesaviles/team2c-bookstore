@@ -16,6 +16,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class CheckoutController {
@@ -46,12 +47,14 @@ public class CheckoutController {
     @Autowired
     private OrderRepository orderRepository;
 
+    private static DecimalFormat decimalFormat = new DecimalFormat("#.##");
+
     @RequestMapping(value = "/checkout", method = RequestMethod.GET)
     public String displayCheckout(Model model, Principal principal) {
         UserAccountEntity user = accountRepository.findByEmail(principal.getName());
         Iterable<UserCartHasBooksEntity> books = cartRepository.findByUser_IDuser(user.getIDuser()).getBooksInCart();
         model.addAttribute("cartForm", books);
-        model.addAttribute("total", cartRepository.findByUser_IDuser(user.getIDuser()).getTotalPrice());
+        model.addAttribute("total", decimalFormat.format(cartRepository.findByUser_IDuser(user.getIDuser()).getTotalPrice()));
         model.addAttribute("userEmail", user.getEmail());
         model.addAttribute("addressTable", addressRepository.findByUser_IDuser(user.getIDuser()));
         model.addAttribute("cardTable", cardRepository.findByUser_IDuser(user.getIDuser()));
@@ -105,12 +108,33 @@ public class CheckoutController {
     }
 
     @RequestMapping(value = "/confirmCheckout", method = RequestMethod.GET)
-    public String confirmCheckout(Model model, Principal principal){
+    public String confirmCheckout(@RequestParam("address") Long address, @RequestParam("card") Long card, @RequestParam("promo") String promo, Model model, Principal principal){
+        Optional<AddressEntity> findAddress = addressRepository.findById(address);
+        AddressEntity sendAddress =  findAddress.get();
+        Optional<CardEntity> findCard = cardRepository.findById(card);
+        CardEntity sendCard = findCard.get();
+        PromotionEntity usePromo = promotionRepository.findByPromocode(promo);
+
+        UserAccountEntity user = accountRepository.findByEmail(principal.getName());
+        double total = cartRepository.findByUser_IDuser(user.getIDuser()).getTotalPrice();
+        if(usePromo == null){
+            model.addAttribute("message", "Promo code was not valid");
+            model.addAttribute("total", decimalFormat.format(total));
+            System.out.println(total);
+        }else{
+            model.addAttribute("message", "Promo has been applied");
+            double newTotal = total - (total * ((double)usePromo.getDiscount()/100));
+            model.addAttribute("total", decimalFormat.format(newTotal));
+            System.out.println(newTotal);
+        }
+        model.addAttribute("addressTable", sendAddress);
+        model.addAttribute("cardTable", sendCard);
+        model.addAttribute("name", user.getFirstName());
 
         return "confirmCheckout";
     }
 
-    @RequestMapping(value = "/confirmCheckout", method = RequestMethod.POST)
+    @RequestMapping(value = "/sendOrder", method = RequestMethod.GET)
     public String afterCheckout(Model model, Principal principal) {
         return "confirmCheckout";
     }

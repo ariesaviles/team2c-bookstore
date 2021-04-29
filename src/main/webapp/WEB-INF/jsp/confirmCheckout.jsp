@@ -30,26 +30,22 @@
 
 
     <div class="bodytext" style="height: 800px">
-        <h2 style="margin-top: 100px; margin-left: 2%; font-size: 30pt;">Place Order</h2>
+        <h2 style="margin-top: 100px; margin-left: 2%; font-size: 30pt;">Confirm</h2>
 
         <div class="paymentSection" >
             <div class="shippingHeader">
-                <h2 class="mainLabel">Shipping Address</h2>
+                <h2 class="mainLabel">${name}'s Order Details</h2>
             </div>
             <div class="shippingBody">
-                <c:forEach items="${addressTable}" var="address">
-
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                    <label class="form-check-label" for="exampleRadios1">
-                            ${address.street} ${address.city} ${address.state} ${address.zipCode}
-                    </label>
-                    <br>
-                </c:forEach>
+                <p>SHIP TO: ${addressTable.street} ${addressTable.city} ${addressTable.state} ${addressTable.zipCode}</p>
+                      <p>PAY USING: ${cardTable.cardHolderName} ${cardTable.cardType}</p>
 
 
-                <div class="divider-line-x" style="margin-left: 20%"><span> or </span></div>
 
-                <button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='addAddress';">Add Address</button>
+                <div class="divider-line-x" style="margin-left: 20%"></div>
+                <p>${message}</p>
+                <p>TOTAL: ${total} <button class="editButton" style="margin-left: 70px; margin-right: 85px" onclick="location.href='sendOrder';">Confirm</button></p>
+
 
             </div>
         </div>

@@ -89,6 +89,7 @@
                     <th scope="row" data-field="title" data-sortable="true">Title</th>
                     <th scope="row" style="text-align: left">Author</th>
                     <th scope="row" style="text-align: left">Price</th>
+                    <th scope="row" style="text-align: left">Quan.</th>
                 </tr>
                 </thead>
 
@@ -97,6 +98,7 @@
                         <td style="padding: 10px;">${usercart.book.title}</td>
                         <td>${usercart.book.authors}</td>
                         <td>${usercart.book.price}</td>
+                        <td>${usercart.count}</td>
                     </tr>
                 </c:forEach>
             </table>
